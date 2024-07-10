@@ -36,6 +36,9 @@ const Problems = ({ company, user, onClose }) => {
       }).catch((error) => {
         console.error("Error fetching user data: ", error);
       });
+    } else {
+        const completedProblemsFromLocalStorage = JSON.parse(localStorage.getItem('completedProblems'));
+        setCompletedProblems(completedProblemsFromLocalStorage || {});
     }
   }, [user]);
 
@@ -53,6 +56,8 @@ const Problems = ({ company, user, onClose }) => {
         }
       });
     }
+
+    localStorage.setItem('completedProblems', JSON.stringify(newCompletedProblems));
   };
 
   const sortProblems = (key) => {

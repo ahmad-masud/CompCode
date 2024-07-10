@@ -124,3 +124,7 @@
   cursor: pointer;
   color: var(--font-color);
 }
+
+input[type=checkbox] {
+  transform: scale(1.25);
+}
