@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Graph from './components/graph';
+import Problems from './components/problems';
+import Navbar from './components/navbar';
+import Footer from './components/footer';
+import './styles/app.css';
 
-function App() {
+const App = () => {
+  const [openCompany, setOpenCompany] = useState("");
+  const [user, setUser] = useState(null);
+
+  const handleNodeClick = (company) => {
+    setOpenCompany(company);
+  };
+
+  const handleClose = () => {
+    setOpenCompany("");
+  };
+
+  const handleUserChange = (newUser) => {
+    setUser(newUser);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <Navbar user={user} onUserChange={handleUserChange} />
+      <Graph onNodeClick={handleNodeClick} />
+      {openCompany && <Problems company={openCompany} onClose={handleClose} user={user} />}
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
