@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/navbar.css';
-import logo from '../content/images/faangcode.webp';
 import { auth, provider } from '../config/firebase-config';
 import { signInWithPopup, signOut } from 'firebase/auth';
 
@@ -59,7 +58,6 @@ const Navbar = ({ user, onUserChange }) => {
   return (
     <div className='navbar'>
       <div className='left'>
-        <img src={logo} alt='logo' />
         <p>FAANGCode</p>
       </div>
       <div className='right'>

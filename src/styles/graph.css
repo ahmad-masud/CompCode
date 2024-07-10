@@ -27,13 +27,15 @@
     user-select: none;
 }
 
-#faang img, #Amazon img, #Apple img {
+#Amazon img, #Apple img {
     filter: var(--logo-color);
 }
   
 #faang {
     left: calc(50% - 50px);
     top: 50%;
+    color: var(--font-color);
+    font-weight: bold;
 }
 
 #Facebook {

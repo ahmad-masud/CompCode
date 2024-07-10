@@ -1,45 +1,59 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/problems.css'; // Import CSS file for styles
 import { firestore } from '../config/firebase-config';
-import { doc, updateDoc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 
-const Problems = ({ company, onClose, user }) => {
+const Problems = ({ company, user, onClose }) => {
   const [problems, setProblems] = useState([]);
+  const [completedProblems, setCompletedProblems] = useState({});
   const [sortConfig, setSortConfig] = useState({ key: 'Difficulty', direction: 'ascending' });
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Load problems data from JSON file
-        const data = await import(`../content/problems/${company}.json`);
+    import(`../content/problems/${company}.json`)
+      .then((data) => {
         const sortedData = data.default.sort((a, b) => {
           const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
           return difficultyOrder[a.Difficulty] - difficultyOrder[b.Difficulty];
         });
         setProblems(sortedData);
+      })
+      .catch((error) => {
+        console.error("Error loading JSON data: ", error);
+      });
+  }, [company]);
 
-        // If user is logged in, fetch completion status from Firestore
-        if (user) {
-          await Promise.all(
-            sortedData.map(async (problem) => {
-              const docRef = doc(firestore, 'users', user.uid, 'problems', problem.ID.toString());
-              const docSnap = await getDoc(docRef);
-              if (docSnap.exists()) {
-                problem.status = docSnap.data().status;
-              } else {
-                problem.status = false;
-              }
-            })
-          );
-          setProblems([...sortedData]); // Update state with status
+  useEffect(() => {
+    if (user) {
+      const userRef = doc(firestore, 'users', user.uid);
+      getDoc(userRef).then((docSnap) => {
+        if (docSnap.exists()) {
+          const userData = docSnap.data();
+          setCompletedProblems(userData.completedProblems || {});
+        } else {
+          // Create a new document if it doesn't exist
+          setDoc(userRef, { completedProblems: {} });
         }
-      } catch (error) {
-        console.error('Error loading or updating data:', error);
-      }
-    };
+      }).catch((error) => {
+        console.error("Error fetching user data: ", error);
+      });
+    }
+  }, [user]);
 
-    fetchData();
-  }, [company, user]);
+  const handleCheckboxChange = async (problemId) => {
+    const newCompletedProblems = { ...completedProblems, [problemId]: !completedProblems[problemId] };
+    setCompletedProblems(newCompletedProblems);
+
+    if (user) {
+      const userRef = doc(firestore, 'users', user.uid);
+      await updateDoc(userRef, { completedProblems: newCompletedProblems }).catch(async (error) => {
+        if (error.code === 'not-found') {
+          await setDoc(userRef, { completedProblems: newCompletedProblems });
+        } else {
+          console.error("Error updating user data: ", error);
+        }
+      });
+    }
+  };
 
   const sortProblems = (key) => {
     let direction = 'ascending';
@@ -68,30 +82,6 @@ const Problems = ({ company, onClose, user }) => {
     setProblems(sortedProblems);
   };
 
-  const handleCheckboxChange = async (index, checked) => {
-    try {
-      const updatedProblems = [...problems];
-      updatedProblems[index].status = checked;
-      setProblems(updatedProblems);
-  
-      if (user) {
-        const problemId = updatedProblems[index].ID.toString(); // Ensure problem ID is obtained from updatedProblems
-        const userId = user.uid;
-        const docRef = doc(firestore, 'users', userId, 'problems', problemId);
-        
-        console.log('Updating document:', docRef.path); // Log document path for debugging
-  
-        await updateDoc(docRef, {
-          status: checked,
-        });
-        
-        console.log('Document updated successfully!');
-      }
-    } catch (error) {
-      console.error('Error updating document:', error);
-    }
-  };   
-
   const getSortIcon = (key) => {
     if (sortConfig.key !== key) {
       return <i className="fa-solid fa-sort"></i>;
@@ -102,12 +92,19 @@ const Problems = ({ company, onClose, user }) => {
     return <i className="fa-solid fa-sort-up"></i>;
   };
 
+  const completedCount = problems.reduce((count, problem) => {
+    if (completedProblems[problem.ID]) {
+      return count + 1;
+    }
+    return count;
+  }, 0);
+
   return (
     <div className="problems-overlay">
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="overlay-content">
         <button className="close-button" onClick={onClose}><i className="fa-solid fa-xmark"></i></button>
-        <h2>LeetCode Problems for {company[0].toUpperCase() + company.slice(1)}</h2>
+        <h2>LeetCode Problems for {company[0].toUpperCase() + company.slice(1)}: {completedCount}/{problems.length} Completed</h2>
         <div className="problem-table">
           <div className="table-header">
             <div>Status</div>
@@ -119,7 +116,13 @@ const Problems = ({ company, onClose, user }) => {
           </div>
           {problems.map((problem, index) => (
             <div className="table-row" key={index}>
-              <div><input type="checkbox" checked={problem.status || false} onChange={(e) => handleCheckboxChange(index, e.target.checked)} /></div>
+              <div>
+                <input
+                  type="checkbox"
+                  checked={completedProblems[problem.ID]}
+                  onChange={() => handleCheckboxChange(problem.ID)}
+                />
+              </div>
               <div>{problem.ID}</div>
               <div>
                 <a href={problem['Leetcode Question Link']} target="_blank" rel="noopener noreferrer">

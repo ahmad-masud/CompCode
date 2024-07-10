@@ -1,124 +1,126 @@
-/* Problems.css */
-
 .problems-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000; /* Ensure overlay appears above other content */
-  }
-  
-  .overlay-backdrop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  }
-  
-  .overlay-content {
-    background-color: var(--background-color);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1001; /* Ensure content appears above backdrop */
-    position: relative;
-    width: 90%;
-    max-width: 1200px;
-    height: 80%;
-    overflow-y: auto;
-  }
-  
-  .overlay-content h2 {
-    font-size: 1.5rem;
-    color: var(--font-color);
-    margin-bottom: 10px;
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: red;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: white;
-    padding: 2px 4px;
-    border-radius: 4px;
-    transition: all 200ms ease-in-out;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure overlay appears above other content */
+}
 
-  .close-button:hover {
-    background-color: darkred;
-  }
-  
-  .problem-table {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    color: var(--font-color);
-  }
-  
-  .table-header, .table-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-  }
-  
-  .table-header {
-    font-weight: bold;
-  }
-  
-  .table-row {
-    background-color: var(--background-color);
-  }
-  
-  .table-row:nth-child(odd) {
-    background-color: var(--secondary-color);
-  }
-  
-  .table-row div, .table-header div {
-    flex: 1;
-    text-align: center;
-  }
-  
-  .table-row a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .table-row a:hover {
-    text-decoration: underline;
-  }
+.overlay-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+}
 
-  .hard {
-    color: red;
-  }
+.overlay-content {
+  background-color: var(--background-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1001; /* Ensure content appears above backdrop */
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 80%;
+  overflow-y: auto;
+}
+
+.overlay-content h2 {
+  font-size: 1.5rem;
+  color: var(--font-color);
+  margin-bottom: 10px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: all 200ms ease-in-out;
+}
+
+.close-button:hover {
+  background-color: darkred;
+}
+
+.problem-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: var(--font-color);
+}
+
+.table-header, .table-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.table-header {
+  font-weight: bold;
+}
+
+.table-row {
+  background-color: var(--background-color);
+}
+
+.table-row:nth-child(odd) {
+  background-color: var(--secondary-color);
+}
+
+.table-row div, .table-header div {
+  flex: 1;
+}
+
+.table-row div:nth-child(3), .table-header div:nth-child(3) {
+  flex: 4;
+}
+
+.table-row a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.table-row a:hover {
+  text-decoration: underline;
+}
+
+.hard {
+  color: red;
+}
 
 .medium {
-    color: goldenrod;
+  color: goldenrod;
 }
 
 .easy {
-    color: green;
+  color: rgb(82, 165, 82);
 }
 
 .fa-arrow-up-right-from-square {
-    font-size: 0.75rem;
+  font-size: 0.75rem;
 }
 
 .sort-button {
-    background: none;
-    padding: 2.5px 5px;
-    border: none;
-    cursor: pointer;
-    color: var(--font-color);
+  background: none;
+  padding: 2.5px 5px;
+  border: none;
+  cursor: pointer;
+  color: var(--font-color);
 }

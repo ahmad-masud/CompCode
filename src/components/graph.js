@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { jsPlumb } from 'jsplumb';
 import '../styles/graph.css'
-import faangcode from '../content/images/faangcode.webp';
 import facebook from '../content/images/facebook.webp';
 import amazon from '../content/images/amazon.webp';
 import apple from '../content/images/apple.webp';
@@ -59,7 +58,7 @@ const Graph = ({ onNodeClick }) => {
 
   return (
     <div className="graph" ref={jsPlumbContainerRef}>
-      <div id="faang" className="node"><img src={faangcode} alt="FaangCode" /></div>
+      <div id="faang" className="node">FAANGCode</div>
       <div id="Facebook" className="node" onClick={() => onNodeClick('facebook')}><img src={facebook} alt="Facebook" /></div>
       <div id="Amazon" className="node" onClick={() => onNodeClick('amazon')}><img src={amazon} alt="Amazon" /></div>
       <div id="Apple" className="node" onClick={() => onNodeClick('apple')}><img src={apple} alt="Apple" /></div>
