@@ -7,7 +7,7 @@ const average = (array) => {
   return sum / array.length;
 };
 
-const Companies = ({ handleClick, user }) => {
+const Companies = ({ handleClick }) => {
   const [companiesData, setCompaniesData] = useState([]);
   const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'ascending' });
   const [searchTerm, setSearchTerm] = useState('');
@@ -39,7 +39,7 @@ const Companies = ({ handleClick, user }) => {
     });
 
     setCompaniesData(sortedCompanies);
-  }, [sortConfig.direction, sortConfig.key]);
+  }, []);
 
   const mostCommon = (array) => {
     if (array.length === 0) return 'N/A';
