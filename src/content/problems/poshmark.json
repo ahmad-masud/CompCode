@@ -1,0 +1,18 @@
+[
+    {
+        "ID": "1159",
+        "Title": "Market Analysis II",
+        "Acceptance": "52.9%",
+        "Difficulty": "Hard",
+        "Frequency": "0.15535044001916237",
+        "Leetcode Question Link": " https://leetcode.com/problems/market-analysis-ii"
+    },
+    {
+        "ID": "1158",
+        "Title": "Market Analysis I",
+        "Acceptance": "61.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/market-analysis-i"
+    }
+]

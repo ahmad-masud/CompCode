@@ -1,0 +1,66 @@
+[
+    {
+        "ID": "394",
+        "Title": "Decode String",
+        "Acceptance": "50.0%",
+        "Difficulty": "Medium",
+        "Frequency": "0.06713782998723788",
+        "Leetcode Question Link": " https://leetcode.com/problems/decode-string"
+    },
+    {
+        "ID": "346",
+        "Title": "Moving Average from Data Stream",
+        "Acceptance": "70.9%",
+        "Difficulty": "Easy",
+        "Frequency": "0.03932354620391436",
+        "Leetcode Question Link": " https://leetcode.com/problems/moving-average-from-data-stream"
+    },
+    {
+        "ID": "200",
+        "Title": "Number of Islands",
+        "Acceptance": "46.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.011509262420590827",
+        "Leetcode Question Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+        "ID": "221",
+        "Title": "Maximal Square",
+        "Acceptance": "37.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.00988638798855515",
+        "Leetcode Question Link": " https://leetcode.com/problems/maximal-square"
+    },
+    {
+        "ID": "380",
+        "Title": "Insert Delete GetRandom O(1)",
+        "Acceptance": "47.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.009820849864094454",
+        "Leetcode Question Link": " https://leetcode.com/problems/insert-delete-getrandom-o1"
+    },
+    {
+        "ID": "124",
+        "Title": "Binary Tree Maximum Path Sum",
+        "Acceptance": "34.3%",
+        "Difficulty": "Hard",
+        "Frequency": "0.005531752454833179",
+        "Leetcode Question Link": " https://leetcode.com/problems/binary-tree-maximum-path-sum"
+    },
+    {
+        "ID": "5",
+        "Title": "Longest Palindromic Substring",
+        "Acceptance": "29.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.002279333142507479",
+        "Leetcode Question Link": " https://leetcode.com/problems/longest-palindromic-substring"
+    },
+    {
+        "ID": "340",
+        "Title": "Longest Substring with At Most K Distinct Characters",
+        "Acceptance": "44.1%",
+        "Difficulty": "Hard",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters"
+    }
+]

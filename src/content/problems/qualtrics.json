@@ -1,0 +1,218 @@
+[
+    {
+        "ID": "200",
+        "Title": "Number of Islands",
+        "Acceptance": "46.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.6743216943898789",
+        "Leetcode Question Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+        "ID": "695",
+        "Title": "Max Area of Island",
+        "Acceptance": "62.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.5272157745378819",
+        "Leetcode Question Link": " https://leetcode.com/problems/max-area-of-island"
+    },
+    {
+        "ID": "449",
+        "Title": "Serialize and Deserialize BST",
+        "Acceptance": "52.0%",
+        "Difficulty": "Medium",
+        "Frequency": "0.5089777138955178",
+        "Leetcode Question Link": " https://leetcode.com/problems/serialize-and-deserialize-bst"
+    },
+    {
+        "ID": "42",
+        "Title": "Trapping Rain Water",
+        "Acceptance": "48.9%",
+        "Difficulty": "Hard",
+        "Frequency": "0.36187179404352093",
+        "Leetcode Question Link": " https://leetcode.com/problems/trapping-rain-water"
+    },
+    {
+        "ID": "127",
+        "Title": "Word Ladder",
+        "Acceptance": "29.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0.29067608666438566",
+        "Leetcode Question Link": " https://leetcode.com/problems/word-ladder"
+    },
+    {
+        "ID": "173",
+        "Title": "Binary Search Tree Iterator",
+        "Acceptance": "56.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0.2676620302183387",
+        "Leetcode Question Link": " https://leetcode.com/problems/binary-search-tree-iterator"
+    },
+    {
+        "ID": "138",
+        "Title": "Copy List with Random Pointer",
+        "Acceptance": "36.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.2330001096609468",
+        "Leetcode Question Link": " https://leetcode.com/problems/copy-list-with-random-pointer"
+    },
+    {
+        "ID": "49",
+        "Title": "Group Anagrams",
+        "Acceptance": "56.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.19424008455548245",
+        "Leetcode Question Link": " https://leetcode.com/problems/group-anagrams"
+    },
+    {
+        "ID": "139",
+        "Title": "Word Break",
+        "Acceptance": "40.1%",
+        "Difficulty": "Medium",
+        "Frequency": "0.1314440532234174",
+        "Leetcode Question Link": " https://leetcode.com/problems/word-break"
+    },
+    {
+        "ID": "1041",
+        "Title": "Robot Bounded In Circle",
+        "Acceptance": "49.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0.10573219378884732",
+        "Leetcode Question Link": " https://leetcode.com/problems/robot-bounded-in-circle"
+    },
+    {
+        "ID": "733",
+        "Title": "Flood Fill",
+        "Acceptance": "55.3%",
+        "Difficulty": "Easy",
+        "Frequency": "0.09669362480247104",
+        "Leetcode Question Link": " https://leetcode.com/problems/flood-fill"
+    },
+    {
+        "ID": "13",
+        "Title": "Roman to Integer",
+        "Acceptance": "55.7%",
+        "Difficulty": "Easy",
+        "Frequency": "0.08237818622149326",
+        "Leetcode Question Link": " https://leetcode.com/problems/roman-to-integer"
+    },
+    {
+        "ID": "103",
+        "Title": "Binary Tree Zigzag Level Order Traversal",
+        "Acceptance": "48.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0.08046023391882479",
+        "Leetcode Question Link": " https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal"
+    },
+    {
+        "ID": "119",
+        "Title": "Pascal's Triangle II",
+        "Acceptance": "49.0%",
+        "Difficulty": "Easy",
+        "Frequency": "0.07211890069342013",
+        "Leetcode Question Link": " https://leetcode.com/problems/pascals-triangle-ii"
+    },
+    {
+        "ID": "332",
+        "Title": "Reconstruct Itinerary",
+        "Acceptance": "36.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.053921416793820044",
+        "Leetcode Question Link": " https://leetcode.com/problems/reconstruct-itinerary"
+    },
+    {
+        "ID": "15",
+        "Title": "3Sum",
+        "Acceptance": "26.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.04361391077370199",
+        "Leetcode Question Link": " https://leetcode.com/problems/3sum"
+    },
+    {
+        "ID": "722",
+        "Title": "Remove Comments",
+        "Acceptance": "34.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0.04049136135473691",
+        "Leetcode Question Link": " https://leetcode.com/problems/remove-comments"
+    },
+    {
+        "ID": "729",
+        "Title": "My Calendar I",
+        "Acceptance": "51.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.036433902246102004",
+        "Leetcode Question Link": " https://leetcode.com/problems/my-calendar-i"
+    },
+    {
+        "ID": "208",
+        "Title": "Implement Trie (Prefix Tree)",
+        "Acceptance": "49.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.03593469952792866",
+        "Leetcode Question Link": " https://leetcode.com/problems/implement-trie-prefix-tree"
+    },
+    {
+        "ID": "131",
+        "Title": "Palindrome Partitioning",
+        "Acceptance": "47.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.03101558050692165",
+        "Leetcode Question Link": " https://leetcode.com/problems/palindrome-partitioning"
+    },
+    {
+        "ID": "297",
+        "Title": "Serialize and Deserialize Binary Tree",
+        "Acceptance": "47.5%",
+        "Difficulty": "Hard",
+        "Frequency": "0.01585377577217724",
+        "Leetcode Question Link": " https://leetcode.com/problems/serialize-and-deserialize-binary-tree"
+    },
+    {
+        "ID": "767",
+        "Title": "Reorganize String",
+        "Acceptance": "48.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.01329806830463147",
+        "Leetcode Question Link": " https://leetcode.com/problems/reorganize-string"
+    },
+    {
+        "ID": "543",
+        "Title": "Diameter of Binary Tree",
+        "Acceptance": "48.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.011898606798495848",
+        "Leetcode Question Link": " https://leetcode.com/problems/diameter-of-binary-tree"
+    },
+    {
+        "ID": "69",
+        "Title": "Sqrt(x)",
+        "Acceptance": "33.9%",
+        "Difficulty": "Easy",
+        "Frequency": "0.011443227222342794",
+        "Leetcode Question Link": " https://leetcode.com/problems/sqrtx"
+    },
+    {
+        "ID": "295",
+        "Title": "Find Median from Data Stream",
+        "Acceptance": "44.3%",
+        "Difficulty": "Hard",
+        "Frequency": "0.00899893586856953",
+        "Leetcode Question Link": " https://leetcode.com/problems/find-median-from-data-stream"
+    },
+    {
+        "ID": "238",
+        "Title": "Product of Array Except Self",
+        "Acceptance": "60.1%",
+        "Difficulty": "Medium",
+        "Frequency": "0.008821856860216758",
+        "Leetcode Question Link": " https://leetcode.com/problems/product-of-array-except-self"
+    },
+    {
+        "ID": "34",
+        "Title": "Find First and Last Position of Element in Sorted Array",
+        "Acceptance": "36.2%",
+        "Difficulty": "Medium",
+        "Frequency": "0.004247643638268045",
+        "Leetcode Question Link": " https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array"
+    }
+]

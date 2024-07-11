@@ -1,0 +1,178 @@
+[
+    {
+        "ID": "609",
+        "Title": "Find Duplicate File in System",
+        "Acceptance": "59.5%",
+        "Difficulty": "Medium",
+        "Frequency": "5.67594859888821",
+        "Leetcode Question Link": " https://leetcode.com/problems/find-duplicate-file-in-system"
+    },
+    {
+        "ID": "289",
+        "Title": "Game of Life",
+        "Acceptance": "54.5%",
+        "Difficulty": "Medium",
+        "Frequency": "4.950737575757486",
+        "Leetcode Question Link": " https://leetcode.com/problems/game-of-life"
+    },
+    {
+        "ID": "924",
+        "Title": "Minimize Malware Spread",
+        "Acceptance": "42.0%",
+        "Difficulty": "Hard",
+        "Frequency": "4.0636699251252715",
+        "Leetcode Question Link": " https://leetcode.com/problems/minimize-malware-spread"
+    },
+    {
+        "ID": "379",
+        "Title": "Design Phone Directory",
+        "Acceptance": "46.8%",
+        "Difficulty": "Medium",
+        "Frequency": "3.4802548518846486",
+        "Leetcode Question Link": " https://leetcode.com/problems/design-phone-directory"
+    },
+    {
+        "ID": "291",
+        "Title": "Word Pattern II",
+        "Acceptance": "43.4%",
+        "Difficulty": "Hard",
+        "Frequency": "3.080206637191811",
+        "Leetcode Question Link": " https://leetcode.com/problems/word-pattern-ii"
+    },
+    {
+        "ID": "362",
+        "Title": "Design Hit Counter",
+        "Acceptance": "63.7%",
+        "Difficulty": "Medium",
+        "Frequency": "2.7212063428291313",
+        "Leetcode Question Link": " https://leetcode.com/problems/design-hit-counter"
+    },
+    {
+        "ID": "928",
+        "Title": "Minimize Malware Spread II",
+        "Acceptance": "40.5%",
+        "Difficulty": "Hard",
+        "Frequency": "1.8341386921969165",
+        "Leetcode Question Link": " https://leetcode.com/problems/minimize-malware-spread-ii"
+    },
+    {
+        "ID": "1242",
+        "Title": "Web Crawler Multithreaded",
+        "Acceptance": "45.9%",
+        "Difficulty": "Medium",
+        "Frequency": "1.7713921664036212",
+        "Leetcode Question Link": " https://leetcode.com/problems/web-crawler-multithreaded"
+    },
+    {
+        "ID": "1178",
+        "Title": "Number of Valid Words for Each Puzzle",
+        "Acceptance": "37.8%",
+        "Difficulty": "Hard",
+        "Frequency": "1.0828639316999706",
+        "Leetcode Question Link": " https://leetcode.com/problems/number-of-valid-words-for-each-puzzle"
+    },
+    {
+        "ID": "1001",
+        "Title": "Grid Illumination",
+        "Acceptance": "35.9%",
+        "Difficulty": "Hard",
+        "Frequency": "1.0479685558493548",
+        "Leetcode Question Link": " https://leetcode.com/problems/grid-illumination"
+    },
+    {
+        "ID": "642",
+        "Title": "Design Search Autocomplete System",
+        "Acceptance": "44.7%",
+        "Difficulty": "Hard",
+        "Frequency": "0.9534648850908103",
+        "Leetcode Question Link": " https://leetcode.com/problems/design-search-autocomplete-system"
+    },
+    {
+        "ID": "17",
+        "Title": "Letter Combinations of a Phone Number",
+        "Acceptance": "46.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.8219594485525382",
+        "Leetcode Question Link": " https://leetcode.com/problems/letter-combinations-of-a-phone-number"
+    },
+    {
+        "ID": "290",
+        "Title": "Word Pattern",
+        "Acceptance": "37.0%",
+        "Difficulty": "Easy",
+        "Frequency": "0.3813449098066498",
+        "Leetcode Question Link": " https://leetcode.com/problems/word-pattern"
+    },
+    {
+        "ID": "1236",
+        "Title": "Web Crawler",
+        "Acceptance": "64.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0.33647223662121295",
+        "Leetcode Question Link": " https://leetcode.com/problems/web-crawler"
+    },
+    {
+        "ID": "146",
+        "Title": "LRU Cache",
+        "Acceptance": "33.2%",
+        "Difficulty": "Medium",
+        "Frequency": "0.31735278471778255",
+        "Leetcode Question Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+        "ID": "1010",
+        "Title": "Pairs of Songs With Total Durations Divisible by 60",
+        "Acceptance": "47.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.09171392769013605",
+        "Leetcode Question Link": " https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60"
+    },
+    {
+        "ID": "140",
+        "Title": "Word Break II",
+        "Acceptance": "32.6%",
+        "Difficulty": "Hard",
+        "Frequency": "0.07881168148917794",
+        "Leetcode Question Link": " https://leetcode.com/problems/word-break-ii"
+    },
+    {
+        "ID": "1",
+        "Title": "Two Sum",
+        "Acceptance": "45.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.016487580637467636",
+        "Leetcode Question Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+        "ID": "4",
+        "Title": "Median of Two Sorted Arrays",
+        "Acceptance": "29.6%",
+        "Difficulty": "Hard",
+        "Frequency": "0.015510198481701449",
+        "Leetcode Question Link": " https://leetcode.com/problems/median-of-two-sorted-arrays"
+    },
+    {
+        "ID": "64",
+        "Title": "Minimum Path Sum",
+        "Acceptance": "54.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.013734383449598314",
+        "Leetcode Question Link": " https://leetcode.com/problems/minimum-path-sum"
+    },
+    {
+        "ID": "28",
+        "Title": "Implement strStr()",
+        "Acceptance": "34.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.008850485542574548",
+        "Leetcode Question Link": " https://leetcode.com/problems/implement-strstr"
+    },
+    {
+        "ID": "1250",
+        "Title": "Check If It Is a Good Array",
+        "Acceptance": "55.7%",
+        "Difficulty": "Hard",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/check-if-it-is-a-good-array"
+    }
+]

@@ -1,0 +1,98 @@
+[
+    {
+        "ID": "593",
+        "Title": "Valid Square",
+        "Acceptance": "43.1%",
+        "Difficulty": "Medium",
+        "Frequency": "2.012428334541107",
+        "Leetcode Question Link": " https://leetcode.com/problems/valid-square"
+    },
+    {
+        "ID": "647",
+        "Title": "Palindromic Substrings",
+        "Acceptance": "60.6%",
+        "Difficulty": "Medium",
+        "Frequency": "1.4078595470997393",
+        "Leetcode Question Link": " https://leetcode.com/problems/palindromic-substrings"
+    },
+    {
+        "ID": "730",
+        "Title": "Count Different Palindromic Subsequences",
+        "Acceptance": "41.8%",
+        "Difficulty": "Hard",
+        "Frequency": "0.8032907596583713",
+        "Leetcode Question Link": " https://leetcode.com/problems/count-different-palindromic-subsequences"
+    },
+    {
+        "ID": "203",
+        "Title": "Remove Linked List Elements",
+        "Acceptance": "38.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.5359603141290598",
+        "Leetcode Question Link": " https://leetcode.com/problems/remove-linked-list-elements"
+    },
+    {
+        "ID": "202",
+        "Title": "Happy Number",
+        "Acceptance": "50.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.07100316365622945",
+        "Leetcode Question Link": " https://leetcode.com/problems/happy-number"
+    },
+    {
+        "ID": "75",
+        "Title": "Sort Colors",
+        "Acceptance": "47.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0.05709845281459711",
+        "Leetcode Question Link": " https://leetcode.com/problems/sort-colors"
+    },
+    {
+        "ID": "716",
+        "Title": "Max Stack",
+        "Acceptance": "42.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.04103139667786253",
+        "Leetcode Question Link": " https://leetcode.com/problems/max-stack"
+    },
+    {
+        "ID": "380",
+        "Title": "Insert Delete GetRandom O(1)",
+        "Acceptance": "47.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.020896975877216107",
+        "Leetcode Question Link": " https://leetcode.com/problems/insert-delete-getrandom-o1"
+    },
+    {
+        "ID": "5",
+        "Title": "Longest Palindromic Substring",
+        "Acceptance": "29.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.019425420619316486",
+        "Leetcode Question Link": " https://leetcode.com/problems/longest-palindromic-substring"
+    },
+    {
+        "ID": "155",
+        "Title": "Min Stack",
+        "Acceptance": "44.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.010200700488022775",
+        "Leetcode Question Link": " https://leetcode.com/problems/min-stack"
+    },
+    {
+        "ID": "167",
+        "Title": "Two Sum II - Input array is sorted",
+        "Acceptance": "54.1%",
+        "Difficulty": "Easy",
+        "Frequency": "0.005280540323033287",
+        "Leetcode Question Link": " https://leetcode.com/problems/two-sum-ii-input-array-is-sorted"
+    },
+    {
+        "ID": "1206",
+        "Title": "Design Skiplist",
+        "Acceptance": "57.3%",
+        "Difficulty": "Hard",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/design-skiplist"
+    }
+]

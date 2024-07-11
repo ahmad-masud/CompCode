@@ -1,0 +1,18 @@
+[
+    {
+        "ID": "1",
+        "Title": "Two Sum",
+        "Acceptance": "45.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.003278422738041615",
+        "Leetcode Question Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+        "ID": "697",
+        "Title": "Degree of an Array",
+        "Acceptance": "53.8%",
+        "Difficulty": "Easy",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/degree-of-an-array"
+    }
+]

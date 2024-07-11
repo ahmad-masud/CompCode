@@ -1,0 +1,50 @@
+[
+    {
+        "ID": "306",
+        "Title": "Additive Number",
+        "Acceptance": "29.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.6788194694611859",
+        "Leetcode Question Link": " https://leetcode.com/problems/additive-number"
+    },
+    {
+        "ID": "54",
+        "Title": "Spiral Matrix",
+        "Acceptance": "34.1%",
+        "Difficulty": "Medium",
+        "Frequency": "0.42911099324046365",
+        "Leetcode Question Link": " https://leetcode.com/problems/spiral-matrix"
+    },
+    {
+        "ID": "38",
+        "Title": "Count and Say",
+        "Acceptance": "44.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.17940251701974141",
+        "Leetcode Question Link": " https://leetcode.com/problems/count-and-say"
+    },
+    {
+        "ID": "20",
+        "Title": "Valid Parentheses",
+        "Acceptance": "39.0%",
+        "Difficulty": "Easy",
+        "Frequency": "0.020517047266669974",
+        "Leetcode Question Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+        "ID": "728",
+        "Title": "Self Dividing Numbers",
+        "Acceptance": "74.3%",
+        "Difficulty": "Easy",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/self-dividing-numbers"
+    },
+    {
+        "ID": "1215",
+        "Title": "Stepping Numbers",
+        "Acceptance": "41.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/stepping-numbers"
+    }
+]

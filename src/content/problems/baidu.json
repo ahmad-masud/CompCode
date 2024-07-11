@@ -1,0 +1,202 @@
+[
+    {
+        "ID": "1",
+        "Title": "Two Sum",
+        "Acceptance": "45.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.7025051399779716",
+        "Leetcode Question Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+        "ID": "146",
+        "Title": "LRU Cache",
+        "Acceptance": "33.2%",
+        "Difficulty": "Medium",
+        "Frequency": "0.521413265967313",
+        "Leetcode Question Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+        "ID": "72",
+        "Title": "Edit Distance",
+        "Acceptance": "44.8%",
+        "Difficulty": "Hard",
+        "Frequency": "0.4324285917613152",
+        "Leetcode Question Link": " https://leetcode.com/problems/edit-distance"
+    },
+    {
+        "ID": "2",
+        "Title": "Add Two Numbers",
+        "Acceptance": "33.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.4221159733636152",
+        "Leetcode Question Link": " https://leetcode.com/problems/add-two-numbers"
+    },
+    {
+        "ID": "33",
+        "Title": "Search in Rotated Sorted Array",
+        "Acceptance": "34.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.31895461826361493",
+        "Leetcode Question Link": " https://leetcode.com/problems/search-in-rotated-sorted-array"
+    },
+    {
+        "ID": "871",
+        "Title": "Minimum Number of Refueling Stops",
+        "Acceptance": "31.4%",
+        "Difficulty": "Hard",
+        "Frequency": "0.2887275508533339",
+        "Leetcode Question Link": " https://leetcode.com/problems/minimum-number-of-refueling-stops"
+    },
+    {
+        "ID": "3",
+        "Title": "Longest Substring Without Repeating Characters",
+        "Acceptance": "30.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.2884992176890934",
+        "Leetcode Question Link": " https://leetcode.com/problems/longest-substring-without-repeating-characters"
+    },
+    {
+        "ID": "70",
+        "Title": "Climbing Stairs",
+        "Acceptance": "47.8%",
+        "Difficulty": "Easy",
+        "Frequency": "0.25415654925180287",
+        "Leetcode Question Link": " https://leetcode.com/problems/climbing-stairs"
+    },
+    {
+        "ID": "215",
+        "Title": "Kth Largest Element in an Array",
+        "Acceptance": "55.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.0730646752411442",
+        "Leetcode Question Link": " https://leetcode.com/problems/kth-largest-element-in-an-array"
+    },
+    {
+        "ID": "88",
+        "Title": "Merge Sorted Array",
+        "Acceptance": "39.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.0451990505469574",
+        "Leetcode Question Link": " https://leetcode.com/problems/merge-sorted-array"
+    },
+    {
+        "ID": "240",
+        "Title": "Search a 2D Matrix II",
+        "Acceptance": "43.2%",
+        "Difficulty": "Medium",
+        "Frequency": "0.044650273737738826",
+        "Leetcode Question Link": " https://leetcode.com/problems/search-a-2d-matrix-ii"
+    },
+    {
+        "ID": "113",
+        "Title": "Path Sum II",
+        "Acceptance": "46.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.03698133452871584",
+        "Leetcode Question Link": " https://leetcode.com/problems/path-sum-ii"
+    },
+    {
+        "ID": "410",
+        "Title": "Split Array Largest Sum",
+        "Acceptance": "44.5%",
+        "Difficulty": "Hard",
+        "Frequency": "0.02436174074003527",
+        "Leetcode Question Link": " https://leetcode.com/problems/split-array-largest-sum"
+    },
+    {
+        "ID": "91",
+        "Title": "Decode Ways",
+        "Acceptance": "24.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.0227930095285566",
+        "Leetcode Question Link": " https://leetcode.com/problems/decode-ways"
+    },
+    {
+        "ID": "15",
+        "Title": "3Sum",
+        "Acceptance": "26.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.01857638557293541",
+        "Leetcode Question Link": " https://leetcode.com/problems/3sum"
+    },
+    {
+        "ID": "124",
+        "Title": "Binary Tree Maximum Path Sum",
+        "Acceptance": "34.3%",
+        "Difficulty": "Hard",
+        "Frequency": "0.005272883295230408",
+        "Leetcode Question Link": " https://leetcode.com/problems/binary-tree-maximum-path-sum"
+    },
+    {
+        "ID": "543",
+        "Title": "Diameter of Binary Tree",
+        "Acceptance": "48.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.005047966297304777",
+        "Leetcode Question Link": " https://leetcode.com/problems/diameter-of-binary-tree"
+    },
+    {
+        "ID": "588",
+        "Title": "Design In-Memory File System",
+        "Acceptance": "45.9%",
+        "Difficulty": "Hard",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/design-in-memory-file-system"
+    },
+    {
+        "ID": "397",
+        "Title": "Integer Replacement",
+        "Acceptance": "32.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/integer-replacement"
+    },
+    {
+        "ID": "395",
+        "Title": "Longest Substring with At Least K Repeating Characters",
+        "Acceptance": "41.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters"
+    },
+    {
+        "ID": "413",
+        "Title": "Arithmetic Slices",
+        "Acceptance": "57.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/arithmetic-slices"
+    },
+    {
+        "ID": "446",
+        "Title": "Arithmetic Slices II - Subsequence",
+        "Acceptance": "32.7%",
+        "Difficulty": "Hard",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/arithmetic-slices-ii-subsequence"
+    },
+    {
+        "ID": "488",
+        "Title": "Zuma Game",
+        "Acceptance": "39.9%",
+        "Difficulty": "Hard",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/zuma-game"
+    },
+    {
+        "ID": "576",
+        "Title": "Out of Boundary Paths",
+        "Acceptance": "35.1%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/out-of-boundary-paths"
+    },
+    {
+        "ID": "873",
+        "Title": "Length of Longest Fibonacci Subsequence",
+        "Acceptance": "48.0%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/length-of-longest-fibonacci-subsequence"
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "ID": "715",
+        "Title": "Range Module",
+        "Acceptance": "38.5%",
+        "Difficulty": "Hard",
+        "Frequency": "0.33647223662121295",
+        "Leetcode Question Link": " https://leetcode.com/problems/range-module"
+    },
+    {
+        "ID": "1336",
+        "Title": "Number of Transactions per Visit",
+        "Acceptance": "43.7%",
+        "Difficulty": "Hard",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/number-of-transactions-per-visit"
+    }
+]

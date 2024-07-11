@@ -1,0 +1,66 @@
+[
+    {
+        "ID": "297",
+        "Title": "Serialize and Deserialize Binary Tree",
+        "Acceptance": "47.5%",
+        "Difficulty": "Hard",
+        "Frequency": "0.04958336617493765",
+        "Leetcode Question Link": " https://leetcode.com/problems/serialize-and-deserialize-binary-tree"
+    },
+    {
+        "ID": "146",
+        "Title": "LRU Cache",
+        "Acceptance": "33.2%",
+        "Difficulty": "Medium",
+        "Frequency": "0.040660598211268925",
+        "Leetcode Question Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+        "ID": "121",
+        "Title": "Best Time to Buy and Sell Stock",
+        "Acceptance": "50.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.033453179586686504",
+        "Leetcode Question Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+    },
+    {
+        "ID": "1",
+        "Title": "Two Sum",
+        "Acceptance": "45.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.024530411623017775",
+        "Leetcode Question Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+        "ID": "48",
+        "Title": "Rotate Image",
+        "Acceptance": "56.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.020228249775471566",
+        "Leetcode Question Link": " https://leetcode.com/problems/rotate-image"
+    },
+    {
+        "ID": "238",
+        "Title": "Product of Array Except Self",
+        "Acceptance": "60.1%",
+        "Difficulty": "Medium",
+        "Frequency": "0.015629897160874744",
+        "Leetcode Question Link": " https://leetcode.com/problems/product-of-array-except-self"
+    },
+    {
+        "ID": "155",
+        "Title": "Min Stack",
+        "Acceptance": "44.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.010653509851791077",
+        "Leetcode Question Link": " https://leetcode.com/problems/min-stack"
+    },
+    {
+        "ID": "15",
+        "Title": "3Sum",
+        "Acceptance": "26.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.00876717944353383",
+        "Leetcode Question Link": " https://leetcode.com/problems/3sum"
+    }
+]

@@ -1,0 +1,96 @@
+.search-container {
+  margin-bottom: 20px; /* Add some space below the search bar */
+}
+
+.search-container input[type=text] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background: var(--secondary-color);
+  outline: none;
+  color: var(--font-color);
+}
+
+.companies-page {
+  padding: 20px;
+}
+
+.company-table {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  color: var(--font-color);
+  font-weight: bold;
+}
+
+.company-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.company-table th,
+.company-table td {
+  padding: 15px;
+  text-align: left;
+}
+
+.company-table th {
+  background-color: var(--secondary-color);
+  color: var(--font-color);
+  font-weight: bold;
+}
+
+.company-table tbody tr:nth-child(even) {
+  background-color: var(--secondary-color);
+}
+
+.company-table button.sort-button {
+  background: none;
+  padding: 2.5px 5px;
+  border: none;
+  cursor: pointer;
+  color: var(--font-color);
+}
+
+.company-table button.sort-button:hover {
+  color: var(--accent-color);
+}
+
+.company-table button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--font-color);
+}
+
+.company-table th button {
+  margin-left: 5px;
+}
+
+.company-table td button {
+  margin-left: 10px;
+  background: RoyalBlue;
+  border-radius: 8px;
+  padding: 5px;
+  transition: filter 200ms ease-in-out;
+  color: white;
+}
+
+.company-table td button:hover {
+  filter: brightness(0.9);
+}
+
+.hard {
+  color: red;
+}
+
+.medium {
+  color: goldenrod;
+}
+
+.easy {
+  color: rgb(82, 165, 82);
+}

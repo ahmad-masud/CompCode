@@ -1,0 +1,178 @@
+[
+    {
+        "ID": "811",
+        "Title": "Subdomain Visit Count",
+        "Acceptance": "69.9%",
+        "Difficulty": "Easy",
+        "Frequency": "2.447028162023433",
+        "Leetcode Question Link": " https://leetcode.com/problems/subdomain-visit-count"
+    },
+    {
+        "ID": "770",
+        "Title": "Basic Calculator IV",
+        "Acceptance": "48.1%",
+        "Difficulty": "Hard",
+        "Frequency": "1.9937403768488644",
+        "Leetcode Question Link": " https://leetcode.com/problems/basic-calculator-iv"
+    },
+    {
+        "ID": "829",
+        "Title": "Consecutive Numbers Sum",
+        "Acceptance": "37.5%",
+        "Difficulty": "Hard",
+        "Frequency": "1.5906860988778346",
+        "Leetcode Question Link": " https://leetcode.com/problems/consecutive-numbers-sum"
+    },
+    {
+        "ID": "224",
+        "Title": "Basic Calculator",
+        "Acceptance": "36.8%",
+        "Difficulty": "Hard",
+        "Frequency": "1.1373983137032662",
+        "Leetcode Question Link": " https://leetcode.com/problems/basic-calculator"
+    },
+    {
+        "ID": "1163",
+        "Title": "Last Substring in Lexicographical Order",
+        "Acceptance": "33.9%",
+        "Difficulty": "Hard",
+        "Frequency": "0.7261919753374027",
+        "Leetcode Question Link": " https://leetcode.com/problems/last-substring-in-lexicographical-order"
+    },
+    {
+        "ID": "1297",
+        "Title": "Maximum Number of Occurrences of a Substring",
+        "Acceptance": "47.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0.40882645581086924",
+        "Leetcode Question Link": " https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring"
+    },
+    {
+        "ID": "1328",
+        "Title": "Break a Palindrome",
+        "Acceptance": "43.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0.21795507637539235",
+        "Leetcode Question Link": " https://leetcode.com/problems/break-a-palindrome"
+    },
+    {
+        "ID": "1248",
+        "Title": "Count Number of Nice Subarrays",
+        "Acceptance": "56.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.17228309044709728",
+        "Leetcode Question Link": " https://leetcode.com/problems/count-number-of-nice-subarrays"
+    },
+    {
+        "ID": "1290",
+        "Title": "Convert Binary Number in a Linked List to Integer",
+        "Acceptance": "80.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.0913181585347874",
+        "Leetcode Question Link": " https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer"
+    },
+    {
+        "ID": "146",
+        "Title": "LRU Cache",
+        "Acceptance": "33.2%",
+        "Difficulty": "Medium",
+        "Frequency": "0.07118067822062889",
+        "Leetcode Question Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+        "ID": "212",
+        "Title": "Word Search II",
+        "Acceptance": "34.9%",
+        "Difficulty": "Hard",
+        "Frequency": "0.05999879858378973",
+        "Leetcode Question Link": " https://leetcode.com/problems/word-search-ii"
+    },
+    {
+        "ID": "239",
+        "Title": "Sliding Window Maximum",
+        "Acceptance": "43.0%",
+        "Difficulty": "Hard",
+        "Frequency": "0.0483746857022364",
+        "Leetcode Question Link": " https://leetcode.com/problems/sliding-window-maximum"
+    },
+    {
+        "ID": "647",
+        "Title": "Palindromic Substrings",
+        "Acceptance": "60.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0.040968350772541844",
+        "Leetcode Question Link": " https://leetcode.com/problems/palindromic-substrings"
+    },
+    {
+        "ID": "17",
+        "Title": "Letter Combinations of a Phone Number",
+        "Acceptance": "46.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.03893646375009422",
+        "Leetcode Question Link": " https://leetcode.com/problems/letter-combinations-of-a-phone-number"
+    },
+    {
+        "ID": "37",
+        "Title": "Sudoku Solver",
+        "Acceptance": "43.6%",
+        "Difficulty": "Hard",
+        "Frequency": "0.01821543989134118",
+        "Leetcode Question Link": " https://leetcode.com/problems/sudoku-solver"
+    },
+    {
+        "ID": "36",
+        "Title": "Valid Sudoku",
+        "Acceptance": "48.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.01625758350956095",
+        "Leetcode Question Link": " https://leetcode.com/problems/valid-sudoku"
+    },
+    {
+        "ID": "5",
+        "Title": "Longest Palindromic Substring",
+        "Acceptance": "29.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.009086325220960808",
+        "Leetcode Question Link": " https://leetcode.com/problems/longest-palindromic-substring"
+    },
+    {
+        "ID": "200",
+        "Title": "Number of Islands",
+        "Acceptance": "46.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.0028897578265903614",
+        "Leetcode Question Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+        "ID": "1",
+        "Title": "Two Sum",
+        "Acceptance": "45.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.0008206138651873125",
+        "Leetcode Question Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+        "ID": "1282",
+        "Title": "Group the People Given the Group Size They Belong To",
+        "Acceptance": "83.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to"
+    },
+    {
+        "ID": "1280",
+        "Title": "Students and Examinations",
+        "Acceptance": "72.2%",
+        "Difficulty": "Easy",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/students-and-examinations"
+    },
+    {
+        "ID": "1364",
+        "Title": "Number of Trusted Contacts of a Customer",
+        "Acceptance": "75.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/number-of-trusted-contacts-of-a-customer"
+    }
+]

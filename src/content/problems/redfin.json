@@ -1,0 +1,74 @@
+[
+    {
+        "ID": "628",
+        "Title": "Maximum Product of Three Numbers",
+        "Acceptance": "47.1%",
+        "Difficulty": "Easy",
+        "Frequency": "0.027043142287534887",
+        "Leetcode Question Link": " https://leetcode.com/problems/maximum-product-of-three-numbers"
+    },
+    {
+        "ID": "2",
+        "Title": "Add Two Numbers",
+        "Acceptance": "33.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.020491663368639005",
+        "Leetcode Question Link": " https://leetcode.com/problems/add-two-numbers"
+    },
+    {
+        "ID": "43",
+        "Title": "Multiply Strings",
+        "Acceptance": "33.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.020459908965027862",
+        "Leetcode Question Link": " https://leetcode.com/problems/multiply-strings"
+    },
+    {
+        "ID": "443",
+        "Title": "String Compression",
+        "Acceptance": "41.3%",
+        "Difficulty": "Easy",
+        "Frequency": "0.01390843004613198",
+        "Leetcode Question Link": " https://leetcode.com/problems/string-compression"
+    },
+    {
+        "ID": "581",
+        "Title": "Shortest Unsorted Continuous Subarray",
+        "Acceptance": "31.1%",
+        "Difficulty": "Easy",
+        "Frequency": "0.013342426083839913",
+        "Leetcode Question Link": " https://leetcode.com/problems/shortest-unsorted-continuous-subarray"
+    },
+    {
+        "ID": "8",
+        "Title": "String to Integer (atoi)",
+        "Acceptance": "15.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.008513104762248265",
+        "Leetcode Question Link": " https://leetcode.com/problems/string-to-integer-atoi"
+    },
+    {
+        "ID": "173",
+        "Title": "Binary Search Tree Iterator",
+        "Acceptance": "56.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0.008489015324911316",
+        "Leetcode Question Link": " https://leetcode.com/problems/binary-search-tree-iterator"
+    },
+    {
+        "ID": "160",
+        "Title": "Intersection of Two Linked Lists",
+        "Acceptance": "40.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.004901369939720486",
+        "Leetcode Question Link": " https://leetcode.com/problems/intersection-of-two-linked-lists"
+    },
+    {
+        "ID": "121",
+        "Title": "Best Time to Buy and Sell Stock",
+        "Acceptance": "50.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.0021239321954525975",
+        "Leetcode Question Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+    }
+]

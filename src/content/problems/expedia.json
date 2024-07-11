@@ -1,0 +1,378 @@
+[
+    {
+        "ID": "20",
+        "Title": "Valid Parentheses",
+        "Acceptance": "39.0%",
+        "Difficulty": "Easy",
+        "Frequency": "0.5285821270620421",
+        "Leetcode Question Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+        "ID": "974",
+        "Title": "Subarray Sums Divisible by K",
+        "Acceptance": "48.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.45026093827333574",
+        "Leetcode Question Link": " https://leetcode.com/problems/subarray-sums-divisible-by-k"
+    },
+    {
+        "ID": "73",
+        "Title": "Set Matrix Zeroes",
+        "Acceptance": "43.1%",
+        "Difficulty": "Medium",
+        "Frequency": "0.37193974948462943",
+        "Leetcode Question Link": " https://leetcode.com/problems/set-matrix-zeroes"
+    },
+    {
+        "ID": "1283",
+        "Title": "Find the Smallest Divisor Given a Threshold",
+        "Acceptance": "47.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0.36508501240027386",
+        "Leetcode Question Link": " https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold"
+    },
+    {
+        "ID": "443",
+        "Title": "String Compression",
+        "Acceptance": "41.3%",
+        "Difficulty": "Easy",
+        "Frequency": "0.3002083322709612",
+        "Leetcode Question Link": " https://leetcode.com/problems/string-compression"
+    },
+    {
+        "ID": "33",
+        "Title": "Search in Rotated Sorted Array",
+        "Acceptance": "34.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.2561733762253273",
+        "Leetcode Question Link": " https://leetcode.com/problems/search-in-rotated-sorted-array"
+    },
+    {
+        "ID": "295",
+        "Title": "Find Median from Data Stream",
+        "Acceptance": "44.3%",
+        "Difficulty": "Hard",
+        "Frequency": "0.24172686903184679",
+        "Leetcode Question Link": " https://leetcode.com/problems/find-median-from-data-stream"
+    },
+    {
+        "ID": "37",
+        "Title": "Sudoku Solver",
+        "Acceptance": "43.6%",
+        "Difficulty": "Hard",
+        "Frequency": "0.20309089276282075",
+        "Leetcode Question Link": " https://leetcode.com/problems/sudoku-solver"
+    },
+    {
+        "ID": "451",
+        "Title": "Sort Characters By Frequency",
+        "Acceptance": "63.0%",
+        "Difficulty": "Medium",
+        "Frequency": "0.19214843173356422",
+        "Leetcode Question Link": " https://leetcode.com/problems/sort-characters-by-frequency"
+    },
+    {
+        "ID": "200",
+        "Title": "Number of Islands",
+        "Acceptance": "46.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.18986549858506208",
+        "Leetcode Question Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+        "ID": "713",
+        "Title": "Subarray Product Less Than K",
+        "Acceptance": "39.1%",
+        "Difficulty": "Medium",
+        "Frequency": "0.14543583198422752",
+        "Leetcode Question Link": " https://leetcode.com/problems/subarray-product-less-than-k"
+    },
+    {
+        "ID": "973",
+        "Title": "K Closest Points to Origin",
+        "Acceptance": "63.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.1351947450239383",
+        "Leetcode Question Link": " https://leetcode.com/problems/k-closest-points-to-origin"
+    },
+    {
+        "ID": "146",
+        "Title": "LRU Cache",
+        "Acceptance": "33.2%",
+        "Difficulty": "Medium",
+        "Frequency": "0.13057313078965735",
+        "Leetcode Question Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+        "ID": "1",
+        "Title": "Two Sum",
+        "Acceptance": "45.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.1299229690633312",
+        "Leetcode Question Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+        "ID": "88",
+        "Title": "Merge Sorted Array",
+        "Acceptance": "39.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.11989115268466984",
+        "Leetcode Question Link": " https://leetcode.com/problems/merge-sorted-array"
+    },
+    {
+        "ID": "53",
+        "Title": "Maximum Subarray",
+        "Acceptance": "46.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.11514006965309906",
+        "Leetcode Question Link": " https://leetcode.com/problems/maximum-subarray"
+    },
+    {
+        "ID": "240",
+        "Title": "Search a 2D Matrix II",
+        "Acceptance": "43.2%",
+        "Difficulty": "Medium",
+        "Frequency": "0.1149245296604198",
+        "Leetcode Question Link": " https://leetcode.com/problems/search-a-2d-matrix-ii"
+    },
+    {
+        "ID": "297",
+        "Title": "Serialize and Deserialize Binary Tree",
+        "Acceptance": "47.5%",
+        "Difficulty": "Hard",
+        "Frequency": "0.10763066419236544",
+        "Leetcode Question Link": " https://leetcode.com/problems/serialize-and-deserialize-binary-tree"
+    },
+    {
+        "ID": "121",
+        "Title": "Best Time to Buy and Sell Stock",
+        "Acceptance": "50.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.0991059463235541",
+        "Leetcode Question Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+    },
+    {
+        "ID": "138",
+        "Title": "Copy List with Random Pointer",
+        "Acceptance": "36.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.09473133310488323",
+        "Leetcode Question Link": " https://leetcode.com/problems/copy-list-with-random-pointer"
+    },
+    {
+        "ID": "884",
+        "Title": "Uncommon Words from Two Sentences",
+        "Acceptance": "63.3%",
+        "Difficulty": "Easy",
+        "Frequency": "0.07990051073053109",
+        "Leetcode Question Link": " https://leetcode.com/problems/uncommon-words-from-two-sentences"
+    },
+    {
+        "ID": "198",
+        "Title": "House Robber",
+        "Acceptance": "42.0%",
+        "Difficulty": "Easy",
+        "Frequency": "0.05849085907372723",
+        "Leetcode Question Link": " https://leetcode.com/problems/house-robber"
+    },
+    {
+        "ID": "43",
+        "Title": "Multiply Strings",
+        "Acceptance": "33.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.05583052804728052",
+        "Leetcode Question Link": " https://leetcode.com/problems/multiply-strings"
+    },
+    {
+        "ID": "724",
+        "Title": "Find Pivot Index",
+        "Acceptance": "44.0%",
+        "Difficulty": "Easy",
+        "Frequency": "0.05428741283782842",
+        "Leetcode Question Link": " https://leetcode.com/problems/find-pivot-index"
+    },
+    {
+        "ID": "253",
+        "Title": "Meeting Rooms II",
+        "Acceptance": "45.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.04945628059066218",
+        "Leetcode Question Link": " https://leetcode.com/problems/meeting-rooms-ii"
+    },
+    {
+        "ID": "15",
+        "Title": "3Sum",
+        "Acceptance": "26.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.04361391077370199",
+        "Leetcode Question Link": " https://leetcode.com/problems/3sum"
+    },
+    {
+        "ID": "404",
+        "Title": "Sum of Left Leaves",
+        "Acceptance": "50.9%",
+        "Difficulty": "Easy",
+        "Frequency": "0.031187558856704493",
+        "Leetcode Question Link": " https://leetcode.com/problems/sum-of-left-leaves"
+    },
+    {
+        "ID": "134",
+        "Title": "Gas Station",
+        "Acceptance": "38.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.030183377823098576",
+        "Leetcode Question Link": " https://leetcode.com/problems/gas-station"
+    },
+    {
+        "ID": "692",
+        "Title": "Top K Frequent Words",
+        "Acceptance": "51.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.029730915184679466",
+        "Leetcode Question Link": " https://leetcode.com/problems/top-k-frequent-words"
+    },
+    {
+        "ID": "3",
+        "Title": "Longest Substring Without Repeating Characters",
+        "Acceptance": "30.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.024604324231039386",
+        "Leetcode Question Link": " https://leetcode.com/problems/longest-substring-without-repeating-characters"
+    },
+    {
+        "ID": "127",
+        "Title": "Word Ladder",
+        "Acceptance": "29.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0.023704813655166343",
+        "Leetcode Question Link": " https://leetcode.com/problems/word-ladder"
+    },
+    {
+        "ID": "739",
+        "Title": "Daily Temperatures",
+        "Acceptance": "63.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0.022433642692117093",
+        "Leetcode Question Link": " https://leetcode.com/problems/daily-temperatures"
+    },
+    {
+        "ID": "96",
+        "Title": "Unique Binary Search Trees",
+        "Acceptance": "52.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.02067613283842731",
+        "Leetcode Question Link": " https://leetcode.com/problems/unique-binary-search-trees"
+    },
+    {
+        "ID": "160",
+        "Title": "Intersection of Two Linked Lists",
+        "Acceptance": "40.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.019462966881057867",
+        "Leetcode Question Link": " https://leetcode.com/problems/intersection-of-two-linked-lists"
+    },
+    {
+        "ID": "314",
+        "Title": "Binary Tree Vertical Order Traversal",
+        "Acceptance": "45.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0.018010392274465332",
+        "Leetcode Question Link": " https://leetcode.com/problems/binary-tree-vertical-order-traversal"
+    },
+    {
+        "ID": "91",
+        "Title": "Decode Ways",
+        "Acceptance": "24.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.013379120336324091",
+        "Leetcode Question Link": " https://leetcode.com/problems/decode-ways"
+    },
+    {
+        "ID": "242",
+        "Title": "Valid Anagram",
+        "Acceptance": "56.9%",
+        "Difficulty": "Easy",
+        "Frequency": "0.009322628116274939",
+        "Leetcode Question Link": " https://leetcode.com/problems/valid-anagram"
+    },
+    {
+        "ID": "215",
+        "Title": "Kth Largest Element in an Array",
+        "Acceptance": "55.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.008759180089881562",
+        "Leetcode Question Link": " https://leetcode.com/problems/kth-largest-element-in-an-array"
+    },
+    {
+        "ID": "167",
+        "Title": "Two Sum II - Input array is sorted",
+        "Acceptance": "54.1%",
+        "Difficulty": "Easy",
+        "Frequency": "0.005507380022589096",
+        "Leetcode Question Link": " https://leetcode.com/problems/two-sum-ii-input-array-is-sorted"
+    },
+    {
+        "ID": "560",
+        "Title": "Subarray Sum Equals K",
+        "Acceptance": "43.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.004279454482267064",
+        "Leetcode Question Link": " https://leetcode.com/problems/subarray-sum-equals-k"
+    },
+    {
+        "ID": "102",
+        "Title": "Binary Tree Level Order Traversal",
+        "Acceptance": "54.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0.003639014205004082",
+        "Leetcode Question Link": " https://leetcode.com/problems/binary-tree-level-order-traversal"
+    },
+    {
+        "ID": "611",
+        "Title": "Valid Triangle Number",
+        "Acceptance": "48.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/valid-triangle-number"
+    },
+    {
+        "ID": "1101",
+        "Title": "The Earliest Moment When Everyone Become Friends",
+        "Acceptance": "66.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends"
+    },
+    {
+        "ID": "1151",
+        "Title": "Minimum Swaps to Group All 1's Together",
+        "Acceptance": "59.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together"
+    },
+    {
+        "ID": "1328",
+        "Title": "Break a Palindrome",
+        "Acceptance": "43.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/break-a-palindrome"
+    },
+    {
+        "ID": "1451",
+        "Title": "Rearrange Words in a Sentence",
+        "Acceptance": "54.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/rearrange-words-in-a-sentence"
+    },
+    {
+        "ID": "1492",
+        "Title": "The kth Factor of n",
+        "Acceptance": "67.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/the-kth-factor-of-n"
+    }
+]

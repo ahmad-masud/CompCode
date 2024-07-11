@@ -37,8 +37,8 @@ const Problems = ({ company, user, onClose }) => {
         console.error("Error fetching user data: ", error);
       });
     } else {
-        const completedProblemsFromLocalStorage = JSON.parse(localStorage.getItem('completedProblems'));
-        setCompletedProblems(completedProblemsFromLocalStorage || {});
+      const completedProblemsFromLocalStorage = JSON.parse(localStorage.getItem('completedProblems'));
+      setCompletedProblems(completedProblemsFromLocalStorage || {});
     }
   }, [user]);
 
@@ -67,20 +67,20 @@ const Problems = ({ company, user, onClose }) => {
     }
 
     const sortedProblems = [...problems].sort((a, b) => {
-      if (key === 'Difficulty') {
+      if (key === 'ID') {
+        return direction === 'ascending'
+          ? a[key] - b[key]
+          : b[key] - a[key];
+      } else if (key === 'Difficulty') {
         const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
         return direction === 'ascending'
           ? difficultyOrder[a[key]] - difficultyOrder[b[key]]
           : difficultyOrder[b[key]] - difficultyOrder[a[key]];
+      } else {
+        return direction === 'ascending'
+          ? a[key] < b[key] ? -1 : 1
+          : b[key] < a[key] ? -1 : 1;
       }
-
-      if (a[key] < b[key]) {
-        return direction === 'ascending' ? -1 : 1;
-      }
-      if (a[key] > b[key]) {
-        return direction === 'ascending' ? 1 : -1;
-      }
-      return 0;
     });
 
     setSortConfig({ key, direction });

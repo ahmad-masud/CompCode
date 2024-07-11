@@ -1,0 +1,74 @@
+[
+    {
+        "ID": "364",
+        "Title": "Nested List Weight Sum II",
+        "Acceptance": "62.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.1841995690149098",
+        "Leetcode Question Link": " https://leetcode.com/problems/nested-list-weight-sum-ii"
+    },
+    {
+        "ID": "815",
+        "Title": "Bus Routes",
+        "Acceptance": "42.5%",
+        "Difficulty": "Hard",
+        "Frequency": "0.1329388000145885",
+        "Leetcode Question Link": " https://leetcode.com/problems/bus-routes"
+    },
+    {
+        "ID": "1293",
+        "Title": "Shortest Path in a Grid with Obstacles Elimination",
+        "Acceptance": "42.8%",
+        "Difficulty": "Hard",
+        "Frequency": "0.08167803101426718",
+        "Leetcode Question Link": " https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination"
+    },
+    {
+        "ID": "1374",
+        "Title": "Generate a String With Characters That Have Odd Counts",
+        "Acceptance": "75.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.05887900525002278",
+        "Leetcode Question Link": " https://leetcode.com/problems/generate-a-string-with-characters-that-have-odd-counts"
+    },
+    {
+        "ID": "863",
+        "Title": "All Nodes Distance K in Binary Tree",
+        "Acceptance": "55.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.03598948985031875",
+        "Leetcode Question Link": " https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree"
+    },
+    {
+        "ID": "402",
+        "Title": "Remove K Digits",
+        "Acceptance": "28.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.016240714250426138",
+        "Leetcode Question Link": " https://leetcode.com/problems/remove-k-digits"
+    },
+    {
+        "ID": "4",
+        "Title": "Median of Two Sorted Arrays",
+        "Acceptance": "29.6%",
+        "Difficulty": "Hard",
+        "Frequency": "0.014786333530311531",
+        "Leetcode Question Link": " https://leetcode.com/problems/median-of-two-sorted-arrays"
+    },
+    {
+        "ID": "1",
+        "Title": "Two Sum",
+        "Acceptance": "45.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.007050281837628458",
+        "Leetcode Question Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+        "ID": "116",
+        "Title": "Populating Next Right Pointers in Each Node",
+        "Acceptance": "45.2%",
+        "Difficulty": "Medium",
+        "Frequency": "0.007006509657930414",
+        "Leetcode Question Link": " https://leetcode.com/problems/populating-next-right-pointers-in-each-node"
+    }
+]

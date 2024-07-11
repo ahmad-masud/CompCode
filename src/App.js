@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import Graph from './components/graph';
 import Problems from './components/problems';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
+import Companies from './pages/companies';
 import './styles/app.css';
 
 const App = () => {
   const [openCompany, setOpenCompany] = useState("");
   const [user, setUser] = useState(null);
 
-  const handleNodeClick = (company) => {
+  const handleClick = (company) => {
     setOpenCompany(company);
   };
 
@@ -24,7 +24,7 @@ const App = () => {
   return (
     <div className='app'>
       <Navbar user={user} onUserChange={handleUserChange} />
-      <Graph onNodeClick={handleNodeClick} />
+      <Companies handleClick={handleClick} />
       {openCompany && <Problems company={openCompany} onClose={handleClose} user={user} />}
       <Footer />
     </div>

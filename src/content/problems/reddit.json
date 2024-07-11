@@ -1,0 +1,42 @@
+[
+    {
+        "ID": "289",
+        "Title": "Game of Life",
+        "Acceptance": "54.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.20761483400383401",
+        "Leetcode Question Link": " https://leetcode.com/problems/game-of-life"
+    },
+    {
+        "ID": "314",
+        "Title": "Binary Tree Vertical Order Traversal",
+        "Acceptance": "45.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0.15148600467306356",
+        "Leetcode Question Link": " https://leetcode.com/problems/binary-tree-vertical-order-traversal"
+    },
+    {
+        "ID": "706",
+        "Title": "Design HashMap",
+        "Acceptance": "61.3%",
+        "Difficulty": "Easy",
+        "Frequency": "0.10482987091202353",
+        "Leetcode Question Link": " https://leetcode.com/problems/design-hashmap"
+    },
+    {
+        "ID": "227",
+        "Title": "Basic Calculator II",
+        "Acceptance": "36.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.04870104158125306",
+        "Leetcode Question Link": " https://leetcode.com/problems/basic-calculator-ii"
+    },
+    {
+        "ID": "987",
+        "Title": "Vertical Order Traversal of a Binary Tree",
+        "Acceptance": "36.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0.011601058182762062",
+        "Leetcode Question Link": " https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree"
+    }
+]

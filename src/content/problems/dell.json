@@ -1,0 +1,26 @@
+[
+    {
+        "ID": "706",
+        "Title": "Design HashMap",
+        "Acceptance": "61.3%",
+        "Difficulty": "Easy",
+        "Frequency": "0.009836719431831216",
+        "Leetcode Question Link": " https://leetcode.com/problems/design-hashmap"
+    },
+    {
+        "ID": "283",
+        "Title": "Move Zeroes",
+        "Acceptance": "57.8%",
+        "Difficulty": "Easy",
+        "Frequency": "0.006196233249543158",
+        "Leetcode Question Link": " https://leetcode.com/problems/move-zeroes"
+    },
+    {
+        "ID": "2",
+        "Title": "Add Two Numbers",
+        "Acceptance": "33.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.003640486182288058",
+        "Leetcode Question Link": " https://leetcode.com/problems/add-two-numbers"
+    }
+]

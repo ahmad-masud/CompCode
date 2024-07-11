@@ -1,0 +1,50 @@
+[
+    {
+        "ID": "115",
+        "Title": "Distinct Subsequences",
+        "Acceptance": "38.3%",
+        "Difficulty": "Hard",
+        "Frequency": "0.10259092868139033",
+        "Leetcode Question Link": " https://leetcode.com/problems/distinct-subsequences"
+    },
+    {
+        "ID": "509",
+        "Title": "Fibonacci Number",
+        "Acceptance": "67.2%",
+        "Difficulty": "Easy",
+        "Frequency": "0.07958999426900074",
+        "Leetcode Question Link": " https://leetcode.com/problems/fibonacci-number"
+    },
+    {
+        "ID": "273",
+        "Title": "Integer to English Words",
+        "Acceptance": "27.1%",
+        "Difficulty": "Hard",
+        "Frequency": "0.06896929475435468",
+        "Leetcode Question Link": " https://leetcode.com/problems/integer-to-english-words"
+    },
+    {
+        "ID": "20",
+        "Title": "Valid Parentheses",
+        "Acceptance": "39.0%",
+        "Difficulty": "Easy",
+        "Frequency": "0.0631039942300807",
+        "Leetcode Question Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+        "ID": "91",
+        "Title": "Decode Ways",
+        "Acceptance": "24.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.03248261950458574",
+        "Leetcode Question Link": " https://leetcode.com/problems/decode-ways"
+    },
+    {
+        "ID": "7",
+        "Title": "Reverse Integer",
+        "Acceptance": "25.8%",
+        "Difficulty": "Easy",
+        "Frequency": "0.0018612447790907708",
+        "Leetcode Question Link": " https://leetcode.com/problems/reverse-integer"
+    }
+]

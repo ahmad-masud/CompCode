@@ -1,0 +1,18 @@
+[
+    {
+        "ID": "1222",
+        "Title": "Queens That Can Attack the King",
+        "Acceptance": "68.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/queens-that-can-attack-the-king"
+    },
+    {
+        "ID": "1266",
+        "Title": "Minimum Time Visiting All Points",
+        "Acceptance": "79.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/minimum-time-visiting-all-points"
+    }
+]

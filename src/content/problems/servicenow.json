@@ -1,0 +1,194 @@
+[
+    {
+        "ID": "706",
+        "Title": "Design HashMap",
+        "Acceptance": "61.3%",
+        "Difficulty": "Easy",
+        "Frequency": "0.1171974903999194",
+        "Leetcode Question Link": " https://leetcode.com/problems/design-hashmap"
+    },
+    {
+        "ID": "653",
+        "Title": "Two Sum IV - Input is a BST",
+        "Acceptance": "55.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.09078846984784666",
+        "Leetcode Question Link": " https://leetcode.com/problems/two-sum-iv-input-is-a-bst"
+    },
+    {
+        "ID": "1",
+        "Title": "Two Sum",
+        "Acceptance": "45.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.06437944929577392",
+        "Leetcode Question Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+        "ID": "20",
+        "Title": "Valid Parentheses",
+        "Acceptance": "39.0%",
+        "Difficulty": "Easy",
+        "Frequency": "0.055983722381420686",
+        "Leetcode Question Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+        "ID": "127",
+        "Title": "Word Ladder",
+        "Acceptance": "29.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0.03679590970204585",
+        "Leetcode Question Link": " https://leetcode.com/problems/word-ladder"
+    },
+    {
+        "ID": "238",
+        "Title": "Product of Array Except Self",
+        "Acceptance": "60.1%",
+        "Difficulty": "Medium",
+        "Frequency": "0.03482987258052727",
+        "Leetcode Question Link": " https://leetcode.com/problems/product-of-array-except-self"
+    },
+    {
+        "ID": "867",
+        "Title": "Transpose Matrix",
+        "Acceptance": "62.8%",
+        "Difficulty": "Easy",
+        "Frequency": "0.031179454774354007",
+        "Leetcode Question Link": " https://leetcode.com/problems/transpose-matrix"
+    },
+    {
+        "ID": "17",
+        "Title": "Letter Combinations of a Phone Number",
+        "Acceptance": "46.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.027199239804368825",
+        "Leetcode Question Link": " https://leetcode.com/problems/letter-combinations-of-a-phone-number"
+    },
+    {
+        "ID": "1290",
+        "Title": "Convert Binary Number in a Linked List to Integer",
+        "Acceptance": "80.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.023623145763435913",
+        "Leetcode Question Link": " https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer"
+    },
+    {
+        "ID": "56",
+        "Title": "Merge Intervals",
+        "Acceptance": "39.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0.02150990613527447",
+        "Leetcode Question Link": " https://leetcode.com/problems/merge-intervals"
+    },
+    {
+        "ID": "921",
+        "Title": "Minimum Add to Make Parentheses Valid",
+        "Acceptance": "73.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.021425565169310254",
+        "Leetcode Question Link": " https://leetcode.com/problems/minimum-add-to-make-parentheses-valid"
+    },
+    {
+        "ID": "5",
+        "Title": "Longest Palindromic Substring",
+        "Acceptance": "29.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.020329346568668867",
+        "Leetcode Question Link": " https://leetcode.com/problems/longest-palindromic-substring"
+    },
+    {
+        "ID": "242",
+        "Title": "Valid Anagram",
+        "Acceptance": "56.9%",
+        "Difficulty": "Easy",
+        "Frequency": "0.016513947375674708",
+        "Leetcode Question Link": " https://leetcode.com/problems/valid-anagram"
+    },
+    {
+        "ID": "2",
+        "Title": "Add Two Numbers",
+        "Acceptance": "33.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.015095892173467356",
+        "Leetcode Question Link": " https://leetcode.com/problems/add-two-numbers"
+    },
+    {
+        "ID": "15",
+        "Title": "3Sum",
+        "Acceptance": "26.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.013665148419080968",
+        "Leetcode Question Link": " https://leetcode.com/problems/3sum"
+    },
+    {
+        "ID": "200",
+        "Title": "Number of Islands",
+        "Acceptance": "46.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.011509262420590827",
+        "Leetcode Question Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+        "ID": "155",
+        "Title": "Min Stack",
+        "Acceptance": "44.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.010653509851791077",
+        "Leetcode Question Link": " https://leetcode.com/problems/min-stack"
+    },
+    {
+        "ID": "103",
+        "Title": "Binary Tree Zigzag Level Order Traversal",
+        "Acceptance": "48.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0.01063025572799205",
+        "Leetcode Question Link": " https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal"
+    },
+    {
+        "ID": "387",
+        "Title": "First Unique Character in a String",
+        "Acceptance": "53.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.009392680199054166",
+        "Leetcode Question Link": " https://leetcode.com/problems/first-unique-character-in-a-string"
+    },
+    {
+        "ID": "49",
+        "Title": "Group Anagrams",
+        "Acceptance": "56.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.008538951314232168",
+        "Leetcode Question Link": " https://leetcode.com/problems/group-anagrams"
+    },
+    {
+        "ID": "26",
+        "Title": "Remove Duplicates from Sorted Array",
+        "Acceptance": "45.1%",
+        "Difficulty": "Easy",
+        "Frequency": "0.007782518973063169",
+        "Leetcode Question Link": " https://leetcode.com/problems/remove-duplicates-from-sorted-array"
+    },
+    {
+        "ID": "268",
+        "Title": "Missing Number",
+        "Acceptance": "51.7%",
+        "Difficulty": "Easy",
+        "Frequency": "0.0048804391649084865",
+        "Leetcode Question Link": " https://leetcode.com/problems/missing-number"
+    },
+    {
+        "ID": "42",
+        "Title": "Trapping Rain Water",
+        "Acceptance": "48.9%",
+        "Difficulty": "Hard",
+        "Frequency": "0.004350670338744988",
+        "Leetcode Question Link": " https://leetcode.com/problems/trapping-rain-water"
+    },
+    {
+        "ID": "344",
+        "Title": "Reverse String",
+        "Acceptance": "68.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.003269579502519813",
+        "Leetcode Question Link": " https://leetcode.com/problems/reverse-string"
+    }
+]

@@ -1,0 +1,202 @@
+[
+    {
+        "ID": "811",
+        "Title": "Subdomain Visit Count",
+        "Acceptance": "69.9%",
+        "Difficulty": "Easy",
+        "Frequency": "2.279318755431106",
+        "Leetcode Question Link": " https://leetcode.com/problems/subdomain-visit-count"
+    },
+    {
+        "ID": "228",
+        "Title": "Summary Ranges",
+        "Acceptance": "39.5%",
+        "Difficulty": "Medium",
+        "Frequency": "1.7937622738230257",
+        "Leetcode Question Link": " https://leetcode.com/problems/summary-ranges"
+    },
+    {
+        "ID": "224",
+        "Title": "Basic Calculator",
+        "Acceptance": "36.8%",
+        "Difficulty": "Hard",
+        "Frequency": "1.5218100126135983",
+        "Leetcode Question Link": " https://leetcode.com/problems/basic-calculator"
+    },
+    {
+        "ID": "770",
+        "Title": "Basic Calculator IV",
+        "Acceptance": "48.1%",
+        "Difficulty": "Hard",
+        "Frequency": "1.349926716949016",
+        "Leetcode Question Link": " https://leetcode.com/problems/basic-calculator-iv"
+    },
+    {
+        "ID": "68",
+        "Title": "Text Justification",
+        "Acceptance": "27.7%",
+        "Difficulty": "Hard",
+        "Frequency": "0.8643702353409353",
+        "Leetcode Question Link": " https://leetcode.com/problems/text-justification"
+    },
+    {
+        "ID": "718",
+        "Title": "Maximum Length of Repeated Subarray",
+        "Acceptance": "49.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.7106070931884567",
+        "Leetcode Question Link": " https://leetcode.com/problems/maximum-length-of-repeated-subarray"
+    },
+    {
+        "ID": "362",
+        "Title": "Design Hit Counter",
+        "Acceptance": "63.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.49632511075908853",
+        "Leetcode Question Link": " https://leetcode.com/problems/design-hit-counter"
+    },
+    {
+        "ID": "23",
+        "Title": "Merge k Sorted Lists",
+        "Acceptance": "40.2%",
+        "Difficulty": "Hard",
+        "Frequency": "0.4603279232190457",
+        "Leetcode Question Link": " https://leetcode.com/problems/merge-k-sorted-lists"
+    },
+    {
+        "ID": "563",
+        "Title": "Binary Tree Tilt",
+        "Acceptance": "48.7%",
+        "Difficulty": "Easy",
+        "Frequency": "0.40185220095239377",
+        "Leetcode Question Link": " https://leetcode.com/problems/binary-tree-tilt"
+    },
+    {
+        "ID": "1197",
+        "Title": "Minimum Knight Moves",
+        "Acceptance": "36.1%",
+        "Difficulty": "Medium",
+        "Frequency": "0.3142660340639637",
+        "Leetcode Question Link": " https://leetcode.com/problems/minimum-knight-moves"
+    },
+    {
+        "ID": "85",
+        "Title": "Maximal Rectangle",
+        "Acceptance": "37.7%",
+        "Difficulty": "Hard",
+        "Frequency": "0.15223129344145475",
+        "Leetcode Question Link": " https://leetcode.com/problems/maximal-rectangle"
+    },
+    {
+        "ID": "346",
+        "Title": "Moving Average from Data Stream",
+        "Acceptance": "70.9%",
+        "Difficulty": "Easy",
+        "Frequency": "0.14878873668587292",
+        "Leetcode Question Link": " https://leetcode.com/problems/moving-average-from-data-stream"
+    },
+    {
+        "ID": "21",
+        "Title": "Merge Two Sorted Lists",
+        "Acceptance": "53.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.05490757117845869",
+        "Leetcode Question Link": " https://leetcode.com/problems/merge-two-sorted-lists"
+    },
+    {
+        "ID": "829",
+        "Title": "Consecutive Numbers Sum",
+        "Acceptance": "37.5%",
+        "Difficulty": "Hard",
+        "Frequency": "0.05341723749698583",
+        "Leetcode Question Link": " https://leetcode.com/problems/consecutive-numbers-sum"
+    },
+    {
+        "ID": "227",
+        "Title": "Basic Calculator II",
+        "Acceptance": "36.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.04870104158125306",
+        "Leetcode Question Link": " https://leetcode.com/problems/basic-calculator-ii"
+    },
+    {
+        "ID": "380",
+        "Title": "Insert Delete GetRandom O(1)",
+        "Acceptance": "47.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.038717635350707984",
+        "Leetcode Question Link": " https://leetcode.com/problems/insert-delete-getrandom-o1"
+    },
+    {
+        "ID": "349",
+        "Title": "Intersection of Two Arrays",
+        "Acceptance": "62.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.028691227482495342",
+        "Leetcode Question Link": " https://leetcode.com/problems/intersection-of-two-arrays"
+    },
+    {
+        "ID": "297",
+        "Title": "Serialize and Deserialize Binary Tree",
+        "Acceptance": "47.5%",
+        "Difficulty": "Hard",
+        "Frequency": "0.028013036227673965",
+        "Leetcode Question Link": " https://leetcode.com/problems/serialize-and-deserialize-binary-tree"
+    },
+    {
+        "ID": "1",
+        "Title": "Two Sum",
+        "Acceptance": "45.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.020315992091756507",
+        "Leetcode Question Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+        "ID": "88",
+        "Title": "Merge Sorted Array",
+        "Acceptance": "39.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.018667009593356397",
+        "Leetcode Question Link": " https://leetcode.com/problems/merge-sorted-array"
+    },
+    {
+        "ID": "724",
+        "Title": "Find Pivot Index",
+        "Acceptance": "44.0%",
+        "Difficulty": "Easy",
+        "Frequency": "0.013850636933899008",
+        "Leetcode Question Link": " https://leetcode.com/problems/find-pivot-index"
+    },
+    {
+        "ID": "560",
+        "Title": "Subarray Sum Equals K",
+        "Acceptance": "43.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.009603146783199741",
+        "Leetcode Question Link": " https://leetcode.com/problems/subarray-sum-equals-k"
+    },
+    {
+        "ID": "1143",
+        "Title": "Longest Common Subsequence",
+        "Acceptance": "58.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.008835931134362285",
+        "Leetcode Question Link": " https://leetcode.com/problems/longest-common-subsequence"
+    },
+    {
+        "ID": "453",
+        "Title": "Minimum Moves to Equal Array Elements",
+        "Acceptance": "50.2%",
+        "Difficulty": "Easy",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/minimum-moves-to-equal-array-elements"
+    },
+    {
+        "ID": "985",
+        "Title": "Sum of Even Numbers After Queries",
+        "Acceptance": "61.3%",
+        "Difficulty": "Easy",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/sum-of-even-numbers-after-queries"
+    }
+]

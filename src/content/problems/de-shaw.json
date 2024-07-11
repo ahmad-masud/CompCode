@@ -1,0 +1,26 @@
+[
+    {
+        "ID": "1358",
+        "Title": "Number of Substrings Containing All Three Characters",
+        "Acceptance": "58.2%",
+        "Difficulty": "Medium",
+        "Frequency": "0.2856959744801515",
+        "Leetcode Question Link": " https://leetcode.com/problems/number-of-substrings-containing-all-three-characters"
+    },
+    {
+        "ID": "1122",
+        "Title": "Relative Sort Array",
+        "Acceptance": "67.7%",
+        "Difficulty": "Easy",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/relative-sort-array"
+    },
+    {
+        "ID": "1262",
+        "Title": "Greatest Sum Divisible by Three",
+        "Acceptance": "47.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/greatest-sum-divisible-by-three"
+    }
+]

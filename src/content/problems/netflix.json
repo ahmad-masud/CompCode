@@ -1,66 +1,66 @@
 [
-  {
-    "ID": 981,
-    "Title": "Time Based Key-Value Store",
-    "Acceptance": "53.1%",
-    "Difficulty": "Medium",
-    "Frequency": 0.07449650549860767,
-    "Leetcode Question Link": "https://leetcode.com/problems/time-based-key-value-store"
-  },
-  {
-    "ID": 185,
-    "Title": "Department Top Three Salaries",
-    "Acceptance": "34.5%",
-    "Difficulty": "Hard",
-    "Frequency": 0.07421850176056281,
-    "Leetcode Question Link": "https://leetcode.com/problems/department-top-three-salaries"
-  },
-  {
-    "ID": 56,
-    "Title": "Merge Intervals",
-    "Acceptance": "39.3%",
-    "Difficulty": "Medium",
-    "Frequency": 0.05635902050495936,
-    "Leetcode Question Link": "https://leetcode.com/problems/merge-intervals"
-  },
-  {
-    "ID": 295,
-    "Title": "Find Median from Data Stream",
-    "Acceptance": "44.3%",
-    "Difficulty": "Hard",
-    "Frequency": 0.043241554527020616,
-    "Leetcode Question Link": "https://leetcode.com/problems/find-median-from-data-stream"
-  },
-  {
-    "ID": 362,
-    "Title": "Design Hit Counter",
-    "Acceptance": "63.7%",
-    "Difficulty": "Medium",
-    "Frequency": 0.025382073271417165,
-    "Leetcode Question Link": "https://leetcode.com/problems/design-hit-counter"
-  },
-  {
-    "ID": 34,
-    "Title": "Find First and Last Position of Element in Sorted Array",
-    "Acceptance": "36.2%",
-    "Difficulty": "Medium",
-    "Frequency": 0.009531951009811851,
-    "Leetcode Question Link": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array"
-  },
-  {
-    "ID": 155,
-    "Title": "Min Stack",
-    "Acceptance": "44.5%",
-    "Difficulty": "Easy",
-    "Frequency": 0.00474891074128171,
-    "Leetcode Question Link": "https://leetcode.com/problems/min-stack"
-  },
-  {
-    "ID": 88,
-    "Title": "Merge Sorted Array",
-    "Acceptance": "39.4%",
-    "Difficulty": "Easy",
-    "Frequency": 0.0030102370714243072,
-    "Leetcode Question Link": "https://leetcode.com/problems/merge-sorted-array"
-  }
+    {
+        "ID": "981",
+        "Title": "Time Based Key-Value Store",
+        "Acceptance": "53.1%",
+        "Difficulty": "Medium",
+        "Frequency": "0.07449650549860767",
+        "Leetcode Question Link": " https://leetcode.com/problems/time-based-key-value-store"
+    },
+    {
+        "ID": "185",
+        "Title": "Department Top Three Salaries",
+        "Acceptance": "34.5%",
+        "Difficulty": "Hard",
+        "Frequency": "0.07421850176056281",
+        "Leetcode Question Link": " https://leetcode.com/problems/department-top-three-salaries"
+    },
+    {
+        "ID": "56",
+        "Title": "Merge Intervals",
+        "Acceptance": "39.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0.05635902050495936",
+        "Leetcode Question Link": " https://leetcode.com/problems/merge-intervals"
+    },
+    {
+        "ID": "295",
+        "Title": "Find Median from Data Stream",
+        "Acceptance": "44.3%",
+        "Difficulty": "Hard",
+        "Frequency": "0.043241554527020616",
+        "Leetcode Question Link": " https://leetcode.com/problems/find-median-from-data-stream"
+    },
+    {
+        "ID": "362",
+        "Title": "Design Hit Counter",
+        "Acceptance": "63.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.025382073271417165",
+        "Leetcode Question Link": " https://leetcode.com/problems/design-hit-counter"
+    },
+    {
+        "ID": "34",
+        "Title": "Find First and Last Position of Element in Sorted Array",
+        "Acceptance": "36.2%",
+        "Difficulty": "Medium",
+        "Frequency": "0.009531951009811851",
+        "Leetcode Question Link": " https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array"
+    },
+    {
+        "ID": "155",
+        "Title": "Min Stack",
+        "Acceptance": "44.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.00474891074128171",
+        "Leetcode Question Link": " https://leetcode.com/problems/min-stack"
+    },
+    {
+        "ID": "88",
+        "Title": "Merge Sorted Array",
+        "Acceptance": "39.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.0030102370714243072",
+        "Leetcode Question Link": " https://leetcode.com/problems/merge-sorted-array"
+    }
 ]

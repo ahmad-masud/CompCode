@@ -58,7 +58,7 @@ const Navbar = ({ user, onUserChange }) => {
   return (
     <div className='navbar'>
       <div className='left'>
-        <p>FAANGCode</p>
+        <p>CompCode</p>
       </div>
       <div className='right'>
         <button className='color-button' onClick={handleThemeChange}>

@@ -1,0 +1,138 @@
+[
+    {
+        "ID": "221",
+        "Title": "Maximal Square",
+        "Acceptance": "37.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.15207505771969548",
+        "Leetcode Question Link": " https://leetcode.com/problems/maximal-square"
+    },
+    {
+        "ID": "1",
+        "Title": "Two Sum",
+        "Acceptance": "45.6%",
+        "Difficulty": "Easy",
+        "Frequency": "0.1158551535649608",
+        "Leetcode Question Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+        "ID": "45",
+        "Title": "Jump Game II",
+        "Acceptance": "30.6%",
+        "Difficulty": "Hard",
+        "Frequency": "0.07963524941022611",
+        "Leetcode Question Link": " https://leetcode.com/problems/jump-game-ii"
+    },
+    {
+        "ID": "43",
+        "Title": "Multiply Strings",
+        "Acceptance": "33.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.0760823064574395",
+        "Leetcode Question Link": " https://leetcode.com/problems/multiply-strings"
+    },
+    {
+        "ID": "3",
+        "Title": "Longest Substring Without Repeating Characters",
+        "Acceptance": "30.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.06090436166020607",
+        "Leetcode Question Link": " https://leetcode.com/problems/longest-substring-without-repeating-characters"
+    },
+    {
+        "ID": "394",
+        "Title": "Decode String",
+        "Acceptance": "50.0%",
+        "Difficulty": "Medium",
+        "Frequency": "0.0476916619317836",
+        "Leetcode Question Link": " https://leetcode.com/problems/decode-string"
+    },
+    {
+        "ID": "617",
+        "Title": "Merge Two Binary Trees",
+        "Acceptance": "74.1%",
+        "Difficulty": "Easy",
+        "Frequency": "0.017748444595195822",
+        "Leetcode Question Link": " https://leetcode.com/problems/merge-two-binary-trees"
+    },
+    {
+        "ID": "387",
+        "Title": "First Unique Character in a String",
+        "Acceptance": "53.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.01587334915629015",
+        "Leetcode Question Link": " https://leetcode.com/problems/first-unique-character-in-a-string"
+    },
+    {
+        "ID": "4",
+        "Title": "Median of Two Sorted Arrays",
+        "Acceptance": "29.6%",
+        "Difficulty": "Hard",
+        "Frequency": "0.014786333530311531",
+        "Leetcode Question Link": " https://leetcode.com/problems/median-of-two-sorted-arrays"
+    },
+    {
+        "ID": "5",
+        "Title": "Longest Palindromic Substring",
+        "Acceptance": "29.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.013529809159515602",
+        "Leetcode Question Link": " https://leetcode.com/problems/longest-palindromic-substring"
+    },
+    {
+        "ID": "91",
+        "Title": "Decode Ways",
+        "Acceptance": "24.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.012884931303860403",
+        "Leetcode Question Link": " https://leetcode.com/problems/decode-ways"
+    },
+    {
+        "ID": "69",
+        "Title": "Sqrt(x)",
+        "Acceptance": "33.9%",
+        "Difficulty": "Easy",
+        "Frequency": "0.010949014489670414",
+        "Leetcode Question Link": " https://leetcode.com/problems/sqrtx"
+    },
+    {
+        "ID": "2",
+        "Title": "Add Two Numbers",
+        "Acceptance": "33.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.010079917618007224",
+        "Leetcode Question Link": " https://leetcode.com/problems/add-two-numbers"
+    },
+    {
+        "ID": "42",
+        "Title": "Trapping Rain Water",
+        "Acceptance": "48.9%",
+        "Difficulty": "Hard",
+        "Frequency": "0.009245058144051103",
+        "Leetcode Question Link": " https://leetcode.com/problems/trapping-rain-water"
+    },
+    {
+        "ID": "70",
+        "Title": "Climbing Stairs",
+        "Acceptance": "47.8%",
+        "Difficulty": "Easy",
+        "Frequency": "0.009185162673517763",
+        "Leetcode Question Link": " https://leetcode.com/problems/climbing-stairs"
+    },
+    {
+        "ID": "151",
+        "Title": "Reverse Words in a String",
+        "Acceptance": "21.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.0034304043397445187",
+        "Leetcode Question Link": " https://leetcode.com/problems/reverse-words-in-a-string"
+    },
+    {
+        "ID": "21",
+        "Title": "Merge Two Sorted Lists",
+        "Acceptance": "53.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.002158080146984904",
+        "Leetcode Question Link": " https://leetcode.com/problems/merge-two-sorted-lists"
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "ID": "268",
+        "Title": "Missing Number",
+        "Acceptance": "51.7%",
+        "Difficulty": "Easy",
+        "Frequency": "0.2527134652732994",
+        "Leetcode Question Link": " https://leetcode.com/problems/missing-number"
+    },
+    {
+        "ID": "165",
+        "Title": "Compare Version Numbers",
+        "Acceptance": "27.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.2071910405067907",
+        "Leetcode Question Link": " https://leetcode.com/problems/compare-version-numbers"
+    },
+    {
+        "ID": "37",
+        "Title": "Sudoku Solver",
+        "Acceptance": "43.6%",
+        "Difficulty": "Hard",
+        "Frequency": "0.1087554815281622",
+        "Leetcode Question Link": " https://leetcode.com/problems/sudoku-solver"
+    },
+    {
+        "ID": "21",
+        "Title": "Merge Two Sorted Lists",
+        "Acceptance": "53.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.10492581036140783",
+        "Leetcode Question Link": " https://leetcode.com/problems/merge-two-sorted-lists"
+    },
+    {
+        "ID": "200",
+        "Title": "Number of Islands",
+        "Acceptance": "46.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.006490251382779317",
+        "Leetcode Question Link": " https://leetcode.com/problems/number-of-islands"
+    }
+]

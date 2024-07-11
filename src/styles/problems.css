@@ -61,6 +61,8 @@
   flex-direction: column;
   width: 100%;
   color: var(--font-color);
+  border-radius: 8px;
+  overflow-x: auto;
 }
 
 .table-header, .table-row {
@@ -68,7 +70,6 @@
   justify-content: space-between;
   padding: 15px;
   background-color: var(--secondary-color);
-  border-radius: 8px;
   font-weight: bold;
 }
 

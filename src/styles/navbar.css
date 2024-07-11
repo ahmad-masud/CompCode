@@ -14,11 +14,6 @@
     gap: 10px;
 }
 
-.left img {
-    width: 40px;
-    height: 40px;
-}
-
 .left p {
     font-size: 1.5rem;
     font-weight: bold;
@@ -29,6 +24,7 @@
     display: flex;
     margin-right: 10px;
     gap: 10px;
+    align-items: center;
 }
 
 .login-button {
@@ -42,8 +38,8 @@
 }
 
 .user-avatar {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: var(--background-color);
 }

@@ -1,0 +1,74 @@
+[
+    {
+        "ID": "301",
+        "Title": "Remove Invalid Parentheses",
+        "Acceptance": "43.3%",
+        "Difficulty": "Hard",
+        "Frequency": "0.13310393847431484",
+        "Leetcode Question Link": " https://leetcode.com/problems/remove-invalid-parentheses"
+    },
+    {
+        "ID": "1190",
+        "Title": "Reverse Substrings Between Each Pair of Parentheses",
+        "Acceptance": "61.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0.09928670042921932",
+        "Leetcode Question Link": " https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses"
+    },
+    {
+        "ID": "55",
+        "Title": "Jump Game",
+        "Acceptance": "34.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0.059854228581496645",
+        "Leetcode Question Link": " https://leetcode.com/problems/jump-game"
+    },
+    {
+        "ID": "253",
+        "Title": "Meeting Rooms II",
+        "Acceptance": "45.7%",
+        "Difficulty": "Medium",
+        "Frequency": "0.04945628059066218",
+        "Leetcode Question Link": " https://leetcode.com/problems/meeting-rooms-ii"
+    },
+    {
+        "ID": "227",
+        "Title": "Basic Calculator II",
+        "Acceptance": "36.9%",
+        "Difficulty": "Medium",
+        "Frequency": "0.04870104158125306",
+        "Leetcode Question Link": " https://leetcode.com/problems/basic-calculator-ii"
+    },
+    {
+        "ID": "759",
+        "Title": "Employee Free Time",
+        "Acceptance": "66.3%",
+        "Difficulty": "Hard",
+        "Frequency": "0.04861224405509378",
+        "Leetcode Question Link": " https://leetcode.com/problems/employee-free-time"
+    },
+    {
+        "ID": "56",
+        "Title": "Merge Intervals",
+        "Acceptance": "39.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0.04173304225331761",
+        "Leetcode Question Link": " https://leetcode.com/problems/merge-intervals"
+    },
+    {
+        "ID": "20",
+        "Title": "Valid Parentheses",
+        "Acceptance": "39.0%",
+        "Difficulty": "Easy",
+        "Frequency": "0.0023005704055949323",
+        "Leetcode Question Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+        "ID": "15",
+        "Title": "3Sum",
+        "Acceptance": "26.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.0021990113314367685",
+        "Leetcode Question Link": " https://leetcode.com/problems/3sum"
+    }
+]

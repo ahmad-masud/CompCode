@@ -1,0 +1,170 @@
+[
+    {
+        "ID": "740",
+        "Title": "Delete and Earn",
+        "Acceptance": "48.6%",
+        "Difficulty": "Medium",
+        "Frequency": "2.0469337965260492",
+        "Leetcode Question Link": " https://leetcode.com/problems/delete-and-earn"
+    },
+    {
+        "ID": "366",
+        "Title": "Find Leaves of Binary Tree",
+        "Acceptance": "70.6%",
+        "Difficulty": "Medium",
+        "Frequency": "1.492934381312693",
+        "Leetcode Question Link": " https://leetcode.com/problems/find-leaves-of-binary-tree"
+    },
+    {
+        "ID": "547",
+        "Title": "Friend Circles",
+        "Acceptance": "58.6%",
+        "Difficulty": "Medium",
+        "Frequency": "0.9389349660993366",
+        "Leetcode Question Link": " https://leetcode.com/problems/friend-circles"
+    },
+    {
+        "ID": "1010",
+        "Title": "Pairs of Songs With Total Durations Divisible by 60",
+        "Acceptance": "47.4%",
+        "Difficulty": "Easy",
+        "Frequency": "0.8080712743639388",
+        "Leetcode Question Link": " https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60"
+    },
+    {
+        "ID": "41",
+        "Title": "First Missing Positive",
+        "Acceptance": "32.0%",
+        "Difficulty": "Hard",
+        "Frequency": "0.5197501329149874",
+        "Leetcode Question Link": " https://leetcode.com/problems/first-missing-positive"
+    },
+    {
+        "ID": "28",
+        "Title": "Implement strStr()",
+        "Acceptance": "34.5%",
+        "Difficulty": "Easy",
+        "Frequency": "0.49430861720878383",
+        "Leetcode Question Link": " https://leetcode.com/problems/implement-strstr"
+    },
+    {
+        "ID": "133",
+        "Title": "Clone Graph",
+        "Acceptance": "34.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0.4466221331933528",
+        "Leetcode Question Link": " https://leetcode.com/problems/clone-graph"
+    },
+    {
+        "ID": "75",
+        "Title": "Sort Colors",
+        "Acceptance": "47.3%",
+        "Difficulty": "Medium",
+        "Frequency": "0.4245095320511369",
+        "Leetcode Question Link": " https://leetcode.com/problems/sort-colors"
+    },
+    {
+        "ID": "285",
+        "Title": "Inorder Successor in BST",
+        "Acceptance": "40.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.36133895646771014",
+        "Leetcode Question Link": " https://leetcode.com/problems/inorder-successor-in-bst"
+    },
+    {
+        "ID": "10",
+        "Title": "Regular Expression Matching",
+        "Acceptance": "26.8%",
+        "Difficulty": "Hard",
+        "Frequency": "0.15934409022264243",
+        "Leetcode Question Link": " https://leetcode.com/problems/regular-expression-matching"
+    },
+    {
+        "ID": "214",
+        "Title": "Shortest Palindrome",
+        "Acceptance": "29.8%",
+        "Difficulty": "Hard",
+        "Frequency": "0.07220456924739427",
+        "Leetcode Question Link": " https://leetcode.com/problems/shortest-palindrome"
+    },
+    {
+        "ID": "347",
+        "Title": "Top K Frequent Elements",
+        "Acceptance": "61.2%",
+        "Difficulty": "Medium",
+        "Frequency": "0.05152828440155634",
+        "Leetcode Question Link": " https://leetcode.com/problems/top-k-frequent-elements"
+    },
+    {
+        "ID": "139",
+        "Title": "Word Break",
+        "Acceptance": "40.1%",
+        "Difficulty": "Medium",
+        "Frequency": "0.03329941406904932",
+        "Leetcode Question Link": " https://leetcode.com/problems/word-break"
+    },
+    {
+        "ID": "269",
+        "Title": "Alien Dictionary",
+        "Acceptance": "33.3%",
+        "Difficulty": "Hard",
+        "Frequency": "0.027110094009475887",
+        "Leetcode Question Link": " https://leetcode.com/problems/alien-dictionary"
+    },
+    {
+        "ID": "215",
+        "Title": "Kth Largest Element in an Array",
+        "Acceptance": "55.4%",
+        "Difficulty": "Medium",
+        "Frequency": "0.00838696557248326",
+        "Leetcode Question Link": " https://leetcode.com/problems/kth-largest-element-in-an-array"
+    },
+    {
+        "ID": "772",
+        "Title": "Basic Calculator III",
+        "Acceptance": "41.3%",
+        "Difficulty": "Hard",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/basic-calculator-iii"
+    },
+    {
+        "ID": "442",
+        "Title": "Find All Duplicates in an Array",
+        "Acceptance": "67.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/find-all-duplicates-in-an-array"
+    },
+    {
+        "ID": "380",
+        "Title": "Insert Delete GetRandom O(1)",
+        "Acceptance": "47.5%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/insert-delete-getrandom-o1"
+    },
+    {
+        "ID": "424",
+        "Title": "Longest Repeating Character Replacement",
+        "Acceptance": "47.0%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/longest-repeating-character-replacement"
+    },
+    {
+        "ID": "600",
+        "Title": "Non-negative Integers without Consecutive Ones",
+        "Acceptance": "34.1%",
+        "Difficulty": "Hard",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/non-negative-integers-without-consecutive-ones"
+    },
+    {
+        "ID": "692",
+        "Title": "Top K Frequent Words",
+        "Acceptance": "51.8%",
+        "Difficulty": "Medium",
+        "Frequency": "0",
+        "Leetcode Question Link": " https://leetcode.com/problems/top-k-frequent-words"
+    }
+]
