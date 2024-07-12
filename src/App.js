@@ -18,8 +18,8 @@ const App = () => {
       <Router>
         <Navbar user={user} onUserChange={handleUserChange} />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/problems' element={<Companies user={user} />} />
+          <Route path='/CompCode/' element={<Home />} />
+          <Route path='/CompCode/problems' element={<Companies user={user} />} />
         </Routes>
         <Footer />
       </Router>
