@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import '../styles/navbar.css';
 import { auth, provider } from '../config/firebase-config';
 import { signInWithPopup, signOut } from 'firebase/auth';
+import Google from '../content/images/google.webp'
+import Tooltip from '@mui/material/Tooltip';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ user, onUserChange }) => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'auto');
@@ -59,26 +62,34 @@ const Navbar = ({ user, onUserChange }) => {
     <div className='navbar'>
       <div className='left'>
         <p>CompCode</p>
+        <Link className='nav-link' to='/'>Home</Link>
+        <Link className='nav-link' to='/problems'>Problems</Link>
       </div>
       <div className='right'>
-        <button className='color-button' onClick={handleThemeChange}>
-          {theme === 'auto' ? <i className="fa-solid fa-circle-half-stroke"></i> : 
-           theme === 'dark' ? <i className="fa-solid fa-moon"></i> : 
-           <i className="fa-solid fa-sun"></i>}
-        </button>
+        <Tooltip title="Color Mode">
+          <button className='color-button' onClick={handleThemeChange}>
+            {theme === 'auto' ? <i className="fa-solid fa-circle-half-stroke"></i> : 
+            theme === 'dark' ? <i className="fa-solid fa-moon"></i> : 
+            <i className="fa-solid fa-sun"></i>}
+          </button>
+        </Tooltip>
         {user ? (
           <div className='user-profile'>
             <img src={user.photoURL} alt='User' className='user-avatar' />
           </div>
         ) : (
-          <button className='login-button' onClick={handleLogin}>
-            <i className="fa-solid fa-right-to-bracket"></i>
-          </button>
+          <Tooltip title="Google Login">
+            <button className='login-button' onClick={handleLogin}>
+              <img src={Google} alt="google"/>
+            </button>
+          </Tooltip>
         )}
         {user && (
-          <button className='login-button' onClick={handleLogout}>
-            <i className="fa-solid fa-right-from-bracket"></i>
-          </button>
+          <Tooltip title="Logout">
+            <button className='login-button' onClick={handleLogout}>
+              <i className="fa-solid fa-right-from-bracket"></i>
+            </button>
+          </Tooltip>
         )}
       </div>
     </div>

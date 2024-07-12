@@ -7,6 +7,7 @@ const Problems = ({ company, user, onClose }) => {
   const [problems, setProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [sortConfig, setSortConfig] = useState({ key: 'Difficulty', direction: 'ascending' });
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     import(`../content/problems/${company}.json`)
@@ -97,7 +98,15 @@ const Problems = ({ company, user, onClose }) => {
     return <i className="fa-solid fa-sort-up"></i>;
   };
 
-  const completedCount = problems.reduce((count, problem) => {
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredProblems = problems.filter(problem =>
+    problem.ID.toString().includes(searchTerm) || problem.Title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const completedCount = filteredProblems.reduce((count, problem) => {
     if (completedProblems[problem.ID]) {
       return count + 1;
     }
@@ -109,7 +118,17 @@ const Problems = ({ company, user, onClose }) => {
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="overlay-content">
         <button className="close-button" onClick={onClose}><i className="fa-solid fa-xmark"></i></button>
-        <h2>LeetCode Problems for {company[0].toUpperCase() + company.slice(1)}: {completedCount}/{problems.length} Completed</h2>
+        <h2>{company[0].toUpperCase() + company.slice(1)}</h2>
+        <p className="solved-count">({completedCount}/{filteredProblems.length})</p>
+        <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/filteredProblems.length) * 100}%` }}></div></div>
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search by ID or Title..."
+            value={searchTerm}
+            onChange={handleSearch}
+          />
+        </div>
         <div className="problem-table">
           <div className="table-header">
             <div>Status</div>
@@ -119,7 +138,7 @@ const Problems = ({ company, user, onClose }) => {
             <div>Difficulty <button className="sort-button" onClick={() => sortProblems('Difficulty')}>{getSortIcon('Difficulty')}</button></div>
             <div>Frequency <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button></div>
           </div>
-          {problems.map((problem, index) => (
+          {filteredProblems.map((problem, index) => (
             <div className="table-row" key={index}>
               <div>
                 <input

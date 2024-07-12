@@ -1,0 +1,62 @@
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1200px; 
+}
+
+.hero-text {
+    margin-bottom: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--font-color); 
+    margin-bottom: 1rem;
+}
+
+.hero-overview {
+    font-size: 2rem;
+    color: var(--font-color); 
+    margin-bottom: 2rem;
+}
+
+.hero-link {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.hero-link:hover {
+    background-color: #45a049;
+}
+
+.hero-logo {
+    font-size: 10rem;
+    color: #4CAF50;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

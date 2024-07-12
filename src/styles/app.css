@@ -2,14 +2,12 @@
   --background-color: white;
   --secondary-color: #f1f1f1;
   --font-color: black;
-  --logo-color: none;
 }
 
 :root.dark {
   --background-color: #333;
   --secondary-color: #444;
   --font-color: white;
-  --logo-color: invert(100%) sepia(0%) saturate(7495%) hue-rotate(204deg) brightness(101%) contrast(101%);
 }
 
 body {
@@ -26,4 +24,5 @@ body {
 * {
   margin: 0;
   padding: 0;
+  transition: background 200ms ease-in-out;
 }

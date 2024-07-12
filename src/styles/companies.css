@@ -15,7 +15,9 @@
 }
 
 .companies-page {
-  padding: 20px;
+  margin: 20px auto;
+  width: calc(100% - 20px);
+  max-width: 1200px;
 }
 
 .company-table {
@@ -72,7 +74,7 @@
 
 .company-table td button {
   margin-left: 10px;
-  background: RoyalBlue;
+  background: #4CAF50;
   border-radius: 8px;
   padding: 5px;
   transition: filter 200ms ease-in-out;
@@ -92,5 +94,5 @@
 }
 
 .easy {
-  color: rgb(82, 165, 82);
+  color: #4CAF50;
 }
