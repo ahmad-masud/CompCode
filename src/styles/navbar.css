@@ -44,6 +44,7 @@
     padding: 5px;
     border: none;
     border-radius: 5px;
+    font-size: 1.5rem;
     cursor: pointer;
     color: var(--font-color);
     background: transparent;
