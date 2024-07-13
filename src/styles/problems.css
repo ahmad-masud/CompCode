@@ -29,7 +29,7 @@
   width: 90%;
   max-width: 1200px;
   height: 80%;
-  overflow-y: auto;
+  overflow: auto;
 }
 
 .overlay-content h2 {

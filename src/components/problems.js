@@ -118,7 +118,7 @@ const Problems = ({ company, user, onClose }) => {
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="overlay-content">
         <button className="close-button" onClick={onClose}><i className="fa-solid fa-xmark"></i></button>
-        <h2>{company[0].toUpperCase() + company.slice(1)}</h2>
+        <h2>{company.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase())}</h2>
         <p className="solved-count">({completedCount}/{filteredProblems.length})</p>
         <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/filteredProblems.length) * 100}%` }}></div></div>
         <div className="search-container">

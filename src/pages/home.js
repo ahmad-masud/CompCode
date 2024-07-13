@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/home.css';
 import { Link } from 'react-router-dom';
+import ReleaseNotes from '../components/release';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
                     <i className="fa-solid fa-code"></i>
                 </div>
             </div>
+            <ReleaseNotes />
         </div>
     );
 };
