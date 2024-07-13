@@ -23,20 +23,20 @@ CompCode is a web application designed to help you prepare for coding interviews
 ### Installation
 
 1. **Clone the repository:**
-   \`\`\`bash
+   ```sh
    git clone https://github.com/ahmad-masud/CompCode.git
    cd CompCode
-   \`\`\`
+   ```
 
 2. **Install dependencies:**
-   \`\`\`bash
+   ```sh
    npm install
-   \`\`\`
+   ```
 
 3. **Set up Firebase configuration:**
-   - Create a \`firebase-config.js\` file in the \`src/config\` directory.
+   - Create a `firebase-config.js` file in the `src/config`directory.
    - Add your Firebase configuration:
-     \`\`\`javascript
+     ```js
      import { initializeApp } from 'firebase/app';
      import { getAuth, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
      import { getFirestore } from 'firebase/firestore';
@@ -57,24 +57,12 @@ CompCode is a web application designed to help you prepare for coding interviews
      const firestore = getFirestore(app);
 
      export { auth, googleProvider, githubProvider, firestore };
-     \`\`\`
-
-4. **Set up environment variables:**
-   - Create a \`.env\` file in the root directory.
-   - Add your environment variables:
-     \`\`\`env
-     REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
-     REACT_APP_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
-     REACT_APP_FIREBASE_PROJECT_ID=your_firebase_project_id
-     REACT_APP_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
-     REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
-     REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
-     \`\`\`
+     ```
 
 5. **Run the application:**
-   \`\`\`bash
+   ```sh
    npm start
-   \`\`\`
+   ```
 
 ## License
 Distributed under the MIT License. See [MIT License](LICENSE) for more information.
