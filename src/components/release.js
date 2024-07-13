@@ -7,7 +7,7 @@ const ReleaseNotes = () => {
 
     useEffect(() => {
         import('../content/release.json')
-            .then((data) => setReleases(data.default.sort((a, b) => new Date(b.date) - new Date(a.date))))
+            .then((data) => setReleases(data.default.reverse()))
             .catch((error) => console.error("Error loading JSON data: ", error));
     }, [releases]);
 
