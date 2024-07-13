@@ -7,7 +7,7 @@ const ReleaseNotes = () => {
 
     useEffect(() => {
         import('../content/release.json')
-            .then((data) => setReleases(data.default.reverse()))
+            .then((data) => setReleases(data.default))
             .catch((error) => console.error("Error loading JSON data: ", error));
     }, [releases]);
 

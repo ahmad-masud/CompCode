@@ -1,26 +1,26 @@
 [
     {
-        "date": "2024-07-09",
-        "comment": "Initial release"
-    },
-    {
-        "date": "2024-07-09",
-        "comment": "Added most popular companies's LeetCode questions including their difficulties, frequencies, and acceptance rate"
-    },
-    {
-        "date": "2024-07-10",
-        "comment": "Added problems page for tracking all problems found for each corresponding company"
-    },
-    {
-        "date": "2024-07-10",
-        "comment": "Implemented local storage to handle dark mode, light mode and auto color mode"
+        "date": "2024-07-11",
+        "comment": "Added home page, that includes release notes"
     },
     {
         "date": "2024-07-11",
         "comment": "Implemented google authentication to save completed user problems in the cloud"
     },
     {
-        "date": "2024-07-11",
-        "comment": "Added home page, that includes release notes"
+        "date": "2024-07-10",
+        "comment": "Implemented local storage to handle dark mode, light mode and auto color mode"
+    },
+    {
+        "date": "2024-07-10",
+        "comment": "Added problems page for tracking all problems found for each corresponding company"
+    },
+    {
+        "date": "2024-07-09",
+        "comment": "Added most popular companies's LeetCode questions including their difficulties, frequencies, and acceptance rate"
+    },
+    {
+        "date": "2024-07-09",
+        "comment": "Initial release"
     }
 ]
