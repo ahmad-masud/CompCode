@@ -1,5 +1,6 @@
-
 # CompCode
+
+![compcode](/resources/compcode.gif)
 
 CompCode is a web application designed to help you prepare for coding interviews by solving commonly asked LeetCode problems from various popular companies. The app provides a user-friendly interface to browse, solve, and track your progress on these problems.
 
