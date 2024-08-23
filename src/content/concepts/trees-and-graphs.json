@@ -1,0 +1,51 @@
+[
+    {
+      "ID": "102",
+      "Title": "Binary Tree Level Order Traversal",
+      "Acceptance": "58.4%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+    },
+    {
+      "ID": "98",
+      "Title": "Validate Binary Search Tree",
+      "Acceptance": "27.6%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/validate-binary-search-tree/"
+    },
+    {
+      "ID": "236",
+      "Title": "Lowest Common Ancestor of a Binary Tree",
+      "Acceptance": "53.4%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+    },
+    {
+      "ID": "200",
+      "Title": "Number of Islands",
+      "Acceptance": "49.2%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/number-of-islands/"
+    },
+    {
+      "ID": "133",
+      "Title": "Clone Graph",
+      "Acceptance": "40.3%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/clone-graph/"
+    },
+    {
+      "ID": "207",
+      "Title": "Course Schedule",
+      "Acceptance": "41.8%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/course-schedule/"
+    },
+    {
+      "ID": "127",
+      "Title": "Word Ladder",
+      "Acceptance": "26.7%",
+      "Difficulty": "Hard",
+      "Leetcode Question Link": "https://leetcode.com/problems/word-ladder/"
+    }
+]

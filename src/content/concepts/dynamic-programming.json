@@ -1,0 +1,44 @@
+[
+    {
+      "ID": "70",
+      "Title": "Climbing Stairs",
+      "Acceptance": "60.4%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/climbing-stairs/"
+    },
+    {
+      "ID": "198",
+      "Title": "House Robber",
+      "Acceptance": "45.8%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/house-robber/"
+    },
+    {
+      "ID": "322",
+      "Title": "Coin Change",
+      "Acceptance": "40.8%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/coin-change/"
+    },
+    {
+      "ID": "139",
+      "Title": "Word Break",
+      "Acceptance": "47.5%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/word-break/"
+    },
+    {
+      "ID": "300",
+      "Title": "Longest Increasing Subsequence",
+      "Acceptance": "44.9%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/longest-increasing-subsequence/"
+    },
+    {
+      "ID": "53",
+      "Title": "Maximum Subarray",
+      "Acceptance": "46.5%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/maximum-subarray/"
+    }
+]

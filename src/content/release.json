@@ -1,5 +1,9 @@
 [
     {
+        "date": "2024-08-22",
+        "comment": "Added concepts page, to practice important dsa concepts"
+    },
+    {
         "date": "2024-07-11",
         "comment": "Added home page, that includes release notes"
     },
