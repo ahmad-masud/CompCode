@@ -1,0 +1,44 @@
+[
+    {
+      "ID": "20",
+      "Title": "Valid Parentheses",
+      "Acceptance": "39.3%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/valid-parentheses/"
+    },
+    {
+      "ID": "232",
+      "Title": "Implement Queue using Stacks",
+      "Acceptance": "52.4%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/implement-queue-using-stacks/"
+    },
+    {
+      "ID": "155",
+      "Title": "Min Stack",
+      "Acceptance": "51.1%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/min-stack/"
+    },
+    {
+      "ID": "94",
+      "Title": "Binary Tree Inorder Traversal",
+      "Acceptance": "66.6%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/binary-tree-inorder-traversal/"
+    },
+    {
+      "ID": "84",
+      "Title": "Largest Rectangle in Histogram",
+      "Acceptance": "37.5%",
+      "Difficulty": "Hard",
+      "Leetcode Question Link": "https://leetcode.com/problems/largest-rectangle-in-histogram/"
+    },
+    {
+      "ID": "239",
+      "Title": "Sliding Window Maximum",
+      "Acceptance": "44.4%",
+      "Difficulty": "Hard",
+      "Leetcode Question Link": "https://leetcode.com/problems/sliding-window-maximum/"
+    }
+]

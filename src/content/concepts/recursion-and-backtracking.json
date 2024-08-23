@@ -1,0 +1,44 @@
+[
+    {
+      "ID": "17",
+      "Title": "Letter Combinations of a Phone Number",
+      "Acceptance": "49.7%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+    },
+    {
+      "ID": "46",
+      "Title": "Permutations",
+      "Acceptance": "73.3%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/permutations/"
+    },
+    {
+      "ID": "78",
+      "Title": "Subsets",
+      "Acceptance": "70.3%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/subsets/"
+    },
+    {
+      "ID": "39",
+      "Title": "Combination Sum",
+      "Acceptance": "71.4%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/combination-sum/"
+    },
+    {
+      "ID": "51",
+      "Title": "N-Queens",
+      "Acceptance": "59.3%",
+      "Difficulty": "Hard",
+      "Leetcode Question Link": "https://leetcode.com/problems/n-queens/"
+    },
+    {
+      "ID": "79",
+      "Title": "Word Search",
+      "Acceptance": "42.9%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/word-search/"
+    }
+]

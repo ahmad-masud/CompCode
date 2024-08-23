@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/companies.css'; // Import CSS file for styles
+import '../styles/companies.css';
 import { firestore } from '../config/firebase-config';
 import { doc, getDoc } from 'firebase/firestore';
 import Problems from '../components/problems';
@@ -10,7 +10,7 @@ const average = (array) => {
   return sum / array.length;
 };
 
-const Companies = ({ user }) => {
+const Concepts = ({ user }) => {
   const [companiesData, setCompaniesData] = useState([]);
   const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'ascending' });
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,11 +24,11 @@ const Companies = ({ user }) => {
 
   useEffect(() => {
     const fetchCompaniesData = async () => {
-      const context = require.context('../content/companies', false, /\.json$/);
+      const context = require.context('../content/concepts', false, /\.json$/);
       const companyNames = context.keys().map(fileName => fileName.match(/\.\/(.*)\.json/)[1]);
 
       const companiesInfo = companyNames.map(company => {
-        const data = require(`../content/companies/${company}.json`);
+        const data = require(`../content/concepts/${company}.json`);
         const acceptanceRates = data.map(problem => parseFloat(problem.Acceptance.replace('%', '')));
         const difficulties = data.map(problem => problem.Difficulty);
         const numProblems = data.length;
@@ -177,14 +177,14 @@ const Companies = ({ user }) => {
 
   return (
     <>
-      {openCompany && <Problems company={openCompany} onClose={handleClose} user={user} page={'companies'} />}
+      {openCompany && <Problems company={openCompany} onClose={handleClose} user={user} page={'concepts'} />}
       <div className="companies-page">
         <p className="solved-count">({completedCount}/{uniqueProblems.length})</p>
         <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/uniqueProblems.length) * 100}%` }}></div></div>
         <div className="search-container">
           <input
             type="text"
-            placeholder="Search companies..."
+            placeholder="Search concepts..."
             value={searchTerm}
             onChange={handleSearch}
           />
@@ -202,7 +202,16 @@ const Companies = ({ user }) => {
             <tbody>
               {filteredCompanies.map((company, index) => (
                 <tr key={index}>
-                  <td>{company.name.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase())} <button onClick={() => setOpenCompany(company.name.toLowerCase())}><i className="fa-solid fa-code"></i></button></td>
+                  <td>
+                    {company.name
+                      .split('-')
+                      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                      .join(' ')
+                    } 
+                    <button onClick={() => setOpenCompany(company.name.toLowerCase())}>
+                      <i className="fa-solid fa-code"></i>
+                    </button>
+                  </td>
                   <td>{company.avgAcceptance}</td>
                   <td>{company.numProblems}</td>
                   <td className={company.mostCommonDifficulty.toLowerCase()}>{company.mostCommonDifficulty}</td>
@@ -216,4 +225,4 @@ const Companies = ({ user }) => {
   );
 };
 
-export default Companies;
+export default Concepts;

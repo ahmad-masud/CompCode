@@ -63,7 +63,8 @@ const Navbar = ({ user, onUserChange }) => {
       <div className='left'>
         <p>CompCode</p>
         <Link className='nav-link' to='/CompCode/'>Home</Link>
-        <Link className='nav-link' to='/CompCode/problems'>Problems</Link>
+        <Link className='nav-link' to='/CompCode/companies'>Companies</Link>
+        <Link className='nav-link' to='/CompCode/concepts'>Concepts</Link>
       </div>
       <div className='right'>
         <Tooltip title="Color Mode">

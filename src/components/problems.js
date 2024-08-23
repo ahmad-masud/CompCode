@@ -3,14 +3,14 @@ import '../styles/problems.css'; // Import CSS file for styles
 import { firestore } from '../config/firebase-config';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 
-const Problems = ({ company, user, onClose }) => {
+const Problems = ({ company, user, onClose, page }) => {
   const [problems, setProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [sortConfig, setSortConfig] = useState({ key: 'Difficulty', direction: 'ascending' });
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    import(`../content/problems/${company}.json`)
+    import(`../content/${page}/${company}.json`)
       .then((data) => {
         const sortedData = data.default.sort((a, b) => {
           const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
@@ -21,7 +21,7 @@ const Problems = ({ company, user, onClose }) => {
       .catch((error) => {
         console.error("Error loading JSON data: ", error);
       });
-  }, [company]);
+  }, [page, company]);
 
   useEffect(() => {
     if (user) {
@@ -118,7 +118,13 @@ const Problems = ({ company, user, onClose }) => {
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="overlay-content">
         <button className="close-button" onClick={onClose}><i className="fa-solid fa-xmark"></i></button>
-        <h2>{company.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase())}</h2>
+        <h2>
+          {company
+            .split('-')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ')
+          }
+        </h2>
         <p className="solved-count">({completedCount}/{filteredProblems.length})</p>
         <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/filteredProblems.length) * 100}%` }}></div></div>
         <div className="search-container">
@@ -136,7 +142,7 @@ const Problems = ({ company, user, onClose }) => {
             <div>Title <button className="sort-button" onClick={() => sortProblems('Title')}>{getSortIcon('Title')}</button></div>
             <div>Acceptance <button className="sort-button" onClick={() => sortProblems('Acceptance')}>{getSortIcon('Acceptance')}</button></div>
             <div>Difficulty <button className="sort-button" onClick={() => sortProblems('Difficulty')}>{getSortIcon('Difficulty')}</button></div>
-            <div>Frequency <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button></div>
+            {page === 'companies' && <div>Frequency <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button></div>}
           </div>
           {filteredProblems.map((problem, index) => (
             <div className="table-row" key={index}>
@@ -155,7 +161,7 @@ const Problems = ({ company, user, onClose }) => {
               </div>
               <div>{problem.Acceptance}</div>
               <div className={problem.Difficulty.toLowerCase()}>{problem.Difficulty}</div>
-              <div>{Math.round(problem.Frequency * 100) / 100}</div>
+              {page === 'companies' && <div>{Math.round(problem.Frequency * 100) / 100}</div>}
             </div>
           ))}
         </div>
