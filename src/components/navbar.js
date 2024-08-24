@@ -61,10 +61,12 @@ const Navbar = ({ user, onUserChange }) => {
   return (
     <div className='navbar'>
       <div className='left'>
-        <p>CompCode</p>
+        <i className="fa-solid fa-code"></i>
         <Link className='nav-link' to='/CompCode/'>Home</Link>
         <Link className='nav-link' to='/CompCode/companies'>Companies</Link>
-        <Link className='nav-link' to='/CompCode/concepts'>Concepts</Link>
+        <Link className='nav-link' to='/CompCode/datastructures'>Data Structures</Link>
+        <Link className='nav-link' to='/CompCode/algorithms'>Algorithms</Link>
+        <Link className='nav-link' to='/CompCode/misc'>Misc</Link>
       </div>
       <div className='right'>
         <Tooltip title="Color Mode">

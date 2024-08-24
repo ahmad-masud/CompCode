@@ -10,7 +10,7 @@ const average = (array) => {
   return sum / array.length;
 };
 
-const Concepts = ({ user }) => {
+const Algorithms = ({ user }) => {
   const [companiesData, setCompaniesData] = useState([]);
   const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'ascending' });
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,11 +24,11 @@ const Concepts = ({ user }) => {
 
   useEffect(() => {
     const fetchCompaniesData = async () => {
-      const context = require.context('../content/concepts', false, /\.json$/);
+      const context = require.context('../content/algorithms', false, /\.json$/);
       const companyNames = context.keys().map(fileName => fileName.match(/\.\/(.*)\.json/)[1]);
 
       const companiesInfo = companyNames.map(company => {
-        const data = require(`../content/concepts/${company}.json`);
+        const data = require(`../content/algorithms/${company}.json`);
         const acceptanceRates = data.map(problem => parseFloat(problem.Acceptance.replace('%', '')));
         const difficulties = data.map(problem => problem.Difficulty);
         const numProblems = data.length;
@@ -177,14 +177,14 @@ const Concepts = ({ user }) => {
 
   return (
     <>
-      {openCompany && <Problems company={openCompany} onClose={handleClose} user={user} page={'concepts'} />}
+      {openCompany && <Problems company={openCompany} onClose={handleClose} user={user} page={'algorithms'} />}
       <div className="companies-page">
         <p className="solved-count">({completedCount}/{uniqueProblems.length})</p>
         <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/uniqueProblems.length) * 100}%` }}></div></div>
         <div className="search-container">
           <input
             type="text"
-            placeholder="Search concepts..."
+            placeholder="Search algorithms..."
             value={searchTerm}
             onChange={handleSearch}
           />
@@ -225,4 +225,4 @@ const Concepts = ({ user }) => {
   );
 };
 
-export default Concepts;
+export default Algorithms;

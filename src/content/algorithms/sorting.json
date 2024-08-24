@@ -1,0 +1,72 @@
+[
+    {
+      "ID": "912",
+      "Title": "Sort an Array",
+      "Acceptance": "64.5%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/sort-an-array/"
+    },
+    {
+      "ID": "56",
+      "Title": "Merge Intervals",
+      "Acceptance": "46.7%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/merge-intervals/"
+    },
+    {
+      "ID": "75",
+      "Title": "Sort Colors",
+      "Acceptance": "60.8%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/sort-colors/"
+    },
+    {
+      "ID": "148",
+      "Title": "Sort List",
+      "Acceptance": "60.6%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/sort-list/"
+    },
+    {
+      "ID": "315",
+      "Title": "Count of Smaller Numbers After Self",
+      "Acceptance": "41.5%",
+      "Difficulty": "Hard",
+      "Leetcode Question Link": "https://leetcode.com/problems/count-of-smaller-numbers-after-self/"
+    },
+    {
+      "ID": "164",
+      "Title": "Maximum Gap",
+      "Acceptance": "37.5%",
+      "Difficulty": "Hard",
+      "Leetcode Question Link": "https://leetcode.com/problems/maximum-gap/"
+    },
+    {
+      "ID": "88",
+      "Title": "Merge Sorted Array",
+      "Acceptance": "46.3%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/merge-sorted-array/"
+    },
+    {
+      "ID": "179",
+      "Title": "Largest Number",
+      "Acceptance": "33.5%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/largest-number/"
+    },
+    {
+      "ID": "280",
+      "Title": "Wiggle Sort",
+      "Acceptance": "64.5%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/wiggle-sort/"
+    },
+    {
+      "ID": "912",
+      "Title": "Sort an Array",
+      "Acceptance": "64.5%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/sort-an-array/"
+    }
+]
