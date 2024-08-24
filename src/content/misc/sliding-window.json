@@ -1,0 +1,37 @@
+[
+    {
+      "ID": "3",
+      "Title": "Longest Substring Without Repeating Characters",
+      "Acceptance": "36.2%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+    },
+    {
+      "ID": "76",
+      "Title": "Minimum Window Substring",
+      "Acceptance": "39.0%",
+      "Difficulty": "Hard",
+      "Leetcode Question Link": "https://leetcode.com/problems/minimum-window-substring/"
+    },
+    {
+      "ID": "209",
+      "Title": "Minimum Size Subarray Sum",
+      "Acceptance": "46.5%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/minimum-size-subarray-sum/"
+    },
+    {
+      "ID": "438",
+      "Title": "Find All Anagrams in a String",
+      "Acceptance": "50.7%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+    },
+    {
+      "ID": "567",
+      "Title": "Permutation in String",
+      "Acceptance": "45.2%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/permutation-in-string/"
+    }
+]

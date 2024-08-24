@@ -1,0 +1,72 @@
+[
+    {
+      "ID": "206",
+      "Title": "Reverse Linked List",
+      "Acceptance": "68.9%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/reverse-linked-list/"
+    },
+    {
+      "ID": "141",
+      "Title": "Linked List Cycle",
+      "Acceptance": "47.8%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/linked-list-cycle/"
+    },
+    {
+      "ID": "21",
+      "Title": "Merge Two Sorted Lists",
+      "Acceptance": "63.5%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/merge-two-sorted-lists/"
+    },
+    {
+      "ID": "19",
+      "Title": "Remove Nth Node From End of List",
+      "Acceptance": "45.6%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+    },
+    {
+      "ID": "2",
+      "Title": "Add Two Numbers",
+      "Acceptance": "39.6%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/add-two-numbers/"
+    },
+    {
+      "ID": "160",
+      "Title": "Intersection of Two Linked Lists",
+      "Acceptance": "56.8%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/intersection-of-two-linked-lists/"
+    },
+    {
+      "ID": "234",
+      "Title": "Palindrome Linked List",
+      "Acceptance": "51.7%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/palindrome-linked-list/"
+    },
+    {
+      "ID": "203",
+      "Title": "Remove Linked List Elements",
+      "Acceptance": "46.9%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/remove-linked-list-elements/"
+    },
+    {
+      "ID": "92",
+      "Title": "Reverse Linked List II",
+      "Acceptance": "41.3%",
+      "Difficulty": "Medium",
+      "Leetcode Question Link": "https://leetcode.com/problems/reverse-linked-list-ii/"
+    },
+    {
+      "ID": "83",
+      "Title": "Remove Duplicates from Sorted List",
+      "Acceptance": "47.2%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/remove-duplicates-from-sorted-list/"
+    }
+]

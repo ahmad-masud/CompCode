@@ -1,5 +1,9 @@
 [
     {
+        "date": "2024-08-24",
+        "comment": "Modified concepts page to seperate ds and algos pages and misc concepts"
+    },
+    {
         "date": "2024-08-22",
         "comment": "Added concepts page, to practice important dsa concepts"
     },

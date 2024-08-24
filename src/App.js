@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Companies from './pages/companies';
-import Concepts from './pages/concepts';
+import DataStructures from './pages/datastructures';
+import Algorithms from './pages/algorithms';
+import Misc from './pages/misc';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 import './styles/app.css';
@@ -21,7 +23,9 @@ const App = () => {
         <Routes>
           <Route path='/CompCode/' element={<Home />} />
           <Route path='/CompCode/companies' element={<Companies user={user} />} />
-          <Route path='/CompCode/concepts' element={<Concepts user={user} />} />
+          <Route path='/CompCode/datastructures' element={<DataStructures user={user} />} />
+          <Route path='/CompCode/algorithms' element={<Algorithms user={user} />} />
+          <Route path='/CompCode/misc' element={<Misc user={user} />} />
         </Routes>
         <Footer />
       </Router>
