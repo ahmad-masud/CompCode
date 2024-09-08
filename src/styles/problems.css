@@ -155,3 +155,9 @@ input[type=checkbox] {
   font-weight: bold;
   color: var(--font-color);
 }
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

@@ -154,9 +154,12 @@ const Problems = ({ company, user, onClose, page }) => {
                 />
               </div>
               <div>{problem.ID}</div>
-              <div>
+              <div className='title'>
                 <a href={problem['Leetcode Question Link']} target="_blank" rel="noopener noreferrer">
                   {problem.Title} <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <a href={"https://www.youtube.com/results?search_query=leetcode+"+problem.ID} target="_blank" rel="noopener noreferrer">
+                    <i className="fa-brands fa-youtube"></i>
                 </a>
               </div>
               <div>{problem.Acceptance}</div>
