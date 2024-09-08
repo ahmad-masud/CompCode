@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/CompCode/static/css/main.686e2305.css",
-    "main.js": "/CompCode/static/js/main.40031329.js",
+    "main.css": "/CompCode/static/css/main.6cf631e8.css",
+    "main.js": "/CompCode/static/js/main.88f1f4ac.js",
     "static/js/872.5ff3f0ed.chunk.js": "/CompCode/static/js/872.5ff3f0ed.chunk.js",
     "static/js/453.d32080d5.chunk.js": "/CompCode/static/js/453.d32080d5.chunk.js",
     "static/media/google.webp": "/CompCode/static/media/google.a05d721bb9bba483749f.webp",
     "index.html": "/CompCode/index.html",
-    "main.686e2305.css.map": "/CompCode/static/css/main.686e2305.css.map",
-    "main.40031329.js.map": "/CompCode/static/js/main.40031329.js.map",
+    "main.6cf631e8.css.map": "/CompCode/static/css/main.6cf631e8.css.map",
+    "main.88f1f4ac.js.map": "/CompCode/static/js/main.88f1f4ac.js.map",
     "453.d32080d5.chunk.js.map": "/CompCode/static/js/453.d32080d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.686e2305.css",
-    "static/js/main.40031329.js"
+    "static/css/main.6cf631e8.css",
+    "static/js/main.88f1f4ac.js"
   ]
 }
