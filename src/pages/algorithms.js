@@ -179,12 +179,12 @@ const Algorithms = ({ user }) => {
     <>
       {openCompany && <Problems company={openCompany} onClose={handleClose} user={user} page={'algorithms'} />}
       <div className="companies-page">
-        <p className="solved-count">({completedCount}/{uniqueProblems.length})</p>
+        <p className="solved-count">{completedCount} / {uniqueProblems.length}</p>
         <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/uniqueProblems.length) * 100}%` }}></div></div>
         <div className="search-container">
           <input
             type="text"
-            placeholder="Search algorithms..."
+            placeholder="Search"
             value={searchTerm}
             onChange={handleSearch}
           />

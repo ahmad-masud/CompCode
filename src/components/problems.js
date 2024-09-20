@@ -130,7 +130,7 @@ const Problems = ({ company, user, onClose, page }) => {
         <div className="search-container">
           <input
             type="text"
-            placeholder="Search by ID or Title..."
+            placeholder="Search"
             value={searchTerm}
             onChange={handleSearch}
           />
