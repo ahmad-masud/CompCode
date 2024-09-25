@@ -13,7 +13,7 @@ const Home = () => {
                     <Link to="/CompCode/companies" className='hero-link'>Start Leeting</Link>
                 </div>
                 <div className='hero-logo'>
-                    <i className="fa-solid fa-code"></i>
+                    <i className="fa-solid fa-meteor"></i>
                 </div>
             </div>
             <ReleaseNotes />

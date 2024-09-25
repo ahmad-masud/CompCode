@@ -13,7 +13,6 @@ const average = (array) => {
 const Misc = ({ user }) => {
   const [companiesData, setCompaniesData] = useState([]);
   const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'ascending' });
-  const [searchTerm, setSearchTerm] = useState('');
   const [uniqueProblems, setUniqueProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [openCompany, setOpenCompany] = useState("");
@@ -160,14 +159,6 @@ const Misc = ({ user }) => {
     return <i className="fa-solid fa-sort-up"></i>;
   };
 
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const filteredCompanies = companiesData.filter(company =>
-    company.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   const completedCount = uniqueProblems.reduce((count, problem) => {
     if (completedProblems[problem.ID]) {
       return count + 1;
@@ -179,16 +170,8 @@ const Misc = ({ user }) => {
     <>
       {openCompany && <Problems company={openCompany} onClose={handleClose} user={user} page={'misc'} />}
       <div className="companies-page">
-        <p className="solved-count">{completedCount} / {uniqueProblems.length}</p>
+        <p className="solved-count">{completedCount}<span> | {uniqueProblems.length}</span></p>
         <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/uniqueProblems.length) * 100}%` }}></div></div>
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={handleSearch}
-          />
-        </div>
         <div className="company-table">
           <table>
             <thead>
@@ -200,16 +183,15 @@ const Misc = ({ user }) => {
               </tr>
             </thead>
             <tbody>
-              {filteredCompanies.map((company, index) => (
+              {companiesData.map((company, index) => (
                 <tr key={index}>
                   <td>
-                    {company.name
-                      .split('-')
-                      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                      .join(' ')
-                    } 
                     <button onClick={() => setOpenCompany(company.name.toLowerCase())}>
-                      <i className="fa-solid fa-code"></i>
+                      {company.name
+                        .split('-')
+                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join(' ')
+                      } 
                     </button>
                   </td>
                   <td>{company.avgAcceptance}</td>

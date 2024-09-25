@@ -39,7 +39,7 @@
 }
 
 .hero-link {
-    background-color: #4CAF50;
+    background-color: tomato;
     color: white;
     border: none;
     padding: 1rem 2rem;
@@ -51,12 +51,12 @@
 }
 
 .hero-link:hover {
-    background-color: #45a049;
+    background-color: tomato;
 }
 
 .hero-logo {
     font-size: 10rem;
-    color: #4CAF50;
+    color: tomato;
     flex: 1;
     display: flex;
     justify-content: center;

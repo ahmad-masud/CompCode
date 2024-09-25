@@ -1,5 +1,6 @@
 .search-container {
   margin-bottom: 20px; /* Add some space below the search bar */
+  width: 100%;
 }
 
 .search-container input[type=text] {
@@ -18,14 +19,15 @@
   margin: 20px auto;
   width: calc(100% - 20px);
   max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .company-table {
   width: 100%;
   overflow-x: auto;
-  border-radius: 8px;
   color: var(--font-color);
-  font-weight: bold;
 }
 
 .company-table table {
@@ -40,9 +42,10 @@
 }
 
 .company-table th {
-  background-color: var(--secondary-color);
+  border-bottom: var(--secondary-color) 2px solid;
   color: var(--font-color);
-  font-weight: bold;
+  font-weight: 100;
+  filter: brightness(75%);
 }
 
 .company-table tbody tr:nth-child(even) {
@@ -73,26 +76,23 @@
 }
 
 .company-table td button {
-  margin-left: 10px;
-  background: #4CAF50;
-  border-radius: 8px;
-  padding: 5px;
-  transition: filter 200ms ease-in-out;
-  color: white;
+  transition: color 200ms ease-in-out;
+  color: var(--font-color);
+  font-size: 1rem;
 }
 
 .company-table td button:hover {
-  filter: brightness(0.9);
+  color: #007bff;
 }
 
 .hard {
-  color: red;
+  color: #FF375F;
 }
 
 .medium {
-  color: goldenrod;
+  color: #B98D1D;
 }
 
 .easy {
-  color: #4CAF50;
+  color: #00B8A3;
 }

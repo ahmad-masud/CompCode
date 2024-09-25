@@ -179,7 +179,7 @@ const Companies = ({ user }) => {
     <>
       {openCompany && <Problems company={openCompany} onClose={handleClose} user={user} page={'companies'} />}
       <div className="companies-page">
-        <p className="solved-count">{completedCount} / {uniqueProblems.length}</p>
+        <p className="solved-count">{completedCount}<span> | {uniqueProblems.length}</span></p>
         <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/uniqueProblems.length) * 100}%` }}></div></div>
         <div className="search-container">
           <input
@@ -202,7 +202,7 @@ const Companies = ({ user }) => {
             <tbody>
               {filteredCompanies.map((company, index) => (
                 <tr key={index}>
-                  <td>{company.name.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase())} <button onClick={() => setOpenCompany(company.name.toLowerCase())}><i className="fa-solid fa-code"></i></button></td>
+                  <td><button onClick={() => setOpenCompany(company.name.toLowerCase())}>{company.name.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase())}</button></td>
                   <td>{company.avgAcceptance}</td>
                   <td>{company.numProblems}</td>
                   <td className={company.mostCommonDifficulty.toLowerCase()}>{company.mostCommonDifficulty}</td>
