@@ -60,40 +60,42 @@ const Navbar = ({ user, onUserChange }) => {
 
   return (
     <div className='navbar'>
-      <div className='left'>
-        <i className="fa-solid fa-code"></i>
-        <Link className='nav-link' to='/CompCode/'>Home</Link>
-        <Link className='nav-link' to='/CompCode/companies'>Companies</Link>
-        <Link className='nav-link' to='/CompCode/datastructures'>Data Structures</Link>
-        <Link className='nav-link' to='/CompCode/algorithms'>Algorithms</Link>
-        <Link className='nav-link' to='/CompCode/misc'>Misc</Link>
-      </div>
-      <div className='right'>
-        <Tooltip title="Color Mode">
-          <button className='color-button' onClick={handleThemeChange}>
-            {theme === 'auto' ? <i className="fa-solid fa-circle-half-stroke"></i> : 
-            theme === 'dark' ? <i className="fa-solid fa-moon"></i> : 
-            <i className="fa-solid fa-sun"></i>}
-          </button>
-        </Tooltip>
-        {user ? (
-          <div className='user-profile'>
-            <img src={user.photoURL} alt='User' className='user-avatar' />
-          </div>
-        ) : (
-          <Tooltip title="Google Login">
-            <button className='login-button' onClick={handleLogin}>
-              <img src={Google} alt="google"/>
+      <div className='navbar-container'>
+        <div className='left'>
+          <i className="fa-solid fa-meteor"></i>
+          <Link className='nav-link' to='/CompCode/'>Home</Link>
+          <Link className='nav-link' to='/CompCode/companies'>Companies</Link>
+          <Link className='nav-link' to='/CompCode/datastructures'>Data Structures</Link>
+          <Link className='nav-link' to='/CompCode/algorithms'>Algorithms</Link>
+          <Link className='nav-link' to='/CompCode/misc'>Misc</Link>
+        </div>
+        <div className='right'>
+          <Tooltip title="Color Mode">
+            <button className='color-button' onClick={handleThemeChange}>
+              {theme === 'auto' ? <i className="bi bi-circle-half"></i> : 
+              theme === 'dark' ? <i className="bi bi-moon-fill"></i> : 
+              <i className="bi bi-brightness-high-fill"></i>}
             </button>
           </Tooltip>
-        )}
-        {user && (
-          <Tooltip title="Logout">
-            <button className='login-button' onClick={handleLogout}>
-              <i className="fa-solid fa-right-from-bracket"></i>
-            </button>
-          </Tooltip>
-        )}
+          {user ? (
+            <div className='user-profile'>
+              <img src={user.photoURL} alt='User' className='user-avatar' />
+            </div>
+          ) : (
+            <Tooltip title="Google Login">
+              <button className='login-button' onClick={handleLogin}>
+                <img src={Google} alt="google"/>
+              </button>
+            </Tooltip>
+          )}
+          {user && (
+            <Tooltip title="Logout">
+              <button className='login-button' onClick={handleLogout}>
+                <i className="bi bi-box-arrow-right"></i>
+              </button>
+            </Tooltip>
+          )}
+        </div>
       </div>
     </div>
   );

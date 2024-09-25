@@ -42,7 +42,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: red;
+  background-color: #FF375F;
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
@@ -61,24 +61,23 @@
   flex-direction: column;
   width: 100%;
   color: var(--font-color);
-  border-radius: 8px;
   overflow-x: auto;
+}
+
+.table-header {
+  border-bottom: var(--secondary-color) 2px solid;
+  color: var(--font-color);
+  font-weight: 100;
+}
+
+.table-header div {
+  filter: brightness(75%);
 }
 
 .table-header, .table-row {
   display: flex;
   justify-content: space-between;
   padding: 15px;
-  background-color: var(--secondary-color);
-  font-weight: bold;
-}
-
-.table-header {
-  font-weight: bold;
-}
-
-.table-row {
-  background-color: var(--background-color);
 }
 
 .table-row:nth-child(odd) {
@@ -94,24 +93,18 @@
 }
 
 .table-row a {
-  color: #007bff;
+  transition: color 200ms ease-in-out;
+  color: var(--font-color);
   text-decoration: none;
 }
 
+.solution-link a {
+  color: #007bff;
+  font-size: 1.25rem;
+}
+
 .table-row a:hover {
-  text-decoration: underline;
-}
-
-.hard {
-  color: red;
-}
-
-.medium {
-  color: goldenrod;
-}
-
-.easy {
-  color: rgb(82, 165, 82);
+  color: #007bff;
 }
 
 .fa-arrow-up-right-from-square {
@@ -126,22 +119,18 @@
   color: var(--font-color);
 }
 
-input[type=checkbox] {
-  transform: scale(1.25);
-}
-
 .progress-bar {
-  width: 100%;
-  height: 15px;
+  width: 50%;
+  height: 5px;
   background-color: var(--secondary-color);
   border-radius: 10px;
-  margin: 20px 0;
+  margin: 20px auto;
   overflow: hidden;
 }
 
 .progress {
   height: 100%;
-  background-color: #4CAF50;
+  background-color: #3FCA7D;
   transition: all 200ms ease-in-out;
 }
 
@@ -152,12 +141,26 @@ input[type=checkbox] {
 .solved-count {
   font-size: 1.5rem;
   text-align: center;
-  font-weight: bold;
   color: var(--font-color);
+}
+
+.solved-count span {
+  font-size: 1rem;
+  filter: brightness(50%);
 }
 
 .title {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.check button {
+  background: none;
+  border: none;
+}
+
+.check i {
+  font-size: 1.25rem;
+  color: #3FCA7D;
 }

@@ -5,8 +5,8 @@
 }
 
 :root.dark {
-  --background-color: #333;
-  --secondary-color: #444;
+  --background-color: #1A1A1A;
+  --secondary-color: #2A2A2A;
   --font-color: white;
 }
 
@@ -25,4 +25,27 @@ body {
   margin: 0;
   padding: 0;
   transition: background 200ms ease-in-out;
+}
+
+/* Style for the entire scrollbar */
+*::-webkit-scrollbar {
+  width: 12px;               /* Width of the scrollbar */
+}
+
+/* Style for the scrollbar track (background) */
+*::-webkit-scrollbar-track {
+  background: var(--secondary-color);       /* Light grey background */
+  border-radius: 10px;        /* Rounded corners */
+}
+
+/* Style for the scrollbar handle (thumb) */
+*::-webkit-scrollbar-thumb {
+  background-color: var(--background-color);     /* Dark grey color */
+  border-radius: 10px;        /* Rounded corners */
+  border: 3px solid var(--secondary-color); ;  /* Adds padding around thumb */
+}
+
+/* Style for the scrollbar on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #555;     /* Darker grey when hovering */
 }

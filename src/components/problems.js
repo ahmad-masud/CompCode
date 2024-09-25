@@ -117,7 +117,7 @@ const Problems = ({ company, user, onClose, page }) => {
     <div className="problems-overlay">
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="overlay-content">
-        <button className="close-button" onClick={onClose}><i className="fa-solid fa-xmark"></i></button>
+        <button className="close-button" onClick={onClose}><i className="bi bi-x"></i></button>
         <h2>
           {company
             .split('-')
@@ -125,43 +125,40 @@ const Problems = ({ company, user, onClose, page }) => {
             .join(' ')
           }
         </h2>
-        <p className="solved-count">({completedCount}/{filteredProblems.length})</p>
+        <p className="solved-count">{completedCount}<span> | {filteredProblems.length}</span></p>
         <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/filteredProblems.length) * 100}%` }}></div></div>
-        <div className="search-container">
+        { page === "companies" && <div className="search-container">
           <input
             type="text"
             placeholder="Search"
             value={searchTerm}
             onChange={handleSearch}
-          />
-        </div>
+          /> 
+        </div> }
         <div className="problem-table">
           <div className="table-header">
             <div>Status</div>
             <div>ID <button className="sort-button" onClick={() => sortProblems('ID')}>{getSortIcon('ID')}</button></div>
             <div>Title <button className="sort-button" onClick={() => sortProblems('Title')}>{getSortIcon('Title')}</button></div>
+            <div>Solution</div>
             <div>Acceptance <button className="sort-button" onClick={() => sortProblems('Acceptance')}>{getSortIcon('Acceptance')}</button></div>
             <div>Difficulty <button className="sort-button" onClick={() => sortProblems('Difficulty')}>{getSortIcon('Difficulty')}</button></div>
             {page === 'companies' && <div>Frequency <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button></div>}
           </div>
           {filteredProblems.map((problem, index) => (
             <div className="table-row" key={index}>
-              <div>
-                <input
-                  type="checkbox"
-                  checked={completedProblems[problem.ID]}
-                  onChange={() => handleCheckboxChange(problem.ID)}
-                />
+              <div className='check'>
+                <button onClick={() => handleCheckboxChange(problem.ID)}>
+                  {completedProblems[problem.ID] ? <i className="fa-solid fa-square-check"></i> : <i className="fa-regular fa-square"></i> }
+                </button>
               </div>
               <div>{problem.ID}</div>
               <div className='title'>
                 <a href={problem['Leetcode Question Link']} target="_blank" rel="noopener noreferrer">
                   {problem.Title} <i className="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
-                <a href={"https://www.youtube.com/results?search_query=leetcode+"+problem.ID} target="_blank" rel="noopener noreferrer">
-                    <i className="fa-brands fa-youtube"></i>
-                </a>
               </div>
+              <div className='solution-link'><a href={problem['Leetcode Question Link']+'/editorial'} target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-file-code"></i></a></div>
               <div>{problem.Acceptance}</div>
               <div className={problem.Difficulty.toLowerCase()}>{problem.Difficulty}</div>
               {page === 'companies' && <div>{Math.round(problem.Frequency * 100) / 100}</div>}
