@@ -4,34 +4,34 @@
       "Title": "Trapping Rain Water",
       "Acceptance": "54.7%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/trapping-rain-water/"
+      "Leetcode Question Link": "https://leetcode.com/problems/trapping-rain-water"
     },
     {
       "ID": "15",
       "Title": "3Sum",
       "Acceptance": "32.4%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/3sum/"
+      "Leetcode Question Link": "https://leetcode.com/problems/3sum"
     },
     {
       "ID": "16",
       "Title": "3Sum Closest",
       "Acceptance": "46.5%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/3sum-closest/"
+      "Leetcode Question Link": "https://leetcode.com/problems/3sum-closest"
     },
     {
       "ID": "18",
       "Title": "4Sum",
       "Acceptance": "37.8%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/4sum/"
+      "Leetcode Question Link": "https://leetcode.com/problems/4sum"
     },
     {
       "ID": "76",
       "Title": "Minimum Window Substring",
       "Acceptance": "39.0%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/minimum-window-substring/"
+      "Leetcode Question Link": "https://leetcode.com/problems/minimum-window-substring"
     }
 ]

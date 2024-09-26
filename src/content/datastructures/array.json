@@ -4,69 +4,69 @@
       "Title": "Two Sum",
       "Acceptance": "47.6%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/two-sum/"
+      "Leetcode Question Link": "https://leetcode.com/problems/two-sum"
     },
     {
       "ID": "121",
       "Title": "Best Time to Buy and Sell Stock",
       "Acceptance": "56.3%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+      "Leetcode Question Link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
     },
     {
       "ID": "238",
       "Title": "Product of Array Except Self",
       "Acceptance": "66.9%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/product-of-array-except-self/"
+      "Leetcode Question Link": "https://leetcode.com/problems/product-of-array-except-self"
     },
     {
       "ID": "53",
       "Title": "Maximum Subarray",
       "Acceptance": "53.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/maximum-subarray/"
+      "Leetcode Question Link": "https://leetcode.com/problems/maximum-subarray"
     },
     {
       "ID": "15",
       "Title": "3Sum",
       "Acceptance": "33.6%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/3sum/"
+      "Leetcode Question Link": "https://leetcode.com/problems/3sum"
     },
     {
       "ID": "56",
       "Title": "Merge Intervals",
       "Acceptance": "50.4%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/merge-intervals/"
+      "Leetcode Question Link": "https://leetcode.com/problems/merge-intervals"
     },
     {
       "ID": "217",
       "Title": "Contains Duplicate",
       "Acceptance": "60.8%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/contains-duplicate/"
+      "Leetcode Question Link": "https://leetcode.com/problems/contains-duplicate"
     },
     {
       "ID": "42",
       "Title": "Trapping Rain Water",
       "Acceptance": "59.3%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/trapping-rain-water/"
+      "Leetcode Question Link": "https://leetcode.com/problems/trapping-rain-water"
     },
     {
       "ID": "48",
       "Title": "Rotate Image",
       "Acceptance": "61.3%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/rotate-image/"
+      "Leetcode Question Link": "https://leetcode.com/problems/rotate-image"
     },
     {
       "ID": "31",
       "Title": "Next Permutation",
       "Acceptance": "39.8%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/next-permutation/"
+      "Leetcode Question Link": "https://leetcode.com/problems/next-permutation"
     }
 ]

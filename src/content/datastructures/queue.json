@@ -4,69 +4,69 @@
       "Title": "Implement Stack using Queues",
       "Acceptance": "48.2%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/implement-stack-using-queues/"
+      "Leetcode Question Link": "https://leetcode.com/problems/implement-stack-using-queues"
     },
     {
       "ID": "232",
       "Title": "Implement Queue using Stacks",
       "Acceptance": "52.1%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/implement-queue-using-stacks/"
+      "Leetcode Question Link": "https://leetcode.com/problems/implement-queue-using-stacks"
     },
     {
       "ID": "621",
       "Title": "Task Scheduler",
       "Acceptance": "52.8%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/task-scheduler/"
+      "Leetcode Question Link": "https://leetcode.com/problems/task-scheduler"
     },
     {
       "ID": "279",
       "Title": "Perfect Squares",
       "Acceptance": "50.1%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/perfect-squares/"
+      "Leetcode Question Link": "https://leetcode.com/problems/perfect-squares"
     },
     {
       "ID": "225",
       "Title": "Implement Stack using Queues",
       "Acceptance": "48.2%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/implement-stack-using-queues/"
+      "Leetcode Question Link": "https://leetcode.com/problems/implement-stack-using-queues"
     },
     {
       "ID": "752",
       "Title": "Open the Lock",
       "Acceptance": "50.4%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/open-the-lock/"
+      "Leetcode Question Link": "https://leetcode.com/problems/open-the-lock"
     },
     {
       "ID": "346",
       "Title": "Moving Average from Data Stream",
       "Acceptance": "65.3%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/moving-average-from-data-stream/"
+      "Leetcode Question Link": "https://leetcode.com/problems/moving-average-from-data-stream"
     },
     {
       "ID": "362",
       "Title": "Design Hit Counter",
       "Acceptance": "63.4%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/design-hit-counter/"
+      "Leetcode Question Link": "https://leetcode.com/problems/design-hit-counter"
     },
     {
       "ID": "933",
       "Title": "Number of Recent Calls",
       "Acceptance": "70.4%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/number-of-recent-calls/"
+      "Leetcode Question Link": "https://leetcode.com/problems/number-of-recent-calls"
     },
     {
       "ID": "1696",
       "Title": "Jump Game VI",
       "Acceptance": "48.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/jump-game-vi/"
+      "Leetcode Question Link": "https://leetcode.com/problems/jump-game-vi"
     }
 ]

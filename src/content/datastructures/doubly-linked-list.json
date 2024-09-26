@@ -4,69 +4,69 @@
       "Title": "LRU Cache",
       "Acceptance": "40.5%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/lru-cache/"
+      "Leetcode Question Link": "https://leetcode.com/problems/lru-cache"
     },
     {
       "ID": "432",
       "Title": "All O`one Data Structure",
       "Acceptance": "32.3%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/all-oone-data-structure/"
+      "Leetcode Question Link": "https://leetcode.com/problems/all-oone-data-structure"
     },
     {
       "ID": "707",
       "Title": "Design Linked List",
       "Acceptance": "25.9%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/design-linked-list/"
+      "Leetcode Question Link": "https://leetcode.com/problems/design-linked-list"
     },
     {
       "ID": "430",
       "Title": "Flatten a Multilevel Doubly Linked List",
       "Acceptance": "49.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/"
+      "Leetcode Question Link": "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list"
     },
     {
       "ID": "146",
       "Title": "LRU Cache",
       "Acceptance": "40.5%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/lru-cache/"
+      "Leetcode Question Link": "https://leetcode.com/problems/lru-cache"
     },
     {
       "ID": "1171",
       "Title": "Remove Zero Sum Consecutive Nodes from Linked List",
       "Acceptance": "41.2%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/"
+      "Leetcode Question Link": "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list"
     },
     {
       "ID": "25",
       "Title": "Reverse Nodes in k-Group",
       "Acceptance": "51.2%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+      "Leetcode Question Link": "https://leetcode.com/problems/reverse-nodes-in-k-group"
     },
     {
       "ID": "708",
       "Title": "Insert into a Sorted Circular Linked List",
       "Acceptance": "36.4%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/"
+      "Leetcode Question Link": "https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list"
     },
     {
       "ID": "61",
       "Title": "Rotate List",
       "Acceptance": "29.8%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/rotate-list/"
+      "Leetcode Question Link": "https://leetcode.com/problems/rotate-list"
     },
     {
       "ID": "86",
       "Title": "Partition List",
       "Acceptance": "42.6%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/partition-list/"
+      "Leetcode Question Link": "https://leetcode.com/problems/partition-list"
     }
 ]

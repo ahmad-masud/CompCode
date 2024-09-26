@@ -4,34 +4,34 @@
       "Title": "Shuffle an Array",
       "Acceptance": "54.9%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/shuffle-an-array/"
+      "Leetcode Question Link": "https://leetcode.com/problems/shuffle-an-array"
     },
     {
       "ID": "382",
       "Title": "Linked List Random Node",
       "Acceptance": "51.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/linked-list-random-node/"
+      "Leetcode Question Link": "https://leetcode.com/problems/linked-list-random-node"
     },
     {
       "ID": "398",
       "Title": "Random Pick Index",
       "Acceptance": "54.6%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/random-pick-index/"
+      "Leetcode Question Link": "https://leetcode.com/problems/random-pick-index"
     },
     {
       "ID": "528",
       "Title": "Random Pick with Weight",
       "Acceptance": "43.8%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/random-pick-with-weight/"
+      "Leetcode Question Link": "https://leetcode.com/problems/random-pick-with-weight"
     },
     {
       "ID": "497",
       "Title": "Random Point in Non-overlapping Rectangles",
       "Acceptance": "39.6%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/"
+      "Leetcode Question Link": "https://leetcode.com/problems/random-point-in-non-overlapping-rectangles"
     }
 ]

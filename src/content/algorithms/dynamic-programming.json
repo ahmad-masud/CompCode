@@ -4,69 +4,69 @@
       "Title": "Coin Change",
       "Acceptance": "40.3%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/coin-change/"
+      "Leetcode Question Link": "https://leetcode.com/problems/coin-change"
     },
     {
       "ID": "198",
       "Title": "House Robber",
       "Acceptance": "45.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/house-robber/"
+      "Leetcode Question Link": "https://leetcode.com/problems/house-robber"
     },
     {
       "ID": "213",
       "Title": "House Robber II",
       "Acceptance": "38.2%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/house-robber-ii/"
+      "Leetcode Question Link": "https://leetcode.com/problems/house-robber-ii"
     },
     {
       "ID": "121",
       "Title": "Best Time to Buy and Sell Stock",
       "Acceptance": "56.8%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+      "Leetcode Question Link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
     },
     {
       "ID": "300",
       "Title": "Longest Increasing Subsequence",
       "Acceptance": "46.4%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/longest-increasing-subsequence/"
+      "Leetcode Question Link": "https://leetcode.com/problems/longest-increasing-subsequence"
     },
     {
       "ID": "139",
       "Title": "Word Break",
       "Acceptance": "46.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/word-break/"
+      "Leetcode Question Link": "https://leetcode.com/problems/word-break"
     },
     {
       "ID": "312",
       "Title": "Burst Balloons",
       "Acceptance": "56.4%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/burst-balloons/"
+      "Leetcode Question Link": "https://leetcode.com/problems/burst-balloons"
     },
     {
       "ID": "494",
       "Title": "Target Sum",
       "Acceptance": "46.4%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/target-sum/"
+      "Leetcode Question Link": "https://leetcode.com/problems/target-sum"
     },
     {
       "ID": "44",
       "Title": "Wildcard Matching",
       "Acceptance": "26.4%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/wildcard-matching/"
+      "Leetcode Question Link": "https://leetcode.com/problems/wildcard-matching"
     },
     {
       "ID": "97",
       "Title": "Interleaving String",
       "Acceptance": "32.3%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/interleaving-string/"
+      "Leetcode Question Link": "https://leetcode.com/problems/interleaving-string"
     }
 ]
