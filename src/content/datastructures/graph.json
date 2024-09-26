@@ -4,69 +4,69 @@
       "Title": "Clone Graph",
       "Acceptance": "37.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/clone-graph/"
+      "Leetcode Question Link": "https://leetcode.com/problems/clone-graph"
     },
     {
       "ID": "207",
       "Title": "Course Schedule",
       "Acceptance": "42.9%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/course-schedule/"
+      "Leetcode Question Link": "https://leetcode.com/problems/course-schedule"
     },
     {
       "ID": "785",
       "Title": "Is Graph Bipartite?",
       "Acceptance": "47.9%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/is-graph-bipartite/"
+      "Leetcode Question Link": "https://leetcode.com/problems/is-graph-bipartite"
     },
     {
       "ID": "417",
       "Title": "Pacific Atlantic Water Flow",
       "Acceptance": "55.4%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/pacific-atlantic-water-flow/"
+      "Leetcode Question Link": "https://leetcode.com/problems/pacific-atlantic-water-flow"
     },
     {
       "ID": "332",
       "Title": "Reconstruct Itinerary",
       "Acceptance": "41.2%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/reconstruct-itinerary/"
+      "Leetcode Question Link": "https://leetcode.com/problems/reconstruct-itinerary"
     },
     {
       "ID": "743",
       "Title": "Network Delay Time",
       "Acceptance": "50.6%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/network-delay-time/"
+      "Leetcode Question Link": "https://leetcode.com/problems/network-delay-time"
     },
     {
       "ID": "323",
       "Title": "Number of Connected Components in an Undirected Graph",
       "Acceptance": "57.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
+      "Leetcode Question Link": "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph"
     },
     {
       "ID": "797",
       "Title": "All Paths From Source to Target",
       "Acceptance": "80.2%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/all-paths-from-source-to-target/"
+      "Leetcode Question Link": "https://leetcode.com/problems/all-paths-from-source-to-target"
     },
     {
       "ID": "210",
       "Title": "Course Schedule II",
       "Acceptance": "45.1%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/course-schedule-ii/"
+      "Leetcode Question Link": "https://leetcode.com/problems/course-schedule-ii"
     },
     {
       "ID": "310",
       "Title": "Minimum Height Trees",
       "Acceptance": "36.5%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/minimum-height-trees/"
+      "Leetcode Question Link": "https://leetcode.com/problems/minimum-height-trees"
     }
 ]

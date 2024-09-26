@@ -4,69 +4,69 @@
       "Title": "Binary Search",
       "Acceptance": "54.7%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/binary-search/"
+      "Leetcode Question Link": "https://leetcode.com/problems/binary-search"
     },
     {
       "ID": "34",
       "Title": "Find First and Last Position of Element in Sorted Array",
       "Acceptance": "36.1%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
+      "Leetcode Question Link": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array"
     },
     {
       "ID": "33",
       "Title": "Search in Rotated Sorted Array",
       "Acceptance": "43.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+      "Leetcode Question Link": "https://leetcode.com/problems/search-in-rotated-sorted-array"
     },
     {
       "ID": "81",
       "Title": "Search in Rotated Sorted Array II",
       "Acceptance": "34.4%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/"
+      "Leetcode Question Link": "https://leetcode.com/problems/search-in-rotated-sorted-array-ii"
     },
     {
       "ID": "153",
       "Title": "Find Minimum in Rotated Sorted Array",
       "Acceptance": "53.1%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
+      "Leetcode Question Link": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array"
     },
     {
       "ID": "154",
       "Title": "Find Minimum in Rotated Sorted Array II",
       "Acceptance": "42.8%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/"
+      "Leetcode Question Link": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii"
     },
     {
       "ID": "287",
       "Title": "Find the Duplicate Number",
       "Acceptance": "61.2%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/find-the-duplicate-number/"
+      "Leetcode Question Link": "https://leetcode.com/problems/find-the-duplicate-number"
     },
     {
       "ID": "658",
       "Title": "Find K Closest Elements",
       "Acceptance": "44.3%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/find-k-closest-elements/"
+      "Leetcode Question Link": "https://leetcode.com/problems/find-k-closest-elements"
     },
     {
       "ID": "4",
       "Title": "Median of Two Sorted Arrays",
       "Acceptance": "33.7%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+      "Leetcode Question Link": "https://leetcode.com/problems/median-of-two-sorted-arrays"
     },
     {
       "ID": "1300",
       "Title": "Sum of Mutated Array Closest to Target",
       "Acceptance": "39.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/sum-of-mutated-array-closest-to-target/"
+      "Leetcode Question Link": "https://leetcode.com/problems/sum-of-mutated-array-closest-to-target"
     }
 ]

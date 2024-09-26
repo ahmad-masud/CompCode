@@ -4,34 +4,34 @@
       "Title": "Redundant Connection",
       "Acceptance": "52.3%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/redundant-connection/"
+      "Leetcode Question Link": "https://leetcode.com/problems/redundant-connection"
     },
     {
       "ID": "200",
       "Title": "Number of Islands",
       "Acceptance": "59.2%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/number-of-islands/"
+      "Leetcode Question Link": "https://leetcode.com/problems/number-of-islands"
     },
     {
       "ID": "547",
       "Title": "Number of Provinces",
       "Acceptance": "60.3%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/number-of-provinces/"
+      "Leetcode Question Link": "https://leetcode.com/problems/number-of-provinces"
     },
     {
       "ID": "261",
       "Title": "Graph Valid Tree",
       "Acceptance": "46.2%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/graph-valid-tree/"
+      "Leetcode Question Link": "https://leetcode.com/problems/graph-valid-tree"
     },
     {
       "ID": "305",
       "Title": "Number of Islands II",
       "Acceptance": "42.1%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/number-of-islands-ii/"
+      "Leetcode Question Link": "https://leetcode.com/problems/number-of-islands-ii"
     }
 ]

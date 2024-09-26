@@ -4,69 +4,69 @@
       "Title": "Two Sum",
       "Acceptance": "47.6%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/two-sum/"
+      "Leetcode Question Link": "https://leetcode.com/problems/two-sum"
     },
     {
       "ID": "49",
       "Title": "Group Anagrams",
       "Acceptance": "55.9%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/group-anagrams/"
+      "Leetcode Question Link": "https://leetcode.com/problems/group-anagrams"
     },
     {
       "ID": "3",
       "Title": "Longest Substring Without Repeating Characters",
       "Acceptance": "33.6%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+      "Leetcode Question Link": "https://leetcode.com/problems/longest-substring-without-repeating-characters"
     },
     {
       "ID": "347",
       "Title": "Top K Frequent Elements",
       "Acceptance": "64.8%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/top-k-frequent-elements/"
+      "Leetcode Question Link": "https://leetcode.com/problems/top-k-frequent-elements"
     },
     {
       "ID": "202",
       "Title": "Happy Number",
       "Acceptance": "53.4%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/happy-number/"
+      "Leetcode Question Link": "https://leetcode.com/problems/happy-number"
     },
     {
       "ID": "771",
       "Title": "Jewels and Stones",
       "Acceptance": "86.3%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/jewels-and-stones/"
+      "Leetcode Question Link": "https://leetcode.com/problems/jewels-and-stones"
     },
     {
       "ID": "387",
       "Title": "First Unique Character in a String",
       "Acceptance": "58.4%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/first-unique-character-in-a-string/"
+      "Leetcode Question Link": "https://leetcode.com/problems/first-unique-character-in-a-string"
     },
     {
       "ID": "149",
       "Title": "Max Points on a Line",
       "Acceptance": "18.8%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/max-points-on-a-line/"
+      "Leetcode Question Link": "https://leetcode.com/problems/max-points-on-a-line"
     },
     {
       "ID": "242",
       "Title": "Valid Anagram",
       "Acceptance": "61.4%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/valid-anagram/"
+      "Leetcode Question Link": "https://leetcode.com/problems/valid-anagram"
     },
     {
       "ID": "299",
       "Title": "Bulls and Cows",
       "Acceptance": "45.2%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/bulls-and-cows/"
+      "Leetcode Question Link": "https://leetcode.com/problems/bulls-and-cows"
     }
 ]

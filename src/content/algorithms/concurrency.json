@@ -4,69 +4,69 @@
       "Title": "Print in Order",
       "Acceptance": "71.2%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/print-in-order/"
+      "Leetcode Question Link": "https://leetcode.com/problems/print-in-order"
     },
     {
       "ID": "1115",
       "Title": "Print FooBar Alternately",
       "Acceptance": "65.8%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/print-foobar-alternately/"
+      "Leetcode Question Link": "https://leetcode.com/problems/print-foobar-alternately"
     },
     {
       "ID": "1116",
       "Title": "Print Zero Even Odd",
       "Acceptance": "52.4%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/print-zero-even-odd/"
+      "Leetcode Question Link": "https://leetcode.com/problems/print-zero-even-odd"
     },
     {
       "ID": "1117",
       "Title": "Building H2O",
       "Acceptance": "49.3%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/building-h2o/"
+      "Leetcode Question Link": "https://leetcode.com/problems/building-h2o"
     },
     {
       "ID": "1242",
       "Title": "Web Crawler Multithreaded",
       "Acceptance": "76.5%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/web-crawler-multithreaded/"
+      "Leetcode Question Link": "https://leetcode.com/problems/web-crawler-multithreaded"
     },
     {
       "ID": "1188",
       "Title": "Design Bounded Blocking Queue",
       "Acceptance": "62.4%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/design-bounded-blocking-queue/"
+      "Leetcode Question Link": "https://leetcode.com/problems/design-bounded-blocking-queue"
     },
     {
       "ID": "1226",
       "Title": "The Dining Philosophers",
       "Acceptance": "71.6%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/the-dining-philosophers/"
+      "Leetcode Question Link": "https://leetcode.com/problems/the-dining-philosophers"
     },
     {
       "ID": "1195",
       "Title": "Fizz Buzz Multithreaded",
       "Acceptance": "69.1%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/fizz-buzz-multithreaded/"
+      "Leetcode Question Link": "https://leetcode.com/problems/fizz-buzz-multithreaded"
     },
     {
       "ID": "1279",
       "Title": "Traffic Light Controlled Intersection",
       "Acceptance": "73.8%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/traffic-light-controlled-intersection/"
+      "Leetcode Question Link": "https://leetcode.com/problems/traffic-light-controlled-intersection"
     },
     {
       "ID": "1286",
       "Title": "Iterator for Combination",
       "Acceptance": "71.6%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/iterator-for-combination/"
+      "Leetcode Question Link": "https://leetcode.com/problems/iterator-for-combination"
     }
 ]

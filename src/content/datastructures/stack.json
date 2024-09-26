@@ -4,69 +4,69 @@
       "Title": "Valid Parentheses",
       "Acceptance": "40.2%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/valid-parentheses/"
+      "Leetcode Question Link": "https://leetcode.com/problems/valid-parentheses"
     },
     {
       "ID": "155",
       "Title": "Min Stack",
       "Acceptance": "53.4%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/min-stack/"
+      "Leetcode Question Link": "https://leetcode.com/problems/min-stack"
     },
     {
       "ID": "739",
       "Title": "Daily Temperatures",
       "Acceptance": "66.4%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/daily-temperatures/"
+      "Leetcode Question Link": "https://leetcode.com/problems/daily-temperatures"
     },
     {
       "ID": "150",
       "Title": "Evaluate Reverse Polish Notation",
       "Acceptance": "38.9%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+      "Leetcode Question Link": "https://leetcode.com/problems/evaluate-reverse-polish-notation"
     },
     {
       "ID": "84",
       "Title": "Largest Rectangle in Histogram",
       "Acceptance": "33.5%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/largest-rectangle-in-histogram/"
+      "Leetcode Question Link": "https://leetcode.com/problems/largest-rectangle-in-histogram"
     },
     {
       "ID": "85",
       "Title": "Maximal Rectangle",
       "Acceptance": "35.9%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/maximal-rectangle/"
+      "Leetcode Question Link": "https://leetcode.com/problems/maximal-rectangle"
     },
     {
       "ID": "32",
       "Title": "Longest Valid Parentheses",
       "Acceptance": "28.9%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/longest-valid-parentheses/"
+      "Leetcode Question Link": "https://leetcode.com/problems/longest-valid-parentheses"
     },
     {
       "ID": "394",
       "Title": "Decode String",
       "Acceptance": "58.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/decode-string/"
+      "Leetcode Question Link": "https://leetcode.com/problems/decode-string"
     },
     {
       "ID": "227",
       "Title": "Basic Calculator II",
       "Acceptance": "35.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/basic-calculator-ii/"
+      "Leetcode Question Link": "https://leetcode.com/problems/basic-calculator-ii"
     },
     {
       "ID": "402",
       "Title": "Remove K Digits",
       "Acceptance": "32.5%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/remove-k-digits/"
+      "Leetcode Question Link": "https://leetcode.com/problems/remove-k-digits"
     }
 ]

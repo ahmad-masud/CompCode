@@ -4,69 +4,69 @@
       "Title": "Single Number",
       "Acceptance": "70.4%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/single-number/"
+      "Leetcode Question Link": "https://leetcode.com/problems/single-number"
     },
     {
       "ID": "190",
       "Title": "Reverse Bits",
       "Acceptance": "53.6%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/reverse-bits/"
+      "Leetcode Question Link": "https://leetcode.com/problems/reverse-bits"
     },
     {
       "ID": "191",
       "Title": "Number of 1 Bits",
       "Acceptance": "54.7%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/number-of-1-bits/"
+      "Leetcode Question Link": "https://leetcode.com/problems/number-of-1-bits"
     },
     {
       "ID": "338",
       "Title": "Counting Bits",
       "Acceptance": "76.1%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/counting-bits/"
+      "Leetcode Question Link": "https://leetcode.com/problems/counting-bits"
     },
     {
       "ID": "371",
       "Title": "Sum of Two Integers",
       "Acceptance": "51.8%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/sum-of-two-integers/"
+      "Leetcode Question Link": "https://leetcode.com/problems/sum-of-two-integers"
     },
     {
       "ID": "461",
       "Title": "Hamming Distance",
       "Acceptance": "72.3%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/hamming-distance/"
+      "Leetcode Question Link": "https://leetcode.com/problems/hamming-distance"
     },
     {
       "ID": "476",
       "Title": "Number Complement",
       "Acceptance": "66.2%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/number-complement/"
+      "Leetcode Question Link": "https://leetcode.com/problems/number-complement"
     },
     {
       "ID": "693",
       "Title": "Binary Number with Alternating Bits",
       "Acceptance": "61.8%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/binary-number-with-alternating-bits/"
+      "Leetcode Question Link": "https://leetcode.com/problems/binary-number-with-alternating-bits"
     },
     {
       "ID": "191",
       "Title": "Number of 1 Bits",
       "Acceptance": "54.7%",
       "Difficulty": "Easy",
-      "Leetcode Question Link": "https://leetcode.com/problems/number-of-1-bits/"
+      "Leetcode Question Link": "https://leetcode.com/problems/number-of-1-bits"
     },
     {
       "ID": "201",
       "Title": "Bitwise AND of Numbers Range",
       "Acceptance": "42.2%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/bitwise-and-of-numbers-range/"
+      "Leetcode Question Link": "https://leetcode.com/problems/bitwise-and-of-numbers-range"
     }
 ]
