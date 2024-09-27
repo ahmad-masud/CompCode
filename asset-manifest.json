@@ -1,18 +1,17 @@
 {
   "files": {
-    "main.css": "/CompCode/static/css/main.96f52094.css",
-    "main.js": "/CompCode/static/js/main.a1ee7de1.js",
-    "static/js/872.2c8d5db7.chunk.js": "/CompCode/static/js/872.2c8d5db7.chunk.js",
-    "static/js/453.d32080d5.chunk.js": "/CompCode/static/js/453.d32080d5.chunk.js",
-    "static/media/hero.png": "/CompCode/static/media/hero.e11bbb6f714c79347b6c.png",
+    "main.css": "/CompCode/static/css/main.2918a48f.css",
+    "main.js": "/CompCode/static/js/main.29913ebb.js",
+    "static/js/872.d5864361.chunk.js": "/CompCode/static/js/872.d5864361.chunk.js",
+    "static/js/453.633e9978.chunk.js": "/CompCode/static/js/453.633e9978.chunk.js",
     "static/media/google.webp": "/CompCode/static/media/google.a05d721bb9bba483749f.webp",
     "index.html": "/CompCode/index.html",
-    "main.96f52094.css.map": "/CompCode/static/css/main.96f52094.css.map",
-    "main.a1ee7de1.js.map": "/CompCode/static/js/main.a1ee7de1.js.map",
-    "453.d32080d5.chunk.js.map": "/CompCode/static/js/453.d32080d5.chunk.js.map"
+    "main.2918a48f.css.map": "/CompCode/static/css/main.2918a48f.css.map",
+    "main.29913ebb.js.map": "/CompCode/static/js/main.29913ebb.js.map",
+    "453.633e9978.chunk.js.map": "/CompCode/static/js/453.633e9978.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.96f52094.css",
-    "static/js/main.a1ee7de1.js"
+    "static/css/main.2918a48f.css",
+    "static/js/main.29913ebb.js"
   ]
 }
