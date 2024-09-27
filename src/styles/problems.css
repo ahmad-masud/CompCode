@@ -98,9 +98,12 @@
   text-decoration: none;
 }
 
-.solution-link a {
+.solution-link button {
   color: #007bff;
   font-size: 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .table-row a:hover {

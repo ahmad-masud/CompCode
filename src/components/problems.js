@@ -2,12 +2,27 @@ import React, { useState, useEffect } from 'react';
 import '../styles/problems.css'; // Import CSS file for styles
 import { firestore } from '../config/firebase-config';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import Solution from './solution';
 
 const Problems = ({ company, user, onClose, page }) => {
   const [problems, setProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [sortConfig, setSortConfig] = useState({ key: 'Difficulty', direction: 'ascending' });
   const [searchTerm, setSearchTerm] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [problemName, setProblemName] = useState('');
+
+  // Open the modal and set the problem name for which to fetch the solution
+  const openModal = (problemTitle) => {
+    if (problemTitle) {
+      setProblemName(problemTitle);
+      setIsModalOpen(true);
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     import(`../content/${page}/${company}.json`)
@@ -115,6 +130,11 @@ const Problems = ({ company, user, onClose, page }) => {
 
   return (
     <div className="problems-overlay">
+      <Solution
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        problemName={problemName}
+      />
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="overlay-content">
         <button className="close-button" onClick={onClose}><i className="bi bi-x"></i></button>
@@ -126,7 +146,7 @@ const Problems = ({ company, user, onClose, page }) => {
           }
         </h2>
         <p className="solved-count">{completedCount}<span> | {filteredProblems.length}</span></p>
-        <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/filteredProblems.length) * 100}%` }}></div></div>
+        <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount / filteredProblems.length) * 100}%` }}></div></div>
         { page === "companies" && <div className="search-container">
           <input
             type="text"
@@ -158,7 +178,11 @@ const Problems = ({ company, user, onClose, page }) => {
                   {problem.Title} <i className="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
               </div>
-              <div className='solution-link'><a href={problem['Leetcode Question Link']+'/editorial'} target="_blank" rel="noopener noreferrer"><i className="fa-regular fa-file-code"></i></a></div>
+              <div className='solution-link'>
+                <button onClick={() => openModal(problem['Leetcode Question Link'].split('/').pop())}>
+                  <i className="fa-regular fa-file-code"></i>
+                </button>
+              </div>
               <div>{problem.Acceptance}</div>
               <div className={problem.Difficulty.toLowerCase()}>{problem.Difficulty}</div>
               {page === 'companies' && <div>{Math.round(problem.Frequency * 100) / 100}</div>}
