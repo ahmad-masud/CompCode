@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/home.css';
 import { Link } from 'react-router-dom';
 import ReleaseNotes from '../components/release';
-import heroImage from '../content/images/hero.png';
 
 const Home = () => {
     return (
@@ -14,7 +13,7 @@ const Home = () => {
                     <Link to="/CompCode/companies" className='hero-link'>Start Leeting</Link>
                 </div>
                 <div className='hero-logo'>
-                    <img src={heroImage} alt='hero' />
+                    <i className="fa-solid fa-meteor"></i>
                 </div>
             </div>
             <ReleaseNotes />

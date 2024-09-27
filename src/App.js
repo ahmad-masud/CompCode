@@ -4,6 +4,7 @@ import Footer from './components/footer';
 import Companies from './pages/companies';
 import DataStructures from './pages/datastructures';
 import Algorithms from './pages/algorithms';
+import NotFound from './pages/notfound';
 import Misc from './pages/misc';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
@@ -26,6 +27,7 @@ const App = () => {
           <Route path='/CompCode/datastructures' element={<DataStructures user={user} />} />
           <Route path='/CompCode/algorithms' element={<Algorithms user={user} />} />
           <Route path='/CompCode/misc' element={<Misc user={user} />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
       </Router>
