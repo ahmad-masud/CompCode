@@ -3,6 +3,9 @@ import '../styles/home.css';
 import { Link } from 'react-router-dom';
 import ReleaseNotes from '../components/release';
 import LeetCode from '../content/images/leetcode.webp';
+import video1 from '../content/videos/1.mp4';
+import video2 from '../content/videos/2.mp4';
+import video3 from '../content/videos/3.mp4';
 
 const Home = () => {
     return (
@@ -17,24 +20,30 @@ const Home = () => {
             </div>
             <div className='highlights'>
                 <div className='highlight'>
-                    <i className="image fa-solid fa-earth-americas"></i>
+                    <video className='video' autoPlay loop muted>
+                        <source src={video1} type='video/mp4' />
+                    </video>
                     <div className='text'>
                         <p className='tagline'>Crack the code for top companies like Google, Amazon, Microsoft, and more!</p>
                         <p className='description'>Focus on the coding problems asked by specific companies. Find frequently asked problems from leading tech giants help you sharpen your skills for real-world interview challenges.</p>
                     </div>
                 </div>
                 <div className='highlight'>
-                    <i className="image fa-solid fa-diagram-project"></i>
+                    <video className='video' autoPlay loop muted>
+                        <source src={video2} type='video/mp4' />
+                    </video>
                     <div className='text'>
                         <p className='tagline'>Conquer essential algorithms and data structures for coding interviews!</p>
-                        <p className='description'>With powerful progress tracking, you can easily monitor your journey. From solved problems to performance analytics, stay on top of your preparation.</p>
+                        <p className='description'>CompCode offers a comprehensive collection of problems that focus on the most commonly tested algorithms and data structures in interviews. Whether it's sorting algorithms, dynamic programming, graph traversal, or linked lists, we’ve got you covered.</p>
                     </div>
                 </div>
                 <div className='highlight'>
-                    <i className="image fa-solid fa-list-check"></i>
+                    <video className='video' autoPlay loop muted>
+                        <source src={video3} type='video/mp4' />
+                    </video>
                     <div className='text'>
                         <p className='tagline'>See your progress, boost your confidence!</p>
-                        <p className='description'>CompCode offers a comprehensive collection of problems that focus on the most commonly tested algorithms and data structures in interviews. Whether it's sorting algorithms, dynamic programming, graph traversal, or linked lists, we’ve got you covered.</p>
+                        <p className='description'>With powerful progress tracking, you can easily monitor your journey. From solved problems to performance analytics, stay on top of your preparation.</p>
                     </div>
                 </div>
             </div>
