@@ -51,27 +51,34 @@
     padding: 5px;
     border: none;
     border-radius: 5px;
-    font-size: 1.4rem;
+    font-size: 1rem;
     cursor: pointer;
-    color: var(--font-color);
-    background: transparent;
+    color: black;
+    background: white;
     display: flex;
+    gap: 5px;
     align-items: center;
     justify-content: center;
 }
 
 .login-button img {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
 
 .login-button:hover {
-    background: var(--background-color);
+    background: #eee;
+}
+
+.user-button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .user-avatar {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: var(--background-color);
 }
@@ -88,4 +95,29 @@
 
 .color-button:hover {
     background: var(--background-color);
+}
+
+.szh-menu {
+    background: var(--secondary-color) !important;
+    color: var(--font-color) !important;
+}
+
+.szh-menu__item {
+    gap: 10px;
+    padding: 0.75rem 1.5rem !important;
+}
+
+.szh-menu__item--hover {
+    background-color: var(--background-color) !important;
+}
+
+.fa-bars {
+    color: var(--font-color);
+    font-size: 1.5rem;
+}
+
+.menu-divider {
+    height: 0.01px;
+    background: var(--font-color);
+    margin: 0 20px;
 }

@@ -3,18 +3,21 @@ import '../styles/navbar.css';
 import { auth, provider } from '../config/firebase-config';
 import { signInWithPopup, signOut } from 'firebase/auth';
 import Google from '../content/images/google.webp'
-import Tooltip from '@mui/material/Tooltip';
 import { Link } from 'react-router-dom';
+import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
+import { useNavigate } from 'react-router-dom';
 
-const Navbar = ({ user, onUserChange, theme, onThemeChange }) => {
-  const [showIcons, setShowIcons] = useState(false);
+const Navbar = ({ user, onUserChange, onAccountOpen, onSettingsOpen }) => {
+  const [narrow, setNarrow] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 800) {
-        setShowIcons(true);
+      if (window.innerWidth <= 600) {
+        setNarrow(true);
       } else {
-        setShowIcons(false);
+        setNarrow(false);
       }
     };
     handleResize();
@@ -61,38 +64,36 @@ const Navbar = ({ user, onUserChange, theme, onThemeChange }) => {
       <div className='navbar-container'>
         <div className='left'>
           <i className="fa-solid fa-meteor"></i>
-          <Link className='nav-link' to='/CompCode/'>{showIcons ? <i className="fa-solid fa-house"></i> : "Home"}</Link>
-          <Link className='nav-link' to='/CompCode/companies'>{showIcons ? <i className="fa-solid fa-building"></i> : "Companies"}</Link>
-          <Link className='nav-link' to='/CompCode/datastructures'>{showIcons ? <i className="fa-solid fa-database"></i> : "Data Structures"}</Link>
-          <Link className='nav-link' to='/CompCode/algorithms'>{showIcons ? <i className="fa-solid fa-diagram-project"></i> : "Algorithms"}</Link>
-          <Link className='nav-link' to='/CompCode/misc'>{showIcons ? <i className="fa-solid fa-shuffle"></i> : "Misc"}</Link>
-          <Link className='nav-link' to='/CompCode/submission'>{showIcons ? <i className="fa-solid fa-flag"></i> : "Report"}</Link>
-        </div>
-        <div className='right'>
-          <Tooltip title="Color Mode">
-            <button className='color-button' onClick={onThemeChange}>
-              {theme === 'auto' ? <i className="bi bi-circle-half"></i> : 
-              theme === 'dark' ? <i className="bi bi-moon-fill"></i> : 
-              <i className="bi bi-brightness-high-fill"></i>}
-            </button>
-          </Tooltip>
-          {user ? (
-            <div className='user-profile'>
-              <img src={user.photoURL} alt='User' className='user-avatar' />
+          {!narrow ? (
+            <div>
+              <Link className='nav-link' to='/CompCode/'>Home</Link>
+              <Link className='nav-link' to='/CompCode/companies'>Companies</Link>
+              <Link className='nav-link' to='/CompCode/datastructures'>Data Structures</Link>
+              <Link className='nav-link' to='/CompCode/algorithms'>Algorithms</Link>
+              <Link className='nav-link' to='/CompCode/submission'>Report</Link>
             </div>
           ) : (
-            <Tooltip title="Google Login">
-              <button className='login-button' onClick={handleLogin}>
-                <img src={Google} alt="google"/>
-              </button>
-            </Tooltip>
+            <Menu menuButton={<MenuButton className="user-button"><i className="fa-solid fa-bars"></i></MenuButton>}>
+              <MenuItem onClick={() => navigate('/CompCode/')}><i className="fa-solid fa-house"></i> Home</MenuItem>
+              <MenuItem onClick={() => navigate('/CompCode/companies')}><i className="fa-solid fa-building"></i> Companies</MenuItem>
+              <MenuItem onClick={() => navigate('/CompCode/datastructures')}><i className="fa-solid fa-database"></i> Data Structures</MenuItem>
+              <MenuItem onClick={() => navigate('/CompCode/algorithms')}><i className="fa-solid fa-diagram-project"></i> Algorithms</MenuItem>
+              <MenuItem onClick={() => navigate('/CompCode/submission')}><i className="fa-solid fa-flag"></i> Report</MenuItem>
+            </Menu>
           )}
-          {user && (
-            <Tooltip title="Logout">
-              <button className='login-button' onClick={handleLogout}>
-                <i className="bi bi-box-arrow-right"></i>
-              </button>
-            </Tooltip>
+        </div>
+        <div className='right'>
+          {user ? (
+              <Menu menuButton={<MenuButton className="user-button"><img src={user.photoURL} alt='User' className='user-avatar' /></MenuButton>}>
+                <MenuItem onClick={onAccountOpen}><i className="fa-solid fa-user"></i> Account</MenuItem>
+                <MenuItem onClick={onSettingsOpen}><i className="fa-solid fa-gear"></i> Settings</MenuItem>
+                <hr className="menu-divider"/>
+                <MenuItem onClick={handleLogout}><i className="fa-solid fa-arrow-right-from-bracket"></i> Logout</MenuItem>
+              </Menu>
+          ) : (
+            <button className='login-button' onClick={handleLogin}>
+              <img src={Google} alt="google"/>{!narrow && "Continue with Google"}
+            </button>
           )}
         </div>
       </div>

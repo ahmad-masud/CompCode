@@ -46,7 +46,7 @@ const ProblemSubmissionForm = ({ user }) => {
             <div className="form-group">
             <label>LeetCode Problem Number</label>
             <input
-                type="text"
+                type="number"
                 value={problemNumber}
                 onChange={(e) => setProblemNumber(e.target.value)}
                 placeholder="Enter the LeetCode problem number"

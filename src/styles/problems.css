@@ -42,18 +42,19 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: #FF375F;
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
-  color: white;
-  padding: 2px 4px;
-  border-radius: 4px;
+  color: var(--font-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   transition: all 200ms ease-in-out;
+  background-color: transparent;
 }
 
 .close-button:hover {
-  background-color: darkred;
+  background-color: var(--secondary-color);
 }
 
 .problem-table {
