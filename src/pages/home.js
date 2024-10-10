@@ -2,12 +2,31 @@ import React from 'react';
 import '../styles/home.css';
 import { Link } from 'react-router-dom';
 import ReleaseNotes from '../components/release';
-import LeetCode from '../content/images/leetcode.webp';
+import LeetCode1 from '../content/images/leetcode.webp';
+import LeetCode2 from '../content/images/leetcode2.webp';
 import video1 from '../content/videos/1.mp4';
 import video2 from '../content/videos/2.mp4';
 import video3 from '../content/videos/3.mp4';
+import { useEffect } from 'react';
 
-const Home = () => {
+const Home = ({ theme }) => {
+    const [LeetCode, setLeetCode] = React.useState(LeetCode2);
+
+    useEffect(() => {
+        if (theme === 'auto') {
+          const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (isDarkMode) {
+            setLeetCode(LeetCode1);
+          }
+        } else {
+            if (theme === 'dark') {
+                setLeetCode(LeetCode1);
+            } else {
+                setLeetCode(LeetCode2);
+            }
+        }
+    }, [theme]);
+
     return (
         <div className='home'>
             <div className='hero'>

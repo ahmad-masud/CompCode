@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/navbar.css';
 import { auth, provider } from '../config/firebase-config';
 import { signInWithPopup, signOut } from 'firebase/auth';
@@ -6,18 +6,21 @@ import Google from '../content/images/google.webp'
 import Tooltip from '@mui/material/Tooltip';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ user, onUserChange }) => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'auto');
+const Navbar = ({ user, onUserChange, theme, onThemeChange }) => {
+  const [showIcons, setShowIcons] = useState(false);
 
   useEffect(() => {
-    if (theme === 'auto') {
-      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.querySelector(":root").className = isDarkMode ? 'dark' : 'light';
-    } else {
-      document.querySelector(":root").className = theme;
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    const handleResize = () => {
+      if (window.innerWidth <= 800) {
+        setShowIcons(true);
+      } else {
+        setShowIcons(false);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -53,25 +56,21 @@ const Navbar = ({ user, onUserChange }) => {
       });
   };
 
-  const handleThemeChange = () => {
-    const newTheme = theme === 'auto' ? 'dark' : theme === 'dark' ? 'light' : 'auto';
-    setTheme(newTheme);
-  };
-
   return (
     <div className='navbar'>
       <div className='navbar-container'>
         <div className='left'>
           <i className="fa-solid fa-meteor"></i>
-          <Link className='nav-link' to='/CompCode/'>Home</Link>
-          <Link className='nav-link' to='/CompCode/companies'>Companies</Link>
-          <Link className='nav-link' to='/CompCode/datastructures'>Data Structures</Link>
-          <Link className='nav-link' to='/CompCode/algorithms'>Algorithms</Link>
-          <Link className='nav-link' to='/CompCode/misc'>Misc</Link>
+          <Link className='nav-link' to='/CompCode/'>{showIcons ? <i className="fa-solid fa-house"></i> : "Home"}</Link>
+          <Link className='nav-link' to='/CompCode/companies'>{showIcons ? <i className="fa-solid fa-building"></i> : "Companies"}</Link>
+          <Link className='nav-link' to='/CompCode/datastructures'>{showIcons ? <i className="fa-solid fa-database"></i> : "Data Structures"}</Link>
+          <Link className='nav-link' to='/CompCode/algorithms'>{showIcons ? <i className="fa-solid fa-diagram-project"></i> : "Algorithms"}</Link>
+          <Link className='nav-link' to='/CompCode/misc'>{showIcons ? <i className="fa-solid fa-shuffle"></i> : "Misc"}</Link>
+          <Link className='nav-link' to='/CompCode/submission'>{showIcons ? <i className="fa-solid fa-flag"></i> : "Report"}</Link>
         </div>
         <div className='right'>
           <Tooltip title="Color Mode">
-            <button className='color-button' onClick={handleThemeChange}>
+            <button className='color-button' onClick={onThemeChange}>
               {theme === 'auto' ? <i className="bi bi-circle-half"></i> : 
               theme === 'dark' ? <i className="bi bi-moon-fill"></i> : 
               <i className="bi bi-brightness-high-fill"></i>}
