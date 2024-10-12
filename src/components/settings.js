@@ -1,7 +1,23 @@
 import React from 'react';
 import '../styles/settings.css'; // Create and import your settings-specific CSS file
+import { firestore } from '../config/firebase-config';
+import { doc, deleteDoc } from 'firebase/firestore';
 
-const Settings = ({ onClose, theme, onThemeChange }) => {
+const Settings = ({ user, onClose, theme, onThemeChange }) => {
+  const deleteUserData = async () => {
+    if (user) {
+      try {
+        const userRef = doc(firestore, 'users', user.uid);
+        await deleteDoc(userRef);  // Deletes the user's Firestore document
+        localStorage.removeItem('completedProblems');
+        console.log("User document deleted successfully");
+        window.location.reload();
+      } catch (error) {
+        console.error("Error deleting user document: ", error);
+      }
+    }
+  };
+
   return (
     <div className="settings-overlay">
       <div className="overlay-backdrop" onClick={onClose}></div>
@@ -20,6 +36,10 @@ const Settings = ({ onClose, theme, onThemeChange }) => {
             <option value="light">Light</option>
             <option value="dark">Dark</option>
           </select>
+        </div>
+        <div className="setting-item">
+          <label htmlFor="delete-doc">Delete All Data</label>
+          <button className="delete-doc" onClick={deleteUserData}>Delete All</button>
         </div>
       </div>
     </div>

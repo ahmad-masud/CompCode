@@ -79,6 +79,7 @@ const Account = ({ user, onClose }) => {
               value={confirmEmail} 
               onChange={(e) => setConfirmEmail(e.target.value)} 
               className="email-input"
+              required
             />
             {emailError && <p className="error-message">{emailError}</p>}
             <button 
