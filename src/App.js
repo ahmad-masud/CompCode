@@ -55,7 +55,7 @@ const App = () => {
   return (
     <div className='app'>
       {displayAccount && <Account user={user} onClose={handleAccountClose} />}
-      {displaySettings && <Settings onClose={handleSettingsClose} theme={theme} onThemeChange={handleThemeChange} />}
+      {displaySettings && <Settings user={user} onClose={handleSettingsClose} theme={theme} onThemeChange={handleThemeChange} />}
       <Router>
         <Navbar user={user} onUserChange={handleUserChange} theme={theme} onThemeChange={handleThemeChange} onAccountOpen={handleAccountOpen} onSettingsOpen={handleSettingsOpen} />
         <Routes>
