@@ -99,6 +99,12 @@
   text-decoration: none;
 }
 
+.solution-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .solution-link button {
   color: #007bff;
   font-size: 1.25rem;
@@ -107,7 +113,15 @@
   cursor: pointer;
 }
 
-.table-row a:hover {
+.solution-link a {
+  color: #BF5AF2;
+  font-size: 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.title a:hover {
   color: #007bff;
 }
 
