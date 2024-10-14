@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/CompCode/static/css/main.48c49602.css",
-    "main.js": "/CompCode/static/js/main.65151e65.js",
+    "main.css": "/CompCode/static/css/main.00a05811.css",
+    "main.js": "/CompCode/static/js/main.427d9c12.js",
     "static/js/872.d5864361.chunk.js": "/CompCode/static/js/872.d5864361.chunk.js",
     "static/js/453.633e9978.chunk.js": "/CompCode/static/js/453.633e9978.chunk.js",
     "static/media/leetcode2.webp": "/CompCode/static/media/leetcode2.a33a7632a58419cb9978.webp",
     "static/media/google.webp": "/CompCode/static/media/google.a05d721bb9bba483749f.webp",
     "static/media/leetcode.webp": "/CompCode/static/media/leetcode.b70bdd585b508ec9c339.webp",
     "index.html": "/CompCode/index.html",
-    "main.48c49602.css.map": "/CompCode/static/css/main.48c49602.css.map",
-    "main.65151e65.js.map": "/CompCode/static/js/main.65151e65.js.map",
+    "main.00a05811.css.map": "/CompCode/static/css/main.00a05811.css.map",
+    "main.427d9c12.js.map": "/CompCode/static/js/main.427d9c12.js.map",
     "453.633e9978.chunk.js.map": "/CompCode/static/js/453.633e9978.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.48c49602.css",
-    "static/js/main.65151e65.js"
+    "static/css/main.00a05811.css",
+    "static/js/main.427d9c12.js"
   ]
 }
