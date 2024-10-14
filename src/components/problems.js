@@ -3,6 +3,8 @@ import '../styles/problems.css'; // Import CSS file for styles
 import { firestore } from '../config/firebase-config';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import Solution from './solution';
+import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
 
 const Problems = ({ company, user, onClose, page }) => {
   const [problems, setProblems] = useState([]);
@@ -12,6 +14,10 @@ const Problems = ({ company, user, onClose, page }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [problemName, setProblemName] = useState('');
   const [problemTitle, setProblemTitle] = useState('');
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [problemsPerPage, setProblemsPerPage] = useState(20); // Default to 20 problems per page
 
   // Open the modal and set the problem name for which to fetch the solution
   const openModal = (name, title) => {
@@ -117,9 +123,16 @@ const Problems = ({ company, user, onClose, page }) => {
     setSearchTerm(event.target.value);
   };
 
+  // Filter and paginate problems
   const filteredProblems = problems.filter(problem =>
     problem.ID.toString().includes(searchTerm) || problem.Title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const indexOfLastProblem = currentPage * problemsPerPage;
+  const indexOfFirstProblem = indexOfLastProblem - problemsPerPage;
+  const currentProblems = filteredProblems.slice(indexOfFirstProblem, indexOfLastProblem);
+
+  const totalPages = Math.ceil(filteredProblems.length / problemsPerPage);
 
   const completedCount = filteredProblems.reduce((count, problem) => {
     if (completedProblems[problem.ID]) {
@@ -127,6 +140,75 @@ const Problems = ({ company, user, onClose, page }) => {
     }
     return count;
   }, 0);
+
+  // Pagination controls
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(prevPage => prevPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(prevPage => prevPage + 1);
+    }
+  };
+
+  const renderPageNumbers = () => {
+    const pages = [];
+    const maxPagesToShow = 5;
+    const startPage = Math.max(2, currentPage - Math.floor(maxPagesToShow / 2));
+    const endPage = Math.min(totalPages - 1, startPage + maxPagesToShow - 1);
+
+    if (totalPages > 0) {
+      pages.push(
+        <button
+          key={1}
+          onClick={() => setCurrentPage(1)}
+          className={currentPage === 1 ? 'active' : ''}
+          disabled={currentPage === 1}
+        >
+          1
+        </button>
+      );
+    }
+
+    if (startPage > 2) {
+      pages.push(<button key="start-ellipsis" disabled>...</button>);
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(
+        <button
+          key={i}
+          onClick={() => setCurrentPage(i)}
+          className={currentPage === i ? 'active' : ''}
+          disabled={currentPage === i}
+        >
+          {i}
+        </button>
+      );
+    }
+
+    if (endPage < totalPages - 1) {
+      pages.push(<button key="end-ellipsis" disabled>...</button>);
+    }
+
+    if (totalPages > 1) {
+      pages.push(
+        <button
+          key={totalPages}
+          onClick={() => setCurrentPage(totalPages)}
+          className={currentPage === totalPages ? 'active' : ''}
+          disabled={currentPage === totalPages}
+        >
+          {totalPages}
+        </button>
+      );
+    }
+
+    return pages;
+  };
 
   return (
     <div className="problems-overlay">
@@ -166,7 +248,7 @@ const Problems = ({ company, user, onClose, page }) => {
             <div>Difficulty <button className="sort-button" onClick={() => sortProblems('Difficulty')}>{getSortIcon('Difficulty')}</button></div>
             {page === 'companies' && <div>Frequency <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button></div>}
           </div>
-          {filteredProblems.map((problem, index) => (
+          {currentProblems.map((problem, index) => (
             <div className="table-row" key={index}>
               <div className='check'>
                 <button onClick={() => handleCheckboxChange(problem.ID)}>
@@ -193,6 +275,18 @@ const Problems = ({ company, user, onClose, page }) => {
             </div>
           ))}
         </div>
+        {problems.length > 20 && <div className="pagination">
+          <Menu menuButton={<MenuButton className="page-button">{`${problemsPerPage} / page`}</MenuButton>}>
+            <MenuItem onClick={() => setProblemsPerPage(20)}>20 / page</MenuItem>
+            <MenuItem onClick={() => setProblemsPerPage(50)}>50 / page</MenuItem>
+            <MenuItem onClick={() => setProblemsPerPage(100)}>100 / page</MenuItem>
+          </Menu>
+          <div className='pages'>
+            <button onClick={handlePreviousPage} disabled={currentPage === 1}><i className="fa-solid fa-angle-left"></i></button>
+            {renderPageNumbers()}
+            <button onClick={handleNextPage} disabled={currentPage === totalPages}><i className="fa-solid fa-angle-right"></i></button>
+          </div>
+        </div>}
       </div>
     </div>
   );
