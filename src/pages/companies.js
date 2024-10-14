@@ -3,6 +3,8 @@ import '../styles/companies.css'; // Import CSS file for styles
 import { firestore } from '../config/firebase-config';
 import { doc, getDoc } from 'firebase/firestore';
 import Problems from '../components/problems';
+import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
 
 const average = (array) => {
   if (array.length === 0) return 0;
@@ -17,6 +19,10 @@ const Companies = ({ user }) => {
   const [uniqueProblems, setUniqueProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [openCompany, setOpenCompany] = useState("");
+  
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [companiesPerPage, setCompaniesPerPage] = useState(20); // Number of companies to display per page
 
   const handleClose = () => {
     setOpenCompany("");
@@ -45,25 +51,25 @@ const Companies = ({ user }) => {
       });
 
       const sortedCompanies = [...companiesInfo].sort((a, b) => {
-        if (sortConfig.key  === 'name') {
+        if (sortConfig.key === 'name') {
           return sortConfig.direction === 'ascending'
-            ? (a[sortConfig.key ] > b[sortConfig.key ] ? 1 : -1)
-            : (a[sortConfig.key ] < b[sortConfig.key ] ? 1 : -1);
-        } else if (sortConfig.key  === 'avgAcceptance') {
-          const aRate = parseFloat(a[sortConfig.key ].replace('%', ''));
-          const bRate = parseFloat(b[sortConfig.key ].replace('%', ''));
+            ? (a[sortConfig.key] > b[sortConfig.key] ? 1 : -1)
+            : (a[sortConfig.key] < b[sortConfig.key] ? 1 : -1);
+        } else if (sortConfig.key === 'avgAcceptance') {
+          const aRate = parseFloat(a[sortConfig.key].replace('%', ''));
+          const bRate = parseFloat(b[sortConfig.key].replace('%', ''));
           return sortConfig.direction === 'ascending'
             ? aRate - bRate
             : bRate - aRate;
-        } else if (sortConfig.key  === 'mostCommonDifficulty') {
+        } else if (sortConfig.key === 'mostCommonDifficulty') {
           const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
           return sortConfig.direction === 'ascending'
-            ? difficultyOrder[a[sortConfig.key ]] - difficultyOrder[b[sortConfig.key ]]
-            : difficultyOrder[b[sortConfig.key ]] - difficultyOrder[a[sortConfig.key ]];
+            ? difficultyOrder[a[sortConfig.key]] - difficultyOrder[b[sortConfig.key]]
+            : difficultyOrder[b[sortConfig.key]] - difficultyOrder[a[sortConfig.key]];
         } else {
           return sortConfig.direction === 'ascending'
-            ? a[sortConfig.key ] - b[sortConfig.key ]
-            : b[sortConfig.key ] - a[sortConfig.key ];
+            ? a[sortConfig.key] - b[sortConfig.key]
+            : b[sortConfig.key] - a[sortConfig.key];
         }
       });
 
@@ -123,31 +129,7 @@ const Companies = ({ user }) => {
       direction = 'descending';
     }
 
-    const sortedCompanies = [...companiesData].sort((a, b) => {
-      if (key === 'name') {
-        return direction === 'ascending'
-          ? (a[key] > b[key] ? 1 : -1)
-          : (a[key] < b[key] ? 1 : -1);
-      } else if (key === 'avgAcceptance') {
-        const aRate = parseFloat(a[key].replace('%', ''));
-        const bRate = parseFloat(b[key].replace('%', ''));
-        return direction === 'ascending'
-          ? aRate - bRate
-          : bRate - aRate;
-      } else if (key === 'mostCommonDifficulty') {
-        const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
-        return direction === 'ascending'
-          ? difficultyOrder[a[key]] - difficultyOrder[b[key]]
-          : difficultyOrder[b[key]] - difficultyOrder[a[key]];
-      } else {
-        return direction === 'ascending'
-          ? a[key] - b[key]
-          : b[key] - a[key];
-      }
-    });
-
     setSortConfig({ key, direction });
-    setCompaniesData(sortedCompanies);
   };
 
   const getSortIcon = (key) => {
@@ -164,9 +146,15 @@ const Companies = ({ user }) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredCompanies = companiesData.filter(company =>
-    company.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Filter and paginate companies
+  const filteredCompanies = companiesData
+    .filter(company =>
+      company.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  
+  const indexOfLastCompany = currentPage * companiesPerPage;
+  const indexOfFirstCompany = indexOfLastCompany - companiesPerPage;
+  const currentCompanies = filteredCompanies.slice(indexOfFirstCompany, indexOfLastCompany);
 
   const completedCount = uniqueProblems.reduce((count, problem) => {
     if (completedProblems[problem.ID]) {
@@ -174,6 +162,83 @@ const Companies = ({ user }) => {
     }
     return count;
   }, 0);
+
+  const totalPages = Math.ceil(filteredCompanies.length / companiesPerPage);
+
+  // Handle "Previous" and "Next" buttons
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(prevPage => prevPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(prevPage => prevPage + 1);
+    }
+  };
+
+  // Generate pagination buttons with dynamic shifting but keep first and last page visible
+  const renderPageNumbers = () => {
+    const pages = [];
+    const maxPagesToShow = 5;
+    const startPage = Math.max(2, currentPage - Math.floor(maxPagesToShow / 2)); // Start from page 2 (since 1 is always shown)
+    const endPage = Math.min(totalPages - 1, startPage + maxPagesToShow - 1); // Exclude last page (since it's always shown)
+
+    // Always show the first page
+    if (totalPages > 0) {
+      pages.push(
+        <button
+          key={1}
+          onClick={() => setCurrentPage(1)}
+          className={currentPage === 1 ? 'active' : ''}
+          disabled={currentPage === 1}
+        >
+          1
+        </button>
+      );
+    }
+
+    // Add "..." if there is a gap between 1 and the starting page
+    if (startPage > 2) {
+      pages.push(<button key="start-ellipsis" disabled>...</button>);
+    }
+
+    // Add page buttons within the visible range
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(
+        <button
+          key={i}
+          onClick={() => setCurrentPage(i)}
+          className={currentPage === i ? 'active' : ''}
+          disabled={currentPage === i}
+        >
+          {i}
+        </button>
+      );
+    }
+
+    // Add "..." if there is a gap between the endPage and the last page
+    if (endPage < totalPages - 1) {
+      pages.push(<button key="end-ellipsis" disabled>...</button>);
+    }
+
+    // Always show the last page
+    if (totalPages > 1) {
+      pages.push(
+        <button
+          key={totalPages}
+          onClick={() => setCurrentPage(totalPages)}
+          className={currentPage === totalPages ? 'active' : ''}
+          disabled={currentPage === totalPages}
+        >
+          {totalPages}
+        </button>
+      );
+    }
+
+    return pages;
+  };
 
   return (
     <>
@@ -200,7 +265,7 @@ const Companies = ({ user }) => {
               </tr>
             </thead>
             <tbody>
-              {filteredCompanies.map((company, index) => (
+              {currentCompanies.map((company, index) => (
                 <tr key={index}>
                   <td><button onClick={() => setOpenCompany(company.name.toLowerCase())}>{company.name.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase())}</button></td>
                   <td>{company.avgAcceptance}</td>
@@ -210,6 +275,18 @@ const Companies = ({ user }) => {
               ))}
             </tbody>
           </table>
+        </div>
+        <div className="pagination">
+          <Menu menuButton={<MenuButton className="page-button">{`${companiesPerPage} / page`}</MenuButton>}>
+            <MenuItem onClick={() => setCompaniesPerPage(20)}>20 / page</MenuItem>
+            <MenuItem onClick={() => setCompaniesPerPage(50)}>50 / page</MenuItem>
+            <MenuItem onClick={() => setCompaniesPerPage(100)}>100 / page</MenuItem>
+          </Menu>
+          <div className='pages'>
+            <button onClick={handlePreviousPage} disabled={currentPage === 1}><i className="fa-solid fa-angle-left"></i></button>
+            {renderPageNumbers()}
+            <button onClick={handleNextPage} disabled={currentPage === totalPages}><i className="fa-solid fa-angle-right"></i></button>
+          </div>
         </div>
       </div>
     </>
