@@ -5,18 +5,19 @@ import Companies from './pages/companies';
 import DataStructures from './pages/datastructures';
 import Algorithms from './pages/algorithms';
 import NotFound from './pages/notfound';
-import ProblemSubmissionForm from './pages/problemsubmissionform';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 import './styles/app.css';
 import Account from './components/account';
 import Settings from './components/settings';
+import Submission from './components/submission';
 
 const App = () => {
   const [user, setUser] = useState(null);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'auto');
   const [displayAccount, setDisplayAccount] = useState(false);
   const [displaySettings, setDisplaySettings] = useState(false);
+  const [displaySubmission, setDisplaySubmission] = useState(false);
 
   useEffect(() => {
     if (theme === 'auto') {
@@ -28,42 +29,26 @@ const App = () => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const handleThemeChange = (newTheme) => {
-    setTheme(newTheme);
-  };
-
-  const handleUserChange = (newUser) => {
-    setUser(newUser);
-  }
-
-  const handleAccountClose = () => {
-    setDisplayAccount(false);
-  }
-
-  const handleAccountOpen = () => {
-    setDisplayAccount(true);
-  }
-
-  const handleSettingsClose = () => {
-    setDisplaySettings(false);
-  }
-
-  const handleSettingsOpen = () => {
-    setDisplaySettings(true);
-  }
-
   return (
     <div className='app'>
-      {displayAccount && <Account user={user} onClose={handleAccountClose} />}
-      {displaySettings && <Settings user={user} onClose={handleSettingsClose} theme={theme} onThemeChange={handleThemeChange} />}
+      {displayAccount && <Account user={user} onClose={() => setDisplayAccount(false)} />}
+      {displaySettings && <Settings user={user} onClose={() => setDisplaySettings(false)} theme={theme} onThemeChange={(newTheme) => setTheme(newTheme)} />}
+      {displaySubmission && <Submission user={user} onClose={() => setDisplaySubmission(false)} />}
       <Router>
-        <Navbar user={user} onUserChange={handleUserChange} theme={theme} onThemeChange={handleThemeChange} onAccountOpen={handleAccountOpen} onSettingsOpen={handleSettingsOpen} />
+        <Navbar 
+          user={user} 
+          onUserChange={(newUser) => setUser(newUser)} 
+          theme={theme} 
+          onThemeChange={(newTheme) => setTheme(newTheme)} 
+          onAccountOpen={() => setDisplayAccount(true)} 
+          onSettingsOpen={() => setDisplaySettings(true)}
+          onSubmissionOpen={() => setDisplaySubmission(true)} 
+        />
         <Routes>
           <Route path='/CompCode/' element={<Home theme={theme} />} />
           <Route path='/CompCode/companies' element={<Companies user={user} />} />
           <Route path='/CompCode/datastructures' element={<DataStructures user={user} />} />
           <Route path='/CompCode/algorithms' element={<Algorithms user={user} />} />
-          <Route path='/CompCode/submission' element={<ProblemSubmissionForm user={user} onUserChange={handleUserChange} />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />

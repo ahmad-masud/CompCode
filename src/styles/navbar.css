@@ -34,6 +34,9 @@
     text-decoration: none;
     padding: 10px 5px;
     border-radius: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .nav-link:hover {

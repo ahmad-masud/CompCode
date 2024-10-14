@@ -11,13 +11,13 @@ const Problems = ({ company, user, onClose, page }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [problemName, setProblemName] = useState('');
+  const [problemTitle, setProblemTitle] = useState('');
 
   // Open the modal and set the problem name for which to fetch the solution
-  const openModal = (problemTitle) => {
-    if (problemTitle) {
-      setProblemName(problemTitle);
-      setIsModalOpen(true);
-    }
+  const openModal = (name, title) => {
+    setProblemName(name);
+    setProblemTitle(title);
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
@@ -134,6 +134,7 @@ const Problems = ({ company, user, onClose, page }) => {
         isOpen={isModalOpen}
         onClose={closeModal}
         problemName={problemName}
+        problemTitle={problemTitle}
       />
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="overlay-content">
@@ -179,9 +180,12 @@ const Problems = ({ company, user, onClose, page }) => {
                 </a>
               </div>
               <div className='solution-link'>
-                <button onClick={() => openModal(problem['Leetcode Question Link'].split('/').pop())}>
+                <button onClick={() => openModal(problem['Leetcode Question Link'].split('/').pop(), problem.Title)}>
                   <i className="fa-regular fa-file-code"></i>
                 </button>
+                <a className='video-link' href={'https://www.youtube.com/results?search_query=leetcode+' + problem.ID} target="_blank" rel="noopener noreferrer">
+                  <i className="fa-regular fa-file-video"></i>
+                </a>
               </div>
               <div>{problem.Acceptance}</div>
               <div className={problem.Difficulty.toLowerCase()}>{problem.Difficulty}</div>

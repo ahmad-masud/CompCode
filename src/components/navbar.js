@@ -8,7 +8,7 @@ import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import { useNavigate } from 'react-router-dom';
 
-const Navbar = ({ user, onUserChange, onAccountOpen, onSettingsOpen }) => {
+const Navbar = ({ user, onUserChange, onAccountOpen, onSettingsOpen, onSubmissionOpen }) => {
   const [narrow, setNarrow] = useState(false);
   const navigate = useNavigate();
 
@@ -70,7 +70,7 @@ const Navbar = ({ user, onUserChange, onAccountOpen, onSettingsOpen }) => {
               <Link className='nav-link' to='/CompCode/companies'>Companies</Link>
               <Link className='nav-link' to='/CompCode/datastructures'>Data Structures</Link>
               <Link className='nav-link' to='/CompCode/algorithms'>Algorithms</Link>
-              <Link className='nav-link' to='/CompCode/submission'>Report</Link>
+              <button className='nav-link' onClick={() => onSubmissionOpen()}>Report</button>
             </div>
           ) : (
             <Menu menuButton={<MenuButton className="user-button"><i className="fa-solid fa-bars"></i></MenuButton>}>
@@ -78,7 +78,7 @@ const Navbar = ({ user, onUserChange, onAccountOpen, onSettingsOpen }) => {
               <MenuItem onClick={() => navigate('/CompCode/companies')}><i className="fa-solid fa-building"></i> Companies</MenuItem>
               <MenuItem onClick={() => navigate('/CompCode/datastructures')}><i className="fa-solid fa-database"></i> Data Structures</MenuItem>
               <MenuItem onClick={() => navigate('/CompCode/algorithms')}><i className="fa-solid fa-diagram-project"></i> Algorithms</MenuItem>
-              <MenuItem onClick={() => navigate('/CompCode/submission')}><i className="fa-solid fa-flag"></i> Report</MenuItem>
+              <MenuItem onClick={() => onSubmissionOpen()}><i className="fa-solid fa-flag"></i> Report</MenuItem>
             </Menu>
           )}
         </div>
