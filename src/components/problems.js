@@ -21,6 +21,21 @@ const Problems = ({ company, user, onClose, page }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [problemsPerPage, setProblemsPerPage] = useState(20); // Default to 20 problems per page
 
+  const [narrow, setNarrow] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 800) {
+        setNarrow(true);
+      } else {
+        setNarrow(false);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Open the modal and set the problem name for which to fetch the solution
   const openModal = (name, title) => {
     setProblemName(name);
@@ -254,12 +269,11 @@ const Problems = ({ company, user, onClose, page }) => {
         <div className="problem-table">
           <div className="table-header">
             <div>Status</div>
-            <div>ID <button className="sort-button" onClick={() => sortProblems('ID')}>{getSortIcon('ID')}</button></div>
             <div>Title <button className="sort-button" onClick={() => sortProblems('Title')}>{getSortIcon('Title')}</button></div>
             <div>Solution</div>
-            <div>Acceptance <button className="sort-button" onClick={() => sortProblems('Acceptance')}>{getSortIcon('Acceptance')}</button></div>
+            {!narrow && <div>Acceptance <button className="sort-button" onClick={() => sortProblems('Acceptance')}>{getSortIcon('Acceptance')}</button></div>}
             <div>Difficulty <button className="sort-button" onClick={() => sortProblems('Difficulty')}>{getSortIcon('Difficulty')}</button></div>
-            {page === 'companies' && <div>Frequency <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button></div>}
+            {page === 'companies' && !narrow && <div>Frequency {isPremium && <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button>}</div>}
           </div>
           {currentProblems.map((problem, index) => (
             <div className="table-row" key={index}>
@@ -268,10 +282,9 @@ const Problems = ({ company, user, onClose, page }) => {
                   {completedProblems[problem.ID] ? <i className="fa-solid fa-square-check"></i> : <i className="fa-regular fa-square"></i> }
                 </button>
               </div>
-              <div>{problem.ID}</div>
               <div className='title'>
                 <a href={problem['Leetcode Question Link']} target="_blank" rel="noopener noreferrer">
-                  {problem.Title} <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                  {problem.Title} {!narrow && <i className="fa-solid fa-arrow-up-right-from-square"></i>}
                 </a>
               </div>
               <div className='solution-link'>
@@ -282,13 +295,10 @@ const Problems = ({ company, user, onClose, page }) => {
                 ) : (
                   <Link to="/CompCode/premium" className='premium-link'><i className="fa-solid fa-lock"></i></Link> // Show lock if not premium
                 )}
-                <a className='video-link' href={'https://www.youtube.com/results?search_query=leetcode+' + problem.ID} target="_blank" rel="noopener noreferrer">
-                  <i className="fa-regular fa-file-video"></i>
-                </a>
               </div>
-              <div>{problem.Acceptance}</div>
+              {!narrow && <div>{problem.Acceptance}</div>}
               <div className={problem.Difficulty.toLowerCase()}>{problem.Difficulty}</div>
-              {page === 'companies' && (
+              {page === 'companies' && !narrow && (
                 <div>
                   {isPremium ? (
                     Math.round(problem.Frequency * 100) / 100

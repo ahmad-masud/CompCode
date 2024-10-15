@@ -89,9 +89,22 @@
   flex: 1;
 }
 
-.table-row div:nth-child(3), .table-header div:nth-child(3) {
-  flex: 4;
+.table-row div:nth-child(1), .table-header div:nth-child(1) {
+  flex: 0.5;
 }
+
+.table-row div:nth-child(2), .table-header div:nth-child(2) {
+  flex: 3;
+}
+
+.table-row div:nth-child(3), .table-header div:nth-child(3) {
+  flex: 0.75;
+}
+
+.table-row div:nth-child(5), .table-header div:nth-child(5) {
+  flex: 0.75;
+}
+
 
 .table-row a {
   transition: color 200ms ease-in-out;
@@ -107,14 +120,6 @@
 
 .solution-link button {
   color: #007bff;
-  font-size: 1.25rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.solution-link .video-link {
-  color: #BF5AF2;
   font-size: 1.25rem;
   background: none;
   border: none;
@@ -184,21 +189,37 @@
 }
 
 @media (max-width: 768px) {
+  .overlay-content {
+    width: calc(100% - 30px);
+    padding: 20px 5px;
+  }
   /* Resize only the table elements */
   .table-header, .table-row {
-    font-size: 0.8rem; /* Smaller font size for table headers and rows on mobile */
+    font-size: 0.75rem; /* Smaller font size for table headers and rows on mobile */
     padding: 10px; /* Reduced padding for better spacing */
   }
 
-  .table-row a {
-    font-size: 0.8rem; /* Smaller font size for links in the table */
+  .table-row div:nth-child(2), .table-header div:nth-child(2) {
+    flex: 2;
+  } 
+
+  .table-row div:nth-child(4), .table-header div:nth-child(4) {
+    flex: 0.75;
   }
 
-  .table-row div:nth-child(3), .table-header div:nth-child(3) {
-    flex: 3; /* Adjust flex for mobile for better layout */
+  .table-row a {
+    font-size: 0.75rem; /* Smaller font size for links in the table */
   }
 
   .sort-button {
-    font-size: 0.8rem; /* Smaller font size for sort buttons */
+    font-size: 0.75rem; /* Smaller font size for sort buttons */
+  }
+
+  .solution-link button {
+    font-size: 1rem; /* Smaller font size for solution links */
+  }
+
+  .title {
+    font-size: 0.75rem;
   }
 }
