@@ -1,5 +1,5 @@
 .release-notes {
-    width: 90%;
+    width: calc(100% - 100px);
     max-width: 1200px;
     padding: 40px;
     background-color: var(--secondary-color);
@@ -46,4 +46,24 @@
 
 .release-notes .show-more:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .release-notes {
+        padding: 20px;
+        margin: 100px auto;
+        width: calc(100% - 60px);
+    }
+
+    .release-notes h2 {
+        font-size: 1.5rem;
+    }
+
+    .release-notes li {
+        font-size: 1rem;
+    }
+
+    .release-notes .show-more {
+        font-size: 1rem;
+    }
 }

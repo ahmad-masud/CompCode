@@ -6,15 +6,13 @@ import Google from '../content/images/google.webp'
 import { Link } from 'react-router-dom';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
-import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ user, onUserChange, onAccountOpen, onSettingsOpen, onSubmissionOpen }) => {
   const [narrow, setNarrow] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 600) {
+      if (window.innerWidth <= 800) {
         setNarrow(true);
       } else {
         setNarrow(false);
@@ -73,13 +71,13 @@ const Navbar = ({ user, onUserChange, onAccountOpen, onSettingsOpen, onSubmissio
               <button className='nav-link' onClick={() => onSubmissionOpen()}>Report</button>
             </div>
           ) : (
-            <Menu menuButton={<MenuButton className="user-button"><i className="fa-solid fa-bars"></i></MenuButton>}>
-              <MenuItem onClick={() => navigate('/CompCode/')}><i className="fa-solid fa-house"></i> Home</MenuItem>
-              <MenuItem onClick={() => navigate('/CompCode/companies')}><i className="fa-solid fa-building"></i> Companies</MenuItem>
-              <MenuItem onClick={() => navigate('/CompCode/datastructures')}><i className="fa-solid fa-database"></i> Data Structures</MenuItem>
-              <MenuItem onClick={() => navigate('/CompCode/algorithms')}><i className="fa-solid fa-diagram-project"></i> Algorithms</MenuItem>
-              <MenuItem onClick={() => onSubmissionOpen()}><i className="fa-solid fa-flag"></i> Report</MenuItem>
-            </Menu>
+            <div>
+              <Link className='nav-link' to='/CompCode/'><i className="fa-solid fa-house"></i></Link>
+              <Link className='nav-link' to='/CompCode/companies'><i className="fa-solid fa-building"></i></Link>
+              <Link className='nav-link' to='/CompCode/datastructures'><i className="fa-solid fa-database"></i></Link>
+              <Link className='nav-link' to='/CompCode/algorithms'><i className="fa-solid fa-diagram-project"></i></Link>
+              <button className='nav-link' onClick={() => onSubmissionOpen()}><i className="fa-solid fa-flag"></i></button>
+            </div>
           )}
         </div>
         <div className='right'>
