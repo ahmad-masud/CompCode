@@ -15,7 +15,7 @@
   background-color: var(--background-color);
   padding: 20px;
   border-radius: 10px;
-  width: 60%;
+  width: calc(100% - 60px);
   max-width: 800px;
   position: relative;
   z-index: 1001;
@@ -25,7 +25,7 @@
 }
 
 .modal-content p {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--font-color);
   margin-bottom: 10px;
 }
@@ -48,4 +48,11 @@
 
 .copy-button:hover {
   background-color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 20px 10px;
+    width: calc(100% - 40px);
+  }
 }
