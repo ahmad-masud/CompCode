@@ -26,24 +26,30 @@ admin.initializeApp();
 
 // A simple function to create a Stripe Checkout session
 exports.createCheckoutSession = functions.https.onCall(async (data, context) => {
-  const { priceId, email } = data;
+  const { priceId, email, isSubscription } = data;  // Add `isSubscription` flag
 
-  const session = await stripe.checkout.sessions.create({
-    payment_method_types: ["card"],
-    customer_email: email,
-    line_items: [
-      {
-        price: priceId,
-        quantity: 1,
-      },
-    ],
-    mode: "subscription",
-    success_url: "https://ahmadmasud.com/CompCode/", // Replace with your success URL
-    cancel_url: "https://ahmadmasud.com/CompCode/", // Replace with your cancel URL
-  });
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      customer_email: email,  // Use the user's email for the session
+      line_items: [
+        {
+          price: priceId, // Ensure this is a valid Price ID from Stripe
+          quantity: 1,
+        },
+      ],
+      mode: isSubscription ? 'subscription' : 'payment', // Use 'subscription' or 'payment' based on the product
+      success_url: 'https://ahmadmasud.com/CompCode',
+      cancel_url: 'https://ahmadmasud.com/CompCode',
+    });
 
-  return { sessionId: session.id };
+    return { sessionId: session.id };
+  } catch (error) {
+    console.error('Error creating Stripe checkout session:', error);
+    throw new functions.https.HttpsError('internal', 'Unable to create checkout session');
+  }
 });
+
 
 // Cloud function to handle Stripe webhooks
 exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
@@ -73,6 +79,7 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
         premium: true,  // Set the premium status
         stripeCustomerId: customerId,
         subscriptionId: session.subscription,
+        canceled: false,
         createdAt: admin.firestore.FieldValue.serverTimestamp(),
       }, { merge: true });
 
@@ -121,15 +128,17 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
 
 // Function to cancel a Stripe subscription
 exports.cancelSubscription = functions.https.onCall(async (data, context) => {
-  const { subscriptionId } = data;  // Get the subscription ID passed from the frontend
+  const { subscriptionId, email } = data;  // Get the subscription ID passed from the frontend
 
   try {
-    // Cancel the subscription in Stripe
-    const deletedSubscription = await stripe.subscriptions.del(subscriptionId);
+    const subscription = await stripe.subscriptions.update(
+      subscriptionId,
+      {cancel_at_period_end: true}
+    );
 
     // Optionally, update Firestore to reflect the user's canceled subscription
-    const userRef = admin.firestore().collection('users').doc(context.auth.uid);
-    await userRef.update({ premium: false, subscriptionStatus: 'canceled' });
+    const userRef = admin.firestore().collection('users').doc(email);
+    await userRef.update({ canceled: true });
 
     return { status: 'success', message: 'Subscription canceled successfully' };
   } catch (error) {

@@ -11,13 +11,15 @@ const Account = ({ user, onClose }) => {
     displayName: '',
     email: '',
     photoURL: '',
-    subscriptionId: '', // Track the user's subscription ID
-    premium: false, // Track if the user is premium
   });
   const [confirmEmail, setConfirmEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [cancelError, setCancelError] = useState('');
   const [cancelSuccess, setCancelSuccess] = useState('');
+  const [premiumInfo, setPremiumInfo] = useState({
+    premium: false,
+    subscriptionId: '',
+  });
 
   // Firebase Functions instance
   const functions = getFunctions();
@@ -27,16 +29,29 @@ const Account = ({ user, onClose }) => {
     if (user) {
       // Fetch additional user info from Firestore (premium status and subscription ID)
       const userRef = doc(firestore, 'users', user.uid);
+      const userEmailRef = doc(firestore, 'users', user.email)
       getDoc(userRef)
         .then((docSnap) => {
           if (docSnap.exists()) {
-            const userData = docSnap.data();
             setUserInfo({
               displayName: user.displayName,
               email: user.email,
-              photoURL: user.photoURL,
-              subscriptionId: userData.subscriptionId || '',
-              premium: userData.premium || false, // Set the premium status
+              photoURL: user.photoURL, // Set the premium status
+            });
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching user data: ", error);
+        });
+      
+      // Fetch user's premium status and subscription ID
+      getDoc(userEmailRef)
+        .then((docSnap) => {
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+            setPremiumInfo({
+              premium: userData.premium,
+              subscriptionId: userData.subscriptionId,
             });
           }
         })
@@ -77,7 +92,7 @@ const Account = ({ user, onClose }) => {
 
   // Handle Cancel Subscription
   const handleCancelSubscription = async () => {
-    if (!userInfo.subscriptionId) {
+    if (!premiumInfo.subscriptionId) {
       setCancelError('No active subscription to cancel.');
       return;
     }
@@ -85,7 +100,7 @@ const Account = ({ user, onClose }) => {
     const cancelSubscription = httpsCallable(functions, 'cancelSubscription');
 
     try {
-      const result = await cancelSubscription({ subscriptionId: userInfo.subscriptionId });
+      const result = await cancelSubscription({ subscriptionId: premiumInfo.subscriptionId, email: userInfo.email });
 
       if (result.data.status === 'success') {
         setCancelSuccess('Subscription canceled successfully.');
@@ -119,7 +134,7 @@ const Account = ({ user, onClose }) => {
           </button>
 
           {/* Show Cancel Subscription Button if user has premium */}
-          {userInfo.premium && (
+          {premiumInfo.premium && premiumInfo.subscriptionId && !premiumInfo.canceled && (
             <div className="cancel-subscription-section">
               <button 
                 onClick={handleCancelSubscription} 
