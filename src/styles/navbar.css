@@ -50,6 +50,33 @@
     align-items: center;
 }
 
+.login-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.premium-button {
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
+    background: #f0ad4e;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: filter 0.2s ease-in-out;
+}
+
+.premium-button:hover {
+    filter: brightness(0.75);
+}
+
 .login-button {
     padding: 5px;
     border: none;

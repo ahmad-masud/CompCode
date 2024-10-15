@@ -1,0 +1,105 @@
+.premium-page {
+  height: calc(100vh - 150px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.premium-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--font-color);
+}
+
+.premium-info {
+  font-size: 1.5rem;
+  color: var(--font-color);
+}
+
+.subscription-options {
+  display: flex;
+  gap: 20px;
+}
+
+.subscription-option {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  color: var(--font-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.subscription-title {
+  font-size: 1.5rem;
+  color: var(--font-color);
+}
+
+.subscription-cost {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--font-color);
+}
+
+.subscription-cost span {
+  font-size: 1rem;
+  filter: brightness(50%);
+}
+
+.subscription-features {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.checkout-button {
+  padding: 10px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  transition: filter 200ms ease-in-out;
+}
+
+.checkout-button:hover {
+  filter: brightness(75%);
+}
+
+.subscription-option:nth-child(1) .checkout-button {
+  background-color: #3FCA7D;
+}
+
+.subscription-option:nth-child(2) .checkout-button {
+  background-color: #f0ad4e;
+}
+
+.subscription-option:nth-child(3) .checkout-button {
+  background-color: tomato;
+}
+
+.subscription-option:nth-child(3) {
+  position: relative;
+  padding-top: 40px; /* To make space for the label */
+}
+
+.subscription-option:nth-child(3)::before {
+  content: "Best Value";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #3FCA7D;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 0 0 10px 10px;
+}

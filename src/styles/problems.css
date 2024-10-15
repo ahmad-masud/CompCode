@@ -113,7 +113,7 @@
   cursor: pointer;
 }
 
-.solution-link a {
+.solution-link .video-link {
   color: #BF5AF2;
   font-size: 1.25rem;
   background: none;
