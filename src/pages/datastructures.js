@@ -16,6 +16,20 @@ const DataStructures = ({ user }) => {
   const [uniqueProblems, setUniqueProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [openCompany, setOpenCompany] = useState("");
+  const [narrow, setNarrow] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 800) {
+        setNarrow(true);
+      } else {
+        setNarrow(false);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleClose = () => {
     setOpenCompany("");
@@ -177,7 +191,7 @@ const DataStructures = ({ user }) => {
             <thead>
               <tr>
                 <th>Name <button className="sort-button" onClick={() => sortCompanies('name')}>{getSortIcon('name')}</button></th>
-                <th>Acceptance <button className="sort-button" onClick={() => sortCompanies('avgAcceptance')}>{getSortIcon('avgAcceptance')}</button></th>
+                {!narrow && <th>Acceptance <button className="sort-button" onClick={() => sortCompanies('avgAcceptance')}>{getSortIcon('avgAcceptance')}</button></th>}
                 <th>Problems <button className="sort-button" onClick={() => sortCompanies('numProblems')}>{getSortIcon('numProblems')}</button></th>
                 <th>Difficulty <button className="sort-button" onClick={() => sortCompanies('mostCommonDifficulty')}>{getSortIcon('mostCommonDifficulty')}</button></th>
               </tr>
@@ -194,7 +208,7 @@ const DataStructures = ({ user }) => {
                       } 
                     </button>
                   </td>
-                  <td>{company.avgAcceptance}</td>
+                  {!narrow && <td>{company.avgAcceptance}</td>}
                   <td>{company.numProblems}</td>
                   <td className={company.mostCommonDifficulty.toLowerCase()}>{company.mostCommonDifficulty}</td>
                 </tr>
