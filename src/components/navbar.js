@@ -84,12 +84,15 @@ const Navbar = ({ user, onUserChange, onAccountOpen, onSettingsOpen, onSubmissio
         </div>
         <div className='right'>
           {user ? (
+            <div className='login-right'>
+              <Link to='/CompCode/premium' className='premium-button'><i className="fa-solid fa-gem"></i>{!narrow && "Premium"}</Link>
               <Menu menuButton={<MenuButton className="user-button"><img src={user.photoURL} alt='User' className='user-avatar' /></MenuButton>}>
                 <MenuItem onClick={onAccountOpen}><i className="fa-solid fa-user"></i> Account</MenuItem>
                 <MenuItem onClick={onSettingsOpen}><i className="fa-solid fa-gear"></i> Settings</MenuItem>
                 <hr className="menu-divider"/>
                 <MenuItem onClick={handleLogout}><i className="fa-solid fa-arrow-right-from-bracket"></i> Logout</MenuItem>
               </Menu>
+            </div>
           ) : (
             <button className='login-button' onClick={handleLogin}>
               <img src={Google} alt="google"/>{!narrow && "Continue with Google"}

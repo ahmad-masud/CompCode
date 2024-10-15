@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getAuth, signOut } from 'firebase/auth';
+import { getFunctions, httpsCallable } from 'firebase/functions'; // Import Firebase Functions
+import { doc, getDoc } from 'firebase/firestore'; // To fetch user data from Firestore
+import { firestore } from '../config/firebase-config'; // Import Firestore instance
 import '../styles/account.css'; // Import your CSS file for styles
 
 const Account = ({ user, onClose }) => {
@@ -8,18 +11,38 @@ const Account = ({ user, onClose }) => {
     displayName: '',
     email: '',
     photoURL: '',
+    subscriptionId: '', // Track the user's subscription ID
+    premium: false, // Track if the user is premium
   });
   const [confirmEmail, setConfirmEmail] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [cancelError, setCancelError] = useState('');
+  const [cancelSuccess, setCancelSuccess] = useState('');
+
+  // Firebase Functions instance
+  const functions = getFunctions();
 
   // Fetch user information when component loads
   useEffect(() => {
     if (user) {
-      setUserInfo({
-        displayName: user.displayName,
-        email: user.email,
-        photoURL: user.photoURL,
-      });
+      // Fetch additional user info from Firestore (premium status and subscription ID)
+      const userRef = doc(firestore, 'users', user.uid);
+      getDoc(userRef)
+        .then((docSnap) => {
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+            setUserInfo({
+              displayName: user.displayName,
+              email: user.email,
+              photoURL: user.photoURL,
+              subscriptionId: userData.subscriptionId || '',
+              premium: userData.premium || false, // Set the premium status
+            });
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching user data: ", error);
+        });
     }
   }, [user]);
 
@@ -52,6 +75,30 @@ const Account = ({ user, onClose }) => {
     }
   };
 
+  // Handle Cancel Subscription
+  const handleCancelSubscription = async () => {
+    if (!userInfo.subscriptionId) {
+      setCancelError('No active subscription to cancel.');
+      return;
+    }
+
+    const cancelSubscription = httpsCallable(functions, 'cancelSubscription');
+
+    try {
+      const result = await cancelSubscription({ subscriptionId: userInfo.subscriptionId });
+
+      if (result.data.status === 'success') {
+        setCancelSuccess('Subscription canceled successfully.');
+        setCancelError('');
+      } else {
+        setCancelError('Failed to cancel subscription.');
+      }
+    } catch (error) {
+      console.error('Error canceling subscription:', error);
+      setCancelError('Error canceling subscription. Please try again.');
+    }
+  };
+
   return (
     <div className="account-overlay">
       <div className="overlay-backdrop" onClick={onClose}></div>
@@ -70,6 +117,19 @@ const Account = ({ user, onClose }) => {
           <button onClick={handleSignOut} className="account-button signout-btn">
             Sign Out
           </button>
+
+          {/* Show Cancel Subscription Button if user has premium */}
+          {userInfo.premium && (
+            <div className="cancel-subscription-section">
+              <button 
+                onClick={handleCancelSubscription} 
+                className="account-button cancel-sub-btn delete-btn">
+                Cancel Subscription
+              </button>
+              {cancelSuccess && <p className="success-message">{cancelSuccess}</p>}
+              {cancelError && <p className="error-message">{cancelError}</p>}
+            </div>
+          )}
 
           {/* Delete Account Section */}
           <div className="delete-account-section">

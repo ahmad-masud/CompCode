@@ -11,6 +11,9 @@ import './styles/app.css';
 import Account from './components/account';
 import Settings from './components/settings';
 import Submission from './components/submission';
+import Premium from './pages/premium';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -18,6 +21,7 @@ const App = () => {
   const [displayAccount, setDisplayAccount] = useState(false);
   const [displaySettings, setDisplaySettings] = useState(false);
   const [displaySubmission, setDisplaySubmission] = useState(false);
+  const stripePromise = loadStripe(String(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY));
 
   useEffect(() => {
     if (theme === 'auto') {
@@ -44,13 +48,16 @@ const App = () => {
           onSettingsOpen={() => setDisplaySettings(true)}
           onSubmissionOpen={() => setDisplaySubmission(true)} 
         />
-        <Routes>
-          <Route path='/CompCode/' element={<Home theme={theme} />} />
-          <Route path='/CompCode/companies' element={<Companies user={user} />} />
-          <Route path='/CompCode/datastructures' element={<DataStructures user={user} />} />
-          <Route path='/CompCode/algorithms' element={<Algorithms user={user} />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
+        <Elements stripe={stripePromise}>
+          <Routes>
+            <Route path='/CompCode/' element={<Home theme={theme} />} />
+            <Route path='/CompCode/companies' element={<Companies user={user} />} />
+            <Route path='/CompCode/datastructures' element={<DataStructures user={user} />} />
+            <Route path='/CompCode/algorithms' element={<Algorithms user={user} />} />
+            <Route path='/CompCode/premium' element={<Premium user={user} />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </Elements>
         <Footer />
       </Router>
     </div>

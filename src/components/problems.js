@@ -5,6 +5,7 @@ import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import Solution from './solution';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
+import { Link } from 'react-router-dom';
 
 const Problems = ({ company, user, onClose, page }) => {
   const [problems, setProblems] = useState([]);
@@ -14,6 +15,7 @@ const Problems = ({ company, user, onClose, page }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [problemName, setProblemName] = useState('');
   const [problemTitle, setProblemTitle] = useState('');
+  const [isPremium, setIsPremium] = useState(false); // New state to track premium status
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -51,6 +53,7 @@ const Problems = ({ company, user, onClose, page }) => {
         if (docSnap.exists()) {
           const userData = docSnap.data();
           setCompletedProblems(userData.completedProblems || {});
+          setIsPremium(userData.premium || false); // Check if the user is premium
         } else {
           // Create a new document if it doesn't exist
           setDoc(userRef, { completedProblems: {} });
@@ -230,7 +233,7 @@ const Problems = ({ company, user, onClose, page }) => {
         </h2>
         <p className="solved-count">{completedCount}<span> | {filteredProblems.length}</span></p>
         <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount / filteredProblems.length) * 100}%` }}></div></div>
-        { page === "companies" && <div className="search-container">
+        {page === "companies" && <div className="search-container">
           <input
             type="text"
             placeholder="Search"
@@ -262,16 +265,28 @@ const Problems = ({ company, user, onClose, page }) => {
                 </a>
               </div>
               <div className='solution-link'>
-                <button onClick={() => openModal(problem['Leetcode Question Link'].split('/').pop(), problem.Title)}>
-                  <i className="fa-regular fa-file-code"></i>
-                </button>
+                {isPremium || page !== 'companies' ? (
+                  <button onClick={() => openModal(problem['Leetcode Question Link'].split('/').pop(), problem.Title)}>
+                    <i className="fa-regular fa-file-code"></i>
+                  </button>
+                ) : (
+                  <Link to="/CompCode/premium" className='premium-link'><i className="fa-solid fa-lock"></i></Link> // Show lock if not premium
+                )}
                 <a className='video-link' href={'https://www.youtube.com/results?search_query=leetcode+' + problem.ID} target="_blank" rel="noopener noreferrer">
                   <i className="fa-regular fa-file-video"></i>
                 </a>
               </div>
               <div>{problem.Acceptance}</div>
               <div className={problem.Difficulty.toLowerCase()}>{problem.Difficulty}</div>
-              {page === 'companies' && <div>{Math.round(problem.Frequency * 100) / 100}</div>}
+              {page === 'companies' && (
+                <div>
+                  {isPremium ? (
+                    Math.round(problem.Frequency * 100) / 100
+                  ) : (
+                    <Link to="/CompCode/premium" className='premium-link'><i className="fa-solid fa-lock"></i></Link>  // Show lock if not premium
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>
