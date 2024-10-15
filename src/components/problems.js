@@ -49,16 +49,26 @@ const Problems = ({ company, user, onClose, page }) => {
   useEffect(() => {
     if (user) {
       const userRef = doc(firestore, 'users', user.uid);
+      const userEmailRef = doc(firestore, 'users', user.email)
       getDoc(userRef).then((docSnap) => {
         if (docSnap.exists()) {
           const userData = docSnap.data();
-          setCompletedProblems(userData.completedProblems || {});
-          setIsPremium(userData.premium || false); // Check if the user is premium
+          setCompletedProblems(userData.completedProblems || {}); // Check if the user is premium
         } else {
           // Create a new document if it doesn't exist
           setDoc(userRef, { completedProblems: {} });
         }
       }).catch((error) => {
+        console.error("Error fetching user data: ", error);
+      });
+
+      getDoc(userEmailRef).then((docSnap) => {
+        if (docSnap.exists()) {
+          const userData = docSnap.data();
+          setIsPremium(userData.premium);
+        }
+      }
+      ).catch((error) => {
         console.error("Error fetching user data: ", error);
       });
     } else {

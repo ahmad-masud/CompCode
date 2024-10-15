@@ -7,8 +7,15 @@ import '../styles/premium.css';
 const PremiumPage = ({ user }) => {
   const stripe = useStripe();
   const functions = getFunctions(); // Get Firebase functions instance
+  //const [test, setTest] = useState(false);
 
-  const handleCheckout = async (priceId) => {
+  /*useEffect(() => {
+    if (user && user.email === "ahmadmasud2027@gmail.com") {
+      setTest(true);
+    }
+  }, [user]);*/
+
+  const handleCheckout = async (priceId, isSubscription) => {
     if (!user) {
       console.error('User not logged in');
       return;
@@ -16,7 +23,7 @@ const PremiumPage = ({ user }) => {
 
     try {
       const createCheckoutSession = httpsCallable(functions, 'createCheckoutSession');
-      const { data } = await createCheckoutSession({ priceId: priceId, email: user.email });
+      const { data } = await createCheckoutSession({ priceId: priceId, email: user.email, isSubscription: isSubscription });
 
       const { error } = await stripe.redirectToCheckout({ sessionId: data.sessionId });
       if (error) {
@@ -31,11 +38,15 @@ const PremiumPage = ({ user }) => {
   const monthlyPriceId = 'price_1Q9xzfFyVXgjLrCzwNw8Hrxc';  // Example Price ID for Monthly
   const yearlyPriceId = 'price_1Q9y2rFyVXgjLrCzkuvHvh6A';   // Example Price ID for Annual
   const lifetimePriceId = 'price_1Q9vsaFyVXgjLrCzlSBcpK1L'; 
+  //const testPriceId = 'price_1Q9yelFyVXgjLrCzlTulMhMt';  // Example Price ID for Monthly
+  //const test2PriceId = 'price_1Q9zVcFyVXgjLrCzy2QNTmHf';  // Example Price ID for Monthly
 
   return (
     <div className="premium-page">
       <p className='premium-title'>Upgrade to Premium</p>
       <p className='premium-info'>Choose your subscription plan:</p>
+      {/*test && <button onClick={() => handleCheckout(testPriceId, false)} className='test-button'>Test</button>*/}
+      {/*test && <button onClick={() => handleCheckout(test2PriceId, true)} className='test-button'>Test 2</button>*/}
       <div className="subscription-options">
         <div className="subscription-option">
           <p className='subscription-title'>Monthly Plan</p>
@@ -46,7 +57,7 @@ const PremiumPage = ({ user }) => {
           </div>
           <button
             className="checkout-button"
-            onClick={() => handleCheckout(monthlyPriceId)}
+            onClick={() => handleCheckout(monthlyPriceId, true)}
           >
             Subscribe
           </button>
@@ -60,7 +71,7 @@ const PremiumPage = ({ user }) => {
           </div>
           <button
             className="checkout-button"
-            onClick={() => handleCheckout(yearlyPriceId)}
+            onClick={() => handleCheckout(yearlyPriceId, true)}
           >
             Subscribe
           </button>
@@ -75,7 +86,7 @@ const PremiumPage = ({ user }) => {
           </div>
           <button
             className="checkout-button"
-            onClick={() => handleCheckout(lifetimePriceId)}
+            onClick={() => handleCheckout(lifetimePriceId, false)}
           >
             Subscribe
           </button>
