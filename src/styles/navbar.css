@@ -1,6 +1,6 @@
 .navbar {
     width: 100%;
-    height: 50px;
+    height: 60px;
     background: var(--secondary-color);
     display: flex;
     justify-content: center;
@@ -58,7 +58,7 @@
 }
 
 .premium-button {
-    padding: 5px;
+    padding: 10px;
     border: none;
     border-radius: 10px;
     font-size: 1rem;

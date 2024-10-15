@@ -1,6 +1,6 @@
 .premium-page {
   max-width: 1200px;
-  width: calc(100% - 40px);
+  width: calc(100% - 20px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,7 +27,7 @@
 }
 
 .subscription-option {
-  padding: 20px;
+  padding: 40px;
   border-radius: 10px;
   background-color: var(--secondary-color);
   color: var(--font-color);
@@ -37,7 +37,7 @@
   align-items: center;
   gap: 20px;
   max-width: 400px;
-  width: calc(100% - 60px);
+  width: calc(100% - 80px);
 }
 
 .subscription-title {
@@ -59,17 +59,19 @@
 .subscription-features {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 5px;
 }
 
+.subscription-feature {
+  text-align: left;
+}
+
 .checkout-button {
-  padding: 10px;
-  border-radius: 20px;
+  padding: 10px 15px;
+  border-radius: 15px;
   color: white;
   cursor: pointer;
   font-size: 1.25rem;
-  font-weight: bold;
   border: none;
   transition: filter 200ms ease-in-out;
   background-color: #3FCA7D;

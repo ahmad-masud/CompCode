@@ -83,7 +83,7 @@ const Navbar = ({ user, onUserChange, onAccountOpen, onSettingsOpen, onSubmissio
         <div className='right'>
           {user ? (
             <div className='login-right'>
-              <Link to='/CompCode/premium' className='premium-button'><i className="fa-solid fa-gem"></i>{!narrow && "Premium"}</Link>
+              <Link to='/CompCode/premium' className='premium-button'>{narrow ? <i className="fa-solid fa-gem"></i> : "Premium"}</Link>
               <Menu menuButton={<MenuButton className="user-button"><img src={user.photoURL} alt='User' className='user-avatar' /></MenuButton>}>
                 <MenuItem onClick={onAccountOpen}><i className="fa-solid fa-user"></i> Account</MenuItem>
                 <MenuItem onClick={onSettingsOpen}><i className="fa-solid fa-gear"></i> Settings</MenuItem>

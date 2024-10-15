@@ -66,6 +66,7 @@ const PremiumPage = ({ user }) => {
           <p className='subscription-title'>Yearly Plan</p>
           <p className='subscription-cost'>$ 50 <span>| year</span></p>
           <div className='subscription-features'>
+            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Save $10 per year</p>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Access to frequency count</p>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Access to solutions for company problems</p>
           </div>
@@ -80,7 +81,7 @@ const PremiumPage = ({ user }) => {
           <p className='subscription-title'>Lifetime Plan</p>
           <p className='subscription-cost'>$ 75</p>
           <div className='subscription-features'>
-            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Never pay again</p>
+            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Own forever</p>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Access to frequency count</p>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Access to solutions for company problems</p>
           </div>
