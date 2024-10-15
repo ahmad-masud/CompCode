@@ -1,3 +1,4 @@
+/* Default styling for larger screens */
 .search-container {
   margin-bottom: 20px; /* Add some space below the search bar */
   width: 100%;
@@ -69,10 +70,6 @@
   border: none;
   cursor: pointer;
   color: var(--font-color);
-}
-
-.company-table th button {
-  margin-left: 5px;
 }
 
 .company-table td button {
@@ -154,4 +151,46 @@
 
 .pages button:disabled:hover {
   background: var(--secondary-color);
+}
+
+/* Media query for screens 768px and below */
+@media (max-width: 768px) {
+  .companies-page {
+    margin: 10px auto;
+    width: calc(100% - 10px);
+  }
+
+  .company-table th,
+  .company-table td {
+    padding: 10px;
+    font-size: 0.75rem;
+  }
+
+  .company-table td button {
+    font-size: 0.75rem;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .page-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pages {
+    gap: 3px;
+  }
+
+  .pages button {
+    width: 25px;
+    height: 25px;
+  }
+
+  .company-table button.sort-button {
+    font-size: 0.75rem;
+  }
 }
