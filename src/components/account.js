@@ -19,6 +19,7 @@ const Account = ({ user, onClose }) => {
   const [premiumInfo, setPremiumInfo] = useState({
     premium: false,
     subscriptionId: '',
+    canceled: false,
   });
 
   // Firebase Functions instance
@@ -52,6 +53,7 @@ const Account = ({ user, onClose }) => {
             setPremiumInfo({
               premium: userData.premium,
               subscriptionId: userData.subscriptionId,
+              canceled: userData.canceled,
             });
           }
         })
