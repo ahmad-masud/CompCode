@@ -14,7 +14,6 @@ const Problems = ({ company, user, onClose, page }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [problemName, setProblemName] = useState('');
-  const [problemTitle, setProblemTitle] = useState('');
   const [isPremium, setIsPremium] = useState(false); // New state to track premium status
 
   // Pagination state
@@ -37,9 +36,8 @@ const Problems = ({ company, user, onClose, page }) => {
   }, []);
 
   // Open the modal and set the problem name for which to fetch the solution
-  const openModal = (name, title) => {
+  const openModal = (name) => {
     setProblemName(name);
-    setProblemTitle(title);
     setIsModalOpen(true);
   };
 
@@ -244,7 +242,6 @@ const Problems = ({ company, user, onClose, page }) => {
         isOpen={isModalOpen}
         onClose={closeModal}
         problemName={problemName}
-        problemTitle={problemTitle}
       />
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="overlay-content">
@@ -289,7 +286,7 @@ const Problems = ({ company, user, onClose, page }) => {
               </div>
               <div className='solution-link'>
                 {isPremium || page !== 'companies' ? (
-                  <button onClick={() => openModal(problem['Leetcode Question Link'].split('/').pop(), problem.Title)}>
+                  <button onClick={() => openModal(problem['Leetcode Question Link'].split('/').pop())}>
                     <i className="fa-regular fa-file-code"></i>
                   </button>
                 ) : (

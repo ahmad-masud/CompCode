@@ -3,7 +3,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Import both styles
 import '../styles/solution.css'; // For custom modal styling
 
-const Solution = ({ isOpen, onClose, problemName, problemTitle }) => {
+const Solution = ({ isOpen, onClose, problemName }) => {
   const [code, setCode] = useState('');
   const [error, setError] = useState('');
   const [isCopied, setIsCopied] = useState(false); // State for handling copy feedback
@@ -53,7 +53,6 @@ const Solution = ({ isOpen, onClose, problemName, problemTitle }) => {
     <div className="modal-overlay">
       <div className='overlay-backdrop' onClick={onClose}></div>
       <div className="modal-content">
-        <p>{problemTitle}</p>
         <button className="copy-button" onClick={handleCopyCode}>
           <i className={`bi bi-${isCopied ? 'check-lg' : 'copy'}`}></i>
         </button>
