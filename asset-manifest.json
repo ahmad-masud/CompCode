@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/CompCode/static/css/main.94a69101.css",
-    "main.js": "/CompCode/static/js/main.455d10ed.js",
+    "main.js": "/CompCode/static/js/main.3264ab53.js",
     "static/js/872.00ea8bf6.chunk.js": "/CompCode/static/js/872.00ea8bf6.chunk.js",
     "static/js/453.633e9978.chunk.js": "/CompCode/static/js/453.633e9978.chunk.js",
     "static/media/leetcode2.webp": "/CompCode/static/media/leetcode2.a33a7632a58419cb9978.webp",
@@ -9,11 +9,11 @@
     "static/media/leetcode.webp": "/CompCode/static/media/leetcode.b70bdd585b508ec9c339.webp",
     "index.html": "/CompCode/index.html",
     "main.94a69101.css.map": "/CompCode/static/css/main.94a69101.css.map",
-    "main.455d10ed.js.map": "/CompCode/static/js/main.455d10ed.js.map",
+    "main.3264ab53.js.map": "/CompCode/static/js/main.3264ab53.js.map",
     "453.633e9978.chunk.js.map": "/CompCode/static/js/453.633e9978.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.94a69101.css",
-    "static/js/main.455d10ed.js"
+    "static/js/main.3264ab53.js"
   ]
 }
