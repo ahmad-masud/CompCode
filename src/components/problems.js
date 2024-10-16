@@ -267,7 +267,7 @@ const Problems = ({ company, user, onClose, page }) => {
           <div className="table-header">
             <div>Status</div>
             <div>Title <button className="sort-button" onClick={() => sortProblems('Title')}>{getSortIcon('Title')}</button></div>
-            <div>Solution</div>
+            {!narrow && <div>Solution</div>}
             {!narrow && <div>Acceptance <button className="sort-button" onClick={() => sortProblems('Acceptance')}>{getSortIcon('Acceptance')}</button></div>}
             <div>Difficulty <button className="sort-button" onClick={() => sortProblems('Difficulty')}>{getSortIcon('Difficulty')}</button></div>
             {page === 'companies' && !narrow && <div>Frequency {isPremium && <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button>}</div>}
@@ -281,10 +281,10 @@ const Problems = ({ company, user, onClose, page }) => {
               </div>
               <div className='title'>
                 <a href={problem['Leetcode Question Link']} target="_blank" rel="noopener noreferrer">
-                  {problem.Title} {!narrow && <i className="fa-solid fa-arrow-up-right-from-square"></i>}
+                  {problem.ID}. {problem.Title}
                 </a>
               </div>
-              <div className='solution-link'>
+              {!narrow && <div className='solution-link'>
                 {isPremium || page !== 'companies' ? (
                   <button onClick={() => openModal(problem['Leetcode Question Link'].split('/').pop())}>
                     <i className="fa-regular fa-file-code"></i>
@@ -292,7 +292,7 @@ const Problems = ({ company, user, onClose, page }) => {
                 ) : (
                   <Link to="/CompCode/premium" className='premium-link'><i className="fa-solid fa-lock"></i></Link> // Show lock if not premium
                 )}
-              </div>
+              </div>}
               {!narrow && <div>{problem.Acceptance}</div>}
               <div className={problem.Difficulty.toLowerCase()}>{problem.Difficulty}</div>
               {page === 'companies' && !narrow && (
