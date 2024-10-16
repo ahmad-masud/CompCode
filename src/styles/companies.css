@@ -1,7 +1,8 @@
 /* Default styling for larger screens */
 .search-container {
+  margin: 0 auto;
   margin-bottom: 20px; /* Add some space below the search bar */
-  width: 100%;
+  width: 75%;
 }
 
 .search-container input[type=text] {
@@ -174,11 +175,6 @@
     flex-direction: column;
     gap: 10px;
     justify-content: center;
-  }
-
-  .page-button {
-    width: 100%;
-    text-align: center;
   }
 
   .pages {

@@ -43,7 +43,7 @@ const PremiumPage = ({ user }) => {
 
   return (
     <div className="premium-page">
-      <p className='premium-title'>Upgrade to Premium</p>
+      <p className='premium-title'>Premium</p>
       <p className='premium-info'>Choose your subscription plan:</p>
       {/*test && <button onClick={() => handleCheckout(testPriceId, false)} className='test-button'>Test</button>*/}
       {/*test && <button onClick={() => handleCheckout(test2PriceId, true)} className='test-button'>Test 2</button>*/}
