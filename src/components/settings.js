@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../styles/settings.css'; // Create and import your settings-specific CSS file
 import { firestore } from '../config/firebase-config';
 import { getFunctions, httpsCallable } from 'firebase/functions';
-import { doc, deleteDoc, getDoc } from 'firebase/firestore';
+import { doc, updateDoc, getDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import Confirm from '../components/confirm';
 import { useAlerts } from '../context/alertscontext';
@@ -10,7 +10,6 @@ import { useAlerts } from '../context/alertscontext';
 const Settings = ({ user, onClose, theme, onThemeChange }) => {
   const auth = getAuth();
   const functions = getFunctions();
-  const [email, setEmail] = useState('');
   const [displayConfirm, setDisplayConfirm] = useState(false);
   const [confirmMessage, setConfirmMessage] = useState('');
   const [confirmType, setConfirmType] = useState('');
@@ -23,19 +22,8 @@ const Settings = ({ user, onClose, theme, onThemeChange }) => {
 
   useEffect(() => {
     if (user) {
-      const userRef = doc(firestore, 'users', user.uid);
+      const userRef = doc(firestore, 'users', user.uid)
       getDoc(userRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
-            setEmail(user.email);
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching user data: ", error);
-        });
-
-      const userEmailRef = doc(firestore, 'users', user.email)
-      getDoc(userEmailRef)
         .then((docSnap) => {
           if (docSnap.exists()) {
             const userData = docSnap.data();
@@ -56,13 +44,18 @@ const Settings = ({ user, onClose, theme, onThemeChange }) => {
     if (user) {
       try {
         const userRef = doc(firestore, 'users', user.uid);
-        await deleteDoc(userRef);  // Deletes the user's Firestore document
-        localStorage.removeItem('completedProblems');
-        console.log("User document deleted successfully");
-        addAlert('Data deleted successfully.', 'success');
+        
+        // Use updateDoc with FieldValue.delete() to remove only the 'completedProblems' field
+        await updateDoc(userRef, {
+          completedProblems: {},
+        });
+  
+        localStorage.removeItem('completedProblems');  // Optionally remove from localStorage too
+        console.log("Completed problems deleted successfully");
+        addAlert('Completed problems deleted successfully.', 'success');
         window.location.reload();
       } catch (error) {
-        console.error("Error deleting user document: ", error);
+        console.error("Error deleting completed problems: ", error);
         addAlert('Error deleting data.', 'error');
       }
     }
@@ -94,7 +87,7 @@ const Settings = ({ user, onClose, theme, onThemeChange }) => {
     const cancelSubscription = httpsCallable(functions, 'cancelSubscription');
 
     try {
-      const result = await cancelSubscription({ subscriptionId: premiumInfo.subscriptionId, email: email });
+      const result = await cancelSubscription({ subscriptionId: premiumInfo.subscriptionId, uid: user.uid });
 
       if (result.data.status === 'success') {
         console.log('Subscription canceled successfully.');

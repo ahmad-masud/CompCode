@@ -74,13 +74,19 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
       const userEmail = session.customer_email; // or session.customer if you're storing the Stripe customer ID
 
       // Store the subscription status in Firestore or Realtime Database
-      const userDoc = admin.firestore().collection('users').doc(userEmail);
+      const userRecord = await admin.auth().getUserByEmail(userEmail);
+      const userUid = userRecord.uid;
+
+      // Use UID to update Firestore
+      const userDoc = admin.firestore().collection('users').doc(userUid);
       await userDoc.set({
-        premium: true,  // Set the premium status
-        stripeCustomerId: customerId,
-        subscriptionId: session.subscription,
-        canceled: false,
-        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+        premiumInfo: {
+          premium: true,
+          stripeCustomerId: customerId,
+          subscriptionId: session.subscription,
+          canceled: false,
+          createdAt: admin.firestore.FieldValue.serverTimestamp(),
+        }
       }, { merge: true });
 
       break;
@@ -128,7 +134,7 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
 
 // Function to cancel a Stripe subscription
 exports.cancelSubscription = functions.https.onCall(async (data, context) => {
-  const { subscriptionId, email } = data;  // Get the subscription ID passed from the frontend
+  const { subscriptionId, uid } = data;  // Get the subscription ID passed from the frontend
 
   try {
     const subscription = await stripe.subscriptions.update(
@@ -136,9 +142,11 @@ exports.cancelSubscription = functions.https.onCall(async (data, context) => {
       {cancel_at_period_end: true}
     );
 
-    // Optionally, update Firestore to reflect the user's canceled subscription
-    const userRef = admin.firestore().collection('users').doc(email);
-    await userRef.update({ canceled: true });
+    // Update only the `canceled` field inside `premiumInfo`
+    const userRef = admin.firestore().collection('users').doc(uid);
+    await userRef.update({
+      "premiumInfo.canceled": true
+    });
 
     return { status: 'success', message: 'Subscription canceled successfully' };
   } catch (error) {
