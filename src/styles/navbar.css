@@ -79,7 +79,7 @@
 .login-button {
     padding: 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     font-size: 1rem;
     cursor: pointer;
     color: black;
