@@ -6,9 +6,11 @@ import Google from '../content/images/google.webp'
 import { Link } from 'react-router-dom';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
+import { useAlerts } from '../context/alertscontext';
 
 const Navbar = ({ user, onUserChange, onSettingsOpen, onSubmissionOpen }) => {
   const [narrow, setNarrow] = useState(false);
+  const { addAlert } = useAlerts();
 
   useEffect(() => {
     const handleResize = () => {
@@ -39,10 +41,12 @@ const Navbar = ({ user, onUserChange, onSettingsOpen, onSubmissionOpen }) => {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log('User signed in');
+        addAlert("User signed in successfully.", "success");
         onUserChange(result.user);
       })
       .catch((error) => {
         console.error('Error during sign in:', error);
+        addAlert("Error during sign in.", "error");
       });
   };
 
@@ -50,9 +54,11 @@ const Navbar = ({ user, onUserChange, onSettingsOpen, onSubmissionOpen }) => {
     signOut(auth)
       .then(() => {
         console.log('User signed out');
+        addAlert("User signed out successfully.", "success");
         onUserChange(null);
       })
       .catch((error) => {
+        addAlert("Error during sign out.", "error");
         console.error('Error during sign out:', error);
       });
   };

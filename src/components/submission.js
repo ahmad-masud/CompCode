@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import { firestore } from '../config/firebase-config'; // Use your firebase-config
 import { doc, setDoc } from 'firebase/firestore'; // Firebase Firestore functions
 import '../styles/problemsubmissionform.css'; // Import a CSS file for styling
+import { useAlerts } from '../context/alertscontext';
 
 const ProblemSubmissionForm = ({ user, onClose }) => {
   const [problemNumber, setProblemNumber] = useState('');
   const [companyName, setCompanyName] = useState('');
+  const { addAlert } = useAlerts();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!user) {
-      alert("You must be logged in to submit.");
+      addAlert("You must be logged in to submit.", "warning");
       return;
     }
 
@@ -29,11 +31,12 @@ const ProblemSubmissionForm = ({ user, onClose }) => {
         submittedAt: new Date(), // Store the timestamp
       });
 
-      alert("Submission successful!");
+      addAlert("Problem submitted successfully!", "success");
       setProblemNumber(''); // Clear form fields
       setCompanyName('');
     } catch (error) {
       console.error("Error submitting data: ", error);
+      addAlert("Error submitting data.", "error");
     }
   };
 

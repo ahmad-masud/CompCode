@@ -1,0 +1,33 @@
+.alerts {
+  position: fixed;
+  bottom: 20px; /* Move it to the bottom */
+  right: 20px; /* Keep it on the right */
+  z-index: 100000000000000000000000;
+}
+
+.alert {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.alert-success {
+  background-color: #3FCA7D;
+}
+
+.alert-warning {
+  background-color: #c49406;
+}
+
+.alert-error {
+  background-color: #d9534f;
+}
+
+.alert-info {
+  background-color: #17a2b8;
+}

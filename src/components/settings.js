@@ -5,6 +5,7 @@ import { getFunctions, httpsCallable } from 'firebase/functions';
 import { doc, deleteDoc, getDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import Confirm from '../components/confirm';
+import { useAlerts } from '../context/alertscontext';
 
 const Settings = ({ user, onClose, theme, onThemeChange }) => {
   const auth = getAuth();
@@ -18,6 +19,7 @@ const Settings = ({ user, onClose, theme, onThemeChange }) => {
     subscriptionId: '',
     canceled: false,
   });
+  const { addAlert } = useAlerts();
 
   useEffect(() => {
     if (user) {
@@ -57,9 +59,11 @@ const Settings = ({ user, onClose, theme, onThemeChange }) => {
         await deleteDoc(userRef);  // Deletes the user's Firestore document
         localStorage.removeItem('completedProblems');
         console.log("User document deleted successfully");
+        addAlert('Data deleted successfully.', 'success');
         window.location.reload();
       } catch (error) {
         console.error("Error deleting user document: ", error);
+        addAlert('Error deleting data.', 'error');
       }
     }
   };
@@ -72,9 +76,10 @@ const Settings = ({ user, onClose, theme, onThemeChange }) => {
         onClose();
       }).catch((error) => {
         if (error.code === 'auth/requires-recent-login') {
-          alert('Please re-authenticate and try again.');
+          addAlert('Please re-authenticate and try again.', 'warning');
         } else {
           console.error('Error deleting account:', error);
+          addAlert('Error deleting account.', 'error');
         }
       });
     }
