@@ -8,7 +8,6 @@ import NotFound from './pages/notfound';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 import './styles/app.css';
-import Account from './components/account';
 import Settings from './components/settings';
 import Submission from './components/submission';
 import Premium from './pages/premium';
@@ -18,7 +17,6 @@ import { Elements } from '@stripe/react-stripe-js';
 const App = () => {
   const [user, setUser] = useState(null);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'auto');
-  const [displayAccount, setDisplayAccount] = useState(false);
   const [displaySettings, setDisplaySettings] = useState(false);
   const [displaySubmission, setDisplaySubmission] = useState(false);
   const stripePromise = loadStripe(String(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY));
@@ -35,7 +33,6 @@ const App = () => {
 
   return (
     <div className='app'>
-      {displayAccount && <Account user={user} onClose={() => setDisplayAccount(false)} />}
       {displaySettings && <Settings user={user} onClose={() => setDisplaySettings(false)} theme={theme} onThemeChange={(newTheme) => setTheme(newTheme)} />}
       {displaySubmission && <Submission user={user} onClose={() => setDisplaySubmission(false)} />}
       <Router>
@@ -44,7 +41,6 @@ const App = () => {
           onUserChange={(newUser) => setUser(newUser)} 
           theme={theme} 
           onThemeChange={(newTheme) => setTheme(newTheme)} 
-          onAccountOpen={() => setDisplayAccount(true)} 
           onSettingsOpen={() => setDisplaySettings(true)}
           onSubmissionOpen={() => setDisplaySubmission(true)} 
         />
