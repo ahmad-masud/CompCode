@@ -60,7 +60,7 @@
 .premium-button {
     padding: 7.5px;
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
     font-size: 1rem;
     cursor: pointer;
     color: white;
@@ -70,7 +70,6 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: filter 0.2s ease-in-out;
 }
 
 .premium-button:hover {
@@ -135,6 +134,7 @@
 .szh-menu__item {
     gap: 10px;
     padding: 0.75rem 1.5rem !important;
+    transition: all 0.1s ease-in-out !important;
 }
 
 .szh-menu__item--hover {
@@ -147,7 +147,7 @@
 }
 
 .menu-divider {
-    height: 0.01px;
-    background: var(--font-color);
+    border-bottom: 1px solid var(--font-color);
+    opacity: 0.2;
     margin: 0 20px;
 }

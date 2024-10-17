@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 
-const Navbar = ({ user, onUserChange, onAccountOpen, onSettingsOpen, onSubmissionOpen }) => {
+const Navbar = ({ user, onUserChange, onSettingsOpen, onSubmissionOpen }) => {
   const [narrow, setNarrow] = useState(false);
 
   useEffect(() => {
@@ -85,7 +85,6 @@ const Navbar = ({ user, onUserChange, onAccountOpen, onSettingsOpen, onSubmissio
             <div className='login-right'>
               <Link to='/CompCode/premium' className='premium-button'>{narrow ? <i className="fa-solid fa-gem"></i> : "Premium"}</Link>
               <Menu menuButton={<MenuButton className="user-button"><img src={user.photoURL} alt='User' className='user-avatar' /></MenuButton>}>
-                <MenuItem onClick={onAccountOpen}><i className="fa-solid fa-user"></i> Account</MenuItem>
                 <MenuItem onClick={onSettingsOpen}><i className="fa-solid fa-gear"></i> Settings</MenuItem>
                 <hr className="menu-divider"/>
                 <MenuItem onClick={handleLogout}><i className="fa-solid fa-arrow-right-from-bracket"></i> Logout</MenuItem>

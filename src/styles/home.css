@@ -46,10 +46,13 @@
     border: none;
     padding: 1rem 2rem;
     font-size: 1.5rem;
-    border-radius: 25px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
     text-decoration: none;
+}
+
+.hero-link:hover{
+    filter: brightness(75%);
 }
 
 .hero-link:hover {
