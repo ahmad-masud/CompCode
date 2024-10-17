@@ -10,7 +10,6 @@ import { useAlerts } from '../context/alertscontext';
 const PremiumPage = ({ user }) => {
   const stripe = useStripe();
   const functions = getFunctions();
-  const [email, setEmail] = useState('');
   const [displayConfirm, setDisplayConfirm] = useState(false);
   const [confirmMessage, setConfirmMessage] = useState('');
   const [premiumInfo, setPremiumInfo] = useState({
@@ -26,24 +25,16 @@ const PremiumPage = ({ user }) => {
       getDoc(userRef)
         .then((docSnap) => {
           if (docSnap.exists()) {
-            setEmail(user.email);
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching user data: ", error);
-          addAlert('Error fetching user data!', 'error');
-        });
-
-      const userEmailRef = doc(firestore, 'users', user.email)
-      getDoc(userEmailRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
             const userData = docSnap.data();
-            setPremiumInfo({
-              premium: userData.premium,
-              subscriptionId: userData.subscriptionId,
-              canceled: userData.canceled,
-            });
+            
+            // Check if premiumInfo exists before trying to access its fields
+            if (userData.premiumInfo) {
+              setPremiumInfo({
+                premium: userData.premiumInfo.premium || false,  // Set a default value if undefined
+                subscriptionId: userData.premiumInfo.subscriptionId || "",  // Set default empty string if undefined
+                canceled: userData.premiumInfo.canceled || false,  // Set default to false if undefined
+              });
+            }
           }
         })
         .catch((error) => {
@@ -52,6 +43,7 @@ const PremiumPage = ({ user }) => {
         });
     }
   }, [user, addAlert]);
+  
 
   const handleCancelSubscription = async () => {
     if (!premiumInfo.subscriptionId) {
@@ -63,7 +55,7 @@ const PremiumPage = ({ user }) => {
     const cancelSubscription = httpsCallable(functions, 'cancelSubscription');
 
     try {
-      const result = await cancelSubscription({ subscriptionId: premiumInfo.subscriptionId, email: email });
+      const result = await cancelSubscription({ subscriptionId: premiumInfo.subscriptionId, uid: user.uid });
 
       if (result.data.status === 'success') {
         console.log('Subscription canceled successfully.');
@@ -111,6 +103,7 @@ const PremiumPage = ({ user }) => {
   };
 
   const handleConfirm = () => {
+    addAlert('Cancelling subscription...');
     handleCancelSubscription();
     setDisplayConfirm(false);
   }
