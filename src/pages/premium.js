@@ -5,6 +5,7 @@ import { doc, getDoc } from 'firebase/firestore'; // To fetch user data from Fir
 import { firestore } from '../config/firebase-config'; // Import Firestore instance
 import Confirm from '../components/confirm';
 import '../styles/premium.css';
+import { useAlerts } from '../context/alertscontext';
 
 const PremiumPage = ({ user }) => {
   const stripe = useStripe();
@@ -17,6 +18,7 @@ const PremiumPage = ({ user }) => {
     subscriptionId: '',
     canceled: false,
   });
+  const { addAlert } = useAlerts();
 
   useEffect(() => {
     if (user) {
@@ -29,6 +31,7 @@ const PremiumPage = ({ user }) => {
         })
         .catch((error) => {
           console.error("Error fetching user data: ", error);
+          addAlert('Error fetching user data!', 'error');
         });
 
       const userEmailRef = doc(firestore, 'users', user.email)
@@ -45,13 +48,15 @@ const PremiumPage = ({ user }) => {
         })
         .catch((error) => {
           console.error("Error fetching user data: ", error);
+          addAlert('Error fetching user data!', 'error');
         });
     }
-  }, [user]);
+  }, [user, addAlert]);
 
   const handleCancelSubscription = async () => {
     if (!premiumInfo.subscriptionId) {
       console.log('No active subscription to cancel.');
+      addAlert('No active subscription to cancel.', 'warning');
       return;
     }
 
@@ -62,21 +67,25 @@ const PremiumPage = ({ user }) => {
 
       if (result.data.status === 'success') {
         console.log('Subscription canceled successfully.');
+        addAlert('Subscription canceled successfully.', 'success');
         setPremiumInfo({
           ...premiumInfo,
           canceled: true
         });
       } else {
         console.error('Failed to cancel subscription.');
+        addAlert('Failed to cancel subscription.', 'error');
       }
     } catch (error) {
       console.error('Error canceling subscription:', error);
+      addAlert('Error canceling subscription.', 'error');
     }
   };
 
   const handlePremium = async (priceId, isSubscription) => {
     if (!user) {
       console.error('User not logged in');
+      addAlert('User not logged in!', 'error');
       return;
     }
 
@@ -93,9 +102,11 @@ const PremiumPage = ({ user }) => {
       const { error } = await stripe.redirectToCheckout({ sessionId: data.sessionId });
       if (error) {
         console.error('Error redirecting to checkout:', error);
+        addAlert('Error redirecting to checkout!', 'error');
       }
     } catch (error) {
       console.error('Error creating checkout session:', error);
+      addAlert('Error creating checkout session!', 'error');
     }
   };
 

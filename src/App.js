@@ -13,6 +13,8 @@ import Submission from './components/submission';
 import Premium from './pages/premium';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
+import Alerts from './components/alerts';
+import { AlertsProvider } from './context/alertscontext';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -33,29 +35,32 @@ const App = () => {
 
   return (
     <div className='app'>
-      {displaySettings && <Settings user={user} onClose={() => setDisplaySettings(false)} theme={theme} onThemeChange={(newTheme) => setTheme(newTheme)} />}
-      {displaySubmission && <Submission user={user} onClose={() => setDisplaySubmission(false)} />}
-      <Router>
-        <Navbar 
-          user={user} 
-          onUserChange={(newUser) => setUser(newUser)} 
-          theme={theme} 
-          onThemeChange={(newTheme) => setTheme(newTheme)} 
-          onSettingsOpen={() => setDisplaySettings(true)}
-          onSubmissionOpen={() => setDisplaySubmission(true)} 
-        />
-        <Elements stripe={stripePromise}>
-          <Routes>
-            <Route path='/CompCode/' element={<Home theme={theme} />} />
-            <Route path='/CompCode/companies' element={<Companies user={user} />} />
-            <Route path='/CompCode/datastructures' element={<DataStructures user={user} />} />
-            <Route path='/CompCode/algorithms' element={<Algorithms user={user} />} />
-            <Route path='/CompCode/premium' element={<Premium user={user} />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
-        </Elements>
-        <Footer />
-      </Router>
+      <AlertsProvider>
+        <Alerts />
+        {displaySettings && <Settings user={user} onClose={() => setDisplaySettings(false)} theme={theme} onThemeChange={(newTheme) => setTheme(newTheme)} />}
+        {displaySubmission && <Submission user={user} onClose={() => setDisplaySubmission(false)} />}
+        <Router>
+          <Navbar 
+            user={user} 
+            onUserChange={(newUser) => setUser(newUser)} 
+            theme={theme} 
+            onThemeChange={(newTheme) => setTheme(newTheme)} 
+            onSettingsOpen={() => setDisplaySettings(true)}
+            onSubmissionOpen={() => setDisplaySubmission(true)} 
+          />
+          <Elements stripe={stripePromise}>
+            <Routes>
+              <Route path='/CompCode/' element={<Home theme={theme} />} />
+              <Route path='/CompCode/companies' element={<Companies user={user} />} />
+              <Route path='/CompCode/datastructures' element={<DataStructures user={user} />} />
+              <Route path='/CompCode/algorithms' element={<Algorithms user={user} />} />
+              <Route path='/CompCode/premium' element={<Premium user={user} />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </Elements>
+          <Footer />
+        </Router>
+      </AlertsProvider>
     </div>
   );
 };
