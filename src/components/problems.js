@@ -280,7 +280,7 @@ const Problems = ({ company, user, onClose, page }) => {
                     <i className="fa-regular fa-file-code"></i>
                   </button>
                 ) : (
-                  <Link to="/CompCode/premium" className='premium-link'><i className="fa-solid fa-lock"></i></Link> // Show lock if not premium
+                  <Link to="/premium" className='premium-link'><i className="fa-solid fa-lock"></i></Link> // Show lock if not premium
                 )}
               </div>}
               {!narrow && <div>{problem.Acceptance}</div>}
@@ -290,7 +290,7 @@ const Problems = ({ company, user, onClose, page }) => {
                   {isPremium ? (
                     Math.round(problem.Frequency * 100) / 100
                   ) : (
-                    <Link to="/CompCode/premium" className='premium-link'><i className="fa-solid fa-lock"></i></Link>  // Show lock if not premium
+                    <Link to="/premium" className='premium-link'><i className="fa-solid fa-lock"></i></Link>  // Show lock if not premium
                   )}
                 </div>
               )}

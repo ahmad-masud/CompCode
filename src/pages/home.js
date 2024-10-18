@@ -10,7 +10,7 @@ const Home = () => {
                 <div className='hero-text'>
                     <p className='hero-title'><span><i className="fa-solid fa-meteor"></i> CompCode:</span> The best resource for doing LeetCode Problems</p>
                     <p className='hero-overview'>Prepare for your company's technical interview through solving frequently asked LeetCode problems.</p>
-                    <Link to="/CompCode/companies" className='hero-link'>Get Started</Link>
+                    <Link to="/companies" className='hero-link'>Get Started</Link>
                 </div>
             </div>
             <ReleaseNotes />

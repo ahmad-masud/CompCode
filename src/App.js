@@ -51,12 +51,12 @@ const App = () => {
           />
           <Elements stripe={stripePromise}>
             <Routes>
-              <Route path='/CompCode/' element={<Home />} />
-              <Route path='/CompCode/companies' element={<Companies user={user} />} />
-              <Route path='/CompCode/datastructures' element={<DataStructures user={user} />} />
-              <Route path='/CompCode/algorithms' element={<Algorithms user={user} />} />
-              <Route path='/CompCode/premium' element={<Premium user={user} />} />
-              <Route path='/CompCode/lesson/:lessonId' element={<Lesson />} />
+              <Route path='/' element={<Home />} />
+              <Route path='/companies' element={<Companies user={user} />} />
+              <Route path='/datastructures' element={<DataStructures user={user} />} />
+              <Route path='/algorithms' element={<Algorithms user={user} />} />
+              <Route path='/premium' element={<Premium user={user} />} />
+              <Route path='/lesson/:lessonId' element={<Lesson />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </Elements>

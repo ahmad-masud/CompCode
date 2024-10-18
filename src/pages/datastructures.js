@@ -210,7 +210,7 @@ const DataStructures = ({ user }) => {
                       } 
                     </button>
                   </td>
-                  <td><Link className='tutorial-link' to={`/CompCode/lesson/${company.name.toLowerCase()}`}><i className="fa-regular fa-lightbulb"></i></Link></td>
+                  <td><Link className='tutorial-link' to={`/lesson/${company.name.toLowerCase()}`}><i className="fa-regular fa-lightbulb"></i></Link></td>
                   {!narrow && <td>{company.avgAcceptance}</td>}
                   {!narrow && <td>{company.numProblems}</td>}
                   <td className={company.mostCommonDifficulty.toLowerCase()}>{company.mostCommonDifficulty}</td>
