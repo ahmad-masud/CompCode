@@ -39,8 +39,8 @@ exports.createCheckoutSession = functions.https.onCall(async (data, context) => 
         },
       ],
       mode: isSubscription ? 'subscription' : 'payment', // Use 'subscription' or 'payment' based on the product
-      success_url: 'https://ahmadmasud.com/CompCode',
-      cancel_url: 'https://ahmadmasud.com/CompCode',
+      success_url: 'https://compcode.tech/premium',
+      cancel_url: 'https://compcode.tech/premium',
     });
 
     return { sessionId: session.id };
@@ -188,7 +188,7 @@ exports.createCustomerPortalSession = functions.https.onCall(async (data, contex
 
   const session = await stripe.billingPortal.sessions.create({
     customer: customerId,
-    return_url: 'https://ahmadmasud.com/CompCode', // Replace with your actual return URL
+    return_url: 'https://compcode.tech/premium', // Replace with your actual return URL
   });
 
   return { url: session.url };

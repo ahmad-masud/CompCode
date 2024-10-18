@@ -1,3 +1,4 @@
+
 # CompCode
 
 ![compcode](/resources/compcode.gif)
@@ -7,9 +8,11 @@ CompCode is a web application designed to help you prepare for coding interviews
 ## Features
 
 - **Company-Specific Problems**: View and solve problems that are frequently asked by specific companies.
+- **Problem Submission**: Input a LeetCode problem number and a company name, upload this information, and track your submissions.
 - **Progress Tracking**: Track which problems you have completed.
 - **Search and Sort**: Search for problems by ID or title and sort problems by different criteria (ID, title, acceptance rate, difficulty, frequency).
 - **User Authentication**: Log in using Google or GitHub to save your progress.
+- **Premium Subscriptions**: Access additional features with monthly or annual premium subscriptions powered by Stripe.
 - **Dark/Light Mode**: Automatic theme adjustment based on system preferences with manual override options.
 - **Responsive Design**: Fully responsive design to accommodate different screen sizes and devices.
 
@@ -20,6 +23,7 @@ CompCode is a web application designed to help you prepare for coding interviews
 - Node.js (v14.x or later)
 - Firebase project set up for authentication and Firestore
 - GitHub OAuth app set up for authentication
+- Stripe account for subscription management
 
 ### Installation
 
@@ -35,7 +39,7 @@ CompCode is a web application designed to help you prepare for coding interviews
    ```
 
 3. **Set up Firebase configuration:**
-   - Create a `firebase-config.js` file in the `src/config`directory.
+   - Create a `firebase-config.js` file in the `src/config` directory.
    - Add your Firebase configuration:
      ```js
      import { initializeApp } from 'firebase/app';
@@ -60,10 +64,14 @@ CompCode is a web application designed to help you prepare for coding interviews
      export { auth, googleProvider, githubProvider, firestore };
      ```
 
+4. **Set up Stripe configuration:**
+   - Integrate Stripe for managing subscriptions. Make sure to include your Stripe public and secret keys in your environment configuration.
+
 5. **Run the application:**
    ```sh
    npm start
    ```
 
 ## License
+
 Distributed under the MIT License. See [MIT License](LICENSE) for more information.
