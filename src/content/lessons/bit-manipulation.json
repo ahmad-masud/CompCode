@@ -1,0 +1,165 @@
+{
+    "title": "Bit Manipulation",
+    "lessons": [
+      {
+        "title": "Introduction to Bit Manipulation",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Bit manipulation is the act of algorithmically manipulating bits or binary digits, which is the most basic form of data in computing. Understanding bit manipulation allows for more efficient algorithms, especially for problems involving numbers."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Bit manipulation involves operations like AND, OR, XOR, NOT, shifts, and masks.",
+              "It is used to optimize space and time complexities, especially in low-level programming.",
+              "Common applications include solving problems related to sets, parity, and binary representations."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Common Bitwise Operators",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Here are the common bitwise operators in Python:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "`&` (AND): Sets each bit to 1 if both bits are 1.",
+              "`|` (OR): Sets each bit to 1 if at least one of the bits is 1.",
+              "`^` (XOR): Sets each bit to 1 if only one of the bits is 1.",
+              "`~` (NOT): Inverts all the bits (flips 1 to 0 and vice versa).",
+              "`<<` (Left Shift): Shifts the bits of the number to the left by a specified number of positions.",
+              "`>>` (Right Shift): Shifts the bits of the number to the right by a specified number of positions."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "a = 5  # Binary: 101\nb = 3  # Binary: 011\nprint(a & b)  # Output: 1 (Binary: 001)\nprint(a | b)  # Output: 7 (Binary: 111)\nprint(a ^ b)  # Output: 6 (Binary: 110)\nprint(~a)     # Output: -6 (Binary: -110)"
+          }
+        ]
+      },
+      {
+        "title": "Using Shifts for Multiplication and Division",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Bitwise shifts are a powerful way to perform multiplication and division by powers of two efficiently."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "x = 4  # Binary: 100\nprint(x << 1)  # Multiply by 2: Output: 8 (Binary: 1000)\nprint(x >> 1)  # Divide by 2: Output: 2 (Binary: 10)"
+          },
+          {
+            "type": "paragraph",
+            "text": "Left shifting a number by `n` bits is equivalent to multiplying by 2^n, and right shifting is equivalent to dividing by 2^n."
+          }
+        ]
+      },
+      {
+        "title": "Setting and Clearing Bits",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You can set or clear specific bits using bitwise operators."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "To set a bit at position `i` to 1: Use `x | (1 << i)`.",
+              "To clear a bit at position `i` to 0: Use `x & ~(1 << i)`."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "x = 8  # Binary: 1000\n# Set the 0th bit\nx = x | (1 << 0)\nprint(x)  # Output: 9 (Binary: 1001)\n\n# Clear the 3rd bit\nx = x & ~(1 << 3)\nprint(x)  # Output: 1 (Binary: 0001)"
+          }
+        ]
+      },
+      {
+        "title": "Toggling Bits",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You can toggle a bit (flip it from 0 to 1 or 1 to 0) using the XOR operator."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "x = 5  # Binary: 101\n# Toggle the 1st bit\nx = x ^ (1 << 1)\nprint(x)  # Output: 7 (Binary: 111)"
+          },
+          {
+            "type": "paragraph",
+            "text": "XORing a bit with 1 flips the bit. If the bit is 0, it becomes 1, and if it is 1, it becomes 0."
+          }
+        ]
+      },
+      {
+        "title": "Checking the Value of a Bit",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You can check if a specific bit is set or not using the AND operator."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "x = 6  # Binary: 110\n# Check if the 1st bit is set\nif x & (1 << 1):\n    print('The 1st bit is set')  # Output: The 1st bit is set"
+          },
+          {
+            "type": "paragraph",
+            "text": "Using `x & (1 << i)` checks if the ith bit is set to 1 or not."
+          }
+        ]
+      },
+      {
+        "title": "Applications of Bit Manipulation",
+        "content": [
+          {
+            "type": "bullets",
+            "items": [
+              "Checking if a number is a power of two: A number is a power of two if `n & (n - 1) == 0`.",
+              "Counting the number of set bits (Hamming Weight): Use bitwise AND to repeatedly clear the least significant set bit.",
+              "Swapping two numbers without using a temporary variable: Use XOR swapping.",
+              "Generating all subsets of a set: Use bitwise operations to generate all possible subsets."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# Check if a number is a power of two\nn = 16\nif n & (n - 1) == 0:\n    print(f'{n} is a power of two')\n\n# Count the number of set bits\nn = 13  # Binary: 1101\ncount = 0\nwhile n:\n    count += 1\n    n = n & (n - 1)\nprint(f'Number of set bits: {count}')"
+          }
+        ]
+      },
+      {
+        "title": "Bit Manipulation Tips and Tricks",
+        "content": [
+          {
+            "type": "bullets",
+            "items": [
+              "XOR of a number with itself is 0.",
+              "XOR of a number with 0 is the number itself.",
+              "Left shifts multiply a number by powers of two, while right shifts divide by powers of two.",
+              "The AND operator can be used to clear bits, and the OR operator can be used to set bits."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Bit manipulation is a powerful tool that can optimize many problems, especially those dealing with binary numbers, memory, and performance constraints. Learning these techniques will help improve your problem-solving efficiency."
+          }
+        ]
+      }
+    ]
+  }
+  

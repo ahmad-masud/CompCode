@@ -1,0 +1,133 @@
+{
+    "title": "Topological Sorting",
+    "lessons": [
+      {
+        "title": "Introduction to Topological Sorting",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Topological sorting is a linear ordering of vertices in a Directed Acyclic Graph (DAG) such that for every directed edge u -> v, vertex u comes before vertex v in the ordering. It is used in situations where a set of tasks needs to be ordered based on their dependencies."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Topological sorting is only possible for Directed Acyclic Graphs (DAGs).",
+              "It is commonly used in scheduling tasks, resolving dependencies, and determining the order of compilation in programming languages."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Properties of Topological Sorting",
+        "content": [
+          {
+            "type": "bullets",
+            "items": [
+              "A topological sort guarantees that for every directed edge u -> v, vertex u appears before vertex v in the ordering.",
+              "If the graph contains a cycle, topological sorting is not possible, as there is no valid way to order the vertices."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Example: Topological Sorting Using Depth-First Search (DFS)",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "One way to perform topological sorting is by using Depth-First Search (DFS). The idea is to recursively visit each vertex, mark it as visited, and then process its neighbors. After processing all neighbors of a vertex, the vertex is added to a stack. The topological order is obtained by popping elements from the stack."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "from collections import defaultdict\n\nclass Graph:\n    def __init__(self, vertices):\n        self.graph = defaultdict(list)\n        self.V = vertices\n\n    def add_edge(self, u, v):\n        self.graph[u].append(v)\n\n    def topological_sort_util(self, v, visited, stack):\n        visited[v] = True\n        for i in self.graph[v]:\n            if not visited[i]:\n                self.topological_sort_util(i, visited, stack)\n        stack.append(v)\n\n    def topological_sort(self):\n        visited = [False] * self.V\n        stack = []\n        for i in range(self.V):\n            if not visited[i]:\n                self.topological_sort_util(i, visited, stack)\n        return stack[::-1]\n\n# Example usage\ng = Graph(6)\ng.add_edge(5, 2)\ng.add_edge(5, 0)\ng.add_edge(4, 0)\ng.add_edge(4, 1)\ng.add_edge(2, 3)\ng.add_edge(3, 1)\n\nprint(g.topological_sort())  # Output: [5, 4, 2, 3, 1, 0]"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, we define a graph and use DFS to compute the topological sort. The vertices are processed in post-order, and the final topological ordering is obtained by reversing the order of elements in the stack."
+          }
+        ]
+      },
+      {
+        "title": "Example: Topological Sorting Using Kahn's Algorithm",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Kahn's algorithm is an iterative method to perform topological sorting using a queue. It processes vertices in a level-by-level manner by repeatedly removing vertices with no incoming edges (in-degree = 0) and updating the in-degree of their neighbors."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "from collections import defaultdict, deque\n\nclass Graph:\n    def __init__(self, vertices):\n        self.graph = defaultdict(list)\n        self.V = vertices\n\n    def add_edge(self, u, v):\n        self.graph[u].append(v)\n\n    def topological_sort_kahn(self):\n        in_degree = [0] * self.V\n        for u in self.graph:\n            for v in self.graph[u]:\n                in_degree[v] += 1\n\n        queue = deque([i for i in range(self.V) if in_degree[i] == 0])\n        top_order = []\n\n        while queue:\n            u = queue.popleft()\n            top_order.append(u)\n            for v in self.graph[u]:\n                in_degree[v] -= 1\n                if in_degree[v] == 0:\n                    queue.append(v)\n\n        if len(top_order) == self.V:\n            return top_order\n        else:\n            return []  # The graph has a cycle\n\n# Example usage\ng = Graph(6)\ng.add_edge(5, 2)\ng.add_edge(5, 0)\ng.add_edge(4, 0)\ng.add_edge(4, 1)\ng.add_edge(2, 3)\ng.add_edge(3, 1)\n\nprint(g.topological_sort_kahn())  # Output: [4, 5, 2, 0, 3, 1]"
+          },
+          {
+            "type": "paragraph",
+            "text": "Kahn's algorithm computes the topological sort using a queue, where vertices with in-degree 0 are processed first. As each vertex is processed, the in-degrees of its neighbors are updated. If the graph has a cycle, the algorithm detects it by checking if the number of processed vertices equals the total number of vertices."
+          }
+        ]
+      },
+      {
+        "title": "Detecting Cycles in a Directed Graph",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Topological sorting can only be performed on Directed Acyclic Graphs (DAGs). If a graph contains a cycle, it cannot have a valid topological ordering. Using Kahn's algorithm or DFS, we can detect cycles by checking if the number of processed vertices is less than the total number of vertices."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "If all vertices are processed in Kahn’s algorithm, the graph is acyclic, and topological sorting is possible.",
+              "In DFS, a back edge (an edge pointing to an ancestor in the DFS tree) indicates a cycle."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Applications of Topological Sorting",
+        "content": [
+          {
+            "type": "bullets",
+            "items": [
+              "Task Scheduling: Ordering tasks with dependencies (e.g., build systems, job scheduling).",
+              "Course Prerequisites: Determining the order in which courses should be taken based on prerequisites.",
+              "Dependency Resolution: Used in systems like package managers to install dependencies in the correct order.",
+              "Assembling Code Modules: Determining the correct order of compiling source code files with interdependencies."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Time Complexity of Topological Sorting",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Both Kahn’s algorithm and DFS-based topological sorting have a time complexity of O(V + E), where V is the number of vertices and E is the number of edges. This makes topological sorting efficient for large graphs."
+          }
+        ]
+      },
+      {
+        "title": "Topological Sorting vs Linear Sorting",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Topological sorting is different from standard linear sorting algorithms like Quick Sort or Merge Sort. While linear sorting arranges elements based on comparisons, topological sorting arranges vertices based on dependencies in a directed graph."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Topological sort is used for graphs and relies on the directed edges between vertices.",
+              "Linear sort is used for linear data structures like arrays and relies on comparing elements."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Topological sorting is an essential tool for solving problems involving dependencies in directed acyclic graphs. By using algorithms like DFS or Kahn’s algorithm, we can efficiently determine the order in which tasks should be completed, courses should be taken, or packages should be installed."
+          }
+        ]
+      }
+    ]
+  }  

@@ -1,0 +1,141 @@
+{
+    "title": "Union-Find (Disjoint Set Union) Algorithm",
+    "lessons": [
+      {
+        "title": "Introduction to Union-Find",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The Union-Find algorithm, also known as Disjoint Set Union (DSU), is a data structure that keeps track of a set of elements partitioned into disjoint subsets. It supports two operations: finding the subset (or set) that a particular element belongs to and uniting (or merging) two subsets into a single subset."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Union-Find is commonly used in applications such as network connectivity, cycle detection in graphs, and Kruskal’s Minimum Spanning Tree algorithm.",
+              "The two key operations are `Find` (to identify which subset an element belongs to) and `Union` (to merge two subsets)."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Operations in Union-Find",
+        "content": [
+          {
+            "type": "bullets",
+            "items": [
+              "Find: Determines which subset a particular element belongs to. This can be used to check if two elements belong to the same subset.",
+              "Union: Merges two subsets into a single subset. This operation is used to join elements from different subsets."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "An important optimization in the Union-Find algorithm is path compression, which flattens the structure of the tree whenever `Find` is called, and union by rank, which keeps the tree balanced by attaching the smaller tree to the root of the larger tree."
+          }
+        ]
+      },
+      {
+        "title": "Example: Basic Union-Find Implementation",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Here is a basic implementation of the Union-Find data structure with union by rank and path compression."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class UnionFind:\n    def __init__(self, n):\n        self.parent = list(range(n))  # Each element is its own parent initially\n        self.rank = [1] * n  # Rank is used to keep the tree flat\n\n    def find(self, x):\n        if self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])  # Path compression\n        return self.parent[x]\n\n    def union(self, x, y):\n        rootX = self.find(x)\n        rootY = self.find(y)\n\n        if rootX != rootY:\n            # Union by rank\n            if self.rank[rootX] > self.rank[rootY]:\n                self.parent[rootY] = rootX\n            elif self.rank[rootX] < self.rank[rootY]:\n                self.parent[rootX] = rootY\n            else:\n                self.parent[rootY] = rootX\n                self.rank[rootX] += 1\n\n# Example usage\nuf = UnionFind(5)\nuf.union(0, 1)\nuf.union(1, 2)\nuf.union(3, 4)\nprint(uf.find(0) == uf.find(2))  # Output: True (0, 1, and 2 are connected)\nprint(uf.find(0) == uf.find(3))  # Output: False (0 and 3 are not connected)"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, the `find()` function uses path compression to ensure that future `find` operations are faster by making nodes point directly to the root. The `union()` function uses union by rank to attach the smaller tree to the larger one, keeping the overall structure balanced."
+          }
+        ]
+      },
+      {
+        "title": "Path Compression",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Path compression is a technique used in the `find()` operation that flattens the structure of the tree whenever `find()` is called. When we call `find()` on a node, we recursively make all nodes on the path from that node to the root point directly to the root, thereby flattening the tree and speeding up future `find()` calls."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def find(self, x):\n    if self.parent[x] != x:\n        self.parent[x] = self.find(self.parent[x])  # Path compression\n    return self.parent[x]"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this implementation, `find()` recursively updates the parent of each node on the path to point directly to the root, reducing the time complexity of future operations."
+          }
+        ]
+      },
+      {
+        "title": "Union by Rank",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Union by rank is an optimization that helps keep the tree shallow. When performing a union, we attach the smaller tree to the root of the larger tree. The `rank` of a tree is essentially the depth of the tree. By maintaining this rank, we ensure that we always attach the shorter tree to the taller one."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def union(self, x, y):\n    rootX = self.find(x)\n    rootY = self.find(y)\n\n    if rootX != rootY:\n        # Union by rank\n        if self.rank[rootX] > self.rank[rootY]:\n            self.parent[rootY] = rootX\n        elif self.rank[rootX] < self.rank[rootY]:\n            self.parent[rootX] = rootY\n        else:\n            self.parent[rootY] = rootX\n            self.rank[rootX] += 1"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this union operation, the smaller tree is attached to the root of the larger tree, ensuring that the tree remains balanced and the operations remain efficient."
+          }
+        ]
+      },
+      {
+        "title": "Example: Cycle Detection in a Graph",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Union-Find can be used to detect cycles in an undirected graph. As we process the edges, we check if two vertices of an edge are already in the same subset (i.e., they have the same root). If they are, the edge creates a cycle."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def has_cycle(edges, n):\n    uf = UnionFind(n)\n    for u, v in edges:\n        if uf.find(u) == uf.find(v):\n            return True  # Cycle detected\n        uf.union(u, v)\n    return False  # No cycle\n\n# Example usage\ngraph_edges = [(0, 1), (1, 2), (2, 3), (3, 0)]  # This graph contains a cycle\nn = 4  # Number of vertices\nprint(has_cycle(graph_edges, n))  # Output: True"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, we use Union-Find to detect a cycle in an undirected graph. If two vertices of an edge belong to the same set, a cycle is detected. If all edges are processed without detecting a cycle, the graph is acyclic."
+          }
+        ]
+      },
+      {
+        "title": "Applications of Union-Find",
+        "content": [
+          {
+            "type": "bullets",
+            "items": [
+              "Cycle Detection: Detecting cycles in undirected graphs using Union-Find.",
+              "Kruskal's Algorithm: Finding the Minimum Spanning Tree (MST) in a graph by processing edges in increasing order of weight and using Union-Find to check for cycles.",
+              "Network Connectivity: Checking whether two nodes in a network are connected.",
+              "Dynamic Connectivity: Maintaining connectivity information for dynamically changing graphs or networks."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Time Complexity",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The Union-Find data structure, with union by rank and path compression, has an almost constant time complexity for both `find()` and `union()` operations. The time complexity is O(α(n)), where α(n) is the inverse Ackermann function, which grows very slowly and is considered nearly constant for all practical purposes."
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The Union-Find algorithm is an efficient and powerful tool for solving problems involving disjoint sets, such as cycle detection and minimum spanning tree algorithms. By optimizing with path compression and union by rank, we ensure that the operations remain efficient, even for large datasets."
+          }
+        ]
+      }
+    ]
+  }  

@@ -1,0 +1,185 @@
+{
+    "title": "Dynamic Programming",
+    "lessons": [
+      {
+        "title": "Introduction to Dynamic Programming",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Dynamic Programming (DP) is an optimization technique used to solve problems by breaking them down into simpler sub-problems and storing the solutions of these sub-problems to avoid redundant computations."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Dynamic programming is particularly useful for problems with overlapping sub-problems and optimal substructure.",
+              "By storing solutions to sub-problems, DP reduces the time complexity of certain problems from exponential to polynomial time."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Types of Dynamic Programming",
+        "content": [
+          {
+            "type": "bullets",
+            "items": [
+              "Top-down approach (Memoization): Solve the problem recursively and store the results of sub-problems to avoid redundant computations.",
+              "Bottom-up approach (Tabulation): Build up a table (array) of solutions from the simplest sub-problems to the complete problem."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Memoization (Top-Down)",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Memoization is the top-down approach where we solve the problem recursively and store the results of sub-problems in a cache (or memo) to reuse later instead of recalculating."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def fib(n, memo={}):\n    if n <= 1:\n        return n\n    if n not in memo:\n        memo[n] = fib(n - 1, memo) + fib(n - 2, memo)\n    return memo[n]\n\nprint(fib(10))  # Output: 55"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this Fibonacci example, `fib(n)` recursively computes the Fibonacci number, but memoization ensures that previously computed results are reused, reducing time complexity to O(n)."
+          }
+        ]
+      },
+      {
+        "title": "Tabulation (Bottom-Up)",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Tabulation is the bottom-up approach where we solve the problem by first solving the simplest sub-problems and storing the results in a table (array). We then use the results to solve more complex sub-problems."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def fib(n):\n    if n <= 1:\n        return n\n    dp = [0] * (n + 1)\n    dp[1] = 1\n    for i in range(2, n + 1):\n        dp[i] = dp[i - 1] + dp[i - 2]\n    return dp[n]\n\nprint(fib(10))  # Output: 55"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, we use an array `dp` to store the Fibonacci numbers from `dp[0]` to `dp[n]`. The final result is stored in `dp[n]`, avoiding recursion and ensuring that each sub-problem is solved only once."
+          }
+        ]
+      },
+      {
+        "title": "Optimal Substructure",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A problem has an optimal substructure if the optimal solution to the problem can be obtained by combining optimal solutions to its sub-problems. Dynamic programming relies on this property to build solutions."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Example: The shortest path between two nodes in a graph can be obtained by combining the shortest paths between intermediate nodes."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Overlapping Sub-problems",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A problem has overlapping sub-problems if solving the problem involves solving the same sub-problems multiple times. Dynamic programming solves each sub-problem once and stores the result for future use."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def factorial(n, memo={}):\n    if n == 0 or n == 1:\n        return 1\n    if n not in memo:\n        memo[n] = n * factorial(n - 1, memo)\n    return memo[n]\n\nprint(factorial(5))  # Output: 120"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this factorial example, memoization ensures that each sub-problem (e.g., factorial of smaller numbers) is solved only once."
+          }
+        ]
+      },
+      {
+        "title": "Common Dynamic Programming Problems",
+        "content": [
+          {
+            "type": "bullets",
+            "items": [
+              "Fibonacci Sequence",
+              "0/1 Knapsack Problem",
+              "Longest Common Subsequence",
+              "Longest Increasing Subsequence",
+              "Coin Change Problem",
+              "Edit Distance",
+              "Rod Cutting Problem"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "These problems benefit from dynamic programming because they involve overlapping sub-problems and can be broken down into smaller parts that build up to the final solution."
+          }
+        ]
+      },
+      {
+        "title": "Example: 0/1 Knapsack Problem",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In the 0/1 Knapsack problem, we aim to maximize the total value of items that fit into a knapsack with a given weight capacity. Each item can either be included or excluded (hence 0/1)."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def knapsack(weights, values, W):\n    n = len(weights)\n    dp = [[0] * (W + 1) for _ in range(n + 1)]\n\n    for i in range(1, n + 1):\n        for w in range(1, W + 1):\n            if weights[i - 1] <= w:\n                dp[i][w] = max(dp[i - 1][w], dp[i - 1][w - weights[i - 1]] + values[i - 1])\n            else:\n                dp[i][w] = dp[i - 1][w]\n\n    return dp[n][W]\n\nweights = [2, 3, 4, 5]\nvalues = [3, 4, 5, 6]\nW = 5\nprint(knapsack(weights, values, W))  # Output: 7"
+          },
+          {
+            "type": "paragraph",
+            "text": "This DP solution builds a table where each entry `dp[i][w]` represents the maximum value that can be achieved using the first `i` items with a maximum capacity of `w`. The result is stored in `dp[n][W]`."
+          }
+        ]
+      },
+      {
+        "title": "Example: Longest Common Subsequence",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The Longest Common Subsequence (LCS) problem involves finding the longest sequence that can be derived from two given sequences while maintaining the relative order of elements."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def lcs(X, Y):\n    m = len(X)\n    n = len(Y)\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if X[i - 1] == Y[j - 1]:\n                dp[i][j] = dp[i - 1][j - 1] + 1\n            else:\n                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])\n\n    return dp[m][n]\n\nX = \"ABCBDAB\"\nY = \"BDCABC\"\nprint(lcs(X, Y))  # Output: 4"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, we build a DP table where `dp[i][j]` stores the length of the LCS of `X[0:i]` and `Y[0:j]`. The final result is stored in `dp[m][n]`."
+          }
+        ]
+      },
+      {
+        "title": "When to Use Dynamic Programming",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Dynamic programming should be considered when a problem exhibits overlapping sub-problems and optimal substructure. It is most effective when recursive solutions result in redundant computations, and we can optimize by storing intermediate results."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Look for problems that can be broken down into smaller, repeated sub-problems.",
+              "If the recursive solution leads to exponential time complexity, DP is likely a good optimization."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Dynamic Programming is a powerful technique for solving optimization problems efficiently. By storing solutions to sub-problems, DP avoids redundant calculations and significantly improves time complexity for many common problems."
+          }
+        ]
+      }
+    ]
+  }
+  

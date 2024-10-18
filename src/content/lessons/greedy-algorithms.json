@@ -1,0 +1,169 @@
+{
+    "title": "Greedy Algorithms",
+    "lessons": [
+      {
+        "title": "Introduction to Greedy Algorithms",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A greedy algorithm is an approach for solving problems by making the best choice at each step in the hope that this will lead to an optimal solution. The greedy choice is based on a local criterion, but it doesn't always guarantee a global optimum."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Greedy algorithms make a series of choices, each of which looks the best at the moment.",
+              "It works well for problems where a local optimal choice leads to a global optimal solution.",
+              "Greedy algorithms are usually faster but do not always provide the correct or optimal solution for every problem."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Characteristics of Greedy Algorithms",
+        "content": [
+          {
+            "type": "bullets",
+            "items": [
+              "Greedy Choice Property: A global optimum can be arrived at by choosing the locally optimal choice at each step.",
+              "Optimal Substructure: A problem has an optimal substructure if the optimal solution to the problem can be constructed efficiently from the optimal solutions of its subproblems."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Common Examples of Greedy Algorithms",
+        "content": [
+          {
+            "type": "bullets",
+            "items": [
+              "Activity Selection Problem",
+              "Fractional Knapsack Problem",
+              "Huffman Encoding",
+              "Prim's Minimum Spanning Tree",
+              "Kruskal's Minimum Spanning Tree",
+              "Dijkstra's Shortest Path Algorithm"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "These are problems where the greedy approach works well and guarantees an optimal solution."
+          }
+        ]
+      },
+      {
+        "title": "Activity Selection Problem",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The Activity Selection Problem is about selecting the maximum number of activities that don't overlap, given a set of activities with start and end times."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def activity_selection(activities):\n    activities.sort(key=lambda x: x[1])  # Sort by end time\n    selected = [activities[0]]\n\n    for i in range(1, len(activities)):\n        if activities[i][0] >= selected[-1][1]:  # Compare start time with the last selected activity's end time\n            selected.append(activities[i])\n\n    return selected\n\nactivities = [(1, 3), (2, 5), (4, 6), (6, 7), (5, 8)]\nprint(activity_selection(activities))  # Output: [(1, 3), (4, 6), (6, 7)]"
+          },
+          {
+            "type": "paragraph",
+            "text": "The algorithm sorts activities by their end times and then selects the first activity that doesn't overlap with the previously selected activity. This is a classic example where the greedy choice results in an optimal solution."
+          }
+        ]
+      },
+      {
+        "title": "Fractional Knapsack Problem",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In the Fractional Knapsack Problem, you can take fractions of items rather than whole items. The goal is to maximize the total value that fits into a knapsack with a given capacity."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def fractional_knapsack(values, weights, capacity):\n    index = list(range(len(values)))\n    ratio = [v / w for v, w in zip(values, weights)]\n    index.sort(key=lambda i: ratio[i], reverse=True)  # Sort by value-to-weight ratio\n\n    max_value = 0\n    for i in index:\n        if weights[i] <= capacity:\n            max_value += values[i]\n            capacity -= weights[i]\n        else:\n            max_value += values[i] * (capacity / weights[i])\n            break\n\n    return max_value\n\nvalues = [60, 100, 120]\nweights = [10, 20, 30]\ncapacity = 50\nprint(fractional_knapsack(values, weights, capacity))  # Output: 240.0"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this problem, we select items based on their value-to-weight ratio. The algorithm works by taking as much as possible of the item with the highest ratio and moves to the next item until the knapsack is full. Greedy works optimally here because we can take fractions of the items."
+          }
+        ]
+      },
+      {
+        "title": "Huffman Encoding",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Huffman Encoding is a greedy algorithm used for lossless data compression. It assigns shorter binary codes to more frequent characters and longer codes to less frequent characters to minimize the total length of the encoded message."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "import heapq\n\nclass Node:\n    def __init__(self, char, freq):\n        self.char = char\n        self.freq = freq\n        self.left = None\n        self.right = None\n\n    def __lt__(self, other):\n        return self.freq < other.freq\n\n# Build Huffman Tree\ndef build_huffman_tree(frequencies):\n    heap = [Node(char, freq) for char, freq in frequencies.items()]\n    heapq.heapify(heap)\n\n    while len(heap) > 1:\n        node1 = heapq.heappop(heap)\n        node2 = heapq.heappop(heap)\n        merged = Node(None, node1.freq + node2.freq)\n        merged.left = node1\n        merged.right = node2\n        heapq.heappush(heap, merged)\n\n    return heap[0]\n\nfrequencies = {'a': 5, 'b': 9, 'c': 12, 'd': 13, 'e': 16, 'f': 45}\nroot = build_huffman_tree(frequencies)\nprint(root.freq)  # Output: 100"
+          },
+          {
+            "type": "paragraph",
+            "text": "Huffman Encoding builds a tree by repeatedly merging the two nodes with the lowest frequencies. This greedy approach results in the most optimal encoding for data compression."
+          }
+        ]
+      },
+      {
+        "title": "Prim's Minimum Spanning Tree Algorithm",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Prim’s algorithm is a greedy algorithm used to find the Minimum Spanning Tree (MST) of a graph. It starts with a single vertex and grows the MST by selecting the smallest edge that connects a new vertex to the tree."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "import heapq\n\ndef prim_mst(graph):\n    start_vertex = 0\n    visited = [False] * len(graph)\n    min_heap = [(0, start_vertex)]\n    total_cost = 0\n\n    while min_heap:\n        cost, vertex = heapq.heappop(min_heap)\n        if visited[vertex]:\n            continue\n        total_cost += cost\n        visited[vertex] = True\n\n        for neighbor, weight in graph[vertex]:\n            if not visited[neighbor]:\n                heapq.heappush(min_heap, (weight, neighbor))\n\n    return total_cost\n\ngraph = {\n    0: [(1, 2), (3, 6)],\n    1: [(0, 2), (2, 3), (3, 8), (4, 5)],\n    2: [(1, 3), (4, 7)],\n    3: [(0, 6), (1, 8)],\n    4: [(1, 5), (2, 7)]\n}\nprint(prim_mst(graph))  # Output: 16"
+          },
+          {
+            "type": "paragraph",
+            "text": "Prim's algorithm greedily selects the smallest edge to grow the MST. It uses a priority queue to efficiently find the smallest edge at each step, ensuring the solution is optimal."
+          }
+        ]
+      },
+      {
+        "title": "Dijkstra's Shortest Path Algorithm",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Dijkstra’s algorithm is a greedy algorithm used to find the shortest path between a starting node and all other nodes in a weighted graph. It repeatedly selects the node with the smallest known distance, then updates the distances to its neighbors."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "import heapq\n\ndef dijkstra(graph, start):\n    distances = {vertex: float('infinity') for vertex in graph}\n    distances[start] = 0\n    min_heap = [(0, start)]\n\n    while min_heap:\n        current_distance, current_vertex = heapq.heappop(min_heap)\n\n        if current_distance > distances[current_vertex]:\n            continue\n\n        for neighbor, weight in graph[current_vertex]:\n            distance = current_distance + weight\n\n            if distance < distances[neighbor]:\n                distances[neighbor] = distance\n                heapq.heappush(min_heap, (distance, neighbor))\n\n    return distances\n\ngraph = {\n    'A': [('B', 1), ('C', 4)],\n    'B': [('A', 1), ('C', 2), ('D', 5)],\n    'C': [('A', 4), ('B', 2), ('D', 1)],\n    'D': [('B', 5), ('C', 1)]\n}\nprint(dijkstra(graph, 'A'))  # Output: {'A': 0, 'B': 1, 'C': 3, 'D': 4}"
+          },
+          {
+            "type": "paragraph",
+            "text": "Dijkstra’s algorithm uses a greedy strategy to find the shortest path by always selecting the unvisited node with the smallest known distance. The priority queue helps manage the selection efficiently."
+          }
+        ]
+      },
+      {
+        "title": "When Greedy Algorithms Work",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Greedy algorithms work well when the problem satisfies the Greedy Choice Property and has an Optimal Substructure. If these conditions are met, the greedy approach is efficient and optimal."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Greedy Choice Property: Making local optimal choices leads to a global optimal solution.",
+              "Optimal Substructure: A problem has an optimal substructure if an optimal solution to the problem can be constructed from optimal solutions of its subproblems."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Greedy algorithms offer a fast and simple way to solve problems, but they do not always provide the optimal solution. They are effective for problems with the greedy choice property and optimal substructure, but for other problems, a more exhaustive approach, like dynamic programming, may be required."
+          }
+        ]
+      }
+    ]
+  }  

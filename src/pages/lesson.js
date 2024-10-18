@@ -3,34 +3,34 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Import Prism styles
 import { useParams } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard'; // For the copy button
-import '../styles/tutorial.css'; // For custom styling
+import '../styles/lesson.css'; // For custom styling
 
-const Tutorial = () => {
-  const { tutorialId } = useParams(); // Get the tutorialId from the URL
-  const [tutorial, setTutorial] = useState(null);
+const Lesson = () => {
+  const { lessonId } = useParams(); // Get the lessonId from the URL
+  const [lesson, setlesson] = useState(null);
   const [copiedState, setCopiedState] = useState([]); // Track copied state for each block
   const [loading, setLoading] = useState(true); // Track loading state
   const [error, setError] = useState(false); // Track error state
 
   useEffect(() => {
-    // Dynamically import the tutorial based on the tutorialId
-    const fetchTutorial = async () => {
+    // Dynamically import the lesson based on the lessonId
+    const fetchlesson = async () => {
       try {
         setLoading(true);
-        const tutorial = await import(`../content/tutorials/${tutorialId}.json`);
-        setTutorial(tutorial);
-        setCopiedState(Array(tutorial.lessons.length).fill(false)); // Initialize copiedState with false for each block
+        const lesson = await import(`../content/lessons/${lessonId}.json`);
+        setlesson(lesson);
+        setCopiedState(Array(lesson.lessons.length).fill(false)); // Initialize copiedState with false for each block
         setError(false);
       } catch (error) {
-        console.error('Error fetching tutorial:', error);
-        setError(true); // Set error to true if the tutorial is not found
+        console.error('Error fetching lesson:', error);
+        setError(true); // Set error to true if the lesson is not found
       } finally {
         setLoading(false);
       }
     };
 
-    fetchTutorial();
-  }, [tutorialId]);
+    fetchlesson();
+  }, [lessonId]);
 
   // Get the theme from local storage or system settings
   const getTheme = () => {
@@ -48,8 +48,8 @@ const Tutorial = () => {
 
   if (error) {
     return (
-      <div className="tutorial-fallback">
-        <p>No tutorial for this topic, but stay tuned!</p>
+      <div className="lesson-fallback">
+        <p>No lesson for this topic, but stay tuned!</p>
       </div>
     );
   }
@@ -91,7 +91,7 @@ const Tutorial = () => {
       if (part.startsWith('`') && part.endsWith('`')) {
         // Remove the backticks and return highlighted span
         return (
-          <span key={index} className="tutorial-highlight">
+          <span key={index} className="lesson-highlight">
             {part.slice(1, -1)}
           </span>
         );
@@ -101,9 +101,9 @@ const Tutorial = () => {
   };
 
   return (
-    <div className="tutorial-container">
-      <p className="tutorial-title">{tutorial.title}</p>
-      {tutorial.lessons.map((lesson, lessonIdx) => (
+    <div className="lesson-container">
+      <p className="lesson-header">{lesson.title}</p>
+      {lesson.lessons.map((lesson, lessonIdx) => (
         <div key={lessonIdx} className="lesson">
           <p className="lesson-title">{lesson.title}</p>
           {lesson.content.map((block, blockIdx) => {
@@ -128,9 +128,9 @@ const Tutorial = () => {
             if (block.type === 'code') {
               if (!copiedState[lessonIdx]) copiedState[lessonIdx] = []; // Ensure substate is an array
               return (
-                <div key={blockIdx} className="tutorial-code-block">
+                <div key={blockIdx} className="lesson-code-block">
                   <CopyToClipboard text={block.code} onCopy={() => handleCopy(lessonIdx, blockIdx)}>
-                    <button className="tutorial-copy-button">
+                    <button className="lesson-copy-button">
                       {copiedState[lessonIdx][blockIdx] ? (
                         <i className="bi bi-check-lg"></i>
                       ) : (
@@ -155,4 +155,4 @@ const Tutorial = () => {
   );
 };
 
-export default Tutorial;
+export default Lesson;

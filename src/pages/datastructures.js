@@ -192,7 +192,7 @@ const DataStructures = ({ user }) => {
             <thead>
               <tr>
                 <th>Name <button className="sort-button" onClick={() => sortCompanies('name')}>{getSortIcon('name')}</button></th>
-                <th>Tutorials</th>
+                <th>Lessons</th>
                 {!narrow && <th>Acceptance <button className="sort-button" onClick={() => sortCompanies('avgAcceptance')}>{getSortIcon('avgAcceptance')}</button></th>}
                 {!narrow && <th>Problems <button className="sort-button" onClick={() => sortCompanies('numProblems')}>{getSortIcon('numProblems')}</button></th>}
                 <th>Difficulty <button className="sort-button" onClick={() => sortCompanies('mostCommonDifficulty')}>{getSortIcon('mostCommonDifficulty')}</button></th>
@@ -210,7 +210,7 @@ const DataStructures = ({ user }) => {
                       } 
                     </button>
                   </td>
-                  <td><Link className='tutorial-link' to={`/CompCode/tutorial/${company.name.toLowerCase()}`}><i className="fa-regular fa-lightbulb"></i></Link></td>
+                  <td><Link className='tutorial-link' to={`/CompCode/lesson/${company.name.toLowerCase()}`}><i className="fa-regular fa-lightbulb"></i></Link></td>
                   {!narrow && <td>{company.avgAcceptance}</td>}
                   {!narrow && <td>{company.numProblems}</td>}
                   <td className={company.mostCommonDifficulty.toLowerCase()}>{company.mostCommonDifficulty}</td>

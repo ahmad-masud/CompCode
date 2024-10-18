@@ -15,7 +15,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import Alerts from './components/alerts';
 import { AlertsProvider } from './context/alertscontext';
-import Tutorial from './pages/tutorial';
+import Lesson from './pages/lesson';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -56,7 +56,7 @@ const App = () => {
               <Route path='/CompCode/datastructures' element={<DataStructures user={user} />} />
               <Route path='/CompCode/algorithms' element={<Algorithms user={user} />} />
               <Route path='/CompCode/premium' element={<Premium user={user} />} />
-              <Route path='/CompCode/tutorial/:tutorialId' element={<Tutorial />} />
+              <Route path='/CompCode/lesson/:lessonId' element={<Lesson />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </Elements>
