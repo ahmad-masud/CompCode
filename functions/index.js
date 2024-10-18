@@ -85,7 +85,6 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
           stripeCustomerId: customerId,
           subscriptionId: session.subscription,
           canceled: false,
-          createdAt: admin.firestore.FieldValue.serverTimestamp(),
         }
       }, { merge: true });
 
@@ -102,7 +101,6 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
         userSnapshot.forEach(async (doc) => {
           await doc.ref.update({
             premium: true,
-            lastPayment: admin.firestore.FieldValue.serverTimestamp(),
           });
         });
       }
@@ -111,19 +109,55 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
     case 'customer.subscription.deleted': {
       const subscription = event.data.object;
       const customerId = subscription.customer;
-
-      // Mark the user as no longer premium
-      const userSnapshot = await admin.firestore().collection('users').where('stripeCustomerId', '==', customerId).get();
+    
+      // Query Firestore for the user document based on the Stripe customer ID
+      const userSnapshot = await admin.firestore().collection('users')
+        .where('premiumInfo.stripeCustomerId', '==', customerId).get();
+    
       if (!userSnapshot.empty) {
         userSnapshot.forEach(async (doc) => {
+          // Delete the entire `premiumInfo` field from Firestore
           await doc.ref.update({
-            premium: false,
-            canceledAt: admin.firestore.FieldValue.serverTimestamp(),
+            'premiumInfo': admin.firestore.FieldValue.delete(),
           });
         });
+      } else {
+        console.log(`No user found for Stripe customer ID: ${customerId}`);
       }
+    
       break;
-    }
+    }    
+    case 'customer.subscription.updated': {
+      const subscription = event.data.object;
+      const customerId = subscription.customer;
+    
+      // Check if the subscription is set to cancel at the end of the period
+      const isCanceledAtPeriodEnd = subscription.cancel_at_period_end;
+      const currentPeriodEnd = subscription.current_period_end * 1000;  // Convert Unix timestamp to milliseconds
+    
+      const userSnapshot = await admin.firestore().collection('users')
+        .where('premiumInfo.stripeCustomerId', '==', customerId).get();
+    
+      if (!userSnapshot.empty) {
+        userSnapshot.forEach(async (doc) => {
+          const updateData = {
+            'premiumInfo.canceled': isCanceledAtPeriodEnd,  // Mark the subscription as canceled if set to end
+          };
+    
+          if (isCanceledAtPeriodEnd) {
+            // If the subscription is canceled but still active until the end of the billing period
+            updateData['premiumInfo.subscriptionEnd'] = new Date(currentPeriodEnd);  // Store the end date
+          } else {
+            // If the subscription is active and not canceled, remove the `subscriptionEnd`
+            updateData['premiumInfo.subscriptionEnd'] = admin.firestore.FieldValue.delete();
+          }
+    
+          await doc.ref.update(updateData);
+        });
+      }
+    
+      break;
+    }     
     default:
       console.log(`Unhandled event type: ${event.type}`);
   }
@@ -142,15 +176,20 @@ exports.cancelSubscription = functions.https.onCall(async (data, context) => {
       {cancel_at_period_end: true}
     );
 
-    // Update only the `canceled` field inside `premiumInfo`
-    const userRef = admin.firestore().collection('users').doc(uid);
-    await userRef.update({
-      "premiumInfo.canceled": true
-    });
-
     return { status: 'success', message: 'Subscription canceled successfully' };
   } catch (error) {
     console.error('Error canceling subscription:', error);
     throw new functions.https.HttpsError('internal', 'Unable to cancel subscription');
   }
+});
+
+exports.createCustomerPortalSession = functions.https.onCall(async (data, context) => {
+  const { customerId } = data;
+
+  const session = await stripe.billingPortal.sessions.create({
+    customer: customerId,
+    return_url: 'https://ahmadmasud.com/CompCode', // Replace with your actual return URL
+  });
+
+  return { url: session.url };
 });

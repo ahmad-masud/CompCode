@@ -1,0 +1,299 @@
+{
+  "title": "Arrays",
+  "lessons": [
+    {
+      "title": "Introduction to Arrays",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Arrays are used to store multiple values in one single variable. In Python, we often use lists to represent arrays."
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Lists can store multiple data types",
+            "Lists are dynamic in size",
+            "Python also has an 'array' module for fixed-type arrays"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Creating Arrays",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In Python, lists or arrays can be created by assigning values to a variable using square brackets `[]` or using the 'array' module."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_list = [1, 2, 3, 4]\nmy_array = arr.array('i', [1, 2, 3, 4])"
+        },
+        {
+          "type": "paragraph",
+          "text": "Python lists are more versatile as they can store mixed data types, but arrays from the 'array' module are more efficient when working with large datasets of the same type."
+        }
+      ]
+    },
+    {
+      "title": "Accessing Array Elements",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "You can access an array element by referring to its index. Python uses zero-based indexing."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_list = [1, 2, 3, 4]\nprint(my_list[0])  # Output: 1"
+        },
+        {
+          "type": "paragraph",
+          "text": "Negative indexing is also supported to access elements from the end of the list."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "print(my_list[-1])  # Output: 4"
+        }
+      ]
+    },
+    {
+      "title": "Modifying Arrays",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "You can modify elements in a list by directly assigning new values to the specific index."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_list = [1, 2, 3, 4]\nmy_list[1] = 10\nprint(my_list)  # Output: [1, 10, 3, 4]"
+        },
+        {
+          "type": "paragraph",
+          "text": "This works similarly for arrays, but remember that arrays must hold elements of the same type."
+        }
+      ]
+    },
+    {
+      "title": "Common Array Methods",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Here are some common methods used with lists and arrays:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "`append()`: Adds an element to the end of the list",
+            "`insert()`: Adds an element at a specific position",
+            "`remove()`: Removes the first occurrence of an element",
+            "`pop()`: Removes an element at a specific index",
+            "`index()`: Returns the index of the first matched element",
+            "`count()`: Returns the number of occurrences of a specified value"
+          ]
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_list = [1, 2, 3, 4]\nmy_list.append(5)\nprint(my_list)  # Output: [1, 2, 3, 4, 5]\nmy_list.pop(2)\nprint(my_list)  # Output: [1, 2, 4, 5]"
+        }
+      ]
+    },
+    {
+      "title": "Slicing Arrays",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Slicing allows you to return a portion of the list or array by specifying a range of indices."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_list = [1, 2, 3, 4, 5]\nprint(my_list[1:3])  # Output: [2, 3]\nprint(my_list[:2])  # Output: [1, 2]\nprint(my_list[2:])  # Output: [3, 4, 5]"
+        },
+        {
+          "type": "paragraph",
+          "text": "You can also use negative indices and step values to reverse or skip elements."
+        }
+      ]
+    },
+    {
+      "title": "Using Lists as Arrays",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In Python, lists can serve as arrays. Lists allow you to store multiple items in a single variable."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_list = [1, 2, 3, 4, 5]\nprint(my_list[0])  # Output: 1"
+        },
+        {
+          "type": "paragraph",
+          "text": "You can add, remove, or modify items in a list, making it flexible for use as an array."
+        }
+      ]
+    },
+    {
+      "title": "The Array Module",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Python provides a built-in module named 'array' to work with arrays that store values of the same type."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "import array as arr\nmy_array = arr.array('i', [1, 2, 3, 4])\nprint(my_array[1])  # Output: 2"
+        },
+        {
+          "type": "paragraph",
+          "text": "While lists are more versatile, arrays from the 'array' module provide more efficiency for certain types of operations that involve large datasets of the same type."
+        }
+      ]
+    },
+    {
+      "title": "Iterating Through Arrays (Lists)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "There are several ways to iterate through arrays (lists) in Python. Let's look at the most common methods."
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Using a for loop",
+            "Using a while loop",
+            "Using list comprehensions",
+            "Using the enumerate() function"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Method 1: For Loop",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The most common way to iterate over a list is with a for loop."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_list = [1, 2, 3, 4, 5]\nfor item in my_list:\n    print(item)"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this method, the loop iterates over each element in the list one by one."
+        }
+      ]
+    },
+    {
+      "title": "Method 2: While Loop",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "You can also use a while loop to iterate through a list. This is a more manual approach where you control the index."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_list = [1, 2, 3, 4, 5]\ni = 0\nwhile i < len(my_list):\n    print(my_list[i])\n    i += 1"
+        },
+        {
+          "type": "paragraph",
+          "text": "While loops are useful when you need more control over the iteration, such as adding conditional logic to stop the loop based on an external factor."
+        }
+      ]
+    },
+    {
+      "title": "Method 3: List Comprehension",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "List comprehensions provide a compact way of writing for loops to create new lists or iterate through existing ones."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_list = [1, 2, 3, 4, 5]\nsquares = [x ** 2 for x in my_list]\nprint(squares)  # Output: [1, 4, 9, 16, 25]"
+        },
+        {
+          "type": "paragraph",
+          "text": "List comprehensions are often more readable and efficient, especially for simple operations."
+        }
+      ]
+    },
+    {
+      "title": "Method 4: Using enumerate()",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The `enumerate()` function allows you to loop through the list while keeping track of the index."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_list = [1, 2, 3, 4, 5]\nfor index, value in enumerate(my_list):\n    print(f'Index: {index}, Value: {value}')"
+        },
+        {
+          "type": "paragraph",
+          "text": "Using `enumerate()` is particularly useful when you need to access both the index and the value of the items in the list."
+        }
+      ]
+    },
+    {
+      "title": "Comparing Lists and Arrays",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Here’s how lists and arrays differ:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Lists can hold elements of different data types",
+            "Arrays must contain elements of the same type",
+            "Arrays use less memory and are faster for large data sets"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Array Sorting",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Python lists have a built-in `sort()` method to arrange elements in ascending order."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_list = [4, 1, 3, 5, 2]\nmy_list.sort()\nprint(my_list)  # Output: [1, 2, 3, 4, 5]"
+        },
+        {
+          "type": "paragraph",
+          "text": "You can also use `sorted()` to return a new sorted list without modifying the original list."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_list = [4, 1, 3, 5, 2]\nnew_list = sorted(my_list)\nprint(new_list)  # Output: [1, 2, 3, 4, 5]\nprint(my_list)  # Output: [4, 1, 3, 5, 2]"
+        }
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In this tutorial, we’ve covered the basics of arrays and lists in Python, how to use the 'array' module, common methods, and various ways to iterate through arrays. Lists provide flexibility, while arrays offer type enforcement and memory efficiency."
+        }
+      ]
+    }
+  ]
+}

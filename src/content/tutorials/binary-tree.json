@@ -1,0 +1,182 @@
+{
+    "title": "Binary Trees",
+    "lessons": [
+      {
+        "title": "Introduction to Binary Trees",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A binary tree is a hierarchical data structure in which each node has at most two children, referred to as the left child and the right child. It is widely used in algorithms and programming to represent hierarchical relationships, perform sorting, and support efficient searching."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Each node has up to two children: left and right.",
+              "Binary trees are used in searching and sorting algorithms.",
+              "The root node is the topmost node in a tree, and it has no parent."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Node Structure in a Binary Tree",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Each node in a binary tree contains data, a pointer to the left child, and a pointer to the right child."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class Node:\n    def __init__(self, data):\n        self.data = data  # Data stored in the node\n        self.left = None  # Pointer to the left child\n        self.right = None  # Pointer to the right child"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this class, `data` holds the node's value, while `left` and `right` point to the left and right children, respectively."
+          }
+        ]
+      },
+      {
+        "title": "Binary Tree Structure",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The `BinaryTree` class contains a reference to the root node. You can build the tree by linking nodes together using their left and right pointers."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class BinaryTree:\n    def __init__(self):\n        self.root = None  # Points to the root of the tree"
+          },
+          {
+            "type": "paragraph",
+            "text": "This class initializes an empty binary tree with a `root` pointer that is initially set to `None`."
+          }
+        ]
+      },
+      {
+        "title": "Inserting Nodes into the Binary Tree",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To insert a node in a binary tree, a common method is to use level-order insertion. Nodes are inserted from left to right at each level."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "from collections import deque\n\ndef insert(self, data):\n    new_node = Node(data)\n    if self.root is None:\n        self.root = new_node  # If tree is empty, the new node is the root\n        return\n    queue = deque([self.root])\n    while queue:\n        current = queue.popleft()\n        if current.left is None:\n            current.left = new_node\n            return\n        else:\n            queue.append(current.left)\n        if current.right is None:\n            current.right = new_node\n            return\n        else:\n            queue.append(current.right)"
+          },
+          {
+            "type": "paragraph",
+            "text": "This method uses a queue to perform level-order traversal and find the first available position to insert the new node."
+          }
+        ]
+      },
+      {
+        "title": "Traversing the Binary Tree",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "There are several common ways to traverse a binary tree, including in-order, pre-order, and post-order traversals. These traversal methods determine the order in which nodes are visited."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**In-order traversal**: Traverse the left subtree, visit the root, then traverse the right subtree.",
+              "**Pre-order traversal**: Visit the root, traverse the left subtree, then traverse the right subtree.",
+              "**Post-order traversal**: Traverse the left subtree, traverse the right subtree, then visit the root."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# In-order Traversal\n def inorder_traversal(self, node):\n     if node:\n         self.inorder_traversal(node.left)\n         print(node.data, end=' ')\n         self.inorder_traversal(node.right)\n\n # Pre-order Traversal\n def preorder_traversal(self, node):\n     if node:\n         print(node.data, end=' ')\n         self.preorder_traversal(node.left)\n         self.preorder_traversal(node.right)\n\n # Post-order Traversal\n def postorder_traversal(self, node):\n     if node:\n         self.postorder_traversal(node.left)\n         self.postorder_traversal(node.right)\n         print(node.data, end=' ')"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, in-order, pre-order, and post-order traversals are implemented as recursive functions that visit the nodes of the tree in different orders."
+          }
+        ]
+      },
+      {
+        "title": "Searching for a Node in the Binary Tree",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You can search for a specific node in a binary tree using level-order traversal, which examines nodes from left to right at each level."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def search(self, key):\n    if self.root is None:\n        return False\n    queue = deque([self.root])\n    while queue:\n        current = queue.popleft()\n        if current.data == key:\n            return True\n        if current.left:\n            queue.append(current.left)\n        if current.right:\n            queue.append(current.right)\n    return False"
+          },
+          {
+            "type": "paragraph",
+            "text": "This method performs a level-order traversal to search for a node with the specified key. It returns `True` if the key is found and `False` otherwise."
+          }
+        ]
+      },
+      {
+        "title": "Finding the Maximum Depth (Height) of the Tree",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The depth or height of a binary tree is the number of nodes along the longest path from the root to a leaf node. This can be calculated recursively by finding the height of the left and right subtrees and taking the maximum of the two."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def max_depth(self, node):\n    if node is None:\n        return 0\n    left_depth = self.max_depth(node.left)\n    right_depth = self.max_depth(node.right)\n    return max(left_depth, right_depth) + 1"
+          },
+          {
+            "type": "paragraph",
+            "text": "This recursive method calculates the height of a binary tree by checking the depth of both subtrees and adding one for the current node."
+          }
+        ]
+      },
+      {
+        "title": "Deleting a Node in the Binary Tree",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To delete a node from a binary tree, the simplest approach is to use level-order traversal to find the node to delete and the deepest node. The data from the deepest node is copied to the node to be deleted, and the deepest node is removed."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def delete(self, key):\n    if self.root is None:\n        return\n    if self.root.data == key and self.root.left is None and self.root.right is None:\n        self.root = None\n        return\n    key_node = None\n    queue = deque([self.root])\n    while queue:\n        current = queue.popleft()\n        if current.data == key:\n            key_node = current\n        if current.left:\n            queue.append(current.left)\n        if current.right:\n            queue.append(current.right)\n    if key_node:\n        key_node.data = current.data\n        self._delete_deepest(current)\n\ndef _delete_deepest(self, d_node):\n    queue = deque([self.root])\n    while queue:\n        current = queue.popleft()\n        if current == d_node:\n            current = None\n            return\n        if current.right == d_node:\n            current.right = None\n            return\n        if current.left == d_node:\n            current.left = None\n            return"
+          },
+          {
+            "type": "paragraph",
+            "text": "This method replaces the data of the node to be deleted with the data of the deepest node and then deletes the deepest node."
+          }
+        ]
+      },
+      {
+        "title": "Binary Tree Use Cases",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Binary trees are used in many important areas in computer science, including:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Implementing search trees (Binary Search Trees, AVL trees).",
+              "Storing hierarchical data (e.g., file systems, HTML/XML documents).",
+              "Expression trees for evaluating arithmetic expressions."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In this tutorial, we covered the structure of binary trees, inserting and deleting nodes, tree traversal techniques, and other common operations. Binary trees are versatile and widely used in various applications, such as search trees, hierarchical data structures, and expression parsing."
+          }
+        ]
+      }
+    ]
+  }  

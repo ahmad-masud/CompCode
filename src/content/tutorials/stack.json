@@ -1,0 +1,178 @@
+{
+    "title": "Stacks",
+    "lessons": [
+      {
+        "title": "Introduction to Stacks",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A stack is a data structure that follows the Last-In-First-Out (LIFO) principle, where the last element added is the first one to be removed. Stacks are commonly used in situations where you need to reverse elements, backtracking algorithms, or managing recursive functions."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Push: Add an element to the top of the stack.",
+              "Pop: Remove an element from the top of the stack.",
+              "LIFO (Last-In, First-Out) structure."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Stack Implementation in Python",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Python does not have a built-in stack data structure, but you can implement a stack using lists or by using the `collections.deque` module for more efficient operations."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Using lists (simple but not the most efficient)",
+              "Using `collections.deque` (recommended for efficient stacks)"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Method 1: Implementing Stack Using Lists",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The simplest way to implement a stack in Python is by using a list. You can append elements to the end of the list (push) and remove elements from the end of the list (pop)."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "stack = []\nstack.append('A')  # Push 'A'\nstack.append('B')  # Push 'B'\nprint(stack.pop())  # Pop, Output: 'B'\nprint(stack)  # Output: ['A']"
+          },
+          {
+            "type": "paragraph",
+            "text": "Using lists for stack operations is convenient, but using a list for a large number of push and pop operations can become inefficient as the list grows."
+          }
+        ]
+      },
+      {
+        "title": "Method 2: Implementing Stack Using collections.deque",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A more efficient way to implement a stack in Python is by using `collections.deque`. It provides O(1) time complexity for both append and pop operations."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "from collections import deque\nstack = deque()\nstack.append('A')  # Push 'A'\nstack.append('B')  # Push 'B'\nprint(stack.pop())  # Pop, Output: 'B'\nprint(stack)  # Output: deque(['A'])"
+          },
+          {
+            "type": "paragraph",
+            "text": "`deque` is more efficient than lists for stack operations because it is optimized for fast appends and pops from both ends."
+          }
+        ]
+      },
+      {
+        "title": "Basic Stack Operations",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Stacks typically support a few essential operations that are crucial for its functioning."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "`push(item)`: Adds an element to the top of the stack.",
+              "`pop()`: Removes and returns the top element from the stack.",
+              "`peek()`: Returns the top element of the stack without removing it (can be done using `stack[-1]` for lists).",
+              "`is_empty()`: Returns `True` if the stack is empty, otherwise `False` (can be done using `len(stack) == 0`)."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "stack = []\nstack.append('A')  # Push 'A'\nprint(stack[-1])  # Peek, Output: 'A'\nprint(len(stack) == 0)  # is_empty, Output: False\nstack.pop()  # Pop 'A'\nprint(len(stack) == 0)  # is_empty, Output: True"
+          }
+        ]
+      },
+      {
+        "title": "Stack Use Cases",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Stacks are used in various scenarios in computer science and programming, such as:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Function call stack: Keeps track of function calls in recursive programs.",
+              "Backtracking algorithms: Used in scenarios like maze solving or undo features.",
+              "Expression evaluation: Used to evaluate expressions involving parentheses or operators.",
+              "Reversing data: Useful for reversing strings or arrays."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Checking for Balanced Parentheses Using a Stack",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "One common problem solved using a stack is checking for balanced parentheses in an expression. The stack is used to track opening parentheses and match them with closing ones."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def is_balanced(expression):\n    stack = []\n    for char in expression:\n        if char in '({[':\n            stack.append(char)\n        elif char in ')}]':\n            if not stack:\n                return False\n            top = stack.pop()\n            if (top == '(' and char != ')') or \\\n               (top == '{' and char != '}') or \\\n               (top == '[' and char != ']'):\n                return False\n    return len(stack) == 0\n\nprint(is_balanced('({[]})'))  # Output: True\nprint(is_balanced('({[})'))   # Output: False"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, the stack helps keep track of the opening parentheses, and ensures that every closing parenthesis matches the most recent opening one."
+          }
+        ]
+      },
+      {
+        "title": "Reversing a String Using a Stack",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Stacks are also used to reverse data, such as reversing a string. You can push each character of the string onto the stack, and then pop them off to get the reversed string."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def reverse_string(s):\n    stack = []\n    for char in s:\n        stack.append(char)\n    reversed_str = ''\n    while stack:\n        reversed_str += stack.pop()\n    return reversed_str\n\nprint(reverse_string('hello'))  # Output: 'olleh'"
+          },
+          {
+            "type": "paragraph",
+            "text": "This example demonstrates how to use a stack to reverse the order of characters in a string."
+          }
+        ]
+      },
+      {
+        "title": "Implementing a Custom Stack Class",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "For more control over your stack, you can implement a custom stack class in Python that includes common stack methods like `push()`, `pop()`, `peek()`, and `is_empty()`."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class Stack:\n    def __init__(self):\n        self.stack = []\n\n    def push(self, item):\n        self.stack.append(item)\n\n    def pop(self):\n        if not self.is_empty():\n            return self.stack.pop()\n        return None\n\n    def peek(self):\n        if not self.is_empty():\n            return self.stack[-1]\n        return None\n\n    def is_empty(self):\n        return len(self.stack) == 0\n\n    def size(self):\n        return len(self.stack)\n\nstack = Stack()\nstack.push(10)\nstack.push(20)\nprint(stack.pop())  # Output: 20\nprint(stack.peek())  # Output: 10\nprint(stack.is_empty())  # Output: False"
+          },
+          {
+            "type": "paragraph",
+            "text": "This custom `Stack` class provides a clean way to interact with a stack, offering standard methods for stack operations."
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In this tutorial, we explored the basics of stacks in Python, how to implement them using lists and `collections.deque`, common stack methods, and use cases such as expression evaluation and string reversal. Stacks are simple yet powerful data structures that are widely used in programming."
+          }
+        ]
+      }
+    ]
+  }  

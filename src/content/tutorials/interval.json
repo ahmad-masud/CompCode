@@ -1,0 +1,139 @@
+{
+    "title": "Intervals",
+    "lessons": [
+      {
+        "title": "Introduction to Intervals",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "An interval is a range of numbers, usually represented by a start and an end. Intervals are commonly used in problems involving ranges, such as merging intervals, checking for overlaps, or finding gaps. In Python, intervals are typically represented as tuples or lists."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Intervals are typically represented as (start, end) pairs.",
+              "Common operations include checking overlap, merging intervals, and finding intersections."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Representing Intervals in Python",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In Python, intervals can be represented using tuples or lists. Each interval is defined by two values: the start and the end of the range."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "interval1 = (1, 5)\ninterval2 = [6, 10]\n\n# Example intervals: (1, 5) and (6, 10)"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, `interval1` is a tuple representing the interval [1, 5], and `interval2` is a list representing the interval [6, 10]. Both formats are commonly used."
+          }
+        ]
+      },
+      {
+        "title": "Checking for Overlapping Intervals",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To check if two intervals overlap, compare the start and end values of both intervals. Two intervals overlap if the start of one interval is less than or equal to the end of the other, and vice versa."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def intervals_overlap(interval1, interval2):\n    return interval1[0] <= interval2[1] and interval2[0] <= interval1[1]\n\n# Example\ninterval1 = (1, 5)\ninterval2 = (4, 8)\nprint(intervals_overlap(interval1, interval2))  # Output: True"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this function, the intervals overlap if the start of one interval is less than or equal to the end of the other, meaning there is at least one common number between them."
+          }
+        ]
+      },
+      {
+        "title": "Merging Overlapping Intervals",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "When given a list of intervals, it's common to merge overlapping intervals into one larger interval. This can be done by sorting the intervals by their start value and then merging overlapping ones."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def merge_intervals(intervals):\n    if not intervals:\n        return []\n    intervals.sort(key=lambda x: x[0])  # Sort intervals by start time\n    merged = [intervals[0]]\n    for current in intervals[1:]:\n        last = merged[-1]\n        if current[0] <= last[1]:\n            last[1] = max(last[1], current[1])  # Merge intervals\n        else:\n            merged.append(current)\n    return merged\n\n# Example\nintervals = [[1, 3], [2, 6], [8, 10], [15, 18]]\nprint(merge_intervals(intervals))  # Output: [[1, 6], [8, 10], [15, 18]]"
+          },
+          {
+            "type": "paragraph",
+            "text": "This function first sorts the intervals by their start value, then merges overlapping intervals. If two intervals overlap, their end values are merged into the larger one."
+          }
+        ]
+      },
+      {
+        "title": "Finding the Intersection of Two Intervals",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To find the intersection (common range) between two intervals, check if they overlap and then return the maximum start value and the minimum end value."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def interval_intersection(interval1, interval2):\n    if intervals_overlap(interval1, interval2):\n        return (max(interval1[0], interval2[0]), min(interval1[1], interval2[1]))\n    return None\n\n# Example\ninterval1 = (1, 5)\ninterval2 = (4, 8)\nprint(interval_intersection(interval1, interval2))  # Output: (4, 5)"
+          },
+          {
+            "type": "paragraph",
+            "text": "This function calculates the intersection by returning the maximum of the start values and the minimum of the end values if the intervals overlap. Otherwise, it returns `None`."
+          }
+        ]
+      },
+      {
+        "title": "Finding Gaps Between Intervals",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In some applications, you may need to find gaps between intervals, i.e., ranges that are not covered by any of the intervals in a list. This can be done by sorting the intervals and identifying gaps between the end of one interval and the start of the next."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def find_gaps(intervals):\n    if not intervals:\n        return []\n    intervals.sort(key=lambda x: x[0])\n    gaps = []\n    for i in range(1, len(intervals)):\n        if intervals[i][0] > intervals[i-1][1]:\n            gaps.append((intervals[i-1][1], intervals[i][0]))\n    return gaps\n\n# Example\nintervals = [[1, 3], [5, 8], [10, 12]]\nprint(find_gaps(intervals))  # Output: [(3, 5), (8, 10)]"
+          },
+          {
+            "type": "paragraph",
+            "text": "This function sorts the intervals and then looks for gaps by comparing the end of one interval with the start of the next. Any gaps are returned as a list of intervals."
+          }
+        ]
+      },
+      {
+        "title": "Use Cases of Intervals",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Intervals are commonly used in various fields, including:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Scheduling problems, such as booking time slots or managing events.",
+              "Range queries, such as finding overlapping ranges or checking for free time slots.",
+              "Computational geometry, such as finding intersecting lines or shapes.",
+              "Memory allocation in operating systems, where intervals represent blocks of allocated memory."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In this tutorial, we covered the basics of working with intervals in Python, including representing intervals, checking for overlap, merging intervals, and finding intersections or gaps. Intervals are an important concept in many algorithms and can be applied to a wide range of problems."
+          }
+        ]
+      }
+    ]
+  }
+  

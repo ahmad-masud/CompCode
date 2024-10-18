@@ -1,0 +1,30 @@
+[
+    {
+        "ID": "208",
+        "Title": "Implement Trie (Prefix Tree)",
+        "Acceptance": "60.3%",
+        "Difficulty": "Medium",
+        "Leetcode Question Link": "https://leetcode.com/problems/implement-trie-prefix-tree"
+    },
+    {
+        "ID": "212",
+        "Title": "Word Search II",
+        "Acceptance": "40.6%",
+        "Difficulty": "Hard",
+        "Leetcode Question Link": "https://leetcode.com/problems/word-search-ii"
+    },
+    {
+        "ID": "648",
+        "Title": "Replace Words",
+        "Acceptance": "57.7%",
+        "Difficulty": "Medium",
+        "Leetcode Question Link": "https://leetcode.com/problems/replace-words"
+    },
+    {
+        "ID": "720",
+        "Title": "Longest Word in Dictionary",
+        "Acceptance": "50.6%",
+        "Difficulty": "Medium",
+        "Leetcode Question Link": "https://leetcode.com/problems/longest-word-in-dictionary"
+    }
+]

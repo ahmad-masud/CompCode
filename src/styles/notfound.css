@@ -24,3 +24,7 @@
     cursor: pointer;
     text-decoration: none;
 }
+
+.notfound a:hover {
+    filter: brightness(75%);
+}
