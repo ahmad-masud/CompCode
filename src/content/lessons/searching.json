@@ -1,0 +1,158 @@
+{
+    "title": "Searching Algorithms",
+    "lessons": [
+      {
+        "title": "Introduction to Searching",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Searching algorithms are used to find an element or group of elements within a data structure, such as an array, list, or tree. These algorithms vary in efficiency based on the type and size of the data structure."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Linear Search: Sequentially checks each element.",
+              "Binary Search: Efficient search in sorted arrays using a divide-and-conquer approach.",
+              "Hash-based Search: Uses hash tables for constant time search on average.",
+              "Tree-based Search: Traverses tree structures like binary search trees to find elements."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Linear Search",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Linear search is the simplest search algorithm, which checks each element of the array one by one until the target value is found or the list ends."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def linear_search(arr, target):\n    for i in range(len(arr)):\n        if arr[i] == target:\n            return i  # Return index if found\n    return -1  # Return -1 if not found\n\narr = [4, 2, 1, 7, 5]\nprint(linear_search(arr, 7))  # Output: 3\nprint(linear_search(arr, 9))  # Output: -1"
+          },
+          {
+            "type": "paragraph",
+            "text": "Linear search has a time complexity of O(n), where n is the number of elements in the array. It is inefficient for large arrays but useful for small or unsorted data."
+          }
+        ]
+      },
+      {
+        "title": "Binary Search",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Binary search is an efficient algorithm for finding an element in a sorted array. It repeatedly divides the search interval in half and eliminates one half based on whether the target value is greater or smaller than the middle element."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def binary_search(arr, target):\n    low, high = 0, len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid  # Return index if found\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1  # Return -1 if not found\n\narr = [1, 2, 3, 4, 5, 6, 7]\nprint(binary_search(arr, 5))  # Output: 4\nprint(binary_search(arr, 8))  # Output: -1"
+          },
+          {
+            "type": "paragraph",
+            "text": "Binary search works only on sorted arrays and has a time complexity of O(log n), making it significantly faster than linear search for large datasets."
+          }
+        ]
+      },
+      {
+        "title": "Binary Search (Recursive Version)",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The recursive version of binary search divides the search space recursively, simplifying the code at the cost of additional function calls."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def recursive_binary_search(arr, low, high, target):\n    if low > high:\n        return -1  # Base case: Not found\n    mid = (low + high) // 2\n    if arr[mid] == target:\n        return mid\n    elif arr[mid] < target:\n        return recursive_binary_search(arr, mid + 1, high, target)\n    else:\n        return recursive_binary_search(arr, low, mid - 1, target)\n\narr = [1, 2, 3, 4, 5, 6, 7]\nprint(recursive_binary_search(arr, 0, len(arr) - 1, 4))  # Output: 3\nprint(recursive_binary_search(arr, 0, len(arr) - 1, 9))  # Output: -1"
+          },
+          {
+            "type": "paragraph",
+            "text": "The recursive binary search has the same time complexity as the iterative version (O(log n)), but with additional space overhead due to recursive function calls."
+          }
+        ]
+      },
+      {
+        "title": "Jump Search",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Jump search is an algorithm that works on sorted arrays by jumping ahead by a fixed number of steps (usually the square root of the array size) and then performing a linear search when the target is within a block."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "import math\n\ndef jump_search(arr, target):\n    n = len(arr)\n    step = int(math.sqrt(n))\n    prev = 0\n\n    while arr[min(step, n) - 1] < target:\n        prev = step\n        step += int(math.sqrt(n))\n        if prev >= n:\n            return -1\n\n    for i in range(prev, min(step, n)):\n        if arr[i] == target:\n            return i\n    return -1\n\narr = [1, 3, 5, 7, 9, 11, 13]\nprint(jump_search(arr, 7))  # Output: 3\nprint(jump_search(arr, 4))  # Output: -1"
+          },
+          {
+            "type": "paragraph",
+            "text": "Jump search is more efficient than linear search, with a time complexity of O(√n), making it useful for large, sorted datasets."
+          }
+        ]
+      },
+      {
+        "title": "Interpolation Search",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Interpolation search is an improvement over binary search for uniformly distributed data. It estimates the position of the target based on the values in the array rather than dividing it in half."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def interpolation_search(arr, target):\n    low, high = 0, len(arr) - 1\n    while low <= high and target >= arr[low] and target <= arr[high]:\n        pos = low + ((target - arr[low]) * (high - low)) // (arr[high] - arr[low])\n        if arr[pos] == target:\n            return pos\n        elif arr[pos] < target:\n            low = pos + 1\n        else:\n            high = pos - 1\n    return -1\n\narr = [10, 20, 30, 40, 50, 60, 70]\nprint(interpolation_search(arr, 50))  # Output: 4\nprint(interpolation_search(arr, 25))  # Output: -1"
+          },
+          {
+            "type": "paragraph",
+            "text": "Interpolation search has a time complexity of O(log log n) for uniformly distributed data, making it faster than binary search in such cases. However, its worst-case complexity is still O(n)."
+          }
+        ]
+      },
+      {
+        "title": "Exponential Search",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Exponential search is used for searching in unbounded or infinite-length arrays. It grows the search range exponentially until it finds the range where the target lies, then applies binary search within that range."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def binary_search(arr, low, high, target):\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1\n\ndef exponential_search(arr, target):\n    if arr[0] == target:\n        return 0\n    index = 1\n    while index < len(arr) and arr[index] <= target:\n        index *= 2\n    return binary_search(arr, index // 2, min(index, len(arr) - 1), target)\n\narr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nprint(exponential_search(arr, 6))  # Output: 5\nprint(exponential_search(arr, 11))  # Output: -1"
+          },
+          {
+            "type": "paragraph",
+            "text": "Exponential search has a time complexity of O(log n), making it useful for large datasets where the array size is not known in advance or when the data is sorted."
+          }
+        ]
+      },
+      {
+        "title": "Hash-based Searching",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Hash-based search uses a hash table to store key-value pairs. It allows for near-constant time complexity (O(1)) for search, insertion, and deletion operations."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def hash_search(hash_table, key):\n    if key in hash_table:\n        return hash_table[key]\n    return -1\n\nhash_table = {\"apple\": 1, \"banana\": 2, \"cherry\": 3}\nprint(hash_search(hash_table, \"banana\"))  # Output: 2\nprint(hash_search(hash_table, \"grape\"))  # Output: -1"
+          },
+          {
+            "type": "paragraph",
+            "text": "Hash-based search is extremely efficient for operations like lookups, insertions, and deletions, with an average time complexity of O(1). However, collisions in the hash table can increase the complexity in the worst case to O(n)."
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Searching algorithms play a critical role in computer science, allowing us to quickly find data within large datasets. While linear search is simple, more efficient algorithms like binary search, hash-based search, and interpolation search can drastically improve performance, especially for large and structured datasets."
+          }
+        ]
+      }
+    ]
+  }  
