@@ -70,18 +70,18 @@ const Navbar = ({ user, onUserChange, onSettingsOpen, onSubmissionOpen }) => {
           <i className="fa-solid fa-meteor"></i>
           {!narrow ? (
             <div>
-              <Link className='nav-link' to='/CompCode/'>Home</Link>
-              <Link className='nav-link' to='/CompCode/companies'>Companies</Link>
-              <Link className='nav-link' to='/CompCode/datastructures'>Data Structures</Link>
-              <Link className='nav-link' to='/CompCode/algorithms'>Algorithms</Link>
+              <Link className='nav-link' to='/'>Home</Link>
+              <Link className='nav-link' to='/companies'>Companies</Link>
+              <Link className='nav-link' to='/datastructures'>Data Structures</Link>
+              <Link className='nav-link' to='/algorithms'>Algorithms</Link>
               <button className='nav-link' onClick={() => onSubmissionOpen()}>Report</button>
             </div>
           ) : (
             <div>
-              <Link className='nav-link' to='/CompCode/'><i className="fa-solid fa-house"></i></Link>
-              <Link className='nav-link' to='/CompCode/companies'><i className="fa-solid fa-building"></i></Link>
-              <Link className='nav-link' to='/CompCode/datastructures'><i className="fa-solid fa-database"></i></Link>
-              <Link className='nav-link' to='/CompCode/algorithms'><i className="fa-solid fa-diagram-project"></i></Link>
+              <Link className='nav-link' to='/'><i className="fa-solid fa-house"></i></Link>
+              <Link className='nav-link' to='/companies'><i className="fa-solid fa-building"></i></Link>
+              <Link className='nav-link' to='/datastructures'><i className="fa-solid fa-database"></i></Link>
+              <Link className='nav-link' to='/algorithms'><i className="fa-solid fa-diagram-project"></i></Link>
               <button className='nav-link' onClick={() => onSubmissionOpen()}><i className="fa-solid fa-flag"></i></button>
             </div>
           )}
@@ -89,7 +89,7 @@ const Navbar = ({ user, onUserChange, onSettingsOpen, onSubmissionOpen }) => {
         <div className='right'>
           {user ? (
             <div className='login-right'>
-              <Link to='/CompCode/premium' className='premium-button'>{narrow ? <i className="fa-solid fa-gem"></i> : "Premium"}</Link>
+              <Link to='/premium' className='premium-button'>{narrow ? <i className="fa-solid fa-gem"></i> : "Premium"}</Link>
               <Menu menuButton={<MenuButton className="user-button"><img src={user.photoURL} alt='User' className='user-avatar' /></MenuButton>}>
                 <MenuItem onClick={onSettingsOpen}><i className="fa-solid fa-gear"></i> Settings</MenuItem>
                 <hr className="menu-divider"/>
