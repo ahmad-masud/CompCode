@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Import both styles
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import '../styles/solution.css'; // For custom modal styling
 
 const Solution = ({ isOpen, onClose, problemName }) => {
@@ -29,14 +30,13 @@ const Solution = ({ isOpen, onClose, problemName }) => {
     }
   }, [problemName, isOpen]);
 
-  // Handle code copy
-  const handleCopyCode = () => {
-    navigator.clipboard.writeText(code)
-      .then(() => {
-        setIsCopied(true);
-        setTimeout(() => setIsCopied(false), 2000); // Reset after 2 seconds
-      })
-      .catch(() => alert('Failed to copy the code'));
+  const handleCopy = () => {
+    setIsCopied(true);
+
+    // Reset the copied state after 2 seconds
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
   };
 
   // Do not render the modal if it's not open
@@ -53,9 +53,6 @@ const Solution = ({ isOpen, onClose, problemName }) => {
     <div className="modal-overlay">
       <div className='overlay-backdrop' onClick={onClose}></div>
       <div className="modal-content">
-        <button className="copy-button" onClick={handleCopyCode}>
-          <i className={`bi bi-${isCopied ? 'check-lg' : 'copy'}`}></i>
-        </button>
         <button className="close-button" onClick={onClose}>
           <i className="bi bi-x"></i>
         </button>
@@ -63,9 +60,18 @@ const Solution = ({ isOpen, onClose, problemName }) => {
           <p>{error}</p>
         ) : (
           <div className="code-container">
-            <SyntaxHighlighter 
-              language="python" 
-              style={theme === 'dark' ? materialDark : undefined} // Apply style only if dark
+            <CopyToClipboard text={code} onCopy={() => handleCopy()}>
+              <button className="solution-copy-button">
+                {isCopied ? (
+                  <i className="bi bi-check-lg"></i>
+                ) : (
+                  <i className="bi bi-copy"></i>
+                )}
+              </button>
+            </CopyToClipboard>
+            <SyntaxHighlighter
+              language={'python'}
+              style={theme === 'dark' ? materialDark : undefined}
             >
               {code}
             </SyntaxHighlighter>

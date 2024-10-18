@@ -1,0 +1,156 @@
+{
+    "title": "Doubly Linked Lists",
+    "lessons": [
+      {
+        "title": "Introduction to Doubly Linked Lists",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A doubly linked list is a linear data structure where each node contains three parts: the data, a pointer to the next node, and a pointer to the previous node. This allows traversal in both directions (forward and backward), unlike singly linked lists, which can only be traversed in one direction."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Each node has pointers to both its previous and next node.",
+              "Doubly linked lists allow traversal in both forward and backward directions.",
+              "More efficient for certain operations, like deletions and reverse traversals."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Node Structure in a Doubly Linked List",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In a doubly linked list, each node contains data, a pointer to the next node, and a pointer to the previous node."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class Node:\n    def __init__(self, data):\n        self.data = data  # Holds the data\n        self.next = None  # Points to the next node\n        self.prev = None  # Points to the previous node"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this class, `data` stores the node's value, `next` points to the next node, and `prev` points to the previous node."
+          }
+        ]
+      },
+      {
+        "title": "Creating a Doubly Linked List",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The `DoublyLinkedList` class contains a reference to the head node, just like in a singly linked list. However, each node now also has a `prev` pointer, making bidirectional traversal possible."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class DoublyLinkedList:\n    def __init__(self):\n        self.head = None  # Head of the list"
+          },
+          {
+            "type": "paragraph",
+            "text": "This class starts with the `head` pointing to `None`, representing an empty doubly linked list."
+          }
+        ]
+      },
+      {
+        "title": "Inserting a Node at the Beginning",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To insert a node at the beginning of a doubly linked list, you need to update the `next` pointer of the new node to point to the current head, and if the list is not empty, update the `prev` pointer of the current head to point to the new node."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def insert_at_beginning(self, data):\n    new_node = Node(data)\n    new_node.next = self.head  # Link new node to the current head\n    if self.head is not None:\n        self.head.prev = new_node  # Link current head to new node\n    self.head = new_node  # Update head to new node"
+          },
+          {
+            "type": "paragraph",
+            "text": "This method creates a new node and updates the necessary pointers to insert it at the front of the doubly linked list."
+          }
+        ]
+      },
+      {
+        "title": "Inserting a Node at the End",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To insert a node at the end of a doubly linked list, you traverse to the last node, link its `next` pointer to the new node, and link the new node’s `prev` pointer to the last node."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def insert_at_end(self, data):\n    new_node = Node(data)\n    if self.head is None:\n        self.head = new_node  # If list is empty, new node is head\n        return\n    last = self.head\n    while last.next:\n        last = last.next\n    last.next = new_node  # Link the last node to new node\n    new_node.prev = last  # Link new node's prev to last node"
+          },
+          {
+            "type": "paragraph",
+            "text": "If the list is empty, the new node becomes the head. Otherwise, the new node is inserted after the last node."
+          }
+        ]
+      },
+      {
+        "title": "Deleting a Node",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To delete a node from a doubly linked list, you need to update the `prev` pointer of the next node (if any) and the `next` pointer of the previous node (if any) to bypass the node being deleted."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def delete_node(self, key):\n    temp = self.head\n    while temp:\n        if temp.data == key:\n            if temp.prev:  # If not head\n                temp.prev.next = temp.next\n            if temp.next:  # If not tail\n                temp.next.prev = temp.prev\n            if temp == self.head:  # If head\n                self.head = temp.next\n            temp = None\n            return\n        temp = temp.next"
+          },
+          {
+            "type": "paragraph",
+            "text": "This method searches for the node to be deleted and adjusts the pointers of neighboring nodes to maintain the list structure."
+          }
+        ]
+      },
+      {
+        "title": "Traversing the List Forward and Backward",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A key feature of doubly linked lists is the ability to traverse in both directions. To traverse forward, you follow the `next` pointers; to traverse backward, you follow the `prev` pointers."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def traverse_forward(self):\n    current = self.head\n    while current:\n        print(current.data, end=' -> ')\n        current = current.next\n    print('None')\n\n# Traversing backward from the tail\ndef traverse_backward(self):\n    current = self.head\n    if not current:\n        return\n    while current.next:\n        current = current.next\n    while current:\n        print(current.data, end=' -> ')\n        current = current.prev\n    print('None')"
+          },
+          {
+            "type": "paragraph",
+            "text": "This method shows how to traverse the list forward using `next` and backward using `prev`, printing the values in the process."
+          }
+        ]
+      },
+      {
+        "title": "Advantages of Doubly Linked Lists",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Doubly linked lists provide several advantages over singly linked lists:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Efficient backward traversal, allowing you to move in both directions.",
+              "Easier deletion of nodes, especially when the node to be deleted is in the middle of the list, as you have access to both `prev` and `next` pointers.",
+              "Faster insertions before a given node, since you can directly access both the previous and next nodes."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In this tutorial, we covered the basics of doubly linked lists, including node structure, insertion, deletion, and traversal. Doubly linked lists are more versatile than singly linked lists, allowing for more efficient operations in certain scenarios where bidirectional traversal is needed."
+          }
+        ]
+      }
+    ]
+  }  

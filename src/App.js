@@ -15,6 +15,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import Alerts from './components/alerts';
 import { AlertsProvider } from './context/alertscontext';
+import Tutorial from './pages/tutorial';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -50,11 +51,12 @@ const App = () => {
           />
           <Elements stripe={stripePromise}>
             <Routes>
-              <Route path='/CompCode/' element={<Home theme={theme} />} />
+              <Route path='/CompCode/' element={<Home />} />
               <Route path='/CompCode/companies' element={<Companies user={user} />} />
               <Route path='/CompCode/datastructures' element={<DataStructures user={user} />} />
               <Route path='/CompCode/algorithms' element={<Algorithms user={user} />} />
               <Route path='/CompCode/premium' element={<Premium user={user} />} />
+              <Route path='/CompCode/tutorial/:tutorialId' element={<Tutorial />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </Elements>

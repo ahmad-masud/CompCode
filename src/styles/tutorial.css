@@ -1,0 +1,77 @@
+.tutorial-container {
+    max-width: 1200px;
+    width: calc(100% - 20px);
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--font-color);
+}
+  
+.tutorial-title {
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+}
+  
+.lesson {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+  
+.lesson-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.lesson-paragraph {
+    font-size: 1rem;
+    text-align: left;
+    line-height: 25px;
+}
+
+.tutorial-highlight {
+    background-color: var(--secondary-color);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+  
+.lesson-list {
+    list-style-type: disc;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tutorial-code-block {
+    position: relative;
+}
+  
+.tutorial-copy-button {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    color: var(--font-color);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100000000000;
+    font-size: 1rem;
+}
+
+.tutorial-fallback {
+    height: calc(100vh - 160px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--font-color);
+}
+
+.tutorial-fallback p {
+    font-size: 1.25rem;
+    font-weight: bold;
+}

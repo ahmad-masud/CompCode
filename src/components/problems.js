@@ -266,7 +266,7 @@ const Problems = ({ company, user, onClose, page }) => {
         <div className="problem-table">
           <div className="table-header">
             <div>Status</div>
-            <div>Title <button className="sort-button" onClick={() => sortProblems('Title')}>{getSortIcon('Title')}</button></div>
+            <div>Problem <button className="sort-button" onClick={() => sortProblems('ID')}>{getSortIcon('ID')}</button></div>
             {!narrow && <div>Solution</div>}
             {!narrow && <div>Acceptance <button className="sort-button" onClick={() => sortProblems('Acceptance')}>{getSortIcon('Acceptance')}</button></div>}
             <div>Difficulty <button className="sort-button" onClick={() => sortProblems('Difficulty')}>{getSortIcon('Difficulty')}</button></div>
