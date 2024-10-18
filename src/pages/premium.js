@@ -6,7 +6,7 @@ import { firestore } from '../config/firebase-config'; // Import Firestore insta
 import '../styles/premium.css';
 import { useAlerts } from '../context/alertscontext';
 
-const PremiumPage = ({ user }) => {
+const Premium = ({ user }) => {
   const stripe = useStripe();
   const functions = getFunctions();
   const [premiumInfo, setPremiumInfo] = useState({
@@ -147,4 +147,4 @@ const PremiumPage = ({ user }) => {
   );
 };
 
-export default PremiumPage;
+export default Premium;
