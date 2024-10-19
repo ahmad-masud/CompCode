@@ -13,7 +13,7 @@ const average = (array) => {
 
 const DataStructures = ({ user }) => {
   const [companiesData, setCompaniesData] = useState([]);
-  const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'ascending' });
+  const [sortConfig, setSortConfig] = useState({ key: '', direction: 'ascending' });
   const [uniqueProblems, setUniqueProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [openCompany, setOpenCompany] = useState("");
@@ -38,10 +38,11 @@ const DataStructures = ({ user }) => {
 
   useEffect(() => {
     const fetchCompaniesData = async () => {
-      const context = require.context('../content/datastructures', false, /\.json$/);
-      const companyNames = context.keys().map(fileName => fileName.match(/\.\/(.*)\.json/)[1]);
+      // Fetch the order from order.json
+      const order = require('../content/datastructures/order.json');
 
-      const companiesInfo = companyNames.map(company => {
+      // Iterate through the order to retrieve company data in the correct sequence
+      const companiesInfo = order.map(company => {
         const data = require(`../content/datastructures/${company}.json`);
         const acceptanceRates = data.map(problem => parseFloat(problem.Acceptance.replace('%', '')));
         const difficulties = data.map(problem => problem.Difficulty);
@@ -191,7 +192,7 @@ const DataStructures = ({ user }) => {
           <table>
             <thead>
               <tr>
-                <th>Name <button className="sort-button" onClick={() => sortCompanies('name')}>{getSortIcon('name')}</button></th>
+                <th>Name</th>
                 <th>Lessons</th>
                 {!narrow && <th>Acceptance <button className="sort-button" onClick={() => sortCompanies('avgAcceptance')}>{getSortIcon('avgAcceptance')}</button></th>}
                 {!narrow && <th>Problems <button className="sort-button" onClick={() => sortCompanies('numProblems')}>{getSortIcon('numProblems')}</button></th>}

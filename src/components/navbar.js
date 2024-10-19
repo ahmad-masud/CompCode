@@ -89,7 +89,7 @@ const Navbar = ({ user, onUserChange, onSettingsOpen, onSubmissionOpen }) => {
         <div className='right'>
           {user ? (
             <div className='login-right'>
-              <Link to='/premium' className='premium-button'>{narrow ? <i className="fa-solid fa-gem"></i> : "Premium"}</Link>
+              <Link to='/premium' className='premium-button'>{narrow ? <i className="fa-solid fa-crown"></i> : "Premium"}</Link>
               <Menu menuButton={<MenuButton className="user-button"><img src={user.photoURL} alt='User' className='user-avatar' /></MenuButton>}>
                 <MenuItem onClick={onSettingsOpen}><i className="fa-solid fa-gear"></i> Settings</MenuItem>
                 <hr className="menu-divider"/>
