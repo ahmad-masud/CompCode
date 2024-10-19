@@ -1,0 +1,60 @@
+{
+    "title": "Privacy Policy",
+    "effectiveDate": "2024-10-18",
+    "sections": [
+      {
+        "title": "Information We Collect",
+        "content": [
+          "Personal Information: When you sign up for an account, we collect your name, email address, and other information you choose to provide.",
+          "Usage Data: We collect information about how you use the Website, such as your IP address, browser type, operating system, and pages viewed.",
+          "LeetCode Problem and Company Input: We collect data related to the problems and companies you submit to the platform for coding interview preparation."
+        ]
+      },
+      {
+        "title": "How We Use Your Information",
+        "content": [
+          "To provide and improve our services.",
+          "To process payments for subscriptions (if applicable).",
+          "To communicate with you, including responding to your inquiries and sending updates.",
+          "To personalize your experience based on your usage patterns and inputs.",
+          "To analyze usage of the Website and improve its functionality."
+        ]
+      },
+      {
+        "title": "How We Protect Your Information",
+        "content": [
+          "We implement a variety of security measures to ensure the protection of your personal information. However, no method of transmission over the internet is completely secure, so we cannot guarantee its absolute security."
+        ]
+      },
+      {
+        "title": "Sharing of Information",
+        "content": [
+          "We do not sell, trade, or otherwise transfer your personal information to outside parties. However, we may share your information in the following circumstances:",
+          "With third-party service providers who assist us in operating the Website, such as payment processors (e.g., Stripe).",
+          "When required by law or to protect the rights, property, or safety of CompCode, our users, or others."
+        ]
+      },
+      {
+        "title": "Cookies",
+        "content": [
+          "We use cookies to enhance your experience on our Website. You can choose to disable cookies through your browser settings, but doing so may limit your ability to use certain features of the Website."
+        ]
+      },
+      {
+        "title": "Your Rights",
+        "content": [
+          "You have the right to:",
+          "Access, correct, or delete your personal information.",
+          "Withdraw consent for data processing.",
+          "Opt out of receiving marketing communications from us.",
+          "To exercise any of these rights, please contact us at [Insert Contact Email]."
+        ]
+      },
+      {
+        "title": "Changes to This Privacy Policy",
+        "content": [
+          "We may update this Privacy Policy from time to time. Any changes will be posted on this page, and the \"Effective Date\" will be updated."
+        ]
+      }
+    ]
+  }  

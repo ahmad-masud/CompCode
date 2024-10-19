@@ -16,6 +16,8 @@ import { Elements } from '@stripe/react-stripe-js';
 import Alerts from './components/alerts';
 import { AlertsProvider } from './context/alertscontext';
 import Lesson from './pages/lesson';
+import Policy from './pages/policy';
+import Terms from './pages/terms';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -57,6 +59,8 @@ const App = () => {
               <Route path='/algorithms' element={<Algorithms user={user} />} />
               <Route path='/premium' element={<Premium user={user} />} />
               <Route path='/lesson/:lessonId' element={<Lesson user={user} />} />
+              <Route path='/policy' element={<Policy />} />
+              <Route path='/terms' element={<Terms />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </Elements>
