@@ -185,6 +185,10 @@
   color: #3FCA7D;
 }
 
+.premium-link i {
+  color: goldenrod;
+}
+
 @media (max-width: 768px) {
   .overlay-content {
     width: calc(100% - 30px);

@@ -1,0 +1,66 @@
+[
+    {
+        "name": "sorting",
+        "premium": false
+    },
+    {
+        "name": "searching",
+        "premium": false
+    },
+    {
+        "name": "two-pointers",
+        "premium": false
+    },
+    {
+        "name": "sliding-window",
+        "premium": false
+    },
+    {
+        "name": "recursion",
+        "premium": false
+    },
+    {
+        "name": "backtracking",
+        "premium": false
+    },
+    {
+        "name": "divide-and-conquer",
+        "premium": true
+    },
+    {
+        "name": "greedy-algorithms",
+        "premium": false
+    },
+    {
+        "name": "dynamic-programming",
+        "premium": false
+    },
+    {
+        "name": "bit-manipulation",
+        "premium": false
+    },
+    {
+        "name": "union-find",
+        "premium": true
+    },
+    {
+        "name": "topological-sorting",
+        "premium": false
+    },
+    {
+        "name": "matrix-manipulation",
+        "premium": false
+    },
+    {
+        "name": "sweep-line",
+        "premium": true
+    },
+    {
+        "name": "randomized-algorithms",
+        "premium": true
+    },
+    {
+        "name": "concurrency",
+        "premium": true
+    }
+]

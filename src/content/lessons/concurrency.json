@@ -1,5 +1,6 @@
 {
     "title": "Concurrency",
+    "premium": true,
     "lessons": [
       {
         "title": "Introduction to Concurrency",

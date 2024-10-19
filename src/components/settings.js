@@ -28,9 +28,9 @@ const Settings = ({ user, onClose, theme, onThemeChange }) => {
           if (docSnap.exists()) {
             const userData = docSnap.data();
             setPremiumInfo({
-              premium: userData.premium,
-              subscriptionId: userData.subscriptionId,
-              canceled: userData.canceled,
+              premium: userData.premiumInfo.premium,
+              subscriptionId: userData.premiumInfo.subscriptionId,
+              canceled: userData.premiumInfo.canceled,
             });
           }
         })

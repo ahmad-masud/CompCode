@@ -13,11 +13,12 @@ const average = (array) => {
 
 const Algorithms = ({ user }) => {
   const [companiesData, setCompaniesData] = useState([]);
-  const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'ascending' });
+  const [sortConfig, setSortConfig] = useState({ key: '', direction: 'ascending' });
   const [uniqueProblems, setUniqueProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [openCompany, setOpenCompany] = useState("");
   const [narrow, setNarrow] = useState(false);
+  const [premium, setPremium] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,11 +39,10 @@ const Algorithms = ({ user }) => {
 
   useEffect(() => {
     const fetchCompaniesData = async () => {
-      const context = require.context('../content/algorithms', false, /\.json$/);
-      const companyNames = context.keys().map(fileName => fileName.match(/\.\/(.*)\.json/)[1]);
-
-      const companiesInfo = companyNames.map(company => {
-        const data = require(`../content/algorithms/${company}.json`);
+      const order = require('../content/algorithms/order.json');
+      // Iterate through the order to retrieve company data in the correct sequence
+      const companiesInfo = order.map(company => {
+        const data = require(`../content/algorithms/${company.name}.json`);
         const acceptanceRates = data.map(problem => parseFloat(problem.Acceptance.replace('%', '')));
         const difficulties = data.map(problem => problem.Difficulty);
         const numProblems = data.length;
@@ -50,7 +50,8 @@ const Algorithms = ({ user }) => {
         const mostCommonDifficulty = difficulties.length > 0 ? mostCommon(difficulties) : 'N/A';
 
         return {
-          name: company.charAt(0).toUpperCase() + company.slice(1),
+          name: company.name.charAt(0).toUpperCase() + company.name.slice(1),
+          premium: company.premium,
           avgAcceptance,
           numProblems,
           mostCommonDifficulty,
@@ -91,6 +92,22 @@ const Algorithms = ({ user }) => {
 
     fetchCompaniesData();
   }, [sortConfig]);
+
+  useEffect(() => {
+    if (user) {
+      const userRef = doc(firestore, 'users', user.uid)
+      getDoc(userRef)
+        .then((docSnap) => {
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+            setPremium(userData.premiumInfo.premium); // Set premium state based on user data
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching user data: ", error);
+        });
+    }
+  }, [user]);
 
   useEffect(() => {
     if (user) {
@@ -191,7 +208,7 @@ const Algorithms = ({ user }) => {
           <table>
             <thead>
               <tr>
-                <th>Name <button className="sort-button" onClick={() => sortCompanies('name')}>{getSortIcon('name')}</button></th>
+                <th>Name</th>
                 <th>Lessons</th>
                 {!narrow && <th>Acceptance <button className="sort-button" onClick={() => sortCompanies('avgAcceptance')}>{getSortIcon('avgAcceptance')}</button></th>}
                 {!narrow && <th>Problems <button className="sort-button" onClick={() => sortCompanies('numProblems')}>{getSortIcon('numProblems')}</button></th>}
@@ -210,7 +227,13 @@ const Algorithms = ({ user }) => {
                       } 
                     </button>
                   </td>
-                  <td><Link className='tutorial-link' to={`/lesson/${company.name.toLowerCase()}`}><i className="fa-regular fa-lightbulb"></i></Link></td>
+                  <td>
+                    {company.premium && !premium ?
+                      <Link to="/premium" className='premium-link'><i className="fa-solid fa-crown"></i></Link>
+                      :
+                      <Link className='tutorial-link' to={`/lesson/${company.name.toLowerCase()}`}><i className="fa-regular fa-lightbulb"></i></Link>
+                    }    
+                  </td>
                   {!narrow && <td>{company.avgAcceptance}</td>}
                   {!narrow && <td>{company.numProblems}</td>}
                   <td className={company.mostCommonDifficulty.toLowerCase()}>{company.mostCommonDifficulty}</td>

@@ -3,14 +3,33 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Import Prism styles
 import { useParams } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard'; // For the copy button
+import { doc, getDoc } from 'firebase/firestore';
+import { firestore } from '../config/firebase-config';
 import '../styles/lesson.css'; // For custom styling
 
-const Lesson = () => {
+const Lesson = ({ user }) => {
   const { lessonId } = useParams(); // Get the lessonId from the URL
   const [lesson, setlesson] = useState(null);
   const [copiedState, setCopiedState] = useState([]); // Track copied state for each block
   const [loading, setLoading] = useState(true); // Track loading state
   const [error, setError] = useState(false); // Track error state
+  const [premium, setPremium] = useState(false); // Track premium state
+
+  useEffect(() => {
+    if (user) {
+      const userRef = doc(firestore, 'users', user.uid)
+      getDoc(userRef)
+        .then((docSnap) => {
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+            setPremium(userData.premiumInfo.premium); // Set premium state based on user data
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching user data: ", error);
+        });
+    }
+  }, [user]);
 
   useEffect(() => {
     // Dynamically import the lesson based on the lessonId
@@ -44,12 +63,20 @@ const Lesson = () => {
 
   const theme = getTheme();
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return;
 
   if (error) {
     return (
       <div className="lesson-fallback">
         <p>No lesson for this topic, but stay tuned!</p>
+      </div>
+    );
+  }
+
+  if (lesson && lesson.premium && !premium) {
+    return (
+      <div className="lesson-fallback">
+        <p>Nice try, this is a premium topic!</p>
       </div>
     );
   }

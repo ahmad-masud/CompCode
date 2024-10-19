@@ -1,5 +1,6 @@
 {
     "title": "Union-Find (Disjoint Set Union) Algorithm",
+    "premium": true,
     "lessons": [
       {
         "title": "Introduction to Union-Find",

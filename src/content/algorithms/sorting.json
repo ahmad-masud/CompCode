@@ -61,12 +61,5 @@
       "Acceptance": "64.5%",
       "Difficulty": "Medium",
       "Leetcode Question Link": "https://leetcode.com/problems/wiggle-sort"
-    },
-    {
-      "ID": "912",
-      "Title": "Sort an Array",
-      "Acceptance": "64.5%",
-      "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/sort-an-array"
     }
 ]

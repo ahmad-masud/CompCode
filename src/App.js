@@ -56,7 +56,7 @@ const App = () => {
               <Route path='/datastructures' element={<DataStructures user={user} />} />
               <Route path='/algorithms' element={<Algorithms user={user} />} />
               <Route path='/premium' element={<Premium user={user} />} />
-              <Route path='/lesson/:lessonId' element={<Lesson />} />
+              <Route path='/lesson/:lessonId' element={<Lesson user={user} />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </Elements>

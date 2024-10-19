@@ -1,0 +1,14 @@
+[
+    "array",
+    "stack",
+    "queue",
+    "singly-linked-list",
+    "doubly-linked-list",
+    "hash-table",
+    "binary-tree",
+    "binary-search-tree",
+    "heap",
+    "graph",
+    "trie",
+    "interval"
+]
