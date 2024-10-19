@@ -1,0 +1,94 @@
+{
+    "title": "Breadth-First Search (BFS)",
+    "lessons": [
+      {
+        "title": "Introduction to Breadth-First Search",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "**Breadth-First Search (BFS)** is a graph traversal algorithm that explores all the nodes at the present depth level before moving on to nodes at the next depth level. It is used to explore nodes and edges in a graph and is particularly useful for finding the shortest path in an unweighted graph."
+          },
+          {
+            "type": "paragraph",
+            "text": "BFS starts from a source node and explores all its immediate neighbors, then moves on to the neighbors of those neighbors, and so on, until all nodes have been visited. BFS uses a **queue** to keep track of nodes to visit."
+          }
+        ]
+      },
+      {
+        "title": "Graph Representation (Adjacency List)",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Graphs can be represented using an **adjacency list**. In this representation, each node points to a list of its neighbors. This is a common way to represent graphs for BFS."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# Example of an adjacency list representation of a graph\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['D', 'E'],\n    'C': ['F'],\n    'D': [],\n    'E': ['F'],\n    'F': []\n}\n"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this adjacency list, each key is a node, and the value is a list of its adjacent nodes (neighbors). For example, node `'A'` is connected to nodes `'B'` and `'C'`."
+          }
+        ]
+      },
+      {
+        "title": "Iterative BFS Implementation (Using a Queue)",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "BFS is typically implemented using a **queue**. The algorithm starts by adding the starting node to the queue, then iterates through the queue, visiting each node's neighbors and adding unvisited neighbors to the queue."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# Iterative BFS implementation using a queue\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    visited.add(start)\n    while queue:\n        node = queue.popleft()\n        print(node, end=' ')\n        for neighbor in graph[node]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n\n# Test the BFS implementation\nprint('BFS Traversal:')\nbfs(graph, 'A')  # Output: A B C D E F"
+          },
+          {
+            "type": "paragraph",
+            "text": "In the `bfs()` function, we initialize a queue with the starting node and use a set to track visited nodes. We then iterate through the queue, exploring each node's neighbors, and printing the traversal order."
+          }
+        ]
+      },
+      {
+        "title": "BFS Complexity Analysis",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The time complexity of BFS is **O(V + E)**, where `V` is the number of vertices (nodes) and `E` is the number of edges in the graph. BFS visits every vertex and every edge exactly once."
+          },
+          {
+            "type": "paragraph",
+            "text": "The space complexity of BFS is **O(V)** due to the storage of the queue and the visited set, which can store up to `V` vertices at any given time."
+          }
+        ]
+      },
+      {
+        "title": "Applications of Breadth-First Search",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "BFS has several important applications in computer science and graph theory, including:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**Finding the shortest path**: BFS guarantees finding the shortest path in an unweighted graph, as it explores nodes level by level.",
+              "**Graph traversal**: BFS is commonly used to traverse all reachable nodes from a given starting node.",
+              "**Level-order traversal**: BFS can be used to perform level-order traversal of trees, visiting nodes level by level."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In this tutorial, we covered the basics of **Breadth-First Search (BFS)**, its iterative implementation using a queue, and its applications. BFS is a powerful and widely used graph traversal algorithm, especially when the goal is to explore nodes level by level or find the shortest path in an unweighted graph."
+          }
+        ]
+      }
+    ]
+  }
+  

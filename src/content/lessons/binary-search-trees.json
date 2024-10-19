@@ -1,0 +1,147 @@
+{
+    "title": "Binary Search Trees",
+    "lessons": [
+      {
+        "title": "Introduction to Binary Search Trees",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A **Binary Search Tree (BST)** is a special type of binary tree where the nodes are arranged in a specific order: for any given node, its left subtree contains nodes with values less than the node's value, and its right subtree contains nodes with values greater than the node's value. This property makes searching, insertion, and deletion operations more efficient compared to a regular binary tree."
+          },
+          {
+            "type": "paragraph",
+            "text": "The key characteristic of a BST is that it allows for efficient searching, insertion, and deletion operations with a time complexity of **O(log n)** in the average case. However, in the worst case (e.g., if the tree is unbalanced), the time complexity can degrade to **O(n)**."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# Basic structure of a binary search tree node\nclass Node:\n    def __init__(self, data):\n        self.data = data  # Node value\n        self.left = None  # Pointer to left child\n        self.right = None  # Pointer to right child\n\n# Inserting a node into a BST\ndef insert(root, data):\n    if root is None:\n        return Node(data)\n    if data < root.data:\n        root.left = insert(root.left, data)\n    else:\n        root.right = insert(root.right, data)\n    return root\n\n# Creating a BST and inserting nodes\nroot = Node(10)\ninsert(root, 5)\ninsert(root, 15)\ninsert(root, 3)\ninsert(root, 7)\ninsert(root, 12)\ninsert(root, 17)"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, we define a `Node` class for the binary search tree and a recursive `insert()` function to add nodes to the BST. The function inserts the node in the correct position based on the value."
+          }
+        ]
+      },
+      {
+        "title": "Searching in a Binary Search Tree",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Searching for a value in a binary search tree is efficient because we can compare the value with the current node and decide whether to search in the left or right subtree. This reduces the search space by half with each step."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# Searching for a value in a BST\ndef search(root, key):\n    if root is None or root.data == key:\n        return root\n    if key < root.data:\n        return search(root.left, key)\n    return search(root.right, key)\n\n# Test the search method\nresult = search(root, 7)\nif result:\n    print(f'Node found: {result.data}')  # Output: Node found: 7\nelse:\n    print('Node not found')"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this recursive `search()` function, we start from the root and compare the value with the current node. If the value matches, we return the node; otherwise, we search the left or right subtree based on whether the value is smaller or larger."
+          }
+        ]
+      },
+      {
+        "title": "In-order Traversal of a Binary Search Tree",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "**In-order traversal** of a binary search tree visits the nodes in **ascending order**. This is because the left subtree contains smaller values, the root contains the middle value, and the right subtree contains larger values."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# In-order traversal of a BST (Left, Root, Right)\ndef in_order_traversal(root):\n    if root:\n        in_order_traversal(root.left)\n        print(root.data, end=' ')\n        in_order_traversal(root.right)\n\n# Test the in-order traversal\nprint('In-order traversal:')\nin_order_traversal(root)  # Output: 3 5 7 10 12 15 17"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this `in_order_traversal()` function, we recursively visit the left subtree, then the root node, and finally the right subtree. This results in a sorted order for the node values."
+          }
+        ]
+      },
+      {
+        "title": "Deleting a Node from a Binary Search Tree",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Deleting a node from a binary search tree is a bit more complex, as it depends on whether the node to be deleted has 0, 1, or 2 children:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "If the node has no children (a leaf node), simply remove it.",
+              "If the node has one child, remove it and connect its child to its parent.",
+              "If the node has two children, replace the node with its **in-order successor** (the smallest value in its right subtree) or **in-order predecessor** (the largest value in its left subtree)."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# Deleting a node from a BST\ndef delete_node(root, key):\n    if root is None:\n        return root\n    if key < root.data:\n        root.left = delete_node(root.left, key)\n    elif key > root.data:\n        root.right = delete_node(root.right, key)\n    else:\n        # Node with only one child or no child\n        if root.left is None:\n            return root.right\n        elif root.right is None:\n            return root.left\n        # Node with two children: Get the inorder successor (smallest in the right subtree)\n        temp = find_min(root.right)\n        root.data = temp.data\n        root.right = delete_node(root.right, temp.data)\n    return root\n\n# Find the minimum value in a subtree\ndef find_min(node):\n    current = node\n    while current.left is not None:\n        current = current.left\n    return current\n\n# Test deleting a node\nroot = delete_node(root, 5)\nin_order_traversal(root)  # Output after deletion: 3 7 10 12 15 17"
+          },
+          {
+            "type": "paragraph",
+            "text": "In the `delete_node()` function, we recursively search for the node to delete. Depending on the number of children, we handle the deletion accordingly. If the node has two children, we replace it with its in-order successor."
+          }
+        ]
+      },
+      {
+        "title": "Finding the Minimum and Maximum Values",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In a binary search tree, the **minimum value** is found by traversing to the leftmost node, while the **maximum value** is found by traversing to the rightmost node."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# Finding the minimum value in a BST\ndef find_min(root):\n    current = root\n    while current.left is not None:\n        current = current.left\n    return current.data\n\n# Finding the maximum value in a BST\ndef find_max(root):\n    current = root\n    while current.right is not None:\n        current = current.right\n    return current.data\n\n# Test finding minimum and maximum values\nprint('Minimum value:', find_min(root))  # Output: 3\nprint('Maximum value:', find_max(root))  # Output: 17"
+          },
+          {
+            "type": "paragraph",
+            "text": "To find the minimum value, we keep traversing left until we reach the leftmost node. To find the maximum value, we traverse right until we reach the rightmost node."
+          }
+        ]
+      },
+      {
+        "title": "Balancing a Binary Search Tree",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Binary search trees can become unbalanced, degrading their performance to **O(n)** for certain operations. To maintain optimal performance, balanced trees such as **AVL trees** or **Red-Black trees** are used. These trees automatically balance themselves during insertion and deletion."
+          },
+          {
+            "type": "paragraph",
+            "text": "Although balancing techniques are beyond the scope of this tutorial, understanding that an unbalanced binary search tree can become inefficient is important. Algorithms like **AVL rotation** and **Red-Black balancing** help maintain a balanced structure."
+          }
+        ]
+      },
+      {
+        "title": "Binary Search Tree Use Cases",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Binary search trees are widely used in various applications where fast searching, insertion, and deletion are required. Some common use cases include:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**Databases**: BSTs are used in indexing to optimize search queries.",
+              "**File Systems**: Directory management can use BSTs to organize files.",
+              "**Autocomplete Systems**: Maintaining a dictionary of words to provide suggestions quickly.",
+              "**In-memory Data Structures**: BSTs are used in caching and lookups where ordered data is needed."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In this tutorial, we explored the **binary search tree (BST)**, covering how to insert, search, delete, and traverse nodes in the tree. Binary search trees are an efficient data structure for managing ordered data, but they can become inefficient if unbalanced. By ensuring balance, we can maintain optimal performance for common operations."
+          }
+        ]
+      }
+    ]
+  }  

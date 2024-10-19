@@ -6,6 +6,7 @@ import Solution from './solution';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Problems = ({ company, user, onClose, page }) => {
   const [problems, setProblems] = useState([]);
@@ -15,6 +16,7 @@ const Problems = ({ company, user, onClose, page }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [problemName, setProblemName] = useState('');
   const [isPremium, setIsPremium] = useState(false); // New state to track premium status
+  const navigate = useNavigate();
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -46,18 +48,16 @@ const Problems = ({ company, user, onClose, page }) => {
   };
 
   useEffect(() => {
-    import(`../content/${page}/${company}.json`)
-      .then((data) => {
-        const sortedData = data.default.sort((a, b) => {
-          const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
-          return difficultyOrder[a.Difficulty] - difficultyOrder[b.Difficulty];
-        });
-        setProblems(sortedData);
-      })
-      .catch((error) => {
-        console.error("Error loading JSON data: ", error);
+    if (company && company.data) {
+      const sortedData = company.data.sort((a, b) => {
+        const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
+        return difficultyOrder[a.Difficulty] - difficultyOrder[b.Difficulty];
       });
-  }, [page, company]);
+      setProblems(sortedData);
+    } else {
+      console.error("Company data not found");
+    }
+  }, [page, company]);  
 
   useEffect(() => {
     if (user) {
@@ -237,14 +237,18 @@ const Problems = ({ company, user, onClose, page }) => {
       <div className="overlay-content">
         <button className="close-button" onClick={onClose}><i className="bi bi-x"></i></button>
         <h2>
-          {company
-            .split('-')
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(' ')
-          }
+          {company && company.name.replace(/\b\w/g, c => c.toUpperCase())}
         </h2>
         <p className="solved-count">{completedCount}<span> | {filteredProblems.length}</span></p>
         <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount / filteredProblems.length) * 100}%` }}></div></div>
+        {page === "roadmap" && <p className='roadmap-lessons-title'>Lessons</p>}
+        {page === "roadmap" && <div className='roadmap-lessons'>
+          {company && company.lessons && company.lessons.map((lesson, index) => (
+            <div onClick={() => navigate(`/lesson/${lesson}`)} key={index} className='roadmap-lesson'>
+              <p>{lesson.replace(/\b\w/g, c => c.toUpperCase()).replaceAll('-', ' ')}</p>
+            </div>
+          ))}
+        </div>}
         {page === "companies" && <div className="search-container">
           <input
             type="text"

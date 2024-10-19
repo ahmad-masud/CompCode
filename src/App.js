@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Companies from './pages/companies';
-import DataStructures from './pages/datastructures';
-import Algorithms from './pages/algorithms';
 import NotFound from './pages/notfound';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
@@ -18,6 +16,7 @@ import { AlertsProvider } from './context/alertscontext';
 import Lesson from './pages/lesson';
 import Policy from './pages/policy';
 import Terms from './pages/terms';
+import Roadmap from './pages/roadmap';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -55,8 +54,7 @@ const App = () => {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/companies' element={<Companies user={user} />} />
-              <Route path='/datastructures' element={<DataStructures user={user} />} />
-              <Route path='/algorithms' element={<Algorithms user={user} />} />
+              <Route path='/roadmap' element={<Roadmap user={user} />} />
               <Route path='/premium' element={<Premium user={user} />} />
               <Route path='/lesson/:lessonId' element={<Lesson user={user} />} />
               <Route path='/policy' element={<Policy />} />

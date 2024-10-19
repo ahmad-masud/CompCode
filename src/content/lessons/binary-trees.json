@@ -1,0 +1,156 @@
+{
+    "title": "Binary Trees",
+    "lessons": [
+      {
+        "title": "Introduction to Binary Trees",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A **binary tree** is a hierarchical data structure in which each node has at most two children, referred to as the **left child** and the **right child**. Binary trees are widely used in various algorithms and applications, such as expression parsing, searching, and hierarchical data modeling."
+          },
+          {
+            "type": "paragraph",
+            "text": "Binary trees do not follow the rules of binary search trees (BSTs), where nodes are arranged based on specific values. In binary trees, there are no value-based constraints; instead, the focus is on the hierarchical structure."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# Basic structure of a binary tree node\nclass Node:\n    def __init__(self, data):\n        self.data = data  # Store node data\n        self.left = None  # Pointer to left child\n        self.right = None  # Pointer to right child\n\n# Creating a sample binary tree\nroot = Node(1)\nroot.left = Node(2)\nroot.right = Node(3)\nroot.left.left = Node(4)\nroot.left.right = Node(5)\nroot.right.left = Node(6)\nroot.right.right = Node(7)"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, we define a `Node` class representing each node of the binary tree. The binary tree is built by manually linking nodes together."
+          }
+        ]
+      },
+      {
+        "title": "Types of Binary Trees",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "There are various types of binary trees, each with unique characteristics:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**Full Binary Tree**: Every node has either 0 or 2 children.",
+              "**Complete Binary Tree**: All levels, except possibly the last, are fully filled, and all nodes are as far left as possible.",
+              "**Perfect Binary Tree**: All internal nodes have two children, and all leaf nodes are at the same level.",
+              "**Balanced Binary Tree**: The height of the left and right subtrees of any node differ by at most 1."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Different types of binary trees are used based on specific problem requirements, and their structure affects the efficiency of operations such as traversal and insertion."
+          }
+        ]
+      },
+      {
+        "title": "Tree Traversal (In-order, Pre-order, and Post-order)",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Traversing a binary tree means visiting all its nodes in a particular order. The most common traversal methods are **in-order**, **pre-order**, and **post-order**."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**In-order (Left, Root, Right)**: Visit the left subtree, then the root node, then the right subtree.",
+              "**Pre-order (Root, Left, Right)**: Visit the root node, then the left subtree, then the right subtree.",
+              "**Post-order (Left, Right, Root)**: Visit the left subtree, then the right subtree, then the root node."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# In-order traversal (Left, Root, Right)\ndef in_order_traversal(root):\n    if root:\n        in_order_traversal(root.left)\n        print(root.data, end=' ')\n        in_order_traversal(root.right)\n\n# Pre-order traversal (Root, Left, Right)\ndef pre_order_traversal(root):\n    if root:\n        print(root.data, end=' ')\n        pre_order_traversal(root.left)\n        pre_order_traversal(root.right)\n\n# Post-order traversal (Left, Right, Root)\ndef post_order_traversal(root):\n    if root:\n        post_order_traversal(root.left)\n        post_order_traversal(root.right)\n        print(root.data, end=' ')\n\n# Test the traversals\nroot = Node(1)\nroot.left = Node(2)\nroot.right = Node(3)\nroot.left.left = Node(4)\nroot.left.right = Node(5)\nroot.right.left = Node(6)\nroot.right.right = Node(7)\n\nprint('In-order traversal:')\nin_order_traversal(root)  # Output: 4 2 5 1 6 3 7\n\nprint('\\nPre-order traversal:')\npre_order_traversal(root)  # Output: 1 2 4 5 3 6 7\n\nprint('\\nPost-order traversal:')\npost_order_traversal(root)  # Output: 4 5 2 6 7 3 1"
+          },
+          {
+            "type": "paragraph",
+            "text": "Each traversal method visits the nodes in a different order, depending on when the root, left subtree, and right subtree are visited."
+          }
+        ]
+      },
+      {
+        "title": "Level-order Traversal (Breadth-First Search)",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In **level-order traversal** (also known as breadth-first search), we visit the nodes of the binary tree level by level, starting from the root. This can be implemented using a queue."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "from collections import deque\n\ndef level_order_traversal(root):\n    if not root:\n        return\n    queue = deque([root])\n    while queue:\n        node = queue.popleft()\n        print(node.data, end=' ')\n        if node.left:\n            queue.append(node.left)\n        if node.right:\n            queue.append(node.right)\n\n# Test the level-order traversal\nprint('\\nLevel-order traversal:')\nlevel_order_traversal(root)  # Output: 1 2 3 4 5 6 7"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, the binary tree is traversed level by level using a queue. The `popleft()` operation ensures that nodes are processed in the order they are added to the queue."
+          }
+        ]
+      },
+      {
+        "title": "Height of a Binary Tree",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The **height of a binary tree** is the number of edges on the longest path from the root node to a leaf node. The height of an empty tree is considered -1."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# Method to find the height of the binary tree\ndef height_of_tree(root):\n    if root is None:\n        return -1  # Base case: empty tree has height -1\n    else:\n        left_height = height_of_tree(root.left)\n        right_height = height_of_tree(root.right)\n        return max(left_height, right_height) + 1\n\n# Test the height of the binary tree\nprint('\\nHeight of tree:', height_of_tree(root))  # Output: 2"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this recursive method, we calculate the height of both the left and right subtrees and return the maximum of the two, plus one to account for the current node."
+          }
+        ]
+      },
+      {
+        "title": "Counting Nodes in a Binary Tree",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "We can recursively count the total number of nodes in a binary tree by counting the nodes in the left subtree, the nodes in the right subtree, and then adding one for the root node."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# Method to count the total number of nodes\ndef count_nodes(root):\n    if root is None:\n        return 0\n    return 1 + count_nodes(root.left) + count_nodes(root.right)\n\n# Test the node counting method\nprint('\\nTotal number of nodes:', count_nodes(root))  # Output: 7"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this method, we count the nodes in the left and right subtrees recursively and add one for the root node."
+          }
+        ]
+      },
+      {
+        "title": "Binary Tree Use Cases",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Binary trees are used in various real-world applications due to their hierarchical structure and efficient traversal properties. Some common use cases include:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**Expression Trees**: Representing arithmetic expressions where internal nodes are operators and leaf nodes are operands.",
+              "**File System Hierarchies**: Storing directories and files in a hierarchical manner.",
+              "**Decision Trees**: Used in machine learning for classification and decision-making.",
+              "**Game Trees**: Representing possible moves in games like chess or tic-tac-toe."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In this tutorial, we explored **binary trees**, covering different traversal techniques (in-order, pre-order, post-order, and level-order), how to calculate the height of a tree, and how to count the number of nodes. Binary trees are a fundamental data structure with numerous applications in computer science."
+          }
+        ]
+      }
+    ]
+  }  

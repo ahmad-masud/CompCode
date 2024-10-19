@@ -1,0 +1,151 @@
+{
+  "title": "Stacks",
+  "lessons": [
+    {
+      "title": "Introduction to Stacks",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A **stack** is a data structure that follows the **LIFO (Last In, First Out)** principle, meaning the last element added is the first one to be removed. Stacks are used in many algorithms, including depth-first search (DFS), backtracking, and managing function calls in recursion."
+        },
+        {
+          "type": "paragraph",
+          "text": "A stack allows two main operations: **push** (to add an element to the stack) and **pop** (to remove the top element from the stack). The top of the stack is the most recently added element."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "# Python doesn’t have a built-in stack data structure, but you can use a list to implement a stack.\nstack = []\nstack.append(1)  # Push\nstack.append(2)\nprint(stack)  # Output: [1, 2]\nstack.pop()  # Pop the top element\nprint(stack)  # Output: [1]"
+        }
+      ]
+    },
+    {
+      "title": "Basic Stack Operations",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The most common operations performed on a stack include `push`, `pop`, `peek`, and `isEmpty`. Python's list can be used to simulate these operations."
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "`push()`: Adds an element to the top of the stack.",
+            "`pop()`: Removes the element from the top of the stack.",
+            "`peek()`: Returns the element at the top of the stack without removing it.",
+            "`isEmpty()`: Checks if the stack is empty."
+          ]
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "# Simulating basic stack operations\nstack = []\n\n# Push elements\nstack.append(10)\nstack.append(20)\nstack.append(30)\nprint(stack)  # Output: [10, 20, 30]\n\n# Pop the top element\nprint(stack.pop())  # Output: 30\nprint(stack)  # Output: [10, 20]\n\n# Peek the top element without removing\nprint(stack[-1])  # Output: 20\n\n# Check if the stack is empty\nprint(len(stack) == 0)  # Output: False"
+        },
+        {
+          "type": "paragraph",
+          "text": "The `pop()` method removes the top element from the stack, while `peek()` allows us to view the top element without removing it. The stack is empty if its length is zero."
+        }
+      ]
+    },
+    {
+      "title": "Common Use Cases of Stacks",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Stacks are widely used in computer science and have several important applications, including:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "**Undo operations**: In text editors, stacks are used to store operations that can be undone.",
+            "**Backtracking**: Algorithms like depth-first search (DFS) use stacks to track visited nodes.",
+            "**Expression evaluation**: Stacks are used to evaluate expressions in compilers.",
+            "**Function call management**: The call stack stores information about active subroutines in programming languages."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Checking for Balanced Parentheses (A Stack Application)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "One common problem that can be solved using a stack is checking whether an expression has balanced parentheses. For example, the expression `(())` is balanced, while the expression `(()` is not."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def is_balanced(expression):\n    stack = []\n    for char in expression:\n        if char in '({[':\n            stack.append(char)\n        elif char in ')}]':\n            if not stack:\n                return False\n            top = stack.pop()\n            if (top == '(' and char != ')') or (top == '{' and char != '}') or (top == '[' and char != ']'):\n                return False\n    return len(stack) == 0\n\n# Test the function\nexpression = '({[]})'\nprint(is_balanced(expression))  # Output: True\nexpression = '({[})'\nprint(is_balanced(expression))  # Output: False"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, the stack stores opening parentheses, and when a closing parenthesis is encountered, it checks whether it matches the most recent opening parenthesis. If all parentheses are matched correctly, the expression is balanced."
+        }
+      ]
+    },
+    {
+      "title": "Reversing a String Using a Stack",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Stacks can be used to reverse strings. The approach is simple: push each character of the string onto a stack and then pop characters off the stack to get them in reverse order."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def reverse_string(s):\n    stack = []\n    for char in s:\n        stack.append(char)\n    reversed_str = ''\n    while stack:\n        reversed_str += stack.pop()\n    return reversed_str\n\n# Test the function\nstring = 'hello'\nprint(reverse_string(string))  # Output: 'olleh'"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, the string `'hello'` is reversed by pushing each character onto the stack and popping them in reverse order."
+        }
+      ]
+    },
+    {
+      "title": "Implementing a Stack Using a Class",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Although Python’s list can be used to implement a stack, it's often useful to encapsulate stack behavior into a class for better organization and reusability."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "class Stack:\n    def __init__(self):\n        self.stack = []\n\n    def push(self, value):\n        self.stack.append(value)\n\n    def pop(self):\n        if not self.is_empty():\n            return self.stack.pop()\n        return None  # Stack is empty\n\n    def peek(self):\n        if not self.is_empty():\n            return self.stack[-1]\n        return None\n\n    def is_empty(self):\n        return len(self.stack) == 0\n\n    def size(self):\n        return len(self.stack)\n\n# Test the Stack class\nstack = Stack()\nstack.push(10)\nstack.push(20)\nprint(stack.peek())  # Output: 20\nprint(stack.pop())  # Output: 20\nprint(stack.size())  # Output: 1"
+        },
+        {
+          "type": "paragraph",
+          "text": "This `Stack` class implements the basic stack operations like `push`, `pop`, `peek`, and `is_empty`. The `size()` method returns the number of elements in the stack."
+        }
+      ]
+    },
+    {
+      "title": "Stack vs. Queue",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Although both stacks and queues are fundamental data structures, they differ in how they handle elements. A stack follows the **LIFO** principle, while a queue follows the **FIFO (First In, First Out)** principle."
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Stacks remove the last element added (LIFO).",
+            "Queues remove the first element added (FIFO)."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "For example, in a stack, the last plate placed on the pile is the first one removed. In a queue, the first person in line is the first one to be served."
+        }
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In this tutorial, we covered the fundamental operations of stacks, their use cases, and common problems that can be solved using stacks, such as checking for balanced parentheses and reversing a string. Understanding stacks is essential for implementing algorithms that require a LIFO approach."
+        }
+      ]
+    }
+  ]
+}

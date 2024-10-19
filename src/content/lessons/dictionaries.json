@@ -1,0 +1,206 @@
+{
+    "title": "Dictionaries (HashMaps)",
+    "lessons": [
+      {
+        "title": "Introduction to Dictionaries",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A **dictionary**, also known as a **hashmap** in other programming languages, is a collection of key-value pairs. Dictionaries in Python are unordered, changeable, and do not allow duplicate keys. They allow for fast access to data by using keys to look up values."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "my_dict = {'name': 'John', 'age': 25, 'city': 'New York'}\nprint(my_dict)  # Output: {'name': 'John', 'age': 25, 'city': 'New York'}"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, the dictionary `my_dict` contains three key-value pairs: `'name'`, `'age'`, and `'city'`. The keys must be unique and immutable (strings, numbers, or tuples), while the values can be of any data type."
+          }
+        ]
+      },
+      {
+        "title": "Accessing Dictionary Values",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You can access the value associated with a key by using the key in square brackets or by using the `get()` method. The `get()` method allows you to specify a default value if the key doesn’t exist."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "my_dict = {'name': 'John', 'age': 25}\nprint(my_dict['name'])  # Output: John\nprint(my_dict.get('age'))  # Output: 25\nprint(my_dict.get('city', 'Not Found'))  # Output: Not Found"
+          },
+          {
+            "type": "paragraph",
+            "text": "If you use square brackets and the key is not found, Python will raise a `KeyError`. However, using `get()` with a default value avoids this."
+          }
+        ]
+      },
+      {
+        "title": "Adding and Modifying Dictionary Elements",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Dictionaries are mutable, so you can add or modify key-value pairs by assigning a value to a key. If the key already exists, its value will be updated. If the key doesn’t exist, a new key-value pair will be added."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "my_dict = {'name': 'John', 'age': 25}\nmy_dict['city'] = 'New York'  # Adding a new key-value pair\nmy_dict['age'] = 30  # Modifying an existing key's value\nprint(my_dict)  # Output: {'name': 'John', 'age': 30, 'city': 'New York'}"
+          }
+        ]
+      },
+      {
+        "title": "Removing Dictionary Elements",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You can remove elements from a dictionary using methods such as `pop()`, `del`, and `popitem()`. The `clear()` method can be used to remove all elements from the dictionary."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "`pop(key)`: Removes the element with the specified key and returns its value.",
+              "`del dictionary[key]`: Removes the element with the specified key.",
+              "`popitem()`: Removes and returns the last inserted key-value pair.",
+              "`clear()`: Removes all key-value pairs from the dictionary."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "my_dict = {'name': 'John', 'age': 25, 'city': 'New York'}\nage = my_dict.pop('age')\nprint(age)  # Output: 25\ndel my_dict['city']\nprint(my_dict)  # Output: {'name': 'John'}\nmy_dict.clear()\nprint(my_dict)  # Output: {}"
+          }
+        ]
+      },
+      {
+        "title": "Checking for Keys in a Dictionary",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You can check if a specific key exists in a dictionary using the `in` keyword. This is useful when you want to verify if a key exists before accessing its value."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "my_dict = {'name': 'John', 'age': 25}\nif 'name' in my_dict:\n    print('Name is present.')  # Output: Name is present\n\nif 'city' not in my_dict:\n    print('City is not present.')  # Output: City is not present"
+          }
+        ]
+      },
+      {
+        "title": "Looping Through Dictionaries",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You can loop through the keys, values, or both key-value pairs of a dictionary. Python provides several built-in methods like `keys()`, `values()`, and `items()` to retrieve the keys, values, or both."
+          }
+        ]
+      },
+      {
+        "title": "Method 1: Looping Through Keys",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The simplest way to loop through a dictionary is by iterating over its keys using a `for` loop."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "my_dict = {'name': 'John', 'age': 25}\nfor key in my_dict:\n    print(key)  # Output: name, age"
+          }
+        ]
+      },
+      {
+        "title": "Method 2: Looping Through Values",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You can retrieve and loop through the values of a dictionary using the `values()` method."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "my_dict = {'name': 'John', 'age': 25}\nfor value in my_dict.values():\n    print(value)  # Output: John, 25"
+          }
+        ]
+      },
+      {
+        "title": "Method 3: Looping Through Key-Value Pairs",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To retrieve both keys and values during iteration, you can use the `items()` method."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "my_dict = {'name': 'John', 'age': 25}\nfor key, value in my_dict.items():\n    print(f'{key}: {value}')  # Output: name: John, age: 25"
+          }
+        ]
+      },
+      {
+        "title": "Dictionary Comprehension",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Just like list comprehensions, Python allows you to create dictionaries using **dictionary comprehensions**. This is a concise way to create dictionaries from iterables."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "squares = {x: x**2 for x in range(5)}\nprint(squares)  # Output: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, we use a dictionary comprehension to create a dictionary where the keys are numbers from 0 to 4 and the values are their squares."
+          }
+        ]
+      },
+      {
+        "title": "Merging Dictionaries",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Starting from Python 3.9, dictionaries can be merged using the `|` operator. For older versions, you can use the `update()` method to merge two dictionaries."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "dict1 = {'a': 1, 'b': 2}\ndict2 = {'b': 3, 'c': 4}\nmerged_dict = dict1 | dict2  # Using the | operator\nprint(merged_dict)  # Output: {'a': 1, 'b': 3, 'c': 4}\n\n# Using update()\ndict1.update(dict2)\nprint(dict1)  # Output: {'a': 1, 'b': 3, 'c': 4}"
+          },
+          {
+            "type": "paragraph",
+            "text": "The `|` operator creates a new dictionary by merging two dictionaries, whereas `update()` modifies the original dictionary."
+          }
+        ]
+      },
+      {
+        "title": "Handling Default Values with defaultdict",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The `collections.defaultdict` class is a subclass of Python’s built-in `dict` class. It provides a default value for a key that doesn’t exist, so you don’t have to check whether the key is present before adding or modifying its value."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "from collections import defaultdict\nmy_dict = defaultdict(int)\nmy_dict['count'] += 1\nprint(my_dict)  # Output: defaultdict(<class 'int'>, {'count': 1})"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, the `defaultdict(int)` creates a dictionary where the default value for any missing key is `0`. This avoids the need to check if the key exists before incrementing its value."
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In this tutorial, we covered the basic operations, methods, and use cases of Python dictionaries (hashmaps). Dictionaries are one of the most powerful data structures in Python, offering fast lookups, insertion, and deletion operations. With additional features like dictionary comprehensions, merging, and handling default values, dictionaries provide a flexible and efficient way to manage key-value pairs in Python."
+          }
+        ]
+      }
+    ]
+  }  

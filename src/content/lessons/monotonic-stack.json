@@ -1,0 +1,125 @@
+{
+    "title": "Monotonic Stacks",
+    "lessons": [
+      {
+        "title": "Introduction to Monotonic Stacks",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A **monotonic stack** is a specialized stack that maintains its elements in a specific order (either increasing or decreasing). These stacks are useful in solving problems where you need to efficiently maintain a relationship between elements as you iterate over them."
+          },
+          {
+            "type": "paragraph",
+            "text": "There are two types of monotonic stacks: **increasing stacks** (where each element is greater than or equal to the previous element) and **decreasing stacks** (where each element is smaller than or equal to the previous element)."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "# Example: Monotonic Increasing Stack\nstack = []\narr = [5, 3, 8, 4, 6]\nfor num in arr:\n    while stack and stack[-1] > num:\n        stack.pop()\n    stack.append(num)\nprint(stack)  # Output: [3, 4, 6]"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, the stack maintains an increasing order. Each time we encounter a number smaller than the top of the stack, we pop the stack."
+          }
+        ]
+      },
+      {
+        "title": "When to Use Monotonic Stacks",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Monotonic stacks are often used in problems that require efficient searching for the next or previous smaller or larger element, like **finding the next greater element** or solving problems related to **sliding windows**."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Finding the next greater or smaller element in a sequence.",
+              "Efficiently solving problems with constraints based on the relative ordering of elements.",
+              "Problems involving maintaining a window of elements with certain order properties."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Problem 1: Next Greater Element",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The **Next Greater Element** problem is a classic use case of monotonic stacks. For each element in the array, the goal is to find the first element to its right that is greater than the current element."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def next_greater_element(nums):\n    stack = []\n    result = [-1] * len(nums)\n    for i in range(len(nums)):\n        while stack and nums[stack[-1]] < nums[i]:\n            result[stack.pop()] = nums[i]\n        stack.append(i)\n    return result\n\n# Test the function\nnums = [2, 1, 2, 4, 3]\nprint(next_greater_element(nums))  # Output: [4, 2, 4, -1, -1]"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this example, we use a stack to store the indices of elements. For each element, we pop from the stack until we find an element greater than the current one, updating the result list with the next greater element."
+          }
+        ]
+      },
+      {
+        "title": "Problem 2: Daily Temperatures",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In the **Daily Temperatures** problem, for each day, you need to find how many days must pass before a warmer day. If there is no such day, return `0`."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def daily_temperatures(T):\n    stack = []\n    result = [0] * len(T)\n    for i in range(len(T)):\n        while stack and T[i] > T[stack[-1]]:\n            prev_day = stack.pop()\n            result[prev_day] = i - prev_day\n        stack.append(i)\n    return result\n\n# Test the function\nT = [73, 74, 75, 71, 69, 72, 76, 73]\nprint(daily_temperatures(T))  # Output: [1, 1, 4, 2, 1, 1, 0, 0]"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this problem, we use a decreasing monotonic stack to keep track of temperatures. We store the indices of the temperatures in the stack and calculate how far the next warmer day is for each day."
+          }
+        ]
+      },
+      {
+        "title": "Problem 3: Trapping Rain Water",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The **Trapping Rain Water** problem involves finding the amount of water trapped after raining between buildings of different heights. This is a more complex use of a monotonic stack."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def trap(height):\n    stack = []\n    water = 0\n    for i in range(len(height)):\n        while stack and height[i] > height[stack[-1]]:\n            h = height[stack.pop()]\n            if not stack:\n                break\n            distance = i - stack[-1] - 1\n            bounded_height = min(height[i], height[stack[-1]]) - h\n            water += distance * bounded_height\n    return water\n\n# Test the function\nheight = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]\nprint(trap(height))  # Output: 6"
+          },
+          {
+            "type": "paragraph",
+            "text": "Here, we use a stack to store indices of the bars and calculate how much water can be trapped between them. Each time a bar is taller than the top of the stack, it means water can be trapped between the current bar and the one at the top of the stack."
+          }
+        ]
+      },
+      {
+        "title": "Problem 4: Largest Rectangle in Histogram",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The **Largest Rectangle in Histogram** problem requires finding the largest rectangle that can be formed within a histogram. This problem can be efficiently solved using a monotonic stack."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def largest_rectangle_area(heights):\n    stack = []\n    max_area = 0\n    heights.append(0)  # Sentinel to ensure the stack is emptied\n    for i in range(len(heights)):\n        while stack and heights[i] < heights[stack[-1]]:\n            h = heights[stack.pop()]\n            width = i if not stack else i - stack[-1] - 1\n            max_area = max(max_area, h * width)\n        stack.append(i)\n    return max_area\n\n# Test the function\nheights = [2, 1, 5, 6, 2, 3]\nprint(largest_rectangle_area(heights))  # Output: 10"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this problem, we use a stack to maintain the heights of the histogram in increasing order. Whenever we encounter a height that is smaller than the top of the stack, we calculate the possible rectangle's area with the height at the top of the stack."
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In this tutorial, we explored the concept of **monotonic stacks** and how they are used to solve problems related to finding the next greater element, daily temperatures, trapping rainwater, and finding the largest rectangle in a histogram. Monotonic stacks are a powerful tool for efficiently solving problems that involve maintaining a relationship between elements in an ordered sequence."
+          }
+        ]
+      }
+    ]
+  }  
