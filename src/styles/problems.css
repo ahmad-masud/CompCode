@@ -189,6 +189,36 @@
   color: goldenrod;
 }
 
+.roadmap-lessons-title {
+  font-size: 1.25rem;
+  color: var(--font-color);
+  margin-bottom: 10px;
+}
+
+.roadmap-lessons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.roadmap-lesson {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 50px;
+  background-color: var(--secondary-color);
+  color: var(--font-color);
+  cursor: pointer;
+}
+
+.roadmap-lesson:hover {
+  filter: brightness(75%);
+}
+
 @media (max-width: 768px) {
   .overlay-content {
     width: calc(100% - 30px);

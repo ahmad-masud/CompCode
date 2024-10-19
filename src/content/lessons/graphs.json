@@ -1,0 +1,162 @@
+{
+  "title": "Graphs",
+  "lessons": [
+    {
+      "title": "Introduction to Graphs",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A **graph** is a data structure that consists of a set of **vertices** (also called nodes) and a set of **edges** that connect pairs of vertices. Graphs are used to represent various relationships between objects, and they are widely applied in areas such as computer networks, social networks, and transportation systems."
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "**Vertices (nodes)**: The fundamental units of a graph, representing entities or objects.",
+            "**Edges**: The connections between vertices, representing relationships or interactions between them."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Types of Graphs",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "There are various types of graphs based on the nature of their vertices and edges:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "**Directed Graph**: A graph where edges have a direction, meaning each edge points from one vertex to another.",
+            "**Undirected Graph**: A graph where edges have no direction, meaning they simply connect two vertices.",
+            "**Weighted Graph**: A graph where each edge has a numerical value or weight, representing some cost or distance.",
+            "**Unweighted Graph**: A graph where edges have no associated weights.",
+            "**Cyclic Graph**: A graph that contains at least one cycle (a path that starts and ends at the same vertex).",
+            "**Acyclic Graph**: A graph with no cycles."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Graph Representation",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Graphs can be represented in several ways, with the most common being the **adjacency list** and the **adjacency matrix**."
+        }
+      ]
+    },
+    {
+      "title": "Adjacency List",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "An **adjacency list** represents a graph as a collection of lists. Each vertex points to a list of its adjacent vertices. This representation is memory efficient for sparse graphs."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "# Example of an adjacency list in Python\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['D'],\n    'C': ['E'],\n    'D': ['F'],\n    'E': [],\n    'F': []\n}\n"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this adjacency list, vertex `'A'` has edges to vertices `'B'` and `'C'`. Similarly, vertex `'B'` is connected to vertex `'D'`, and so on."
+        }
+      ]
+    },
+    {
+      "title": "Adjacency Matrix",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "An **adjacency matrix** is a 2D array (or matrix) used to represent a graph. Each row and column represent a vertex, and the cell value at position `(i, j)` indicates whether there is an edge from vertex `i` to vertex `j`. In an unweighted graph, the cell value is `1` for an edge and `0` otherwise; in a weighted graph, the cell value contains the edge weight."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "# Example of an adjacency matrix for an unweighted graph\nadj_matrix = [\n    [0, 1, 1, 0, 0, 0],  # A -> B, C\n    [0, 0, 0, 1, 0, 0],  # B -> D\n    [0, 0, 0, 0, 1, 0],  # C -> E\n    [0, 0, 0, 0, 0, 1],  # D -> F\n    [0, 0, 0, 0, 0, 0],  # E has no edges\n    [0, 0, 0, 0, 0, 0]   # F has no edges\n]\n"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this adjacency matrix, the row index represents the starting vertex and the column index represents the ending vertex. For example, the entry at `(0, 1)` is `1`, meaning there is an edge from vertex `'A'` to vertex `'B'`."
+        }
+      ]
+    },
+    {
+      "title": "Graph Connectivity",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A graph is said to be **connected** if there is a path between every pair of vertices. In a **directed graph**, connectivity means that there is a directed path between every pair of vertices. In an **undirected graph**, connectivity simply means that vertices can be reached without considering edge directions."
+        },
+        {
+          "type": "paragraph",
+          "text": "If a graph is not connected, it can be broken down into **connected components**, which are subsets of the graph in which there is a path between any pair of vertices."
+        }
+      ]
+    },
+    {
+      "title": "Graph Density",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The **density** of a graph refers to the ratio of the number of edges in the graph to the total possible number of edges. A graph is considered **sparse** if it has relatively few edges compared to the number of vertices, and **dense** if it has many edges."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "# Calculating the density of a graph\nV = 6  # Number of vertices\nE = 5  # Number of edges in the graph\ndensity = 2 * E / (V * (V - 1))  # For an undirected graph\nprint('Graph Density:', density)"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, we calculate the density of an undirected graph with 6 vertices and 5 edges. The formula for density is `2 * E / (V * (V - 1))` for an undirected graph, and `E / (V * (V - 1))` for a directed graph."
+        }
+      ]
+    },
+    {
+      "title": "Weighted vs. Unweighted Graphs",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In a **weighted graph**, each edge has an associated numerical value or weight, which typically represents some cost, distance, or capacity. An **unweighted graph** does not have edge weights; instead, edges simply indicate a connection between vertices."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "# Example of a weighted graph using an adjacency list\ngraph_weighted = {\n    'A': [('B', 5), ('C', 3)],\n    'B': [('D', 2)],\n    'C': [('E', 7)],\n    'D': [('F', 1)],\n    'E': [],\n    'F': []\n}\n"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this weighted graph, the edges between vertices have weights. For example, there is an edge from vertex `'A'` to vertex `'B'` with a weight of `5`."
+        }
+      ]
+    },
+    {
+      "title": "Graph Use Cases",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Graphs are widely used in various fields and applications due to their flexibility in representing relationships between entities. Some common use cases include:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "**Social Networks**: Representing users (vertices) and friendships or connections (edges).",
+            "**Computer Networks**: Representing devices as vertices and communication links as edges.",
+            "**Web Crawling**: Representing web pages as vertices and hyperlinks as edges.",
+            "**Transportation Systems**: Representing cities or locations as vertices and roads or routes as edges."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In this tutorial, we covered the fundamentals of the **graph** data structure, including its types, representation, and key characteristics. Graphs are powerful tools for modeling complex relationships and are foundational in many fields of computer science."
+        }
+      ]
+    }
+  ]
+}

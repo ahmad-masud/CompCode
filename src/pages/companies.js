@@ -5,6 +5,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import Problems from '../components/problems';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
+import companies from '../content/companies.json';
 
 const average = (array) => {
   if (array.length === 0) return 0;
@@ -44,23 +45,19 @@ const Companies = ({ user }) => {
 
   useEffect(() => {
     const fetchCompaniesData = async () => {
-      const context = require.context('../content/companies', false, /\.json$/);
-      const companyNames = context.keys().map(fileName => fileName.match(/\.\/(.*)\.json/)[1]);
-
-      const companiesInfo = companyNames.map(company => {
-        const data = require(`../content/companies/${company}.json`);
-        const acceptanceRates = data.map(problem => parseFloat(problem.Acceptance.replace('%', '')));
-        const difficulties = data.map(problem => problem.Difficulty);
-        const numProblems = data.length;
+      const companiesInfo = companies.map(company => {
+        const acceptanceRates = company.data.map(problem => parseFloat(problem.Acceptance.replace('%', '')));
+        const difficulties = company.data.map(problem => problem.Difficulty);
+        const numProblems = company.data.length;
         const avgAcceptance = acceptanceRates.length > 0 ? average(acceptanceRates).toFixed(2) + '%' : 'N/A';
         const mostCommonDifficulty = difficulties.length > 0 ? mostCommon(difficulties) : 'N/A';
 
         return {
-          name: company.charAt(0).toUpperCase() + company.slice(1),
+          name: company.name.charAt(0).toUpperCase() + company.name.slice(1),
           avgAcceptance,
           numProblems,
           mostCommonDifficulty,
-          problems: data,
+          problems: company.data,
         };
       });
 
@@ -256,7 +253,7 @@ const Companies = ({ user }) => {
 
   return (
     <>
-      {openCompany && <Problems company={openCompany} onClose={handleClose} user={user} page={'companies'} />}
+      {openCompany && <Problems company={companies.find(company => company.name === openCompany)} onClose={handleClose} user={user} page={'companies'} />}
       <div className="companies-page">
         <p className="solved-count">{completedCount}<span> | {uniqueProblems.length}</span></p>
         <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/uniqueProblems.length) * 100}%` }}></div></div>

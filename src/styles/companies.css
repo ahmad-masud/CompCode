@@ -151,15 +151,6 @@
   background: var(--secondary-color);
 }
 
-.tutorial-link {
-  font-size: 1.25rem;
-  color: #3FCA7D;
-}
-
-.premium-link {
-  color: goldenrod;
-}
-
 /* Media query for screens 768px and below */
 @media (max-width: 768px) {
   .companies-page {

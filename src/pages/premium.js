@@ -130,7 +130,6 @@ const Premium = ({ user }) => {
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Algorithm problems and solutions</p>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Frequency count for company-wise problems</p>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Solutions for company problems</p>
-            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Lessons for premium topics</p>
           </div>
           {premiumInfo.premium && (
             <button className='manage-button' onClick={handleManageSubcription}>

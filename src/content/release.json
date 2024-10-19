@@ -1,5 +1,9 @@
 [
     {
+        "date": "2024-10-19",
+        "comment": "Merged algorithms and data structures into a roadmap along with lessons for each topic"
+    },
+    {
         "date": "2024-10-17",
         "comment": "Added Lessons for data structures and algorithms"
     },
