@@ -1,72 +1,72 @@
 [
-    {
+  {
       "ID": "20",
       "Title": "Valid Parentheses",
       "Acceptance": "40.2%",
       "Difficulty": "Easy",
       "Leetcode Question Link": "https://leetcode.com/problems/valid-parentheses"
-    },
-    {
+  },
+  {
+      "ID": "232",
+      "Title": "Implement Queue using Stacks",
+      "Acceptance": "55.7%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/implement-queue-using-stacks"
+  },
+  {
+      "ID": "225",
+      "Title": "Implement Stack using Queues",
+      "Acceptance": "56.3%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/implement-stack-using-queues"
+  },
+  {
       "ID": "155",
       "Title": "Min Stack",
-      "Acceptance": "53.4%",
-      "Difficulty": "Easy",
+      "Acceptance": "52.9%",
+      "Difficulty": "Medium",
       "Leetcode Question Link": "https://leetcode.com/problems/min-stack"
-    },
-    {
+  },
+  {
       "ID": "739",
       "Title": "Daily Temperatures",
       "Acceptance": "66.4%",
       "Difficulty": "Medium",
       "Leetcode Question Link": "https://leetcode.com/problems/daily-temperatures"
-    },
-    {
-      "ID": "150",
-      "Title": "Evaluate Reverse Polish Notation",
-      "Acceptance": "38.9%",
+  },
+  {
+      "ID": "496",
+      "Title": "Next Greater Element I",
+      "Acceptance": "70.7%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/next-greater-element-i"
+  },
+  {
+      "ID": "503",
+      "Title": "Next Greater Element II",
+      "Acceptance": "61.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/evaluate-reverse-polish-notation"
-    },
-    {
+      "Leetcode Question Link": "https://leetcode.com/problems/next-greater-element-ii"
+  },
+  {
       "ID": "84",
       "Title": "Largest Rectangle in Histogram",
-      "Acceptance": "33.5%",
+      "Acceptance": "42.9%",
       "Difficulty": "Hard",
       "Leetcode Question Link": "https://leetcode.com/problems/largest-rectangle-in-histogram"
-    },
-    {
+  },
+  {
       "ID": "85",
       "Title": "Maximal Rectangle",
-      "Acceptance": "35.9%",
+      "Acceptance": "41.7%",
       "Difficulty": "Hard",
       "Leetcode Question Link": "https://leetcode.com/problems/maximal-rectangle"
-    },
-    {
-      "ID": "32",
-      "Title": "Longest Valid Parentheses",
-      "Acceptance": "28.9%",
+  },
+  {
+      "ID": "42",
+      "Title": "Trapping Rain Water",
+      "Acceptance": "59.3%",
       "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/longest-valid-parentheses"
-    },
-    {
-      "ID": "394",
-      "Title": "Decode String",
-      "Acceptance": "58.7%",
-      "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/decode-string"
-    },
-    {
-      "ID": "227",
-      "Title": "Basic Calculator II",
-      "Acceptance": "35.7%",
-      "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/basic-calculator-ii"
-    },
-    {
-      "ID": "402",
-      "Title": "Remove K Digits",
-      "Acceptance": "32.5%",
-      "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/remove-k-digits"
-    }
+      "Leetcode Question Link": "https://leetcode.com/problems/trapping-rain-water"
+  }
 ]

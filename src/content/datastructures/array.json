@@ -1,72 +1,72 @@
 [
-    {
+  {
       "ID": "1",
       "Title": "Two Sum",
       "Acceptance": "47.6%",
       "Difficulty": "Easy",
       "Leetcode Question Link": "https://leetcode.com/problems/two-sum"
-    },
-    {
+  },
+  {
       "ID": "121",
       "Title": "Best Time to Buy and Sell Stock",
       "Acceptance": "56.3%",
       "Difficulty": "Easy",
       "Leetcode Question Link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
-    },
-    {
-      "ID": "238",
-      "Title": "Product of Array Except Self",
-      "Acceptance": "66.9%",
-      "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/product-of-array-except-self"
-    },
-    {
-      "ID": "53",
-      "Title": "Maximum Subarray",
-      "Acceptance": "53.7%",
-      "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/maximum-subarray"
-    },
-    {
-      "ID": "15",
-      "Title": "3Sum",
-      "Acceptance": "33.6%",
-      "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/3sum"
-    },
-    {
-      "ID": "56",
-      "Title": "Merge Intervals",
-      "Acceptance": "50.4%",
-      "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/merge-intervals"
-    },
-    {
+  },
+  {
       "ID": "217",
       "Title": "Contains Duplicate",
       "Acceptance": "60.8%",
       "Difficulty": "Easy",
       "Leetcode Question Link": "https://leetcode.com/problems/contains-duplicate"
-    },
-    {
-      "ID": "42",
-      "Title": "Trapping Rain Water",
-      "Acceptance": "59.3%",
-      "Difficulty": "Hard",
-      "Leetcode Question Link": "https://leetcode.com/problems/trapping-rain-water"
-    },
-    {
-      "ID": "48",
-      "Title": "Rotate Image",
-      "Acceptance": "61.3%",
+  },
+  {
+      "ID": "189",
+      "Title": "Rotate Array",
+      "Acceptance": "43.5%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/rotate-image"
-    },
-    {
-      "ID": "31",
-      "Title": "Next Permutation",
-      "Acceptance": "39.8%",
+      "Leetcode Question Link": "https://leetcode.com/problems/rotate-array"
+  },
+  {
+      "ID": "283",
+      "Title": "Move Zeroes",
+      "Acceptance": "64.9%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/move-zeroes"
+  },
+  {
+      "ID": "724",
+      "Title": "Find Pivot Index",
+      "Acceptance": "49.3%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/find-pivot-index"
+  },
+  {
+      "ID": "941",
+      "Title": "Valid Mountain Array",
+      "Acceptance": "33.1%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/valid-mountain-array"
+  },
+  {
+      "ID": "66",
+      "Title": "Plus One",
+      "Acceptance": "43.2%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/plus-one"
+  },
+  {
+      "ID": "88",
+      "Title": "Merge Sorted Array",
+      "Acceptance": "46.7%",
+      "Difficulty": "Easy",
+      "Leetcode Question Link": "https://leetcode.com/problems/merge-sorted-array"
+  },
+  {
+      "ID": "53",
+      "Title": "Maximum Subarray",
+      "Acceptance": "53.7%",
       "Difficulty": "Medium",
-      "Leetcode Question Link": "https://leetcode.com/problems/next-permutation"
-    }
+      "Leetcode Question Link": "https://leetcode.com/problems/maximum-subarray"
+  }
 ]
