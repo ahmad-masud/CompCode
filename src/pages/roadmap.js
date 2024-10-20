@@ -11,7 +11,7 @@ const average = (array) => {
   return sum / array.length;
 };
 
-const Roadmap = ({ user }) => {
+const Roadmap = ({ user, theme }) => {
   const [companiesData, setCompaniesData] = useState([]);
   const [sortConfig, setSortConfig] = useState({ key: '', direction: 'ascending' });
   const [uniqueProblems, setUniqueProblems] = useState([]);
@@ -180,7 +180,7 @@ const Roadmap = ({ user }) => {
   
   return (
     <>
-      {openCompany && <Problems company={companies.find(company => company.name === openCompany)} onClose={handleClose} user={user} page={'roadmap'} />}
+      {openCompany && <Problems theme={theme} company={companies.find(company => company.name === openCompany)} onClose={handleClose} user={user} page={'roadmap'} />}
       <div className="companies-page">
         <p className="solved-count">{completedCount}<span> | {uniqueProblems.length}</span></p>
         <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/uniqueProblems.length) * 100}%` }}></div></div>

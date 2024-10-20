@@ -5,7 +5,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useAlerts } from '../context/alertscontext';
 import '../styles/solution.css'; // For custom modal styling
 
-const Solution = ({ isOpen, onClose, problemName, solution }) => {
+const Solution = ({ isOpen, onClose, problemName, solution, theme }) => {
   const [code, setCode] = useState('');
   const [error, setError] = useState('');
   const [isCopied, setIsCopied] = useState(false); // State for handling copy feedback
@@ -53,13 +53,6 @@ const Solution = ({ isOpen, onClose, problemName, solution }) => {
   // Do not render the modal if it's not open
   if (!isOpen || error || loading) return null;
 
-  // Get the theme from local storage
-  var theme = localStorage.getItem('theme') || 'auto'; // Default to 'auto' if not set
-  if (theme === 'auto') {
-    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    theme = isDarkMode ? 'dark' : 'light';
-  }
-
   return (
     <div className="modal-overlay">
       <div className='overlay-backdrop' onClick={onClose}></div>
@@ -79,7 +72,13 @@ const Solution = ({ isOpen, onClose, problemName, solution }) => {
           </CopyToClipboard>
           <SyntaxHighlighter
             language={'python'}
-            style={theme === 'dark' ? materialDark : undefined}
+            style={
+              theme === 'dark'
+                ? materialDark
+                : theme === 'system'
+                ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? materialDark : undefined)
+                : undefined
+            }
           >
             {code}
           </SyntaxHighlighter>

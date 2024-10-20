@@ -110,7 +110,7 @@ const Settings = ({ user, premiumInfo, onClose, theme, onThemeChange }) => {
             value={theme}
             onChange={(e) => onThemeChange(e.target.value)}
           >
-            <option value="auto">System</option>
+            <option value="system">System</option>
             <option value="light">Light</option>
             <option value="dark">Dark</option>
           </select>
