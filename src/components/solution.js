@@ -1,11 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Import both styles
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import '../styles/solution.css'; // For custom modal styling
 
-const Solution = ({ isOpen, onClose, code, error }) => {
+const Solution = ({ isOpen, onClose, problemName, solution }) => {
+  const [code, setCode] = useState('');
+  const [error, setError] = useState('');
   const [isCopied, setIsCopied] = useState(false); // State for handling copy feedback
+  const [loading, setLoading] = useState(true);
+
+  // Fetch the code from GitHub when the modal opens
+  useEffect(() => {
+    setLoading(true);
+    if (solution && isOpen) {
+      setCode(solution);
+    }
+    if (problemName && isOpen) {
+      const fetchCode = async () => {
+        try {
+          const response = await fetch(
+            `https://raw.githubusercontent.com/kamyu104/LeetCode-Solutions/master/Python/${problemName}.py`
+          );
+          if (!response.ok) {
+            throw new Error('Problem not found');
+          }
+          const data = await response.text();
+          setCode(data);
+          setLoading(false);
+        } catch (error) {
+          setError(error.message);
+          setLoading(false);
+        }
+      };
+      fetchCode();
+    }
+  }, [problemName, isOpen, solution]);
 
   const handleCopy = () => {
     setIsCopied(true);
@@ -17,7 +47,7 @@ const Solution = ({ isOpen, onClose, code, error }) => {
   };
 
   // Do not render the modal if it's not open
-  if (!isOpen) return null;
+  if (!isOpen || loading) return null;
 
   // Get the theme from local storage
   var theme = localStorage.getItem('theme') || 'auto'; // Default to 'auto' if not set
