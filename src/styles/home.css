@@ -87,6 +87,14 @@
     margin-right: 5px;
 }
 
+.tech-tip {
+    font-size: 0.9rem;
+    color: var(--font-color); 
+    margin-top: 20px;
+    text-align: center;
+    filter: brightness(0.75);
+}
+
 @media screen and (max-width: 768px) {
     .hero-logo {
         font-size: 10rem;
