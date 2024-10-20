@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useCallback } from 'react';
 
 // Create a context for managing alerts
 const AlertContext = createContext();
@@ -7,8 +7,8 @@ const AlertContext = createContext();
 export const AlertsProvider = ({ children }) => {
   const [alerts, setAlerts] = useState([]);
 
-  // Function to add a new alert to the stack
-  const addAlert = (message, type = 'info', timeout = 3000) => {
+  // Function to add a new alert to the stack, memoized with useCallback
+  const addAlert = useCallback((message, type = 'info', timeout = 3000) => {
     const id = Date.now();
     setAlerts((prevAlerts) => [...prevAlerts, { id, message, type }]);
 
@@ -16,7 +16,7 @@ export const AlertsProvider = ({ children }) => {
     setTimeout(() => {
       setAlerts((prevAlerts) => prevAlerts.filter(alert => alert.id !== id));
     }, timeout);
-  };
+  }, []); // No dependencies, so the function is stable
 
   return (
     <AlertContext.Provider value={{ addAlert, alerts }}>
