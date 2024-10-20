@@ -189,12 +189,6 @@
   color: goldenrod;
 }
 
-.roadmap-lessons-title {
-  font-size: 1.25rem;
-  color: var(--font-color);
-  margin-bottom: 10px;
-}
-
 .roadmap-lessons {
   display: flex;
   gap: 10px;
@@ -216,7 +210,7 @@
 }
 
 .roadmap-lesson:hover {
-  filter: brightness(75%);
+  background: #3FCA7D;
 }
 
 @media (max-width: 768px) {
