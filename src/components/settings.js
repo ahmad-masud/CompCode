@@ -1,44 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/settings.css'; // Create and import your settings-specific CSS file
 import { firestore } from '../config/firebase-config';
 import { getFunctions, httpsCallable } from 'firebase/functions';
-import { doc, updateDoc, getDoc } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import Confirm from '../components/confirm';
 import { useAlerts } from '../context/alertscontext';
 
-const Settings = ({ user, onClose, theme, onThemeChange }) => {
+const Settings = ({ user, premiumInfo, onClose, theme, onThemeChange }) => {
   const auth = getAuth();
   const functions = getFunctions();
   const [displayConfirm, setDisplayConfirm] = useState(false);
   const [confirmMessage, setConfirmMessage] = useState('');
   const [confirmType, setConfirmType] = useState('');
-  const [premiumInfo, setPremiumInfo] = useState({
-    premium: false,
-    subscriptionId: '',
-    canceled: false,
-  });
   const { addAlert } = useAlerts();
-
-  useEffect(() => {
-    if (user) {
-      const userRef = doc(firestore, 'users', user.uid)
-      getDoc(userRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
-            const userData = docSnap.data();
-            setPremiumInfo({
-              premium: userData.premiumInfo.premium,
-              subscriptionId: userData.premiumInfo.subscriptionId,
-              canceled: userData.premiumInfo.canceled,
-            });
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching user data: ", error);
-        });
-    }
-  }, [user]);
 
   const deleteUserData = async () => {
     if (user) {

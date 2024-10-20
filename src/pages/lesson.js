@@ -1,55 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Import Prism styles
-import { useParams } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard'; // For the copy button
-import { doc, getDoc } from 'firebase/firestore';
-import { firestore } from '../config/firebase-config';
 import '../styles/lesson.css'; // For custom styling
 
-const Lesson = ({ user }) => {
-  const { lessonId } = useParams(); // Get the lessonId from the URL
-  const [lesson, setlesson] = useState(null);
+const Lesson = ({ data }) => {
+  const [lesson, setLesson] = useState(null);
   const [copiedState, setCopiedState] = useState([]); // Track copied state for each block
   const [loading, setLoading] = useState(true); // Track loading state
-  const [error, setError] = useState(false); // Track error state
-  const [premium, setPremium] = useState(false); // Track premium state
 
   useEffect(() => {
-    if (user) {
-      const userRef = doc(firestore, 'users', user.uid)
-      getDoc(userRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
-            const userData = docSnap.data();
-            setPremium(userData.premiumInfo.premium); // Set premium state based on user data
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching user data: ", error);
-        });
-    }
-  }, [user]);
-
-  useEffect(() => {
-    // Dynamically import the lesson based on the lessonId
-    const fetchlesson = async () => {
-      try {
-        setLoading(true);
-        const lesson = await import(`../content/lessons/${lessonId}.json`);
-        setlesson(lesson);
-        setCopiedState(Array(lesson.lessons.length).fill(false)); // Initialize copiedState with false for each block
-        setError(false);
-      } catch (error) {
-        console.error('Error fetching lesson:', error);
-        setError(true); // Set error to true if the lesson is not found
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchlesson();
-  }, [lessonId]);
+    if (!data) return;
+    setLoading(true);
+    setLesson(data);
+    setCopiedState(Array(data.lessons?.length || 0).fill(false)); // Ensure lessons exist before setting copied state
+    setLoading(false);
+  }, [data]);
 
   // Get the theme from local storage or system settings
   const getTheme = () => {
@@ -64,22 +30,6 @@ const Lesson = ({ user }) => {
   const theme = getTheme();
 
   if (loading) return;
-
-  if (error) {
-    return (
-      <div className="lesson-fallback">
-        <p>No lesson for this topic, but stay tuned!</p>
-      </div>
-    );
-  }
-
-  if (lesson && lesson.premium && !premium) {
-    return (
-      <div className="lesson-fallback">
-        <p>Nice try, this is a premium topic!</p>
-      </div>
-    );
-  }
 
   const handleCopy = (lessonIdx, blockIdx) => {
     const newCopiedState = [...copiedState];

@@ -177,9 +177,7 @@ const Roadmap = ({ user }) => {
     }
     return count;
   }, 0);
-
-  console.log(companiesData)
-
+  
   return (
     <>
       {openCompany && <Problems company={companies.find(company => company.name === openCompany)} onClose={handleClose} user={user} page={'roadmap'} />}
