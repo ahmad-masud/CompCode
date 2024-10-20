@@ -18,14 +18,14 @@ import Policy from './pages/policy';
 import Terms from './pages/terms';
 import Roadmap from './pages/roadmap';
 import lessons from './content/lessons.json';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { firestore } from './config/firebase-config';
 
 const stripePromise = loadStripe(String(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY));
 
 const App = () => {
   const [user, setUser] = useState(null);
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'auto');
+  const [theme, setTheme] = useState('system');
   const [displaySettings, setDisplaySettings] = useState(false);
   const [displaySubmission, setDisplaySubmission] = useState(false);
   const [premiumInfo, setPremiumInfo] = useState({
@@ -53,6 +53,12 @@ const App = () => {
                 subscriptionEnd: userData.premiumInfo.subscriptionEnd || null,  // Set default to null if undefined
               });
             }
+
+            if (userData.theme) {
+              setTheme(userData.theme);
+            } else {
+              setTheme('system');
+            }
           }
         })
         .catch((error) => {
@@ -70,26 +76,41 @@ const App = () => {
   }, [user]);
 
   useEffect(() => {
-    if (theme === 'auto') {
+    if (theme === 'system') {
       const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
       document.querySelector(":root").className = isDarkMode ? 'dark' : 'light';
     } else {
       document.querySelector(":root").className = theme;
     }
-    localStorage.setItem('theme', theme);
   }, [theme]);
+
+  const handleThemeChange = (newTheme) => {
+    setTheme(newTheme);
+
+    if (user) {
+      const userRef = doc(firestore, 'users', user.uid);
+      updateDoc(userRef, {
+        theme: newTheme,
+      })
+        .then(() => {
+          console.log("Theme updated successfully");
+        })
+        .catch((error) => {
+          console.error("Error updating theme: ", error);
+        });
+    }
+  }
 
   return (
     <div className='app'>
       <AlertsProvider>
         <Alerts />
-        {displaySettings && <Settings user={user} onClose={() => setDisplaySettings(false)} theme={theme} onThemeChange={(newTheme) => setTheme(newTheme)} premiumInfo={premiumInfo} />}
+        {displaySettings && <Settings user={user} onClose={() => setDisplaySettings(false)} theme={theme} onThemeChange={(newTheme) => handleThemeChange(newTheme)} premiumInfo={premiumInfo} />}
         {displaySubmission && <Submission user={user} onClose={() => setDisplaySubmission(false)} />}
         <Router>
           <Navbar 
             user={user} 
             onUserChange={(newUser) => setUser(newUser)} 
-            theme={theme} 
             onThemeChange={(newTheme) => setTheme(newTheme)} 
             onSettingsOpen={() => setDisplaySettings(true)}
             onSubmissionOpen={() => setDisplaySubmission(true)} 
@@ -97,11 +118,11 @@ const App = () => {
           <Elements stripe={stripePromise}>
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='/companies' element={<Companies user={user} premiumInfo={premiumInfo} />} />
-              <Route path='/roadmap' element={<Roadmap user={user} />} />
+              <Route path='/companies' element={<Companies theme={theme} user={user} premiumInfo={premiumInfo} />} />
+              <Route path='/roadmap' element={<Roadmap theme={theme} user={user} />} />
               <Route path='/premium' element={<Premium user={user} premiumInfo={premiumInfo} />} />
               {lessons.map((lesson, index) => (
-                <Route key={`${lesson.id}-${index}`} path={`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`} element={<Lesson data={lesson} />} />
+                <Route key={`${lesson.id}-${index}`} path={`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`} element={<Lesson data={lesson} theme={theme} />} />
               ))}
               <Route path='/policy' element={<Policy />} />
               <Route path='/terms' element={<Terms />} />

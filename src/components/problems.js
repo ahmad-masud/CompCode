@@ -8,7 +8,7 @@ import '@szhsin/react-menu/dist/index.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-const Problems = ({ company, user, onClose, page, premiumInfo }) => {
+const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
   const [problems, setProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [sortConfig, setSortConfig] = useState({ key: 'Difficulty', direction: 'ascending' });
@@ -230,6 +230,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo }) => {
         isOpen={isModalOpen}
         onClose={closeModal}
         problemName={problemName}
+        theme={theme}
       />
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="overlay-content">
