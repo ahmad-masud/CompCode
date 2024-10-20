@@ -1,49 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useStripe } from '@stripe/react-stripe-js';
 import { getFunctions, httpsCallable } from 'firebase/functions';
-import { doc, getDoc } from 'firebase/firestore'; // To fetch user data from Firestore
-import { firestore } from '../config/firebase-config'; // Import Firestore instance
 import '../styles/premium.css';
 import { useAlerts } from '../context/alertscontext';
 
-const Premium = ({ user }) => {
+const Premium = ({ user, premiumInfo }) => {
   const stripe = useStripe();
   const functions = getFunctions();
-  const [premiumInfo, setPremiumInfo] = useState({
-    premium: false,
-    subscriptionId: '',
-    canceled: false,
-    customerId: '',
-    subscriptionEnd: null,
-  });
   const { addAlert } = useAlerts();
-
-  useEffect(() => {
-    if (user) {
-      const userRef = doc(firestore, 'users', user.uid);
-      getDoc(userRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
-            const userData = docSnap.data();
-            
-            // Check if premiumInfo exists before trying to access its fields
-            if (userData.premiumInfo) {
-              setPremiumInfo({
-                premium: userData.premiumInfo.premium || false,  // Set a default value if undefined
-                subscriptionId: userData.premiumInfo.subscriptionId || "",  // Set default empty string if undefined
-                canceled: userData.premiumInfo.canceled || false,  // Set default to false if undefined
-                customerId: userData.premiumInfo.stripeCustomerId || "",  // Set default empty string if undefined
-                subscriptionEnd: userData.premiumInfo.subscriptionEnd || null,  // Set default to null if undefined
-              });
-            }
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching user data: ", error);
-          addAlert('Error fetching user data!', 'error');
-        });
-    }
-  }, [user, addAlert]);
   
   const handleManageSubcription = async () => {
     if (!user) {

@@ -4,13 +4,16 @@ import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; /
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import '../styles/solution.css'; // For custom modal styling
 
-const Solution = ({ isOpen, onClose, problemName }) => {
+const Solution = ({ isOpen, onClose, problemName, solution }) => {
   const [code, setCode] = useState('');
   const [error, setError] = useState('');
   const [isCopied, setIsCopied] = useState(false); // State for handling copy feedback
 
   // Fetch the code from GitHub when the modal opens
   useEffect(() => {
+    if (solution && isOpen) {
+      setCode(solution);
+    }
     if (problemName && isOpen) {
       const fetchCode = async () => {
         try {
@@ -28,7 +31,7 @@ const Solution = ({ isOpen, onClose, problemName }) => {
       };
       fetchCode();
     }
-  }, [problemName, isOpen]);
+  }, [problemName, isOpen, solution]);
 
   const handleCopy = () => {
     setIsCopied(true);

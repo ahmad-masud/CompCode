@@ -8,14 +8,13 @@ import '@szhsin/react-menu/dist/index.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-const Problems = ({ company, user, onClose, page }) => {
+const Problems = ({ company, user, onClose, page, premiumInfo }) => {
   const [problems, setProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [sortConfig, setSortConfig] = useState({ key: 'Difficulty', direction: 'ascending' });
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [problemName, setProblemName] = useState('');
-  const [isPremium, setIsPremium] = useState(false); // New state to track premium status
   const navigate = useNavigate();
 
   // Pagination state
@@ -66,7 +65,6 @@ const Problems = ({ company, user, onClose, page }) => {
         if (docSnap.exists()) {
           const userData = docSnap.data();
           setCompletedProblems(userData.completedProblems || {}); // Check if the user is premium
-          setIsPremium(userData.premiumInfo.premium);
         } else {
           // Create a new document if it doesn't exist
           setDoc(userRef, { completedProblems: {} });
@@ -263,7 +261,7 @@ const Problems = ({ company, user, onClose, page }) => {
             {!narrow && <div>Solution</div>}
             {!narrow && <div>Acceptance <button className="sort-button" onClick={() => sortProblems('Acceptance')}>{getSortIcon('Acceptance')}</button></div>}
             <div>Difficulty <button className="sort-button" onClick={() => sortProblems('Difficulty')}>{getSortIcon('Difficulty')}</button></div>
-            {page === 'companies' && !narrow && <div>Frequency {isPremium && <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button>}</div>}
+            {page === 'companies' && !narrow && <div>Frequency {premiumInfo && premiumInfo.premium && <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button>}</div>}
           </div>
           {currentProblems.map((problem, index) => (
             <div className="table-row" key={index}>
@@ -278,7 +276,7 @@ const Problems = ({ company, user, onClose, page }) => {
                 </a>
               </div>
               {!narrow && <div className='solution-link'>
-                {isPremium || page !== 'companies' ? (
+                {(premiumInfo && premiumInfo.premium) || page !== 'companies' ? (
                   <button onClick={() => openModal(problem['Leetcode Question Link'].split('/').pop())}>
                     <i className="fa-regular fa-file-code"></i>
                   </button>
@@ -290,7 +288,7 @@ const Problems = ({ company, user, onClose, page }) => {
               <div className={problem.Difficulty.toLowerCase()}>{problem.Difficulty}</div>
               {page === 'companies' && !narrow && (
                 <div>
-                  {isPremium ? (
+                  {premiumInfo && premiumInfo.premium ? (
                     Math.round(problem.Frequency * 100) / 100
                   ) : (
                     <Link to="/premium" className='premium-link'><i className="fa-solid fa-crown"></i></Link>  // Show lock if not premium

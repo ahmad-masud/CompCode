@@ -17,13 +17,49 @@ import Lesson from './pages/lesson';
 import Policy from './pages/policy';
 import Terms from './pages/terms';
 import Roadmap from './pages/roadmap';
+import lessons from './content/lessons.json';
+import { doc, getDoc } from 'firebase/firestore';
+import { firestore } from './config/firebase-config';
+
+const stripePromise = loadStripe(String(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY));
 
 const App = () => {
   const [user, setUser] = useState(null);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'auto');
   const [displaySettings, setDisplaySettings] = useState(false);
   const [displaySubmission, setDisplaySubmission] = useState(false);
-  const stripePromise = loadStripe(String(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY));
+  const [premiumInfo, setPremiumInfo] = useState({
+    premium: false,
+    subscriptionId: '',
+    canceled: false,
+    customerId: '',
+    subscriptionEnd: null,
+  });
+
+  useEffect(() => {
+    if (user) {
+      const userRef = doc(firestore, 'users', user.uid);
+      getDoc(userRef)
+        .then((docSnap) => {
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+
+            if (userData.premiumInfo) {
+              setPremiumInfo({
+                premium: userData.premiumInfo.premium || false,  // Set a default value if undefined
+                subscriptionId: userData.premiumInfo.subscriptionId || "",  // Set default empty string if undefined
+                canceled: userData.premiumInfo.canceled || false,  // Set default to false if undefined
+                customerId: userData.premiumInfo.stripeCustomerId || "",  // Set default empty string if undefined
+                subscriptionEnd: userData.premiumInfo.subscriptionEnd || null,  // Set default to null if undefined
+              });
+            }
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching user data: ", error);
+        });
+    }
+  }, [user]);
 
   useEffect(() => {
     if (theme === 'auto') {
@@ -39,7 +75,7 @@ const App = () => {
     <div className='app'>
       <AlertsProvider>
         <Alerts />
-        {displaySettings && <Settings user={user} onClose={() => setDisplaySettings(false)} theme={theme} onThemeChange={(newTheme) => setTheme(newTheme)} />}
+        {displaySettings && <Settings user={user} onClose={() => setDisplaySettings(false)} theme={theme} onThemeChange={(newTheme) => setTheme(newTheme)} premiumInfo={premiumInfo} />}
         {displaySubmission && <Submission user={user} onClose={() => setDisplaySubmission(false)} />}
         <Router>
           <Navbar 
@@ -53,10 +89,12 @@ const App = () => {
           <Elements stripe={stripePromise}>
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='/companies' element={<Companies user={user} />} />
+              <Route path='/companies' element={<Companies user={user} premiumInfo={premiumInfo} />} />
               <Route path='/roadmap' element={<Roadmap user={user} />} />
-              <Route path='/premium' element={<Premium user={user} />} />
-              <Route path='/lesson/:lessonId' element={<Lesson user={user} />} />
+              <Route path='/premium' element={<Premium user={user} premiumInfo={premiumInfo} />} />
+              {lessons.map((lesson, index) => (
+                <Route key={`${lesson.id}-${index}`} path={`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`} element={<Lesson data={lesson} />} />
+              ))}
               <Route path='/policy' element={<Policy />} />
               <Route path='/terms' element={<Terms />} />
               <Route path='*' element={<NotFound />} />
