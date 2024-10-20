@@ -7,10 +7,13 @@ import { Link } from 'react-router-dom';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import { useAlerts } from '../context/alertscontext';
+import Confirm from '../components/confirm';
 
 const Navbar = ({ user, onUserChange, onSettingsOpen, onSubmissionOpen }) => {
   const [narrow, setNarrow] = useState(false);
   const { addAlert } = useAlerts();
+  const [displayConfirm, setDisplayConfirm] = useState(false);
+  const [confirmMessage, setConfirmMessage] = useState('');
 
   useEffect(() => {
     const handleResize = () => {
@@ -63,42 +66,61 @@ const Navbar = ({ user, onUserChange, onSettingsOpen, onSubmissionOpen }) => {
       });
   };
 
+  const confirmAction = () => {
+    handleLogin();
+    setDisplayConfirm(false);
+  };
+
+  const showConfirm = (message) => {
+    setConfirmMessage(message);
+    setDisplayConfirm(true);
+  };
+
   return (
-    <div className='navbar'>
-      <div className='navbar-container'>
-        <div className='left'>
-          <i className="fa-solid fa-meteor"></i>
-          {!narrow ? (
-            <div className='nav-links'>
-              <Link className='nav-link' to='/'>Home</Link>
-              <Link className='nav-link' to='/companies'>Companies</Link>
-              <Link className='nav-link' to='/roadmap'>Roadmap</Link>
-              <button className='nav-link' onClick={() => onSubmissionOpen()}>Report</button>
-            </div>
-          ) : (
-            <div className='nav-links'>
-              <Link className='nav-link' to='/'><i className="fa-solid fa-house"></i></Link>
-              <Link className='nav-link' to='/companies'><i className="fa-solid fa-building"></i></Link>
-              <Link className='nav-link' to='/roadmap'><i className="fa-solid fa-share-nodes"></i></Link>
-              <button className='nav-link' onClick={() => onSubmissionOpen()}><i className="fa-solid fa-flag"></i></button>
-            </div>
-          )}
-        </div>
-        <div className='right'>
-          {user ? (
-            <div className='login-right'>
-              <Link to='/premium' className='premium-button'>{narrow ? <i className="fa-solid fa-crown"></i> : "Premium"}</Link>
-              <Menu menuButton={<MenuButton className="user-button"><img src={user.photoURL} alt='User' className='user-avatar' /></MenuButton>}>
-                <MenuItem onClick={onSettingsOpen}><i className="fa-solid fa-gear"></i> Settings</MenuItem>
-                <hr className="menu-divider"/>
-                <MenuItem onClick={handleLogout}><i className="fa-solid fa-arrow-right-from-bracket"></i> Logout</MenuItem>
-              </Menu>
-            </div>
-          ) : (
-            <button className='login-button' onClick={handleLogin}>
-              <img src={Google} alt="google"/>{!narrow && "Continue with Google"}
-            </button>
-          )}
+    <div>
+      {displayConfirm && (
+        <Confirm 
+          onClose={() => setDisplayConfirm(false)} 
+          message={confirmMessage} 
+          onConfirm={confirmAction} 
+        />
+      )}
+      <div className='navbar'>
+        <div className='navbar-container'>
+          <div className='left'>
+            <i className="fa-solid fa-meteor"></i>
+            {!narrow ? (
+              <div className='nav-links'>
+                <Link className='nav-link' to='/'>Home</Link>
+                <Link className='nav-link' to='/companies'>Companies</Link>
+                <Link className='nav-link' to='/roadmap'>Roadmap</Link>
+                <button className='nav-link' onClick={() => onSubmissionOpen()}>Report</button>
+              </div>
+            ) : (
+              <div className='nav-links'>
+                <Link className='nav-link' to='/'><i className="fa-solid fa-house"></i></Link>
+                <Link className='nav-link' to='/companies'><i className="fa-solid fa-building"></i></Link>
+                <Link className='nav-link' to='/roadmap'><i className="fa-solid fa-share-nodes"></i></Link>
+                <button className='nav-link' onClick={() => onSubmissionOpen()}><i className="fa-solid fa-flag"></i></button>
+              </div>
+            )}
+          </div>
+          <div className='right'>
+            <Link to='/premium' className='premium-button'><i className="fa-solid fa-crown"></i> {!narrow && "Premium"}</Link>
+            {user ? (
+              <div className='login-right'>
+                <Menu menuButton={<MenuButton className="user-button"><img src={user.photoURL} alt='User' className='user-avatar' /></MenuButton>}>
+                  <MenuItem onClick={onSettingsOpen}><i className="fa-solid fa-gear"></i> Settings</MenuItem>
+                  <hr className="menu-divider"/>
+                  <MenuItem onClick={handleLogout}><i className="fa-solid fa-arrow-right-from-bracket"></i> Logout</MenuItem>
+                </Menu>
+              </div>
+            ) : (
+              <button className='login-button' onClick={() => showConfirm("By confirming you agree to our Terms and Conditions")}>
+                <img src={Google} alt="google"/>{!narrow && "Continue with Google"}
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>

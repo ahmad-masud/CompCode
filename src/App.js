@@ -58,6 +58,14 @@ const App = () => {
         .catch((error) => {
           console.error("Error fetching user data: ", error);
         });
+    } else {
+      setPremiumInfo({
+        premium: false,
+        subscriptionId: '',
+        canceled: false,
+        customerId: '',
+        subscriptionEnd: null,
+      });
     }
   }, [user]);
 
