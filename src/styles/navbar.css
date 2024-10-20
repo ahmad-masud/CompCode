@@ -30,7 +30,6 @@
 
 .nav-links {
     display: flex;
-    gap: 5px;
 }
 
 .nav-link {
@@ -42,8 +41,8 @@
     font-size: 1rem;
     color: var(--font-color);
     text-decoration: none;
-    padding: 10px 5px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 50px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -101,8 +100,8 @@
 }
 
 .login-button img {
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
 }
 
 .login-button:hover {

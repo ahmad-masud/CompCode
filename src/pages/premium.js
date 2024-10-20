@@ -12,7 +12,7 @@ const Premium = ({ user, premiumInfo }) => {
   const handleManageSubcription = async () => {
     if (!user) {
       console.error('User not logged in');
-      addAlert('User not logged in!', 'error');
+      addAlert('You must login first!', 'warning');
       return;
     }
 
@@ -37,7 +37,7 @@ const Premium = ({ user, premiumInfo }) => {
   const handlePremium = async (priceId, isSubscription) => {
     if (!user) {
       console.error('User not logged in');
-      addAlert('User not logged in!', 'error');
+      addAlert('You must login first!', 'warning');
       return;
     }
 

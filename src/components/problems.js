@@ -14,8 +14,9 @@ const Problems = ({ company, user, onClose, page, premiumInfo }) => {
   const [sortConfig, setSortConfig] = useState({ key: 'Difficulty', direction: 'ascending' });
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [problemName, setProblemName] = useState('');
   const navigate = useNavigate();
+  const [code, setCode] = useState('');
+  const [error, setError] = useState('');
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,8 +39,23 @@ const Problems = ({ company, user, onClose, page, premiumInfo }) => {
 
   // Open the modal and set the problem name for which to fetch the solution
   const openModal = (name) => {
-    setProblemName(name);
-    setIsModalOpen(true);
+    const fetchCode = async () => {
+      try {
+        const response = await fetch(
+          `https://raw.githubusercontent.com/kamyu104/LeetCode-Solutions/master/Python/${name}.py`
+        );
+        if (!response.ok) {
+          throw new Error('Problem not found');
+        }
+        const data = await response.text();
+        setCode(data);
+        setIsModalOpen(true); // Open the modal after the fetch is complete
+      } catch (error) {
+        setError(error.message);
+        setIsModalOpen(true);
+      }
+    };
+    fetchCode();
   };
 
   const closeModal = () => {
@@ -229,7 +245,8 @@ const Problems = ({ company, user, onClose, page, premiumInfo }) => {
       <Solution
         isOpen={isModalOpen}
         onClose={closeModal}
-        problemName={problemName}
+        code={code}
+        error={error}
       />
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="overlay-content">
