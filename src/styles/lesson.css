@@ -1,6 +1,7 @@
 .lesson-container {
     max-width: 1200px;
     width: calc(100% - 20px);
+    height: 100vh;
     margin: 50px auto;
     display: flex;
     flex-direction: column;
@@ -9,15 +10,49 @@
 }
   
 .lesson-header {
-    text-align: left;
+    text-align: center;
     font-size: 2rem;
     font-weight: bold;
 }
+
+.lesson-bottom {
+    display: flex;
+    height: calc(100% - 30px);
+}
   
+.lesson-sidebar {
+    width: 30%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.lesson-link {
+    font-size: 1rem;
+    text-align: left;
+    color: var(--font-color);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.lesson-link:hover {
+    background-color: var(--secondary-color);
+}
+
+.lessons {
+    width: calc(70% - 20px);
+    overflow-y: scroll;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
 .lesson {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
   
 .lesson-title {
@@ -74,4 +109,23 @@
 .lesson-fallback p {
     font-size: 1.25rem;
     font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .lesson-container {
+        margin: 50px 10px 100px 10px;
+        height: auto;
+    }
+
+    .lesson-sidebar {
+        display: none;
+    }
+
+    .lessons {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        overflow: auto;
+    }
+    
 }
