@@ -2723,7 +2723,7 @@
         "title": "Heaps",
         "type": "datastructure",
         "difficulty": "medium",
-        "duration": "1 hours",
+        "duration": "1 hour",
         "lessons": [
             {
                 "title": "Introduction to Heaps",
@@ -3646,6 +3646,124 @@
         ]
     },
     {
+        "title": "Adjacency Lists",
+        "type": "datastructure",
+        "difficulty": "medium",
+        "duration": "1 hour",
+        "lessons": [
+            {
+                "title": "Introduction to Adjacency List",
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "text": "An adjacency list is a data structure used to represent graphs. It consists of a collection of lists, with each list corresponding to a vertex in the graph. The list contains all the vertices adjacent to that vertex."
+                    },
+                    {
+                        "type": "bullets",
+                        "items": [
+                            "An adjacency list efficiently represents sparse graphs.",
+                            "It is commonly used in graph algorithms like DFS and BFS.",
+                            "Each vertex in the graph points to a list of its neighbors."
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Graph Representation using Adjacency List",
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "text": "Graphs can be represented in several ways, but the adjacency list is space-efficient for graphs with fewer edges."
+                    },
+                    {
+                        "type": "bullets",
+                        "items": [
+                            "Each vertex has a list of connected vertices (edges).",
+                            "Undirected graphs will have bidirectional connections.",
+                            "For weighted graphs, the list can store pairs (neighbor, weight)."
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Example of Adjacency List in Python",
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "text": "Below is an example of how an adjacency list can be implemented in Python:"
+                    },
+                    {
+                        "type": "code",
+                        "language": "python",
+                        "code": "graph = {\n    'A': ['B', 'C'],\n    'B': ['A', 'D', 'E'],\n    'C': ['A', 'F'],\n    'D': ['B'],\n    'E': ['B', 'F'],\n    'F': ['C', 'E']\n}\n\n# Print neighbors of vertex 'B'\nprint(graph['B'])  # Output: ['A', 'D', 'E']"
+                    }
+                ]
+            },
+            {
+                "title": "Advantages of Adjacency List",
+                "content": [
+                    {
+                        "type": "bullets",
+                        "items": [
+                            "Efficient space usage for sparse graphs.",
+                            "Quickly access the neighbors of a vertex.",
+                            "Easy to add or remove edges."
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Operations on Adjacency List",
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "text": "You can perform various operations on an adjacency list, such as adding or removing edges, traversing the graph, and more."
+                    },
+                    {
+                        "type": "bullets",
+                        "items": [
+                            "Adding an edge: Append the neighbor to the list.",
+                            "Removing an edge: Remove the neighbor from the list.",
+                            "Traversing the graph: Use DFS or BFS algorithms to explore the graph."
+                        ]
+                    },
+                    {
+                        "type": "code",
+                        "language": "python",
+                        "code": "# Adding an edge between 'A' and 'G'\ngraph['A'].append('G')\ngraph['G'] = ['A']\n\n# Removing the edge between 'B' and 'D'\ngraph['B'].remove('D')\ngraph['D'].remove('B')"
+                    }
+                ]
+            },
+            {
+                "title": "Applications of Adjacency List",
+                "content": [
+                    {
+                        "type": "bullets",
+                        "items": [
+                            "Used in algorithms like Dijkstra's and Prim's to find shortest paths.",
+                            "Used in BFS and DFS to explore graphs.",
+                            "Helps in detecting cycles, finding connected components, and topological sorting in directed graphs."
+                        ]
+                    },
+                    {
+                        "type": "code",
+                        "language": "python",
+                        "code": "# BFS Traversal\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    while queue:\n        vertex = queue.popleft()\n        if vertex not in visited:\n            print(vertex, end=' ')\n            visited.add(vertex)\n            queue.extend([neighbor for neighbor in graph[vertex] if neighbor not in visited])\n\n# Perform BFS starting from 'A'\nbfs(graph, 'A')  # Output: A B C D E F"
+                    }
+                ]
+            },
+            {
+                "title": "Conclusion",
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "text": "Adjacency lists are a fundamental way to represent graphs. They are space-efficient and easy to work with, especially for sparse graphs, making them ideal for various graph-based algorithms."
+                    }
+                ]
+            }
+        ]
+    },   
+    {
         "title": "Intervals",
         "type": "datastructure",
         "difficulty": "medium",
@@ -4367,5 +4485,5 @@
                 ]
             }
         ]
-    }
+    } 
 ]
