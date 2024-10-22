@@ -20,6 +20,7 @@ import Roadmap from './pages/roadmap';
 import lessons from './content/lessons.json';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { firestore } from './config/firebase-config';
+import Lessons from './pages/lessons';
 
 const stripePromise = loadStripe(String(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY));
 
@@ -120,6 +121,8 @@ const App = () => {
               <Route path='/' element={<Home />} />
               <Route path='/companies' element={<Companies theme={theme} user={user} premiumInfo={premiumInfo} />} />
               <Route path='/roadmap' element={<Roadmap theme={theme} user={user} />} />
+              <Route path='/lesson' element={<NotFound />} />
+              <Route path='/lessons' element={<Lessons lessons={lessons} />} />
               <Route path='/premium' element={<Premium user={user} premiumInfo={premiumInfo} />} />
               {lessons.map((lesson, index) => (
                 <Route key={`${lesson.id}-${index}`} path={`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`} element={<Lesson data={lesson} theme={theme} />} />
