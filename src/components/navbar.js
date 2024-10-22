@@ -94,6 +94,7 @@ const Navbar = ({ user, onUserChange, onSettingsOpen, onSubmissionOpen }) => {
                 <Link className='nav-link' to='/'>Home</Link>
                 <Link className='nav-link' to='/companies'>Companies</Link>
                 <Link className='nav-link' to='/roadmap'>Roadmap</Link>
+                <Link className='nav-link' to='/lessons'>Lessons</Link>
                 <button className='nav-link' onClick={() => onSubmissionOpen()}>Report</button>
               </div>
             ) : (
@@ -101,6 +102,7 @@ const Navbar = ({ user, onUserChange, onSettingsOpen, onSubmissionOpen }) => {
                 <Link className='nav-link' to='/'><i className="fa-solid fa-house"></i></Link>
                 <Link className='nav-link' to='/companies'><i className="fa-solid fa-building"></i></Link>
                 <Link className='nav-link' to='/roadmap'><i className="fa-solid fa-share-nodes"></i></Link>
+                <Link className='nav-link' to='/lessons'><i className="fa-solid fa-brain"></i></Link>
                 <button className='nav-link' onClick={() => onSubmissionOpen()}><i className="fa-solid fa-flag"></i></button>
               </div>
             )}

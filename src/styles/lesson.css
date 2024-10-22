@@ -54,6 +54,12 @@
     flex-direction: column;
     gap: 10px;
 }
+
+.lesson-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
   
 .lesson-title {
     font-size: 1.5rem;
