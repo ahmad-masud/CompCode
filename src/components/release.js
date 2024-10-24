@@ -17,11 +17,17 @@ const ReleaseNotes = () => {
         <div className="release-notes">
             <h2>Release Notes</h2>
             <ul>
-                {displayedReleases.map((release, index) => (
+            {displayedReleases.map((release, index) => {
+                const [year, month, day] = release.date.split('-'); // Split date string
+                const releaseDate = new Date(year, month - 1, day); // Month is 0-indexed, so subtract 1
+                return (
                     <li key={index}>
-                        <span className="release-date">{new Date(release.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>: {release.comment}
+                        <span className="release-date">
+                            {releaseDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                        </span>: {release.comment}
                     </li>
-                ))}
+                );
+            })}
             </ul>
             {releases.length > 4 && (
                 <button className="show-more" onClick={() => setShowAll(!showAll)}>

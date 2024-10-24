@@ -260,7 +260,6 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
             <div>Status</div>
             <div>Problem <button className="sort-button" onClick={() => sortProblems('ID')}>{getSortIcon('ID')}</button></div>
             {!narrow && <div>Solution</div>}
-            {!narrow && <div>Video</div>}
             {!narrow && <div>Acceptance <button className="sort-button" onClick={() => sortProblems('Acceptance')}>{getSortIcon('Acceptance')}</button></div>}
             <div>Difficulty <button className="sort-button" onClick={() => sortProblems('Difficulty')}>{getSortIcon('Difficulty')}</button></div>
             {page === 'companies' && !narrow && <div>Frequency {premiumInfo && premiumInfo.premium && <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button>}</div>}
@@ -285,13 +284,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
                 ) : (
                   <Link to="/premium" className='premium-link'><i className="fa-solid fa-crown"></i></Link> // Show lock if not premium
                 )}
-              </div>} 
-              {!narrow && problem.Video ? <div className='video-link'>
-                <a href={`https://www.youtube.com/watch?v=${problem.Video}`} target='_blank' rel='noopener noreferrer' >
-                  <i className="fa-regular fa-file-video"></i>
-                </a>
-              </div>
-              : <div className='video-link'><i className="fa-solid fa-ban"></i></div>}
+              </div>}
               {!narrow && <div>{problem.Acceptance}</div>}
               <div className={problem.Difficulty.toLowerCase()}>{problem.Difficulty}</div>
               {page === 'companies' && !narrow && (
