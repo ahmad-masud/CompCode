@@ -234,15 +234,15 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
 
   return (
     <div className="problems-overlay">
-      {videoModalOpen && <Video link={videoURL} onClose={() => setVideoModalOpen(false)} />}
-      <Solution
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        problemName={problemName}
-        theme={theme}
-      />
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="problems-overlay-content">
+        {videoModalOpen && <Video link={videoURL} onClose={() => setVideoModalOpen(false)} />}
+        <Solution
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          problemName={problemName}
+          theme={theme}
+        />
         <button className="close-button" onClick={onClose}><i className="bi bi-x"></i></button>
         <h2>
           {company && company.name.replace(/\b\w/g, c => c.toUpperCase())}
