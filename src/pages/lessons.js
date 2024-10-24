@@ -9,6 +9,10 @@ const Lessons = ({ lessons }) => {
     algorithms: [],
     concepts: [],
   };
+  const images = lessons.reduce((map, lesson) => {
+    map[lesson.title] = require(`../content/images/${lesson.title.replace(/\s|-/g, '').toLowerCase()}.webp`);
+    return map;
+  }, {});
 
   // Loop through all lessons and categorize them based on type
   lessons.forEach((lesson) => {
@@ -21,19 +25,13 @@ const Lessons = ({ lessons }) => {
     }
   });
 
-  // Helper function to format the image path based on the lesson title
-  const getLessonImagePath = (title) => {
-    const formattedTitle = title.replace(/\s|-/g, '').toLowerCase();
-    return require(`../content/images/${formattedTitle}.webp`);
-  };
-
   const renderLessons = (category, title) => (
     <div key={title}>
       <p className='lesson-type-title'>{title}</p>
       <div className="lessons-container">
         {category.map((lesson, index) => (
           <div onClick={() => navigate(`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`)} key={index} className="lesson-card">
-            <img className="lesson-card-image" src={getLessonImagePath(lesson.title)} alt={lesson.title} />
+            <img className="lesson-card-image" src={images[lesson.title]} alt={lesson.title} />
             <div className="lesson-card-text">
                 <p className="lesson-card-title" >{lesson.title}</p>
                 <div className="lesson-card-sub-text">

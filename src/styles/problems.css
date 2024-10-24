@@ -124,14 +124,6 @@
   cursor: pointer;
 }
 
-.video-link a {
-  color: #BF5AF2;
-  font-size: 1.25rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
 .title a:hover {
   color: #007bff;
 }
