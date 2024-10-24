@@ -291,7 +291,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
                   <i className="fa-regular fa-file-video"></i>
                 </a>
               </div>
-              : <div className='video-link'><i class="fa-solid fa-ban"></i></div>}
+              : <div className='video-link'><i className="fa-solid fa-ban"></i></div>}
               {!narrow && <div>{problem.Acceptance}</div>}
               <div className={problem.Difficulty.toLowerCase()}>{problem.Difficulty}</div>
               {page === 'companies' && !narrow && (
