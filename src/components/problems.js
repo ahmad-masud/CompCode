@@ -7,6 +7,7 @@ import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Video from './video';
 
 const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
   const [problems, setProblems] = useState([]);
@@ -15,6 +16,8 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [problemName, setProblemName] = useState('');
+  const [videoURL, setVideoURL] = useState('');
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
   const navigate = useNavigate();
 
   // Pagination state
@@ -224,8 +227,14 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
     return pages;
   };
 
+  const handleVideoClick = (url) => {
+    setVideoURL(url);
+    setVideoModalOpen(true);
+  };
+
   return (
     <div className="problems-overlay">
+      {videoModalOpen && <Video link={videoURL} onClose={() => setVideoModalOpen(false)} />}
       <Solution
         isOpen={isModalOpen}
         onClose={closeModal}
@@ -260,6 +269,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
             <div>Status</div>
             <div>Problem <button className="sort-button" onClick={() => sortProblems('ID')}>{getSortIcon('ID')}</button></div>
             {!narrow && <div>Solution</div>}
+            {!narrow && <div>Video</div>}
             {!narrow && <div>Acceptance <button className="sort-button" onClick={() => sortProblems('Acceptance')}>{getSortIcon('Acceptance')}</button></div>}
             <div>Difficulty <button className="sort-button" onClick={() => sortProblems('Difficulty')}>{getSortIcon('Difficulty')}</button></div>
             {page === 'companies' && !narrow && <div>Frequency {premiumInfo && premiumInfo.premium && <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button>}</div>}
@@ -284,6 +294,11 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
                 ) : (
                   <Link to="/premium" className='premium-link'><i className="fa-solid fa-crown"></i></Link> // Show lock if not premium
                 )}
+              </div>}
+              {!narrow && <div className='video-link'>
+                <button onClick={() => handleVideoClick(problem.Video || '')}>
+                  <i className="fa-regular fa-file-video"></i>
+                </button>
               </div>}
               {!narrow && <div>{problem.Acceptance}</div>}
               <div className={problem.Difficulty.toLowerCase()}>{problem.Difficulty}</div>
