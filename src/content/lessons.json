@@ -1238,6 +1238,7 @@
         "type": "datastructure",
         "difficulty": "medium",
         "duration": "1.5 hours",
+        "premium": true,
         "lessons": [
             {
                 "title": "Introduction to Monotonic Stacks",
@@ -2546,6 +2547,7 @@
         "type": "datastructure",
         "difficulty": "hard",
         "duration": "1.5 hours",
+        "premium": true,
         "lessons": [
             {
                 "title": "Introduction to Tries",
@@ -3478,6 +3480,7 @@
         "type": "concept",
         "difficulty": "medium",
         "duration": "1.5 hours",
+        "premium": true,
         "lessons": [
             {
                 "title": "Introduction to Greedy Algorithms",
@@ -3650,6 +3653,7 @@
         "type": "datastructure",
         "difficulty": "medium",
         "duration": "1 hour",
+        "premium": true,
         "lessons": [
             {
                 "title": "Introduction to Adjacency List",
@@ -3768,6 +3772,7 @@
         "type": "datastructure",
         "difficulty": "medium",
         "duration": "1.5 hours",
+        "premium": true,
         "lessons": [
             {
                 "title": "Introduction to Intervals",
@@ -3909,6 +3914,7 @@
         "type": "algorithm",
         "difficulty": "easy",
         "duration": "0.5 hour",
+        "premium": true,
         "lessons": [
             {
                 "title": "Introduction to Kadane's Algorithm",
@@ -4049,6 +4055,7 @@
         "type": "algorithm",
         "difficulty": "hard",
         "duration": "1 hour",
+        "premium": true,
         "lessons": [
             {
                 "title": "Introduction to Topological Sort",
@@ -4180,6 +4187,7 @@
         "type": "algorithm",
         "difficulty": "hard",
         "duration": "1.5 hours",
+        "premium": true,
         "lessons": [
             {
                 "title": "Introduction to Union-Find",

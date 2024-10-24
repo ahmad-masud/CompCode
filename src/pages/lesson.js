@@ -3,19 +3,25 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Import Prism styles
 import { CopyToClipboard } from 'react-copy-to-clipboard'; // For the copy button
 import '../styles/lesson.css'; // For custom styling
+import { useNavigate } from 'react-router-dom';
 
-const Lesson = ({ data, theme }) => {
+const Lesson = ({ data, theme, premiumInfo }) => {
   const [lesson, setLesson] = useState(null);
   const [copiedState, setCopiedState] = useState([]); // Track copied state for each block
   const [loading, setLoading] = useState(true); // Track loading state
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!data) return;
+    if (data.premium && !premiumInfo.premium) {
+      navigate('/premium');
+      return;
+    }
     setLoading(true);
     setLesson(data);
     setCopiedState(Array(data.lessons?.length || 0).fill(false)); // Ensure lessons exist before setting copied state
     setLoading(false);
-  }, [data]);
+  }, [data, navigate, premiumInfo]);
 
   if (loading) return;
 
