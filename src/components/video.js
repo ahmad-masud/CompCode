@@ -1,20 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import '../styles/video.css'; // Import a CSS file for styling
-import { useAlerts } from '../context/alertscontext'; // Assuming you have an alerts context
+import React from 'react';
+import '../styles/video.css';
 
-const Video = ({ link, onClose }) => {
-    const { addAlert } = useAlerts();
-    const [found, setFound] = useState(false);
-
-    useEffect(() => {
-        if (!link) {
-            addAlert('No video found.', 'warning');
-            return;
-        }
-        setFound(true);
-    }, [link, addAlert]);
-
-    if (!found) {
+const Video = ({ link, onClose, isOpen }) => {
+    if (!isOpen) {
         return null;
     }
 
