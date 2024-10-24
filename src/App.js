@@ -121,11 +121,10 @@ const App = () => {
               <Route path='/' element={<Home />} />
               <Route path='/companies' element={<Companies theme={theme} user={user} premiumInfo={premiumInfo} />} />
               <Route path='/roadmap' element={<Roadmap theme={theme} user={user} />} />
-              <Route path='/lesson' element={<NotFound />} />
-              <Route path='/lessons' element={<Lessons lessons={lessons} />} />
+              <Route path='/lessons' element={<Lessons lessons={lessons} premiumInfo={premiumInfo} />} />
               <Route path='/premium' element={<Premium user={user} premiumInfo={premiumInfo} />} />
               {lessons.map((lesson, index) => (
-                <Route key={`${lesson.id}-${index}`} path={`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`} element={<Lesson data={lesson} theme={theme} />} />
+                <Route key={`${lesson.id}-${index}`} path={`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`} element={<Lesson data={lesson} theme={theme} premiumInfo={premiumInfo} />} />
               ))}
               <Route path='/policy' element={<Policy />} />
               <Route path='/terms' element={<Terms />} />

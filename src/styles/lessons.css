@@ -40,8 +40,16 @@
     cursor: pointer;
   }
 
+  .lesson-card-disabled {
+    cursor: not-allowed;
+  }
+
   .lesson-card:hover {
     background: #3FCA7D;
+  }
+
+  .lesson-card-disabled:hover {
+    background: var(--secondary-color);
   }
 
   .lesson-card-text {
@@ -55,8 +63,13 @@
   .lesson-card-sub-text {
     display: flex;
     gap: 10px;
+    align-items: center;
   }
   
+  .lesson-card-sub-text i {
+    color: goldenrod;
+  }
+
   .lesson-card-image{
     width: 100%;
     height: auto;
