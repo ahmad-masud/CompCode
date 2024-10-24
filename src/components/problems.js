@@ -287,7 +287,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
                 )}
               </div>} 
               {!narrow && problem.Video ? <div className='video-link'>
-                <a href={`https://www.youtube.com/watch?v=${problem.Video}`}>
+                <a href={`https://www.youtube.com/watch?v=${problem.Video}`} target='_blank' rel='noopener noreferrer' >
                   <i className="fa-regular fa-file-video"></i>
                 </a>
               </div>
