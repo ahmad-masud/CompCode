@@ -124,7 +124,7 @@
   cursor: pointer;
 }
 
-.video-link button {
+.video-link a {
   color: #BF5AF2;
   font-size: 1.25rem;
   background: none;
@@ -220,6 +220,10 @@
 
 .roadmap-lesson:hover {
   background: #3FCA7D;
+}
+
+.fa-ban {
+  color: #d9534f;
 }
 
 @media (max-width: 768px) {
