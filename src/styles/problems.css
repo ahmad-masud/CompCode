@@ -19,7 +19,7 @@
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
 }
 
-.overlay-content {
+.problems-overlay-content {
   background-color: var(--background-color);
   padding: 20px;
   border-radius: 8px;
@@ -32,7 +32,7 @@
   overflow: auto;
 }
 
-.overlay-content h2 {
+.problems-overlay-content h2 {
   font-size: 1.5rem;
   color: var(--font-color);
   margin-bottom: 10px;
@@ -163,7 +163,7 @@
   background-color: #3FCA7D;
 }
 
-.overlay-content h2 {
+.problems-overlay-content h2 {
   text-align: center;
 }
 
@@ -223,7 +223,7 @@
 }
 
 @media (max-width: 768px) {
-  .overlay-content {
+  .problems-overlay-content {
     width: calc(100% - 30px);
     padding: 20px 5px;
   }

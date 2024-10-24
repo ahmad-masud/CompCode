@@ -242,7 +242,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
         theme={theme}
       />
       <div className="overlay-backdrop" onClick={onClose}></div>
-      <div className="overlay-content">
+      <div className="problems-overlay-content">
         <button className="close-button" onClick={onClose}><i className="bi bi-x"></i></button>
         <h2>
           {company && company.name.replace(/\b\w/g, c => c.toUpperCase())}
