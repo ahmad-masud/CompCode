@@ -76,7 +76,8 @@
 
 .table-header, .table-row {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   padding: 15px;
 }
 

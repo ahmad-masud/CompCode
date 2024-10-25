@@ -285,7 +285,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
                   <Link to="/premium" className='premium-link'><i className="fa-solid fa-crown"></i></Link> // Show lock if not premium
                 )}
               </div>}
-              {!narrow && <div>{problem.Acceptance}</div>}
+              {!narrow && <div>{`${problem.Acceptance}%`}</div>}
               <div className={problem.Difficulty.toLowerCase()}>{problem.Difficulty}</div>
               {page === 'companies' && !narrow && (
                 <div>

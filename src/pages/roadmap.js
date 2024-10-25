@@ -40,16 +40,18 @@ const Roadmap = ({ user, theme }) => {
     const fetchCompaniesData = async () => {
       // Iterate through the order to retrieve company data in the correct sequence
       const companiesInfo = companies.map(company => {
-        const acceptanceRates = company.data.map(problem => parseFloat(problem.Acceptance.replace('%', '')));
+        const acceptanceRates = company.data.map(problem => problem.Acceptance);
         const difficulties = company.data.map(problem => problem.Difficulty);
         const numProblems = company.data.length;
-        const avgAcceptance = acceptanceRates.length > 0 ? average(acceptanceRates).toFixed(2) + '%' : 'N/A';
+        const solvedProblems = company.data.filter(problem => completedProblems[problem.ID]).length;
+        const avgAcceptance = acceptanceRates.length > 0 ? parseInt(average(acceptanceRates).toFixed(2)) + '%' : 'N/A';
         const mostCommonDifficulty = difficulties.length > 0 ? mostCommon(difficulties) : 'N/A';
 
         return {
           name: company.name.charAt(0).toUpperCase() + company.name.slice(1),
           avgAcceptance,
           numProblems,
+          solvedProblems,
           mostCommonDifficulty,
           problems: company.data,
         };
@@ -87,7 +89,7 @@ const Roadmap = ({ user, theme }) => {
     };
 
     fetchCompaniesData();
-  }, [sortConfig]);
+  }, [sortConfig, completedProblems]);
 
   useEffect(() => {
     if (user) {
@@ -190,7 +192,7 @@ const Roadmap = ({ user, theme }) => {
               <tr>
                 <th>Name</th>
                 {!narrow && <th>Acceptance <button className="sort-button" onClick={() => sortCompanies('avgAcceptance')}>{getSortIcon('avgAcceptance')}</button></th>}
-                {!narrow && <th>Problems <button className="sort-button" onClick={() => sortCompanies('numProblems')}>{getSortIcon('numProblems')}</button></th>}
+                {!narrow && <th>Solved</th>}
                 <th>Difficulty <button className="sort-button" onClick={() => sortCompanies('mostCommonDifficulty')}>{getSortIcon('mostCommonDifficulty')}</button></th>
               </tr>
             </thead>
@@ -203,7 +205,7 @@ const Roadmap = ({ user, theme }) => {
                     </button>
                   </td>
                   {!narrow && <td>{company.avgAcceptance}</td>}
-                  {!narrow && <td>{company.numProblems}</td>}
+                  {!narrow && <td><div className="company-progress-bar"><div className="company-progress" style={{ width: `${(company.solvedProblems/company.numProblems) * 100}%` }}></div></div></td>}
                   <td className={company.mostCommonDifficulty.toLowerCase()}>{company.mostCommonDifficulty}</td>
                 </tr>
               ))}

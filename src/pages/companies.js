@@ -46,10 +46,10 @@ const Companies = ({ user, premiumInfo, theme }) => {
   useEffect(() => {
     const fetchCompaniesData = async () => {
       const companiesInfo = companies.map(company => {
-        const acceptanceRates = company.data.map(problem => parseFloat(problem.Acceptance.replace('%', '')));
+        const acceptanceRates = company.data.map(problem => problem.Acceptance);
         const difficulties = company.data.map(problem => problem.Difficulty);
         const numProblems = company.data.length;
-        const avgAcceptance = acceptanceRates.length > 0 ? average(acceptanceRates).toFixed(2) + '%' : 'N/A';
+        const avgAcceptance = acceptanceRates.length > 0 ? parseInt(average(acceptanceRates).toFixed(2)) + '%' : 'N/A';
         const mostCommonDifficulty = difficulties.length > 0 ? mostCommon(difficulties) : 'N/A';
 
         return {
