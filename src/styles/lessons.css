@@ -12,6 +12,7 @@
   font-weight: bold;
   color: var(--font-color);
   margin-bottom: 20px;
+  text-align: center;
 }
 
 
@@ -73,6 +74,16 @@
   .lesson-card-image{
     width: 100%;
     height: auto;
+  }
+
+  .lesson-card-image.loading {
+    filter: blur(8px);
+    transition: filter 0.3s ease-out;
+  }
+  
+  .lesson-card-image.loaded {
+    filter: blur(0);
+    transition: filter 0.3s ease-out;
   }
   
   .lesson-card-title {

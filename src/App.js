@@ -37,11 +37,6 @@ const App = () => {
     subscriptionEnd: null,
   });
 
-  const lessonImages = lessons.reduce((map, lesson) => {
-    map[lesson.title] = require(`./content/images/${lesson.title.replace(/\s|-/g, '').toLowerCase()}.webp`);
-    return map;
-  }, {});
-
   useEffect(() => {
     if (user) {
       const userRef = doc(firestore, 'users', user.uid);
@@ -126,7 +121,7 @@ const App = () => {
               <Route path='/' element={<Home />} />
               <Route path='/companies' element={<Companies theme={theme} user={user} premiumInfo={premiumInfo} />} />
               <Route path='/roadmap' element={<Roadmap theme={theme} user={user} />} />
-              <Route path='/lessons' element={<Lessons lessons={lessons} premiumInfo={premiumInfo} images={lessonImages} />} />
+              <Route path='/lessons' element={<Lessons lessons={lessons} premiumInfo={premiumInfo} />} />
               <Route path='/premium' element={<Premium user={user} premiumInfo={premiumInfo} />} />
               {lessons.map((lesson, index) => (
                 <Route key={`${lesson.id}-${index}`} path={`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`} element={<Lesson data={lesson} theme={theme} premiumInfo={premiumInfo} />} />
