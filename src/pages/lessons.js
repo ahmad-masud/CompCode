@@ -2,17 +2,13 @@ import React from 'react';
 import '../styles/lessons.css';
 import { useNavigate } from 'react-router-dom';
 
-const Lessons = ({ lessons, premiumInfo }) => {
+const Lessons = ({ lessons, premiumInfo, images }) => {
   const navigate = useNavigate();
   const categorizedLessons = {
     dataStructures: [],
     algorithms: [],
     concepts: [],
   };
-  const images = lessons.reduce((map, lesson) => {
-    map[lesson.title] = require(`../content/images/${lesson.title.replace(/\s|-/g, '').toLowerCase()}.webp`);
-    return map;
-  }, {});
 
   // Loop through all lessons and categorize them based on type
   lessons.forEach((lesson) => {
