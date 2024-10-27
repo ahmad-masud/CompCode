@@ -71,6 +71,12 @@
     color: goldenrod;
   }
 
+  .lesson-card-image-container {
+    width: 100%;
+    min-width: 250px;
+    min-height: 150px;
+  }
+
   .lesson-card-image{
     width: 100%;
     height: auto;

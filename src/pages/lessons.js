@@ -20,14 +20,17 @@ const Lessons = ({ lessons, premiumInfo, loadingImage }) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const { title } = entry.target.dataset;
+            const imageSrc = require(`../content/images/${title.replace(/\s|-/g, '').toLowerCase()}.webp`);
+            
             setLoadedImages((prev) => ({
               ...prev,
-              [title]: require(`../content/images/${title.replace(/\s|-/g, '').toLowerCase()}.webp`),
+              [title]: imageSrc,
             }));
+      
             observer.current.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0.01 });  // Adjusted threshold to 0.01 for earlier loading      
     }
     return () => observer.current && observer.current.disconnect();
   }, []);
@@ -63,12 +66,14 @@ const Lessons = ({ lessons, premiumInfo, loadingImage }) => {
             key={index}
             className={`lesson-card ${lesson.premium && !premiumInfo.premium ? 'lesson-card-disabled' : ''}`}
           >
-            <img
-              className={`lesson-card-image ${loadedImages[lesson.title] ? 'loaded' : 'loading'}`}
-              src={loadedImages[lesson.title] || loadingImage}
-              alt={lesson.title}
-              loading="lazy"
-            />
+            <div className="lesson-card-image-container">
+              <img
+                className={`lesson-card-image ${loadedImages[lesson.title] ? 'loaded' : 'loading'}`}
+                src={loadedImages[lesson.title] || loadingImage}
+                alt={lesson.title}
+                loading="lazy"
+              />
+            </div>
             <div className="lesson-card-text">
               <p className="lesson-card-title">{lesson.title}</p>
               <div className="lesson-card-sub-text">
