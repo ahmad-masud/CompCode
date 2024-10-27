@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/lessons.css';
 import { useNavigate } from 'react-router-dom';
-import loadingImage from '../content/images/loading.webp';
 
-const Lessons = ({ lessons, premiumInfo }) => {
+const Lessons = ({ lessons, premiumInfo, loadingImage }) => {
   const navigate = useNavigate();
   const categorizedLessons = {
     dataStructures: [],
