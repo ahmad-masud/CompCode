@@ -75,6 +75,7 @@
     width: 100%;
     min-width: 250px;
     min-height: 150px;
+    background: white;
   }
 
   .lesson-card-image{
