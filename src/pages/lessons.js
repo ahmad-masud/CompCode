@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import '../styles/lessons.css';
 import { useNavigate } from 'react-router-dom';
 
-const Lessons = ({ lessons, premiumInfo, loadingImage }) => {
+const Lessons = ({ lessons, premiumInfo }) => {
   const navigate = useNavigate();
   const categorizedLessons = {
     dataStructures: [],
@@ -10,30 +10,10 @@ const Lessons = ({ lessons, premiumInfo, loadingImage }) => {
     concepts: [],
   };
 
-  const observer = useRef(null);
-  const [loadedImages, setLoadedImages] = useState({});
-
-  useEffect(() => {
-    setLoadedImages({}); // Reset images on component mount
-    if (!observer.current) {
-      observer.current = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const { title } = entry.target.dataset;
-            const imageSrc = require(`../content/images/${title.replace(/\s|-/g, '').toLowerCase()}.webp`);
-            
-            setLoadedImages((prev) => ({
-              ...prev,
-              [title]: imageSrc,
-            }));
-      
-            observer.current.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.01 });  // Adjusted threshold to 0.01 for earlier loading      
-    }
-    return () => observer.current && observer.current.disconnect();
-  }, []);
+  const images = lessons.reduce((map, lesson) => {
+    map[lesson.title] = require(`../content/images/${lesson.title.replace(/\s|-/g, '').toLowerCase()}.webp`);
+    return map;
+  }, {});
 
   lessons.forEach((lesson) => {
     if (lesson.type === 'datastructure') {
@@ -56,20 +36,14 @@ const Lessons = ({ lessons, premiumInfo, loadingImage }) => {
       <div className="lessons-container">
         {category.map((lesson, index) => (
           <div
-            ref={(el) => {
-              if (el && observer.current) {
-                observer.current.observe(el);
-              }
-            }}
-            data-title={lesson.title}
             onClick={() => handleClick(lesson)}
             key={index}
             className={`lesson-card ${lesson.premium && !premiumInfo.premium ? 'lesson-card-disabled' : ''}`}
           >
             <div className="lesson-card-image-container">
               <img
-                className={`lesson-card-image ${loadedImages[lesson.title] ? 'loaded' : 'loading'}`}
-                src={loadedImages[lesson.title] || loadingImage}
+                className="lesson-card-image"
+                src={images[lesson.title]}
                 alt={lesson.title}
                 loading="lazy"
               />

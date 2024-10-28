@@ -63,7 +63,7 @@ const Premium = ({ user, premiumInfo }) => {
   return (
     <div className="premium-page">
       <p className='premium-title'>Premium</p>
-      <p className='premium-info'>Choose your subscription plan:</p>
+      <p className='premium-info'>Choose your subscription plan</p>
       <div className="subscription-options">
         <div className="subscription-option">
           <p className='subscription-title'>Free</p>
