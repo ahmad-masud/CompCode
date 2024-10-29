@@ -7,6 +7,7 @@ import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useAlerts } from '../context/alertscontext';
 
 const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
   const [problems, setProblems] = useState([]);
@@ -16,6 +17,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [problemName, setProblemName] = useState('');
   const navigate = useNavigate();
+  const { addAlert } = useAlerts();
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -78,19 +80,22 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
   }, [user]);
 
   const handleCheckboxChange = async (problemId) => {
+    if (!user) {
+      addAlert('Please sign in to track your progress.', 'warning');
+      return;
+    }
+
     const newCompletedProblems = { ...completedProblems, [problemId]: !completedProblems[problemId] };
     setCompletedProblems(newCompletedProblems);
 
-    if (user) {
-      const userRef = doc(firestore, 'users', user.uid);
-      await updateDoc(userRef, { completedProblems: newCompletedProblems }).catch(async (error) => {
-        if (error.code === 'not-found') {
-          await setDoc(userRef, { completedProblems: newCompletedProblems });
-        } else {
-          console.error("Error updating user data: ", error);
-        }
-      });
-    }
+    const userRef = doc(firestore, 'users', user.uid);
+    await updateDoc(userRef, { completedProblems: newCompletedProblems }).catch(async (error) => {
+      if (error.code === 'not-found') {
+        await setDoc(userRef, { completedProblems: newCompletedProblems });
+      } else {
+        console.error("Error updating user data: ", error);
+      }
+    });
   };
 
   const sortProblems = (key) => {
@@ -254,7 +259,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
         </div> }
         <div className="problem-table">
           <div className="table-header">
-            {user && <div className='check-head'>Status</div>}
+            <div className='check-head'>Status</div>
             <div className='title-head'>Problem <button className="sort-button" onClick={() => sortProblems('ID')}>{getSortIcon('ID')}</button></div>
             {!narrow && <div className='solution-link-head'>Solution</div>}
             {!narrow && <div>Acceptance <button className="sort-button" onClick={() => sortProblems('Acceptance')}>{getSortIcon('Acceptance')}</button></div>}
@@ -263,11 +268,11 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
           </div>
           {currentProblems.map((problem, index) => (
             <div className="table-row" key={index}>
-              {user && <div className='check'>
+              <div className='check'>
                 <button onClick={() => handleCheckboxChange(problem.ID)}>
                   {completedProblems[problem.ID] ? <i className="fa-solid fa-square-check"></i> : <i className="fa-regular fa-square"></i> }
                 </button>
-              </div>}
+              </div>
               <div className='title'>
                 <a href={problem['Leetcode Question Link']} target="_blank" rel="noopener noreferrer">
                   {problem.ID}. {problem.Title}
