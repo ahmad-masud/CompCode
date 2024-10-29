@@ -63,16 +63,18 @@ const Roadmap = ({ user, theme }) => {
             ? (a[sortConfig.key ] > b[sortConfig.key ] ? 1 : -1)
             : (a[sortConfig.key ] < b[sortConfig.key ] ? 1 : -1);
         } else if (sortConfig.key  === 'avgAcceptance') {
-          const aRate = parseFloat(a[sortConfig.key ].replace('%', ''));
-          const bRate = parseFloat(b[sortConfig.key ].replace('%', ''));
           return sortConfig.direction === 'ascending'
-            ? aRate - bRate
-            : bRate - aRate;
+            ? a[sortConfig.key] - b[sortConfig.key]
+            : b[sortConfig.key] - a[sortConfig.key];
         } else if (sortConfig.key  === 'mostCommonDifficulty') {
           const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
           return sortConfig.direction === 'ascending'
             ? difficultyOrder[a[sortConfig.key ]] - difficultyOrder[b[sortConfig.key ]]
             : difficultyOrder[b[sortConfig.key ]] - difficultyOrder[a[sortConfig.key ]];
+        }  else if (sortConfig.key === 'solved') {
+          return sortConfig.direction === 'ascending'
+            ? (a.solvedProblems/a.numProblems) - (b.solvedProblems/b.numProblems)
+            : (b.solvedProblems/b.numProblems) - (a.solvedProblems/a.numProblems);
         } else {
           return sortConfig.direction === 'ascending'
             ? a[sortConfig.key ] - b[sortConfig.key ]
@@ -141,16 +143,18 @@ const Roadmap = ({ user, theme }) => {
           ? (a[key] > b[key] ? 1 : -1)
           : (a[key] < b[key] ? 1 : -1);
       } else if (key === 'avgAcceptance') {
-        const aRate = parseFloat(a[key].replace('%', ''));
-        const bRate = parseFloat(b[key].replace('%', ''));
         return direction === 'ascending'
-          ? aRate - bRate
-          : bRate - aRate;
+          ? a[key] - b[key]
+          : b[key] - a[key];
       } else if (key === 'mostCommonDifficulty') {
         const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
         return direction === 'ascending'
           ? difficultyOrder[a[key]] - difficultyOrder[b[key]]
           : difficultyOrder[b[key]] - difficultyOrder[a[key]];
+      } else if (key === 'solved') {
+        return direction === 'ascending'
+          ? (a.solvedProblems/a.numProblems) - (b.solvedProblems/b.numProblems)
+          : (b.solvedProblems/b.numProblems) - (a.solvedProblems/a.numProblems);
       } else {
         return direction === 'ascending'
           ? a[key] - b[key]
@@ -189,9 +193,9 @@ const Roadmap = ({ user, theme }) => {
           <table>
             <thead>
               <tr>
-                <th>Name</th>
+                <th>Name <button className="sort-button" onClick={() => sortCompanies('name')}>{getSortIcon('name')}</button></th>
                 {!narrow && <th>Acceptance <button className="sort-button" onClick={() => sortCompanies('avgAcceptance')}>{getSortIcon('avgAcceptance')}</button></th>}
-                {!narrow && <th>Solved</th>}
+                {!narrow && <th>Solved <button className="sort-button" onClick={() => sortCompanies('solved')}>{getSortIcon('solved')}</button></th>}
                 <th>Difficulty <button className="sort-button" onClick={() => sortCompanies('mostCommonDifficulty')}>{getSortIcon('mostCommonDifficulty')}</button></th>
               </tr>
             </thead>
