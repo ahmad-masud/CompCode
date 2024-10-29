@@ -63,9 +63,11 @@ const Roadmap = ({ user, theme }) => {
             ? (a[sortConfig.key ] > b[sortConfig.key ] ? 1 : -1)
             : (a[sortConfig.key ] < b[sortConfig.key ] ? 1 : -1);
         } else if (sortConfig.key  === 'avgAcceptance') {
+          const aRate = parseFloat(a[sortConfig.key ].replace('%', ''));
+          const bRate = parseFloat(b[sortConfig.key ].replace('%', ''));
           return sortConfig.direction === 'ascending'
-            ? a[sortConfig.key] - b[sortConfig.key]
-            : b[sortConfig.key] - a[sortConfig.key];
+            ? aRate - bRate
+            : bRate - aRate;
         } else if (sortConfig.key  === 'mostCommonDifficulty') {
           const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
           return sortConfig.direction === 'ascending'
