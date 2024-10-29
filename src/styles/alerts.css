@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 20px; /* Move it to the bottom */
   right: 20px; /* Keep it on the right */
-  z-index: 100000000000000000000000;
+  z-index: 100000;
 }
 
 .alert {
