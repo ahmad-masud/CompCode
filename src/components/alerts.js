@@ -1,9 +1,10 @@
 import React from 'react';
 import { useAlerts } from '../context/alertscontext';
-import '../styles/alerts.css'; // Your CSS for alerts
+import { createPortal } from 'react-dom';
+import '../styles/alerts.css';
 
 const Alerts = () => {
-  const { alerts } = useAlerts(); // Get alerts from context
+  const { alerts } = useAlerts();
 
   // Map alert types to FontAwesome icons and styles
   const getAlertIcon = (type) => {
@@ -32,7 +33,8 @@ const Alerts = () => {
     }
   };
 
-  return (
+  // Render alerts through a portal
+  return createPortal(
     <div className='alerts'>
       {alerts.map((alert) => (
         <div key={alert.id} className={getAlertClass(alert.type)}>
@@ -40,7 +42,8 @@ const Alerts = () => {
           <span>{alert.message}</span>
         </div>
       ))}
-    </div>
+    </div>,
+    document.body
   );
 };
 
