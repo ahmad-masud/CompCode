@@ -45,7 +45,6 @@ const Lessons = ({ lessons, premiumInfo }) => {
                 className="lesson-card-image"
                 src={images[lesson.title]}
                 alt={lesson.title}
-                loading="lazy"
               />
             </div>
             <div className="lesson-card-text">

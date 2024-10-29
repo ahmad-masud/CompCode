@@ -107,8 +107,7 @@ const Companies = ({ user, premiumInfo, theme }) => {
         console.error("Error fetching user data: ", error);
       });
     } else {
-      const completedProblemsFromLocalStorage = JSON.parse(localStorage.getItem('completedProblems'));
-      setCompletedProblems(completedProblemsFromLocalStorage || {});
+      setCompletedProblems({});
     }
   }, [user, openCompany]);
 

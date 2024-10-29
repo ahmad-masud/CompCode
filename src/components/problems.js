@@ -73,8 +73,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
         console.error("Error fetching user data: ", error);
       });
     } else {
-      const completedProblemsFromLocalStorage = JSON.parse(localStorage.getItem('completedProblems'));
-      setCompletedProblems(completedProblemsFromLocalStorage || {});
+      setCompletedProblems({});
     }
   }, [user]);
 
@@ -92,8 +91,6 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
         }
       });
     }
-
-    localStorage.setItem('completedProblems', JSON.stringify(newCompletedProblems));
   };
 
   const sortProblems = (key) => {
@@ -257,20 +254,20 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
         </div> }
         <div className="problem-table">
           <div className="table-header">
-            <div>Status</div>
-            <div>Problem <button className="sort-button" onClick={() => sortProblems('ID')}>{getSortIcon('ID')}</button></div>
-            {!narrow && <div>Solution</div>}
+            {user && <div className='check-head'>Status</div>}
+            <div className='title-head'>Problem <button className="sort-button" onClick={() => sortProblems('ID')}>{getSortIcon('ID')}</button></div>
+            {!narrow && <div className='solution-link-head'>Solution</div>}
             {!narrow && <div>Acceptance <button className="sort-button" onClick={() => sortProblems('Acceptance')}>{getSortIcon('Acceptance')}</button></div>}
-            <div>Difficulty <button className="sort-button" onClick={() => sortProblems('Difficulty')}>{getSortIcon('Difficulty')}</button></div>
-            {page === 'companies' && !narrow && <div>Frequency {premiumInfo && premiumInfo.premium && <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button>}</div>}
+            <div className="difficulty-head">Difficulty <button className="sort-button" onClick={() => sortProblems('Difficulty')}>{getSortIcon('Difficulty')}</button></div>
+            {page === 'companies' && !narrow && <div className="frequency-head">Frequency {premiumInfo && premiumInfo.premium && <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button>}</div>}
           </div>
           {currentProblems.map((problem, index) => (
             <div className="table-row" key={index}>
-              <div className='check'>
+              {user && <div className='check'>
                 <button onClick={() => handleCheckboxChange(problem.ID)}>
                   {completedProblems[problem.ID] ? <i className="fa-solid fa-square-check"></i> : <i className="fa-regular fa-square"></i> }
                 </button>
-              </div>
+              </div>}
               <div className='title'>
                 <a href={problem['Leetcode Question Link']} target="_blank" rel="noopener noreferrer">
                   {problem.ID}. {problem.Title}
@@ -286,9 +283,9 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
                 )}
               </div>}
               {!narrow && <div>{`${problem.Acceptance}%`}</div>}
-              <div className={problem.Difficulty.toLowerCase()}>{problem.Difficulty}</div>
+              <div className={`difficulty ${problem.Difficulty.toLowerCase()}`}>{problem.Difficulty}</div>
               {page === 'companies' && !narrow && (
-                <div>
+                <div className='frequency'>
                   {premiumInfo && premiumInfo.premium ? (
                     Math.round(problem.Frequency * 100) / 100
                   ) : (

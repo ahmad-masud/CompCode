@@ -89,19 +89,19 @@
   flex: 1;
 }
 
-.table-row div:nth-child(1), .table-header div:nth-child(1) {
+.table-row .check, .table-header .check-head {
   flex: 0.5;
 }
 
-.table-row div:nth-child(2), .table-header div:nth-child(2) {
+.table-row .title, .table-header .title-head {
   flex: 3;
 }
 
-.table-row div:nth-child(3), .table-header div:nth-child(3) {
+.table-row .solution-link, .table-header .solution-link-head {
   flex: 0.75;
 }
 
-.table-row div:nth-child(5), .table-header div:nth-child(5) {
+.table-row .difficulty, .table-header .difficulty-head {
   flex: 0.75;
 }
 
@@ -230,7 +230,7 @@
     padding: 10px; /* Reduced padding for better spacing */
   }
 
-  .table-row div:nth-child(2), .table-header div:nth-child(2) {
+  .table-row .difficulty, .table-header .difficulty-head {
     flex: 2;
   } 
   

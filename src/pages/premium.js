@@ -75,8 +75,8 @@ const Premium = ({ user, premiumInfo }) => {
           </button>
           <div className='subscription-features'>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Company-wise problems</p>
-            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Data structure problems and solutions</p>
-            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Algorithm problems and solutions</p>
+            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Roadmap problems and solutions</p>
+            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Free-tier lessons</p>
           </div>
         </div>
         <div className="subscription-option">
@@ -90,11 +90,11 @@ const Premium = ({ user, premiumInfo }) => {
           </button>
           <div className='subscription-features'>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Company-wise problems</p>
-            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Data structure problems and solutions</p>
-            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Algorithm problems and solutions</p>
+            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Roadmap problems and solutions</p>
+            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Free-tier lessons</p>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Frequency count for company-wise problems</p>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Solutions for company problems</p>
-            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Lessons for premium topics</p>
+            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Premium-tier lessons</p>
           </div>
           {premiumInfo.premium && (
             <button className='manage-button' onClick={handleManageSubcription}>

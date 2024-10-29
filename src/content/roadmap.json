@@ -807,7 +807,7 @@
     "name": "graphs",
     "lessons": [
       "graphs",
-      "adacency-lists",
+      "adjacency-lists",
       "depth-first-search",
       "breadth-first-search",
       "topological-sort",

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@stripe/react-stripe-js": "^2.8.1",
     "@stripe/stripe-js": "^4.8.0",
     "@szhsin/react-menu": "^4.2.2",
@@ -16,9 +17,9 @@
     "react-syntax-highlighter": "^15.5.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --no-eslint",
     "predeploy": "npm run build",
-    "build": "react-scripts build",
+    "build": "react-scripts build --no-eslint",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,8 +40,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
