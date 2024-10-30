@@ -40,7 +40,7 @@ const Lessons = ({ lessons, premiumInfo }) => {
             key={index}
             className={`lesson-card ${lesson.premium && !premiumInfo.premium ? 'lesson-card-disabled' : ''}`}
           >
-            <div className="lesson-card-image-container">
+            <div className={`lesson-card-image-container ${title.toLowerCase().split(' ').join('-')}`}>
               <img
                 className="lesson-card-image"
                 src={images[lesson.title]}

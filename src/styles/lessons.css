@@ -75,7 +75,18 @@
     width: 100%;
     width: 290px;
     height: 174px;
-    background: white;
+  }
+
+  .lesson-card-image-container.data-structures {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+  }
+
+  .lesson-card-image-container.algorithms {
+    background: linear-gradient(135deg, #ff0000, #520d9b);
+  }
+
+  .lesson-card-image-container.concepts {
+    background: linear-gradient(135deg, #009fcb, #31f845);
   }
 
   .lesson-card-image{

@@ -41,7 +41,6 @@
   border-bottom: var(--secondary-color) 2px solid;
   color: var(--font-color);
   font-weight: 100;
-  filter: brightness(75%);
 }
 
 .company-table tbody tr:nth-child(even) {

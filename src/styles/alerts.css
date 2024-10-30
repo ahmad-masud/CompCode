@@ -12,22 +12,23 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #fff;
+  background-color: var(--secondary-color);
   font-size: 1rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .alert-success {
-  background-color: #3FCA7D;
+  color: #3FCA7D;
 }
 
 .alert-warning {
-  background-color: #c49406;
+  color: #c49406;
 }
 
 .alert-error {
-  background-color: #d9534f;
+  color: #d9534f;
 }
 
 .alert-info {
-  background-color: #17a2b8;
+  color: #17a2b8;
 }
