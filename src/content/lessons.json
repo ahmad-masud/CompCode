@@ -3,7 +3,6 @@
         "title": "Arrays",
         "type": "datastructure",
         "difficulty": "easy",
-        "duration": "0.5 hour",
         "lessons": [
             {
                 "title": "Introduction to Arrays",
@@ -176,7 +175,6 @@
         "title": "Strings",
         "type": "datastructure",
         "difficulty": "easy",
-        "duration": "0.5 hour",
         "lessons": [
             {
                 "title": "Introduction to Strings",
@@ -390,7 +388,6 @@
         "title": "Dictionaries",
         "type": "datastructure",
         "difficulty": "easy",
-        "duration": "0.5 hour",
         "lessons": [
             {
                 "title": "Introduction to Dictionaries",
@@ -599,7 +596,6 @@
         "title": "Sets",
         "type": "datastructure",
         "difficulty": "easy",
-        "duration": "0.25 hour",
         "lessons": [
             {
                 "title": "Introduction to Sets",
@@ -768,7 +764,6 @@
         "title": "Two Pointers",
         "type": "concept",
         "difficulty": "easy",
-        "duration": "1 hour",
         "lessons": [
             {
                 "title": "Introduction to Two Pointers Technique",
@@ -933,7 +928,6 @@
         "title": "Stacks",
         "type": "datastructure",
         "difficulty": "easy",
-        "duration": "1 hour",
         "lessons": [
             {
                 "title": "Introduction to Stacks",
@@ -1087,7 +1081,6 @@
         "title": "Queues",
         "type": "datastructure",
         "difficulty": "easy",
-        "duration": "1 hour",
         "lessons": [
             {
                 "title": "Introduction to Queues",
@@ -1237,7 +1230,6 @@
         "title": "Monotonic Stacks",
         "type": "datastructure",
         "difficulty": "medium",
-        "duration": "1.5 hours",
         "premium": true,
         "lessons": [
             {
@@ -1366,7 +1358,6 @@
         "title": "Singly Linked Lists",
         "type": "datastructure",
         "difficulty": "medium",
-        "duration": "2 hours",
         "lessons": [
             {
                 "title": "Introduction to Singly Linked Lists",
@@ -1513,7 +1504,6 @@
         "title": "Doubly Linked Lists",
         "type": "datastructure",
         "difficulty": "medium",
-        "duration": "2 hours",
         "lessons": [
             {
                 "title": "Introduction to Doubly Linked Lists",
@@ -1660,7 +1650,6 @@
         "title": "Binary Search",
         "type": "algorithm",
         "difficulty": "medium",
-        "duration": "1 hour",
         "lessons": [
             {
                 "title": "Introduction to Binary Search",
@@ -1823,7 +1812,6 @@
         "title": "Sliding Window",
         "type": "concept",
         "difficulty": "medium",
-        "duration": "1 hour",
         "lessons": [
             {
                 "title": "Introduction to Sliding Window",
@@ -1946,7 +1934,6 @@
         "title": "Recursion",
         "type": "concept",
         "difficulty": "medium",
-        "duration": "2 hours",
         "lessons": [
             {
                 "title": "Introduction to Recursion",
@@ -2108,7 +2095,6 @@
         "title": "Backtracking",
         "type": "concept",
         "difficulty": "hard",
-        "duration": "2 hours",
         "lessons": [
             {
                 "title": "Introduction to Backtracking",
@@ -2237,7 +2223,6 @@
         "title": "Binary Trees",
         "type": "datastructure",
         "difficulty": "medium",
-        "duration": "2 hours",
         "lessons": [
             {
                 "title": "Introduction to Binary Trees",
@@ -2396,7 +2381,6 @@
         "title": "Binary Search Trees",
         "type": "datastructure",
         "difficulty": "medium",
-        "duration": "1 hour",
         "lessons": [
             {
                 "title": "Introduction to Binary Search Trees",
@@ -2546,7 +2530,6 @@
         "title": "Tries",
         "type": "datastructure",
         "difficulty": "hard",
-        "duration": "1.5 hours",
         "premium": true,
         "lessons": [
             {
@@ -2725,7 +2708,6 @@
         "title": "Heaps",
         "type": "datastructure",
         "difficulty": "medium",
-        "duration": "1 hour",
         "lessons": [
             {
                 "title": "Introduction to Heaps",
@@ -2903,7 +2885,6 @@
         "title": "Breadth-First Search",
         "type": "algorithm",
         "difficulty": "medium",
-        "duration": "1.5 hours",
         "lessons": [
             {
                 "title": "Introduction to Breadth-First Search",
@@ -2999,7 +2980,6 @@
         "title": "Depth-First Search",
         "type": "algorithm",
         "difficulty": "medium",
-        "duration": "1.5 hours",
         "lessons": [
             {
                 "title": "Introduction to Depth-First Search",
@@ -3127,7 +3107,6 @@
         "title": "Dynamic Programming",
         "type": "concept",
         "difficulty": "hard",
-        "duration": "3 hours",
         "lessons": [
             {
                 "title": "Introduction to Dynamic Programming",
@@ -3314,7 +3293,6 @@
         "title": "Graphs",
         "type": "datastructure",
         "difficulty": "hard",
-        "duration": "3 hours",
         "lessons": [
             {
                 "title": "Introduction to Graphs",
@@ -3479,7 +3457,6 @@
         "title": "Greedy",
         "type": "concept",
         "difficulty": "medium",
-        "duration": "1.5 hours",
         "premium": true,
         "lessons": [
             {
@@ -3652,7 +3629,6 @@
         "title": "Adjacency Lists",
         "type": "datastructure",
         "difficulty": "medium",
-        "duration": "1 hour",
         "premium": true,
         "lessons": [
             {
@@ -3771,7 +3747,6 @@
         "title": "Intervals",
         "type": "datastructure",
         "difficulty": "medium",
-        "duration": "1.5 hours",
         "premium": true,
         "lessons": [
             {
@@ -3913,7 +3888,6 @@
         "title": "Kadanes Algorithm",
         "type": "algorithm",
         "difficulty": "easy",
-        "duration": "0.5 hour",
         "premium": true,
         "lessons": [
             {
@@ -4054,7 +4028,6 @@
         "title": "Topological Sort",
         "type": "algorithm",
         "difficulty": "hard",
-        "duration": "1 hour",
         "premium": true,
         "lessons": [
             {
@@ -4186,7 +4159,6 @@
         "title": "Union-Find",
         "type": "algorithm",
         "difficulty": "hard",
-        "duration": "1.5 hours",
         "premium": true,
         "lessons": [
             {
@@ -4331,7 +4303,6 @@
         "title": "Bit Manipulation",
         "type": "concept",
         "difficulty": "easy",
-        "duration": "1 hour",
         "lessons": [
             {
                 "title": "Introduction to Bit Manipulation",

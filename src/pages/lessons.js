@@ -50,7 +50,6 @@ const Lessons = ({ lessons, premiumInfo }) => {
             <div className="lesson-card-text">
               <p className="lesson-card-title">{lesson.title}</p>
               <div className="lesson-card-sub-text">
-                <p className='lesson-card-duration'>{lesson.duration || 'N/A'}</p>
                 <p className={'lesson-card-difficulty ' + lesson.difficulty}>
                   {lesson.difficulty[0].toUpperCase() + lesson.difficulty.slice(1) || 'N/A'}
                 </p>
