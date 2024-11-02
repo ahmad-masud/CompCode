@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/lessons.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -25,6 +25,16 @@ const Lessons = ({ lessons, premiumInfo }) => {
     }
   });
 
+  const [loadedImages, setLoadedImages] = useState(Array(lessons.length).fill(false));
+
+  const handleImageLoad = (index) => {
+    setLoadedImages((prevLoadedImages) => {
+      const newLoadedImages = [...prevLoadedImages];
+      newLoadedImages[index] = true;
+      return newLoadedImages;
+    });
+  };
+
   const handleClick = (lesson) => {
     if (lesson.premium && !premiumInfo.premium) return;
     navigate(`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`);
@@ -42,9 +52,10 @@ const Lessons = ({ lessons, premiumInfo }) => {
           >
             <div className={`lesson-card-image-container ${title.toLowerCase().split(' ').join('-')}`}>
               <img
-                className="lesson-card-image"
+                className={`lesson-card-image ${loadedImages[index] ? 'loaded' : 'blurred'}`}
                 src={images[lesson.title]}
                 alt={lesson.title}
+                onLoad={() => handleImageLoad(index)}
               />
             </div>
             <div className="lesson-card-text">

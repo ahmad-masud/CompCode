@@ -92,6 +92,17 @@
   .lesson-card-image{
     width: 100%;
     height: auto;
+    transition: filter 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .lesson-card-image.blurred {
+    filter: blur(10px);
+    opacity: 0.6;
+  }
+  
+  .lesson-card-image.loaded {
+    filter: blur(0);
+    opacity: 1;
   }
   
   .lesson-card-title {
