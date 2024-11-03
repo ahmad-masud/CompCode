@@ -70,8 +70,8 @@ const Premium = ({ user, premiumInfo }) => {
           <p className='subscription-cost'>$0<span>USD | month</span></p>
           <button
             className="checkout-button disabled"
-          >
-            {premiumInfo.premium ? 'Previous Plan' : 'Current Plan'}
+          >  
+           {user ? (premiumInfo.premium ? 'Previous Plan' : 'Current Plan') : 'Free Plan'}
           </button>
           <div className='subscription-features'>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Company-wise problems</p>
