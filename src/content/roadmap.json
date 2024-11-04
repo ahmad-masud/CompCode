@@ -12,7 +12,7 @@
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/find-closest-number-to-zero",
         "Acceptance": 46,
-        "Video": "8VOP4Mm4nFs?si=PijdjFGX8Ca2YA5W"
+        "Video": "8VOP4Mm4nFs?si=GMR-G8DNP7sHt-s8"
       },
       {
         "ID": 1768,
@@ -77,7 +77,8 @@
         "Title": "Two Sum",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/two-sum",
-        "Acceptance": 48
+        "Acceptance": 48,
+        "Video": "oetyCTdewlU?si=YVht9LVdy8bIOfaa"
       },
       {
         "ID": 136,
@@ -98,7 +99,8 @@
         "Title": "Intersection of Two Arrays",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/intersection-of-two-arrays",
-        "Acceptance": 70
+        "Acceptance": 70,
+        "Video": "Lcj_cuZUy68?si=3Gqo9JgWimF9MuRB"
       },
       {
         "ID": 242,
@@ -157,7 +159,8 @@
         "Title": "Two Sum II - Input Array Is Sorted",
         "Difficulty": "Medium",
         "Leetcode Question Link": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted",
-        "Acceptance": 59
+        "Acceptance": 59,
+        "Video": "-gPXrCoJgHE?si=hcp0dO_s8P5XbAzy"
       },
       {
         "ID": 125,
@@ -171,7 +174,8 @@
         "Title": "Reverse String",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/reverse-string",
-        "Acceptance": 77
+        "Acceptance": 77,
+        "Video": "QmvMuRcnIZ8?si=yll0E7OyDREY5ogu"
       },
       {
         "ID": 345,

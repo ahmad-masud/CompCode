@@ -112,7 +112,7 @@
   text-decoration: none;
 }
 
-.solution-link {
+.solution-link, .video-link {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -120,6 +120,14 @@
 
 .solution-link button {
   color: #007bff;
+  font-size: 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.video-link button {
+  color: #BF5AF2;
   font-size: 1.25rem;
   background: none;
   border: none;
