@@ -84,7 +84,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
 
   const handleCheckboxChange = async (problemId) => {
     if (!user) {
-      addAlert('Please sign in to track your progress.', 'warning');
+      addAlert('Sign in to track your progress', 'warning');
       return;
     }
 
@@ -231,7 +231,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
   
   const handleVideoClick = (videoUrl) => {
     if (!videoUrl) {
-      addAlert('No video available for this problem.', 'warning');
+      addAlert('No video available yet', 'warning');
       return;
     }
 

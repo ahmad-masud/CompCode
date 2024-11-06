@@ -16,10 +16,15 @@ export const AlertsProvider = ({ children }) => {
     setTimeout(() => {
       setAlerts((prevAlerts) => prevAlerts.filter(alert => alert.id !== id));
     }, timeout);
-  }, []); // No dependencies, so the function is stable
+  }, []);
+
+  // Function to remove an alert manually by its ID
+  const removeAlert = useCallback((id) => {
+    setAlerts((prevAlerts) => prevAlerts.filter(alert => alert.id !== id));
+  }, []);
 
   return (
-    <AlertContext.Provider value={{ addAlert, alerts }}>
+    <AlertContext.Provider value={{ addAlert, removeAlert, alerts }}>
       {children}
     </AlertContext.Provider>
   );

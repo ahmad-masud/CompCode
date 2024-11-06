@@ -11,27 +11,38 @@
 
 .alert {
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 50px;
   display: flex;
   align-items: center;
   gap: 10px;
   background-color: var(--secondary-color);
   font-size: 1rem;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  color: var(--font-color);
 }
 
-.alert-success {
+.alert-success .fa-solid {
   color: #3FCA7D;
 }
 
-.alert-warning {
+.alert-warning .fa-solid {
   color: #c49406;
 }
 
-.alert-error {
+.alert-error .fa-solid {
   color: #d9534f;
 }
 
-.alert-info {
+.alert-info .fa-solid {
   color: #17a2b8;
+}
+
+.alert-delete-button {
+  cursor: pointer;
+  color: var(--font-color);
+  font-size: 1.25rem;
+  transition: color 0.3s;
+  background: none;
+  border: none;
+  padding: none;
 }

@@ -12,13 +12,13 @@ const Premium = ({ user, premiumInfo }) => {
   const handleManageSubcription = async () => {
     if (!user) {
       console.error('User not logged in');
-      addAlert('You must login first!', 'warning');
+      addAlert('You must login first', 'warning');
       return;
     }
 
     if (!premiumInfo.customerId) {
       console.error('Customer ID not found.');
-      addAlert('Customer ID not found!', 'error');
+      addAlert('Customer ID not found', 'error');
       return;
     }
     addAlert('Loading customer portal...', 'info');
@@ -30,14 +30,14 @@ const Premium = ({ user, premiumInfo }) => {
       window.location.href = data.url; // Redirect to the Stripe Customer Portal
     } catch (error) {
       console.error('Error redirecting to customer portal:', error);
-      addAlert('Error redirecting to customer portal!', 'error');
+      addAlert('Error redirecting to customer portal', 'error');
     }
   };  
 
   const handlePremium = async (priceId, isSubscription) => {
     if (!user) {
       console.error('User not logged in');
-      addAlert('You must login first!', 'warning');
+      addAlert('You must login first', 'warning');
       return;
     }
 
@@ -52,11 +52,11 @@ const Premium = ({ user, premiumInfo }) => {
       const { error } = await stripe.redirectToCheckout({ sessionId: data.sessionId });
       if (error) {
         console.error('Error redirecting to checkout:', error);
-        addAlert('Error redirecting to checkout!', 'error');
+        addAlert('Error redirecting to checkout', 'error');
       }
     } catch (error) {
       console.error('Error creating checkout session:', error);
-      addAlert('Error creating checkout session!', 'error');
+      addAlert('Error creating checkout session', 'error');
     }
   };
 

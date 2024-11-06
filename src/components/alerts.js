@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 import '../styles/alerts.css';
 
 const Alerts = () => {
-  const { alerts } = useAlerts();
+  const { alerts, removeAlert } = useAlerts();
 
   // Map alert types to FontAwesome icons and styles
   const getAlertIcon = (type) => {
@@ -35,11 +35,17 @@ const Alerts = () => {
 
   // Render alerts through a portal
   return createPortal(
-    <div className='alerts'>
+    <div className="alerts">
       {alerts.map((alert) => (
         <div key={alert.id} className={getAlertClass(alert.type)}>
           {getAlertIcon(alert.type)}
           <span>{alert.message}</span>
+          <button
+            className="alert-delete-button"
+            onClick={() => removeAlert(alert.id)}
+          >
+            <i className="bi bi-x"></i>
+          </button>
         </div>
       ))}
     </div>,
