@@ -171,6 +171,10 @@
   background-color: #3FCA7D;
 }
 
+.company-progress.completed {
+  background-color: royalblue;
+}
+
 /* Media query for screens 768px and below */
 @media (max-width: 768px) {
   .companies-page {

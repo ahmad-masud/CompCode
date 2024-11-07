@@ -165,6 +165,10 @@
   background-color: #3FCA7D;
 }
 
+.progress.completed {
+  background-color: royalblue;
+}
+
 .problems-overlay-content h2 {
   text-align: center;
 }

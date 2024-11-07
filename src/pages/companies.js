@@ -255,7 +255,7 @@ const Companies = ({ user, premiumInfo, theme }) => {
       {openCompany && <Problems theme={theme} company={companies.find(company => company.name === openCompany)} onClose={handleClose} user={user} page={'companies'} premiumInfo={premiumInfo} />}
       <div className="companies-page">
         <p className="solved-count">{completedCount}<span> | {uniqueProblems.length}</span></p>
-        <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/uniqueProblems.length) * 100}%` }}></div></div>
+        <div className="progress-bar"><div className={completedCount === uniqueProblems.length ? "progress completed": "progress"} style={{ width: `${(completedCount/uniqueProblems.length) * 100}%` }}></div></div>
         <div className="search-container">
           <input
             type="text"

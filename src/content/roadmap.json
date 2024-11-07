@@ -248,7 +248,8 @@
         "Title": "Valid Parentheses",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/valid-parentheses",
-        "Acceptance": 43
+        "Acceptance": 43,
+        "Video": "tTIKa0xXYmk?si=vOAx0G9yA9pV4i7l"
       },
       {
         "ID": 155,
@@ -300,7 +301,8 @@
         "Title": "Reverse Linked List",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/reverse-linked-list",
-        "Acceptance": 70
+        "Acceptance": 70,
+        "Video": "skePaM3nA2w?si=dG_NH3eyfnq5FMyE"
       },
       {
         "ID": 141,
@@ -571,7 +573,8 @@
         "Title": "Binary Tree Inorder Traversal",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/binary-tree-inorder-traversal",
-        "Acceptance": 71
+        "Acceptance": 71,
+        "Video": "MR-F70Hawo8?si=YXJUh-30v4xd-PLh"
       },
       {
         "ID": 700,

@@ -255,7 +255,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
           {company && company.name.replace(/\b\w/g, c => c.toUpperCase())}
         </h2>
         <p className="solved-count">{completedCount}<span> | {filteredProblems.length}</span></p>
-        <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount / filteredProblems.length) * 100}%` }}></div></div>
+        <div className="progress-bar"><div className={completedCount === filteredProblems.length ? "progress completed": "progress"} style={{ width: `${(completedCount / filteredProblems.length) * 100}%` }}></div></div>
         {page === "roadmap" && <div className='roadmap-lessons'>
           {company && company.lessons && company.lessons.map((lesson, index) => (
             <div onClick={() => navigate(`/lesson/${lesson}`)} key={index} className='roadmap-lesson'>

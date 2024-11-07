@@ -190,7 +190,7 @@ const Roadmap = ({ user, theme }) => {
       {openCompany && <Problems theme={theme} company={companies.find(company => company.name === openCompany)} onClose={handleClose} user={user} page={'roadmap'} />}
       <div className="companies-page">
         <p className="solved-count">{completedCount}<span> | {uniqueProblems.length}</span></p>
-        <div className="progress-bar"><div className="progress" style={{ width: `${(completedCount/uniqueProblems.length) * 100}%` }}></div></div>
+        <div className="progress-bar"><div className={completedCount === uniqueProblems.length ? "progress completed": "progress"} style={{ width: `${(completedCount/uniqueProblems.length) * 100}%` }}></div></div>
         <div className="company-table">
           <table>
             <thead>
@@ -210,7 +210,7 @@ const Roadmap = ({ user, theme }) => {
                     </button>
                   </td>
                   {!narrow && <td>{company.avgAcceptance}</td>}
-                  {!narrow && <td><div className="company-progress-bar"><div className="company-progress" style={{ width: `${(company.solvedProblems/company.numProblems) * 100}%` }}></div></div></td>}
+                  {!narrow && <td><div className="company-progress-bar"><div className={company.solvedProblems === company.numProblems ? "company-progress completed": "company-progress"} style={{ width: `${(company.solvedProblems/company.numProblems) * 100}%` }}></div></div></td>}
                   <td className={company.mostCommonDifficulty.toLowerCase()}>{company.mostCommonDifficulty}</td>
                 </tr>
               ))}
