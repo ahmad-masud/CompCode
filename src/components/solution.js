@@ -1,88 +1,72 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import '../styles/solution.css';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Import both styles
+import { materialDark, materialLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { useAlerts } from '../context/alertscontext';
-import '../styles/solution.css'; // For custom modal styling
 
-const Solution = ({ isOpen, onClose, problemName, solution, theme }) => {
-  const [code, setCode] = useState('');
-  const [error, setError] = useState('');
-  const [isCopied, setIsCopied] = useState(false); // State for handling copy feedback
-  const [loading, setLoading] = useState(true);
-  const { addAlert } = useAlerts();
+const Solution = ({ url, onClose, solutions = [], theme }) => {
+  const [copiedIndex, setCopiedIndex] = useState(null);
 
-  // Fetch the code from GitHub when the modal opens
-  useEffect(() => {
-    setLoading(true);
-    setError('');
-    if (solution && isOpen) {
-      setCode(solution);
-    }
-    if (problemName && isOpen) {
-      const fetchCode = async () => {
-        try {
-          const response = await fetch(
-            `https://raw.githubusercontent.com/kamyu104/LeetCode-Solutions/master/Python/${problemName}.py`
-          );
-          if (!response.ok) {
-            throw new Error('Solution not found');
-          }
-          const data = await response.text();
-          setCode(data);
-          setLoading(false);
-        } catch (error) {
-          setError(error.message);
-          addAlert('No solution yet', 'warning');
-          setLoading(false);
-        }
-      };
-      fetchCode();
-    }
-  }, [problemName, isOpen, solution, addAlert]);
-
-  const handleCopy = () => {
-    setIsCopied(true);
+  const handleCopy = (index) => {
+    setCopiedIndex(index);
 
     // Reset the copied state after 2 seconds
     setTimeout(() => {
-      setIsCopied(false);
+      setCopiedIndex(null);
     }, 2000);
   };
 
-  // Do not render the modal if it's not open
-  if (!isOpen || error || loading) return null;
-
   return (
-    <div className="modal-overlay">
-      <div className='overlay-backdrop' onClick={onClose}></div>
-      <div className="modal-content">
+    <div className="solution-overlay">
+      <div className="overlay-backdrop" onClick={onClose}></div>
+      <div className="solution-content">
         <button className="close-button" onClick={onClose}>
           <i className="bi bi-x"></i>
         </button>
-        <div className="code-container">
-          <CopyToClipboard text={code} onCopy={() => handleCopy()}>
-            <button className="solution-copy-button">
-              {isCopied ? (
-                <i className="bi bi-check-lg"></i>
-              ) : (
-                <i className="bi bi-copy"></i>
-              )}
-            </button>
-          </CopyToClipboard>
-          <SyntaxHighlighter
-            language={'python'}
-            style={
-              theme === 'dark'
-                ? materialDark
-                : theme === 'system'
-                ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? materialDark : undefined)
-                : undefined
-            }
-          >
-            {code}
-          </SyntaxHighlighter>
-        </div>
+        <iframe
+          src={`https://www.youtube.com/embed/${url}`}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="video-iframe"
+        ></iframe>
+
+        {solutions.length > 0 && (
+          <div className="solutions-container">
+            {solutions.map((solution, index) => (
+              <div key={index} className="solution">
+                <p className='solution-title'>{index + 1}. {solution.title}</p>
+                <p className='complexity'>Time Complexity: {solution.timeComplexity}</p>
+                <p className='complexity'>Space Complexity: {solution.spaceComplexity}</p>
+                <p className="complexity-explanation">{solution.complexityExplanation}</p>
+                <div className="code-container">
+                  <CopyToClipboard text={solution.code} onCopy={() => handleCopy(index)}>
+                    <button className="solution-copy-button">
+                      {copiedIndex === index ? (
+                        <i className="bi bi-check-lg"></i>
+                      ) : (
+                        <i className="bi bi-copy"></i>
+                      )}
+                    </button>
+                  </CopyToClipboard>
+                  <SyntaxHighlighter
+                    language={'python'}
+                    style={
+                      theme === 'dark'
+                        ? materialDark
+                        : theme === 'system'
+                        ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? materialDark : materialLight)
+                        : materialLight
+                    }
+                  >
+                    {solution.code}
+                  </SyntaxHighlighter>
+                </div>
+                <hr className="solution-divider" />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

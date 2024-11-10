@@ -93,7 +93,6 @@ const Premium = ({ user, premiumInfo }) => {
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Roadmap problems and solutions</p>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Free-tier lessons</p>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Frequency count for company-wise problems</p>
-            <p className='subscription-feature'><i className="fa-solid fa-check"></i> Solutions for company problems</p>
             <p className='subscription-feature'><i className="fa-solid fa-check"></i> Premium-tier lessons</p>
           </div>
           {premiumInfo.premium && (

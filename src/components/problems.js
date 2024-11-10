@@ -2,25 +2,23 @@ import React, { useState, useEffect } from 'react';
 import '../styles/problems.css'; // Import CSS file for styles
 import { firestore } from '../config/firebase-config';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
-import Solution from './solution';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useAlerts } from '../context/alertscontext';
-import Video from './video';
+import Solution from './solution';
 
 const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
   const [problems, setProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [sortConfig, setSortConfig] = useState({ key: 'Difficulty', direction: 'ascending' });
   const [searchTerm, setSearchTerm] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [problemName, setProblemName] = useState('');
   const navigate = useNavigate();
   const { addAlert } = useAlerts();
   const [videoUrl, setVideoUrl] = useState('');
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [solutions, setSolutions] = useState('');
+  const [isSolutionOpen, setIsSolutionOpen] = useState(false);
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -40,16 +38,6 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  // Open the modal and set the problem name for which to fetch the solution
-  const openModal = (name) => {
-    setProblemName(name);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
 
   useEffect(() => {
     if (company && company.data) {
@@ -229,25 +217,20 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
     return pages;
   };
   
-  const handleVideoClick = (videoUrl) => {
-    if (!videoUrl) {
-      addAlert('No video available yet', 'warning');
+  const handleSolutionClick = (videoUrl, problemSolutions) => {
+    if (!videoUrl && !problemSolutions) {
+      addAlert('Not available yet', 'warning');
       return;
     }
 
-    setIsVideoOpen(true);
+    setIsSolutionOpen(true);
     setVideoUrl(videoUrl);
+    setSolutions(problemSolutions);
   };
 
   return (
     <div className="problems-overlay">
-      {isVideoOpen && <Video url={videoUrl} onClose={() => setIsVideoOpen(false)} />}
-      <Solution
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        problemName={problemName}
-        theme={theme}
-      />
+      {isSolutionOpen && <Solution url={videoUrl} onClose={() => setIsSolutionOpen(false)} theme={theme} solutions={solutions} />}
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="problems-overlay-content">
         <button className="close-button" onClick={onClose}><i className="bi bi-x"></i></button>
@@ -275,8 +258,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
           <div className="table-header">
             <div className='check-head'>Status</div>
             <div className='title-head'>Problem <button className="sort-button" onClick={() => sortProblems('ID')}>{getSortIcon('ID')}</button></div>
-            {!narrow && <div className='solution-link-head'>Solution</div>}
-            {!narrow && page === 'roadmap' && <div className='video-link-head'>Video</div>}
+            {!narrow && page === 'roadmap' && <div className='solution-link-head'>Solution</div>}
             {!narrow && <div>Acceptance <button className="sort-button" onClick={() => sortProblems('Acceptance')}>{getSortIcon('Acceptance')}</button></div>}
             <div className="difficulty-head">Difficulty <button className="sort-button" onClick={() => sortProblems('Difficulty')}>{getSortIcon('Difficulty')}</button></div>
             {page === 'companies' && !narrow && <div className="frequency-head">Frequency {premiumInfo && premiumInfo.premium && <button className="sort-button" onClick={() => sortProblems('Frequency')}>{getSortIcon('Frequency')}</button>}</div>}
@@ -293,18 +275,9 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
                   {problem.ID}. {problem.Title}
                 </a>
               </div>
-              {!narrow && <div className='solution-link'>
-                {(premiumInfo && premiumInfo.premium) || page !== 'companies' ? (
-                  <button onClick={() => openModal(problem['Leetcode Question Link'].split('/').pop())}>
-                    <i className="fa-regular fa-file-code"></i>
-                  </button>
-                ) : (
-                  <Link to="/premium" className='premium-link'><i className="fa-solid fa-crown"></i></Link> // Show lock if not premium
-                )}
-              </div>}
-              {!narrow && page === 'roadmap' && <div className='video-link'>
-                <button onClick={() => handleVideoClick(problem.Video)}>
-                  <i className="fa-regular fa-file-video"></i>
+              {!narrow && page === 'roadmap' && <div className='solution-link'>
+                <button onClick={() => handleSolutionClick(problem.Video, problem.Solutions)}>
+                  <i className="fa-regular fa-lightbulb"></i>
                 </button>
               </div>}
               {!narrow && <div>{`${problem.Acceptance}%`}</div>}

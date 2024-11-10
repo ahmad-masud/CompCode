@@ -29,7 +29,7 @@
   position: relative;
   width: calc(100% - 20px);
   max-width: 1200px;
-  height: 80%;
+  height: 90%;
   overflow: auto;
 }
 
@@ -112,22 +112,14 @@
   text-decoration: none;
 }
 
-.solution-link, .video-link {
+.solution-link {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
 .solution-link button {
-  color: #007bff;
-  font-size: 1.25rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.video-link button {
-  color: #BF5AF2;
+  color: gold;
   font-size: 1.25rem;
   background: none;
   border: none;
