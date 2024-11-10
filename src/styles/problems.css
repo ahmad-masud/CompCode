@@ -22,14 +22,14 @@
 
 .problems-overlay-content {
   background-color: var(--background-color);
-  padding: 20px;
+  padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1001; /* Ensure content appears above backdrop */
   position: relative;
-  width: calc(100% - 20px);
+  width: calc(100% - 100px);
   max-width: 1200px;
-  height: 90%;
+  height: calc(100vh - 100px);
   overflow: auto;
 }
 
@@ -228,6 +228,7 @@
 @media (max-width: 768px) {
   .problems-overlay-content {
     width: calc(100% - 30px);
+    height: calc(100vh - 60px);
     padding: 20px 5px;
   }
   /* Resize only the table elements */

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Import Axios
 import '../styles/solution.css';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark, materialLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useAlerts } from '../context/alertscontext';
+import { InlineMath } from 'react-katex';
+import 'katex/dist/katex.min.css';
 
 const Solution = ({ problemId, onClose, theme }) => {
   const [solutions, setSolutions] = useState([]);
@@ -15,35 +18,39 @@ const Solution = ({ problemId, onClose, theme }) => {
 
   useEffect(() => {
     const fetchSolutions = async () => {
+      setLoading(true);
+      setFailed(false);
+      setSolutions([]); // Reset solutions state on each new fetch
+
       try {
-        setLoading(true);
-        const response = await fetch(`https://api.github.com/repos/ahmad-masud/CompCode-Solutions/contents/${problemId}`);
-        if (!response.ok) {
-          if (response.status === 404) {
-            addAlert('Not available yet', 'warning');
-          } else {
-            addAlert('Failed to fetch solutions', 'error');
-          }
-          setLoading(false);
+        // Use Axios to fetch content from GitHub API with Authorization Header
+        const headers = {
+          'Authorization': `token ${process.env.REACT_APP_GITHUB_TOKEN}`, // Ensure you have this set up in your environment variables
+          'Accept': 'application/vnd.github.v3.raw' // Return raw content
+        };
+
+        // Fetch the main directory content
+        const response = await axios.get(`https://api.github.com/repos/ahmad-masud/CompCode-Solutions/contents/${problemId}`, {
+          headers
+        });
+
+        if (response.status !== 200) {
+          addAlert('Failed to fetch solutions', 'error');
           setFailed(true);
-          return; // Exit early for 404 or other non-OK responses
+          return; // Exit early on non-200 response
         }
 
-        const data = await response.json();
+        const data = response.data;
         const solutionPromises = data.map(async (solution) => {
           if (solution.type === 'dir') {
             try {
-              // Fetch info.json
-              const infoResponse = await fetch(`https://raw.githubusercontent.com/ahmad-masud/CompCode-Solutions/main/${problemId}/${solution.name}/info.json`);
-              if (!infoResponse.ok) throw new Error(`Failed to fetch info.json for ${solution.name}`);
+              // Fetch info.json using Axios
+              const infoResponse = await axios.get(`https://raw.githubusercontent.com/ahmad-masud/CompCode-Solutions/main/${problemId}/${solution.name}/info.json`);
+              const infoData = infoResponse.data;
 
-              const infoData = await infoResponse.json();
-
-              // Fetch code.py
-              const codeResponse = await fetch(`https://raw.githubusercontent.com/ahmad-masud/CompCode-Solutions/main/${problemId}/${solution.name}/code.py`);
-              if (!codeResponse.ok) throw new Error(`Failed to fetch code.py for ${solution.name}`);
-
-              const codeData = await codeResponse.text();
+              // Fetch code.py using Axios
+              const codeResponse = await axios.get(`https://raw.githubusercontent.com/ahmad-masud/CompCode-Solutions/main/${problemId}/${solution.name}/code.py`);
+              const codeData = codeResponse.data;
 
               // Set video URL if not already set
               if (!videoUrl && infoData.video) {
@@ -56,7 +63,7 @@ const Solution = ({ problemId, onClose, theme }) => {
               };
             } catch (innerError) {
               console.error(`Error fetching data for solution ${solution.name}:`, innerError);
-              return null;
+              return null; // Return null on inner fetch error to avoid breaking other solutions
             }
           }
           return null;
@@ -64,16 +71,19 @@ const Solution = ({ problemId, onClose, theme }) => {
 
         const loadedSolutions = await Promise.all(solutionPromises);
         setSolutions(loadedSolutions.filter((sol) => sol !== null));
-        setLoading(false);
       } catch (err) {
         console.error('Error fetching solutions:', err);
-        setLoading(false); // Ensure loading state is cleared even on error
+        addAlert('Not available yet', 'warning');
         setFailed(true);
+      } finally {
+        setLoading(false); // Ensure loading state is cleared in all cases
       }
     };
 
-    fetchSolutions();
-  }, [problemId, videoUrl, addAlert]);
+    if (problemId) {
+      fetchSolutions();
+    }
+  }, [problemId, addAlert, videoUrl]);
 
   const handleCopy = (index) => {
     setCopiedIndex(index);
@@ -106,9 +116,6 @@ const Solution = ({ problemId, onClose, theme }) => {
           {solutions.map((solution, index) => (
             <div key={index} className="solution">
               <p className='solution-title'>{index + 1}. {solution.title}</p>
-              <p className='complexity'>Time Complexity: {solution.timeComplexity}</p>
-              <p className='complexity'>Space Complexity: {solution.spaceComplexity}</p>
-              <p className="complexity-explanation">{solution.complexityExplanation}</p>
               <div className="code-container">
                 <CopyToClipboard text={solution.code} onCopy={() => handleCopy(index)}>
                   <button className="solution-copy-button">
@@ -132,6 +139,13 @@ const Solution = ({ problemId, onClose, theme }) => {
                   {solution.code}
                 </SyntaxHighlighter>
               </div>
+              <p className='complexity-title'>Complexity Analysis</p>
+              <p className='complexity'>
+                Time Complexity: <InlineMath>{solution.timeComplexity}</InlineMath>
+              </p>
+              <p className='complexity'>
+                Space Complexity: <InlineMath>{solution.spaceComplexity}</InlineMath>
+              </p>
               <hr className="solution-divider" />
             </div>
           ))}
