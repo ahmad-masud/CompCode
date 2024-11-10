@@ -416,7 +416,8 @@
         "Title": "Binary Search",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/binary-search",
-        "Acceptance": 55
+        "Acceptance": 55,
+        "Video": "PBnAF8zxBVw?si=w7JuvitYAtMSDsSI"
       },
       {
         "ID": 278,
@@ -476,7 +477,8 @@
         "Title": "Minimum Size Subarray Sum",
         "Difficulty": "Medium",
         "Leetcode Question Link": "https://leetcode.com/problems/minimum-size-subarray-sum",
-        "Acceptance": 45
+        "Acceptance": 45,
+        "Video": "qgsXwaG2nvs?si=wpkI_l6-E8zZjpzM"
       },
       {
         "ID": 3,
@@ -771,7 +773,8 @@
         "Title": "Subsets",
         "Difficulty": "Medium",
         "Leetcode Question Link": "https://leetcode.com/problems/subsets",
-        "Acceptance": 76
+        "Acceptance": 76,
+        "Video": "GHtOJN7RX-0?si=A1OHau29Wj7RQsUY"
       },
       {
         "ID": 90,
@@ -826,7 +829,8 @@
         "Title": "Number of Islands",
         "Difficulty": "Medium",
         "Leetcode Question Link": "https://leetcode.com/problems/number-of-islands",
-        "Acceptance": 54
+        "Acceptance": 54,
+        "Video": "ScvAGc6yBs4?si=qRcnTKoBhYhbcKZT"
       },
       {
         "ID": 547,
@@ -984,7 +988,8 @@
         "Title": "Single Number",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/single-number",
-        "Acceptance": 70
+        "Acceptance": 70,
+        "Video": "YcusSSCLmKQ?si=HaWWVb-YQGNyZv7z"
       },
       {
         "ID": 191,
@@ -1050,7 +1055,8 @@
         "Title": "Maximum Subarray",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/maximum-subarray",
-        "Acceptance": 54
+        "Acceptance": 54,
+        "Video": "zfBUOrv1u4k?si=P3USqAXRpTLHMnbf"
       },
       {
         "ID": 55,
