@@ -9,13 +9,22 @@ export const AlertsProvider = ({ children }) => {
 
   // Function to add a new alert to the stack, memoized with useCallback
   const addAlert = useCallback((message, type = 'info', timeout = 3000) => {
-    const id = Date.now();
-    setAlerts((prevAlerts) => [...prevAlerts, { id, message, type }]);
+    setAlerts((prevAlerts) => {
+      // Check if an alert with the same message already exists
+      if (prevAlerts.some(alert => alert.message === message)) {
+        return prevAlerts; // Do not add duplicate alerts
+      }
 
-    // Automatically remove the alert after a given timeout
-    setTimeout(() => {
-      setAlerts((prevAlerts) => prevAlerts.filter(alert => alert.id !== id));
-    }, timeout);
+      const id = Date.now();
+      const newAlert = { id, message, type };
+
+      // Automatically remove the alert after a given timeout
+      setTimeout(() => {
+        setAlerts((currentAlerts) => currentAlerts.filter(alert => alert.id !== id));
+      }, timeout);
+
+      return [...prevAlerts, newAlert];
+    });
   }, []);
 
   // Function to remove an alert manually by its ID

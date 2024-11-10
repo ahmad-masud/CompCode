@@ -16,8 +16,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
   const { addAlert } = useAlerts();
-  const [videoUrl, setVideoUrl] = useState('');
-  const [solutions, setSolutions] = useState('');
+  const [problemId, setProblemId] = useState(null);
   const [isSolutionOpen, setIsSolutionOpen] = useState(false);
 
   // Pagination state
@@ -217,20 +216,14 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
     return pages;
   };
   
-  const handleSolutionClick = (videoUrl, problemSolutions) => {
-    if (!videoUrl && !problemSolutions) {
-      addAlert('Not available yet', 'warning');
-      return;
-    }
-
+  const handleSolutionClick = (id) => {
     setIsSolutionOpen(true);
-    setVideoUrl(videoUrl);
-    setSolutions(problemSolutions);
+    setProblemId(id);
   };
 
   return (
     <div className="problems-overlay">
-      {isSolutionOpen && <Solution url={videoUrl} onClose={() => setIsSolutionOpen(false)} theme={theme} solutions={solutions} />}
+      {isSolutionOpen && <Solution problemId={problemId} onClose={() => setIsSolutionOpen(false)} theme={theme} />}
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="problems-overlay-content">
         <button className="close-button" onClick={onClose}><i className="bi bi-x"></i></button>
@@ -276,7 +269,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
                 </a>
               </div>
               {!narrow && page === 'roadmap' && <div className='solution-link'>
-                <button onClick={() => handleSolutionClick(problem.Video, problem.Solutions)}>
+                <button onClick={() => handleSolutionClick(problem.ID)}>
                   <i className="fa-regular fa-lightbulb"></i>
                 </button>
               </div>}

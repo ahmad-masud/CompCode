@@ -11,25 +11,8 @@
         "Title": "Find Closest Number to Zero",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/find-closest-number-to-zero",
-        "Acceptance": 46,
-        "Video": "8VOP4Mm4nFs?si=GMR-G8DNP7sHt-s8",
-        "Solutions": [
-          {
-            "title": "Alternative Approach - Sorting",
-            "code": "def findClosestNumber(nums: List[int]) -> int:\n    nums.sort(key=lambda x: (abs(x), -x))\n    return nums[0]",
-            "timeComplexity": "O(n log n)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n represents the number of elements in the input list nums"
-          },
-          {
-            "title": "Optimal Solution - Linear Time",
-            "code": "def findClosestNumber(nums: List[int]) -> int:\n    res = float('inf')\n\n    for n in nums:\n        if abs(n) < abs(res):\n            res = n\n        elif abs(n) == abs(res):\n            res = max(n, res)\n\n    return res",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n represents the number of elements in the input list nums"
-          }
-        ]
-      },   
+        "Acceptance": 46
+      },
       {
         "ID": 1768,
         "Title": "Merge Strings Alternately",
@@ -93,63 +76,15 @@
         "Title": "Two Sum",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/two-sum",
-        "Acceptance": 48,
-        "Video": "oetyCTdewlU?si=YVht9LVdy8bIOfaa",
-        "Solutions": [
-          {
-            "title": "Brute Force Solution",
-            "code": "def twoSum(nums: List[int], target: int) -> List[int]:\n    for i in range(len(nums)):\n        for j in range(i + 1, len(nums)):\n            if nums[i] + nums[j] == target:\n                return [i, j]",
-            "timeComplexity": "O(n^2)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          },
-          {
-            "title": "Optimal Solution - HashMap",
-            "code": "def twoSum(nums: List[int], target: int) -> List[int]:\n    num_map = {}\n\n    for i, num in enumerate(nums):\n        diff = target - num\n\n        if diff in num_map:\n            return [num_map[diff], i]\n\n        num_map[num] = i",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(n)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          }
-        ]
-      },      
+        "Acceptance": 48
+      },
       {
         "ID": 136,
         "Title": "Single Number",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/single-number",
-        "Acceptance": 70,
-        "Video": "YcusSSCLmKQ?si=HaWWVb-YQGNyZv7z",
-        "Solutions": [
-          {
-            "title": "Brute Force Solution - Using Count",
-            "code": "def singleNumber(nums: List[int]) -> int:\n    for n in nums:\n        if nums.count(n) == 1:\n            return n",
-            "timeComplexity": "O(n^2)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          },
-          {
-            "title": "Hash Table Solution",
-            "code": "def singleNumber(nums: List[int]) -> int:\n    hash_table = {}\n\n    for n in nums:\n        hash_table[n] = hash_table.get(n, 0) + 1\n\n    for n, count in hash_table.items():\n        if count == 1:\n            return n",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(n)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          },
-          {
-            "title": "Math Set Solution",
-            "code": "def singleNumber(nums: List[int]) -> int:\n    return 2 * sum(set(nums)) - sum(nums)",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(n)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          },
-          {
-            "title": "Optimal Solution - Using XOR",
-            "code": "def singleNumber(nums: List[int]) -> int:\n    res = 0\n\n    for n in nums:\n        res ^= n\n\n    return res",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          }
-        ]
-      },      
+        "Acceptance": 70
+      },
       {
         "ID": 3,
         "Title": "Longest Substring Without Repeating Characters",
@@ -162,32 +97,8 @@
         "Title": "Intersection of Two Arrays",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/intersection-of-two-arrays",
-        "Acceptance": 70,
-        "Video": "Lcj_cuZUy68?si=3Gqo9JgWimF9MuRB",
-        "Solutions": [
-          {
-            "title": "Brute Force Solution",
-            "code": "def intersection(nums1: List[int], nums2: List[int]) -> int:\n    res = []\n\n    for n in nums1:\n        if n in nums2 and n not in res:\n            res.append(n)\n\n    return res",
-            "timeComplexity": "O(n * m)",
-            "spaceComplexity": "O(min(n, m))",
-            "complexityExplanation": "n and m are the sizes of the input lists nums1 and nums2"
-          },
-          {
-            "title": "Hash Set Solution",
-            "code": "def intersection(nums1: List[int], nums2: List[int]) -> int:\n    set1 = set(nums1)\n    set2 = set(nums2)\n\n    return list(set1 & set2)",
-            "timeComplexity": "O(n + m)",
-            "spaceComplexity": "O(n + m)",
-            "complexityExplanation": "n and m are the sizes of the input lists nums1 and nums2"
-          },
-          {
-            "title": "Two Pointer Solution - Sorted Arrays",
-            "code": "def intersection(nums1: List[int], nums2: List[int]) -> int:\n    nums1.sort()\n    nums2.sort()\n    i, j = 0, 0\n    res = set()\n\n    while i < len(nums1) and j < len(nums2):\n        if nums1[i] == nums2[j]:\n            res.add(nums1[i])\n            i += 1\n            j += 1\n        elif nums1[i] < nums2[j]:\n            i += 1\n        else:\n            j += 1\n\n    return list(res)",
-            "timeComplexity": "O(n log n + m log m)",
-            "spaceComplexity": "O(min(n, m))",
-            "complexityExplanation": "n and m are the sizes of the input lists nums1 and nums2"
-          }
-        ]
-      },      
+        "Acceptance": 70
+      },
       {
         "ID": 242,
         "Title": "Valid Anagram",
@@ -245,8 +156,7 @@
         "Title": "Two Sum II - Input Array Is Sorted",
         "Difficulty": "Medium",
         "Leetcode Question Link": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted",
-        "Acceptance": 59,
-        "Video": "-gPXrCoJgHE?si=hcp0dO_s8P5XbAzy"
+        "Acceptance": 59
       },
       {
         "ID": 125,
@@ -260,25 +170,8 @@
         "Title": "Reverse String",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/reverse-string",
-        "Acceptance": 77,
-        "Video": "QmvMuRcnIZ8?si=yll0E7OyDREY5ogu",
-        "Solutions": [
-          {
-            "title": "Two Pointer Solution",
-            "code": "def reverseString(s: List[str]) -> None:\n    l, r = 0, len(s) - 1\n\n    while l < r:\n        s[l], s[r] = s[r], s[l]\n        l += 1\n        r -= 1",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n is the number of elements in the input list s"
-          },
-          {
-            "title": "Recursive Solution",
-            "code": "def reverseString(s: List[str]) -> None:\n    def helper(l, r):\n        if l >= r:\n            return\n        s[l], s[r] = s[r], s[l]\n        helper(l + 1, r - 1)\n\n    helper(0, len(s) - 1)",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(n)",
-            "complexityExplanation": "n is the number of elements in the input list s"
-          }
-        ]
-      },      
+        "Acceptance": 77
+      },
       {
         "ID": 345,
         "Title": "Reverse Vowels of a String",
@@ -350,18 +243,8 @@
         "Title": "Valid Parentheses",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/valid-parentheses",
-        "Acceptance": 43,
-        "Video": "tTIKa0xXYmk?si=vOAx0G9yA9pV4i7l",
-        "Solutions": [
-          {
-            "title": "Stack Solution",
-            "code": "def isValid(s: str) -> bool:\n    dic = {')': '(', ']': '[', '}': '{'}\n    stack = []\n\n    for c in s:\n        if c in dic:\n            if not stack:\n                return False\n\n            bracket = stack.pop()\n            if dic[c] != bracket:\n                return False\n        else:\n            stack.append(c)\n\n    return not stack",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(n)",
-            "complexityExplanation": "n is the number of characters in the input string s"
-          }
-        ]
-      },           
+        "Acceptance": 43
+      },
       {
         "ID": 155,
         "Title": "Min Stack",
@@ -412,25 +295,8 @@
         "Title": "Reverse Linked List",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/reverse-linked-list",
-        "Acceptance": 70,
-        "Video": "skePaM3nA2w?si=dG_NH3eyfnq5FMyE",
-        "Solutions": [
-          {
-            "title": "Iterative Solution",
-            "code": "def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:\n    prev = None\n    curr = head\n\n    while curr:\n        next_node = curr.next\n        curr.next = prev\n        prev = curr\n        curr = next_node\n\n    return prev",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n is the number of nodes in the linked list"
-          },
-          {
-            "title": "Recursive Solution",
-            "code": "def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:\n    if not head or not head.next:\n        return head\n\n    reversed_head = reverseList(head.next)\n    head.next.next = head\n    head.next = None\n\n    return reversed_head",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(n)",
-            "complexityExplanation": "n is the number of nodes in the linked list"
-          }
-        ]
-      },      
+        "Acceptance": 70
+      },
       {
         "ID": 141,
         "Title": "Linked List Cycle",
@@ -543,25 +409,8 @@
         "Title": "Binary Search",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/binary-search",
-        "Acceptance": 55,
-        "Video": "PBnAF8zxBVw?si=w7JuvitYAtMSDsSI",
-        "Solutions": [
-          {
-            "title": "Iterative Binary Search",
-            "code": "def search(self, nums: List[int], target: int) -> int:\n    l, r = 0, len(nums) - 1\n\n    while l <= r:\n        m = l + (r - l) // 2\n\n        if nums[m] == target:\n            return m\n        elif nums[m] < target:\n            l = m + 1\n        else:\n            r = m - 1\n\n    return -1",
-            "timeComplexity": "O(log n)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          },
-          {
-            "title": "Recursive Binary Search",
-            "code": "def search(self, nums: List[int], target: int) -> int:\n    def binary_search(l, r):\n        if l > r:\n            return -1\n\n        m = l + (r - l) // 2\n\n        if nums[m] == target:\n            return m\n        elif nums[m] < target:\n            return binary_search(m + 1, r)\n        else:\n            return binary_search(l, m - 1)\n\n    return binary_search(0, len(nums) - 1)",
-            "timeComplexity": "O(log n)",
-            "spaceComplexity": "O(log n)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          }
-        ]
-      },      
+        "Acceptance": 55
+      },
       {
         "ID": 278,
         "Title": "First Bad Version",
@@ -620,25 +469,8 @@
         "Title": "Minimum Size Subarray Sum",
         "Difficulty": "Medium",
         "Leetcode Question Link": "https://leetcode.com/problems/minimum-size-subarray-sum",
-        "Acceptance": 45,
-        "Video": "qgsXwaG2nvs?si=wpkI_l6-E8zZjpzM",
-        "Solutions": [
-          {
-            "title": "Brute Force Solution",
-            "code": "def minSubArrayLen(self, target: int, nums: List[int]) -> int:\n    res = float('inf')\n\n    for i in range(len(nums)):\n        curr_sum = 0\n\n        for j in range(i, len(nums)):\n            curr_sum += nums[j]\n\n            if curr_sum >= target:\n                res = min(res, j - i + 1)\n                break\n\n    return res if res != float('inf') else 0",
-            "timeComplexity": "O(n^2)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          },
-          {
-            "title": "Sliding Window Solution",
-            "code": "def minSubArrayLen(self, target: int, nums: List[int]) -> int:\n    l = 0\n    prefix_sum = 0\n    res = float('inf')\n\n    for r in range(len(nums)):\n        prefix_sum += nums[r]\n\n        while prefix_sum >= target:\n            res = min(res, r - l + 1)\n            prefix_sum -= nums[l]\n            l += 1\n\n    return res if res != float('inf') else 0",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          }
-        ]
-      },      
+        "Acceptance": 45
+      },
       {
         "ID": 3,
         "Title": "Longest Substring Without Repeating Characters",
@@ -734,25 +566,8 @@
         "Title": "Binary Tree Inorder Traversal",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/binary-tree-inorder-traversal",
-        "Acceptance": 71,
-        "Video": "MR-F70Hawo8?si=YXJUh-30v4xd-PLh",
-        "Solutions": [
-          {
-            "title": "Recursive Solution",
-            "code": "def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:\n    res = []\n\n    def dfs(node):\n        if not node:\n            return\n\n        dfs(node.left)\n        res.append(node.val)\n        dfs(node.right)\n\n    dfs(root)\n    return res",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(n)",
-            "complexityExplanation": "n is the number of nodes in the binary tree"
-          },
-          {
-            "title": "Iterative Solution",
-            "code": "def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:\n    res = []\n    stack = []\n    curr = root\n\n    while curr or stack:\n        while curr:\n            stack.append(curr)\n            curr = curr.left\n\n        curr = stack.pop()\n        res.append(curr.val)\n        curr = curr.right\n\n    return res",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(n)",
-            "complexityExplanation": "n is the number of nodes in the binary tree"
-          }
-        ]
-      },      
+        "Acceptance": 71
+      },
       {
         "ID": 700,
         "Title": "Search in a Binary Search Tree",
@@ -948,25 +763,8 @@
         "Title": "Subsets",
         "Difficulty": "Medium",
         "Leetcode Question Link": "https://leetcode.com/problems/subsets",
-        "Acceptance": 76,
-        "Video": "GHtOJN7RX-0?si=A1OHau29Wj7RQsUY",
-        "Solutions": [
-          {
-            "title": "Backtracking Solution",
-            "code": "def subsets(self, nums: List[int]) -> List[List[int]]:\n    res = []\n\n    def backtrack(i: int, curr: List[int]) -> None:\n        if i == len(nums):\n            res.append(curr)\n            return\n\n        backtrack(i + 1, curr + [nums[i]])\n        backtrack(i + 1, curr)\n\n    backtrack(0, [])\n    return res",
-            "timeComplexity": "O(2^n * n)",
-            "spaceComplexity": "O(2^n * n)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          },
-          {
-            "title": "Iterative Solution",
-            "code": "def subsets(self, nums: List[int]) -> List[List[int]]:\n    res = [[]]\n\n    for n in nums:\n        res += [curr + [n] for curr in res]\n\n    return res",
-            "timeComplexity": "O(2^n * n)",
-            "spaceComplexity": "O(2^n)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          }
-        ]
-      },            
+        "Acceptance": 76
+      },
       {
         "ID": 90,
         "Title": "Subsets II",
@@ -1020,25 +818,8 @@
         "Title": "Number of Islands",
         "Difficulty": "Medium",
         "Leetcode Question Link": "https://leetcode.com/problems/number-of-islands",
-        "Acceptance": 54,
-        "Video": "ScvAGc6yBs4?si=qRcnTKoBhYhbcKZT",
-        "Solutions": [
-          {
-            "title": "Depth-First Search (DFS) Solution",
-            "code": "def numIslands(self, grid: List[List[str]]) -> int:\n    ROWS, COLS = len(grid), len(grid[0])\n    res = 0\n\n    def dfs(r: int, c: int) -> None:\n        if r < 0 or c < 0 or r >= ROWS or c >= COLS or grid[r][c] == '0':\n            return\n\n        grid[r][c] = '0'\n\n        dfs(r + 1, c)\n        dfs(r - 1, c)\n        dfs(r, c + 1)\n        dfs(r, c - 1)\n\n    for r in range(ROWS):\n        for c in range(COLS):\n            if grid[r][c] == '1':\n                res += 1\n                dfs(r, c)\n\n    return res",
-            "timeComplexity": "O(n * m)",
-            "spaceComplexity": "O(n * m)",
-            "complexityExplanation": "n and m are the dimensions of the grid"
-          },
-          {
-            "title": "Breadth-First Search (BFS) Solution",
-            "code": "def numIslands(self, grid: List[List[str]]) -> int:\n    ROWS, COLS = len(grid), len(grid[0])\n    res = 0\n\n    def bfs(r: int, c: int) -> None:\n        queue = deque([(r, c)])\n        grid[r][c] = '0'\n\n        while queue:\n            row, col = queue.popleft()\n\n            for dr, dc in [(1, 0), (-1, 0), (0, 1), (0, -1)]:\n                nr, nc = row + dr, col + dc\n\n                if 0 <= nr < ROWS and 0 <= nc < COLS and grid[nr][nc] == '1':\n                    grid[nr][nc] = '0'\n                    queue.append((nr, nc))\n\n    for r in range(ROWS):\n        for c in range(COLS):\n            if grid[r][c] == '1':\n                res += 1\n                bfs(r, c)\n\n    return res",
-            "timeComplexity": "O(n * m)",
-            "spaceComplexity": "O(min(n, m))",
-            "complexityExplanation": "n and m are the dimensions of the grid"
-          }
-        ]
-      },      
+        "Acceptance": 54
+      },
       {
         "ID": 547,
         "Title": "Number of Provinces",
@@ -1195,38 +976,7 @@
         "Title": "Single Number",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/single-number",
-        "Acceptance": 70,
-        "Video": "YcusSSCLmKQ?si=HaWWVb-YQGNyZv7z",
-        "Solutions": [
-          {
-            "title": "Brute Force Solution - Using Count",
-            "code": "def singleNumber(self, nums: List[int]) -> int:\n    for n in nums:\n        if nums.count(n) == 1:\n            return n",
-            "timeComplexity": "O(n^2)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          },
-          {
-            "title": "Hash Table Solution",
-            "code": "def singleNumber(self, nums: List[int]) -> int:\n    hash_table = {}\n\n    for n in nums:\n        hash_table[n] = hash_table.get(n, 0) + 1\n\n    for n, count in hash_table.items():\n        if count == 1:\n            return n",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(n)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          },
-          {
-            "title": "Math Set Solution",
-            "code": "def singleNumber(self, nums: List[int]) -> int:\n    return 2 * sum(set(nums)) - sum(nums)",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(n)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          },
-          {
-            "title": "Optimal Solution - Using XOR",
-            "code": "def singleNumber(self, nums: List[int]) -> int:\n    res = 0\n\n    for n in nums:\n        res ^= n\n\n    return res",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          }
-        ]
+        "Acceptance": 70
       },
       {
         "ID": 191,
@@ -1292,25 +1042,8 @@
         "Title": "Maximum Subarray",
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/maximum-subarray",
-        "Acceptance": 54,
-        "Video": "zfBUOrv1u4k?si=P3USqAXRpTLHMnbf",
-        "Solutions": [
-          {
-            "title": "Brute Force Solution",
-            "code": "def maxSubArray(self, nums: List[int]) -> int:\n    max_sum = float('-inf')\n\n    for i in range(len(nums)):\n        curr_sum = 0\n        for j in range(i, len(nums)):\n            curr_sum += nums[j]\n            max_sum = max(max_sum, curr_sum)\n\n    return max_sum",
-            "timeComplexity": "O(n^2)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          },
-          {
-            "title": "Kadane's Algorithm",
-            "code": "def maxSubArray(self, nums: List[int]) -> int:\n    res = float('-inf')\n    curr = 0\n\n    for n in nums:\n        curr += n\n        res = max(res, curr)\n\n        if curr < 0:\n            curr = 0\n\n    return res",
-            "timeComplexity": "O(n)",
-            "spaceComplexity": "O(1)",
-            "complexityExplanation": "n is the number of elements in the input list nums"
-          }
-        ]
-      },           
+        "Acceptance": 54
+      },
       {
         "ID": 55,
         "Title": "Jump Game",
@@ -1349,4 +1082,3 @@
     ]        
   }
 ]
-  
