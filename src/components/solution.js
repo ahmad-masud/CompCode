@@ -103,13 +103,15 @@ const Solution = ({ problemId, onClose, theme }) => {
         </button>
 
         {videoUrl && (
-          <iframe
-            src={`https://www.youtube.com/embed/${videoUrl}`}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="video-iframe"
-          ></iframe>
+          <div className="video-container">
+            <iframe
+              src={`https://www.youtube.com/embed/${videoUrl}`}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="video-iframe"
+            ></iframe>
+          </div>
         )}
 
         <div className="solutions-container">
