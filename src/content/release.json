@@ -1,54 +1,58 @@
 [
-    {
-        "date": "2024-10-19",
-        "comment": "Merged algorithms and data structures into a roadmap along with lessons for each topic"
-    },
-    {
-        "date": "2024-10-17",
-        "comment": "Added Lessons for data structures and algorithms"
-    },
-    {
-        "date": "2024-10-10",
-        "comment": "Added premium subcriptions"
-    },
-    {
-        "date": "2024-09-26",
-        "comment": "Added code solutions"
-    },
-    {
-        "date": "2024-09-24",
-        "comment": "Updated entire webpage ui"
-    },
-    {
-        "date": "2024-08-24",
-        "comment": "Modified concepts page to seperate ds and algos pages and misc concepts"
-    },
-    {
-        "date": "2024-08-22",
-        "comment": "Added concepts page, to practice important dsa concepts"
-    },
-    {
-        "date": "2024-07-11",
-        "comment": "Added home page, that includes release notes"
-    },
-    {
-        "date": "2024-07-11",
-        "comment": "Implemented google authentication to save completed user problems in the cloud"
-    },
-    {
-        "date": "2024-07-10",
-        "comment": "Implemented local storage to handle dark mode, light mode and auto color mode"
-    },
-    {
-        "date": "2024-07-10",
-        "comment": "Added problems page for tracking all problems found for each corresponding company"
-    },
-    {
-        "date": "2024-07-09",
-        "comment": "Added most popular companies's LeetCode questions including their difficulties, frequencies, and acceptance rate"
-    },
-    {
-        "date": "2024-07-09",
-        "comment": "Initial release"
-    }
+  {
+    "date": "2024-11-13",
+    "comment": "Added quizzes for each lesson topic in the lessons page"
+  },
+  {
+    "date": "2024-10-19",
+    "comment": "Merged algorithms and data structures into a roadmap along with lessons for each topic"
+  },
+  {
+    "date": "2024-10-17",
+    "comment": "Added Lessons for data structures and algorithms"
+  },
+  {
+    "date": "2024-10-10",
+    "comment": "Added premium subcriptions"
+  },
+  {
+    "date": "2024-09-26",
+    "comment": "Added code solutions"
+  },
+  {
+    "date": "2024-09-24",
+    "comment": "Updated entire webpage ui"
+  },
+  {
+    "date": "2024-08-24",
+    "comment": "Modified concepts page to seperate ds and algos pages and misc concepts"
+  },
+  {
+    "date": "2024-08-22",
+    "comment": "Added concepts page, to practice important dsa concepts"
+  },
+  {
+    "date": "2024-07-11",
+    "comment": "Added home page, that includes release notes"
+  },
+  {
+    "date": "2024-07-11",
+    "comment": "Implemented google authentication to save completed user problems in the cloud"
+  },
+  {
+    "date": "2024-07-10",
+    "comment": "Implemented local storage to handle dark mode, light mode and auto color mode"
+  },
+  {
+    "date": "2024-07-10",
+    "comment": "Added problems page for tracking all problems found for each corresponding company"
+  },
+  {
+    "date": "2024-07-09",
+    "comment": "Added most popular companies's LeetCode questions including their difficulties, frequencies, and acceptance rate"
+  },
+  {
+    "date": "2024-07-09",
+    "comment": "Initial release"
+  }
 ]

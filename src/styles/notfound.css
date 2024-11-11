@@ -1,30 +1,30 @@
 .notfound {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 150px);
-    gap: 20px;
-    color: var(--font-color);
-    font-weight: bold;
-    font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 150px);
+  gap: 20px;
+  color: var(--font-color);
+  font-weight: bold;
+  font-size: 2rem;
 }
 
 .notfound p:nth-child(1) {
-    font-size: 6rem;
+  font-size: 6rem;
 }
 
 .notfound a {
-    background-color: tomato;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    border-radius: 25px;
-    cursor: pointer;
-    text-decoration: none;
+  background-color: tomato;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .notfound a:hover {
-    filter: brightness(75%);
+  filter: brightness(75%);
 }

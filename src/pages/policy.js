@@ -6,7 +6,9 @@ const PolicySection = ({ title, content }) => (
   <div className="policy-section">
     <h3 className="policy-section-title">{title}</h3>
     {content.map((paragraph, index) => (
-      <p key={index} className="policy-section-paragraph">{paragraph}</p>
+      <p key={index} className="policy-section-paragraph">
+        {paragraph}
+      </p>
     ))}
   </div>
 );
@@ -21,7 +23,11 @@ const Policy = () => {
         <strong>Effective Date: {privacyPolicy.effectiveDate}</strong>
       </p>
       {privacyPolicy.sections.map((section, index) => (
-        <PolicySection key={index} title={section.title} content={section.content} />
+        <PolicySection
+          key={index}
+          title={section.title}
+          content={section.content}
+        />
       ))}
     </div>
   );

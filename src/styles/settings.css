@@ -13,9 +13,9 @@
 
 .settings-content {
   background-color: var(--background-color);
-  padding: 40px;
-  border-radius: 8px;
-  max-width: 400px;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
   width: calc(100% - 100px);
   position: relative;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -24,26 +24,97 @@
   gap: 10px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  min-height: 300px;
 }
 
-.close-button {
-  background: none;
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.settings-close-button {
   border: none;
-  font-size: 24px;
-  position: absolute;
-  top: 16px;
-  right: 16px;
   cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--font-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
 }
 
-h2 {
+.settings-close-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.settings-title {
   font-size: 1.5rem;
   font-weight: bold;
+  color: var(--font-color);
+}
+
+.settings-divider {
+  border-bottom: 1px solid var(--third-color);
+  opacity: 0.2;
+  width: calc(100% + 80px);
+  margin-left: -40px;
+  margin-bottom: 20px;
+}
+
+.settings-container {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.settings-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: calc(30% - 10px);
+}
+
+.settings-sidebar-item {
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--font-color);
+  background: transparent;
+  border: none;
+  text-align: left;
+  display: flex;
+  gap: 10px;
+}
+
+.settings-sidebar-item.active {
+  background: var(--secondary-color);
+}
+
+.settings-sidebar-item:hover {
+  background: var(--secondary-color);
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: calc(70% - 10px);
 }
 
 .setting-item {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--third-color);
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .setting-item label {
@@ -53,21 +124,12 @@ h2 {
 
 .setting-input {
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 50px;
   font-size: 1rem;
   background: var(--secondary-color);
   color: var(--font-color);
   border: none;
   outline: none;
-}
-
-.settings-overlay .account-button {
-  background-color: #007bff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
 }
 
 .delete-doc {
@@ -80,18 +142,40 @@ h2 {
   color: white;
 }
 
-.delete-doc:hover {
-  filter: brightness(0.75);
+.download-doc,
+.upload-doc {
+  background-color: var(--secondary-color);
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--font-color);
 }
 
-.divider {
-  border-bottom: 1px solid var(--font-color);
-  opacity: 0.2;
+.delete-doc:hover,
+.download-doc:hover,
+.upload-doc:hover {
+  filter: brightness(0.75);
 }
 
 @media screen and (max-width: 768px) {
   .settings-content {
     padding: 20px;
     width: calc(100% - 60px);
+  }
+
+  .settings-container {
+    flex-direction: column;
+  }
+
+  .settings-sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .settings {
+    width: 100%;
   }
 }

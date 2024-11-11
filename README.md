@@ -1,7 +1,4 @@
-
 # CompCode
-
-![compcode](/resources/compcode.gif)
 
 CompCode is a web application designed to help you prepare for coding interviews by solving commonly asked LeetCode problems from various popular companies. The app provides a user-friendly interface to browse, solve, and track your progress on these problems.
 
@@ -28,22 +25,30 @@ CompCode is a web application designed to help you prepare for coding interviews
 ### Installation
 
 1. **Clone the repository:**
+
    ```sh
    git clone https://github.com/ahmad-masud/CompCode.git
    cd CompCode
    ```
 
 2. **Install dependencies:**
+
    ```sh
    npm install
    ```
 
 3. **Set up Firebase configuration:**
+
    - Create a `firebase-config.js` file in the `src/config` directory.
    - Add your Firebase configuration:
+
      ```js
      import { initializeApp } from 'firebase/app';
-     import { getAuth, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
+     import {
+       getAuth,
+       GoogleAuthProvider,
+       GithubAuthProvider,
+     } from 'firebase/auth';
      import { getFirestore } from 'firebase/firestore';
 
      const firebaseConfig = {
@@ -65,6 +70,7 @@ CompCode is a web application designed to help you prepare for coding interviews
      ```
 
 4. **Set up Stripe configuration:**
+
    - Integrate Stripe for managing subscriptions. Make sure to include your Stripe public and secret keys in your environment configuration.
 
 5. **Run the application:**

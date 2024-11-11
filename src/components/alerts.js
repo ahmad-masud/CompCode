@@ -31,7 +31,7 @@ const Alerts = () => {
         return 'alert alert-info';
     }
   };
-  
+
   return createPortal(
     <div className="alerts">
       {alerts.map((alert) => (

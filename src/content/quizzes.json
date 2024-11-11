@@ -1,0 +1,4383 @@
+[
+  {
+    "title": "Arrays",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Arrays are used to store elements of the **same data type**. In Python, `lists` are dynamic arrays that can store elements of **different data types**. This flexibility makes them powerful and widely used in Python programming."
+            },
+            {
+              "type": "paragraph",
+              "text": "Dynamic arrays can grow or shrink in size, unlike static arrays that have a fixed size. Here are some key characteristics of dynamic arrays:"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "**Dynamic resizing** when elements are added or removed.",
+                "`O(1)` time complexity for element access due to contiguous memory allocation.",
+                "Support for **heterogeneous elements**, meaning elements of different types can coexist."
+              ]
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "my_list = [1, 2, 3]\nmy_list.append(4)\nprint(my_list)  # Output: [1, 2, 3, 4]"
+            }
+          ]
+        },
+        "question": "What data structure in Python is used to represent dynamic arrays?",
+        "options": ["Tuple", "Set", "List", "Dictionary"],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "In Python, **lists** are used as dynamic arrays capable of growing and shrinking in size."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Static arrays have a **fixed size** and require pre-defined memory allocation. This characteristic makes them faster for certain operations, as memory is allocated once."
+            },
+            {
+              "type": "paragraph",
+              "text": "Benefits of using static arrays include:"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "**Predictable memory usage**, since the size is fixed.",
+                "Better performance for operations like **sequential traversal**.",
+                "Less memory overhead compared to dynamic structures."
+              ]
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "import array as arr\nmy_array = arr.array('i', [1, 2, 3])\nprint(my_array)  # Output: array('i', [1, 2, 3])"
+            }
+          ]
+        },
+        "question": "Which Python module provides static arrays with a fixed type?",
+        "options": ["list", "array", "set", "tuple"],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The **`array`** module in Python provides support for static arrays with elements of a fixed type."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The `append()` method is used to **add an element** to the end of a list. This operation is performed in constant time, **O(1)**, on average."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "`append()` modifies the list in-place, meaning no new list is created.",
+                "Useful for dynamically building lists during runtime.",
+                "Can impact memory usage if the list grows beyond its initial allocation."
+              ]
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "my_list = [1, 2, 3]\nmy_list.append(4)\nprint(my_list)  # Output: [1, 2, 3, 4]"
+            }
+          ]
+        },
+        "question": "What is the purpose of the `append()` method in Python lists?",
+        "options": [
+          "Remove the first element",
+          "Add an element to the beginning",
+          "Add an element to the end",
+          "Sort the list"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The **`append()`** method adds a new element to the end of the list, increasing its size."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Lists in Python are accessed by their **index**, which allows for efficient element retrieval. This operation is performed in constant time, **O(1)**, due to the contiguous memory allocation of list elements."
+            },
+            {
+              "type": "paragraph",
+              "text": "Remember:"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Indexing starts at **0** in Python.",
+                "Negative indices can be used to access elements from the end of the list.",
+                "`my_list[-1]` accesses the last element."
+              ]
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "my_list = [1, 2, 3]\nprint(my_list[1])  # Output: 2"
+            }
+          ]
+        },
+        "question": "What is the time complexity of accessing an element in a Python list by index?",
+        "options": ["O(n)", "O(1)", "O(log n)", "O(n^2)"],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Accessing an element by index in a Python list is an **O(1)** operation due to contiguous memory allocation."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Unlike static arrays, lists in Python can **store elements of different types** and dynamically adjust their size based on the number of elements."
+            },
+            {
+              "type": "paragraph",
+              "text": "Considerations for using lists:"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Lists have **dynamic sizing** but come with extra memory overhead.",
+                "Can hold a mix of **integers, strings, floats**, etc.",
+                "Use cases include flexible collections, queues, and stacks."
+              ]
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "my_list = [1, 'hello', 3.14]\nprint(my_list)  # Output: [1, 'hello', 3.14]"
+            }
+          ]
+        },
+        "question": "Which of the following is true about Python lists?",
+        "options": [
+          "They are immutable.",
+          "They can only hold integers.",
+          "They have a fixed size.",
+          "They can hold elements of different types."
+        ],
+        "answerIndex": 3,
+        "explanationAfterAnswer": "Python lists are **dynamic** and can hold elements of different data types."
+      }
+    ]
+  },
+  {
+    "title": "Strings",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You have a string that contains a sentence:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "sentence = 'Hello, welcome to the world of Python'"
+            },
+            {
+              "type": "paragraph",
+              "text": "You want to find the index of the first occurrence of the word 'welcome'."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Consider using a string method to find the position of a substring.",
+                "Ensure the method returns the index correctly."
+              ]
+            }
+          ]
+        },
+        "question": "Which method correctly finds the index of 'welcome'?",
+        "options": [
+          "sentence.index('welcome')",
+          "sentence.find('welcome')",
+          "sentence.search('welcome')",
+          "sentence.locate('welcome')"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The find() method returns the index of the first occurrence of a substring."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Given a string with extra whitespace:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "text = '   Python is fun   '"
+            },
+            {
+              "type": "paragraph",
+              "text": "You need to remove leading and trailing whitespace."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Consider using a method that trims whitespace from both ends.",
+                "Whitespace includes spaces, tabs, and newlines."
+              ]
+            }
+          ]
+        },
+        "question": "Which method removes leading and trailing whitespace?",
+        "options": [
+          "text.trim()",
+          "text.remove_whitespace()",
+          "text.strip()",
+          "text.clean()"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The strip() method removes whitespace from both the beginning and end of a string."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You have a string containing words separated by spaces:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "words = 'apple banana cherry'"
+            },
+            {
+              "type": "paragraph",
+              "text": "You need to split the string into a list of individual words."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Consider using a method that splits the string by whitespace.",
+                "Ensure the result is a list of words."
+              ]
+            }
+          ]
+        },
+        "question": "Which method splits the string into a list of words?",
+        "options": [
+          "words.split()",
+          "words.split('')",
+          "words.divide()",
+          "words.break()"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "The split() method splits a string into a list using whitespace as the default delimiter."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You need to replace all occurrences of a substring in a string:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "sentence = 'I love Java. Java is powerful.'"
+            },
+            {
+              "type": "paragraph",
+              "text": "You want to replace 'Java' with 'Python'."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Consider using a method that replaces occurrences of a substring.",
+                "Ensure all instances of the substring are replaced."
+              ]
+            }
+          ]
+        },
+        "question": "Which method replaces 'Java' with 'Python'?",
+        "options": [
+          "sentence.replace_all('Java', 'Python')",
+          "sentence.replace('Java', 'Python')",
+          "sentence.change('Java', 'Python')",
+          "sentence.sub('Java', 'Python')"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The replace() method replaces all occurrences of the old substring with the new substring."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Given a string that contains both uppercase and lowercase characters:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "text = 'Hello World'"
+            },
+            {
+              "type": "paragraph",
+              "text": "You need to convert the entire string to lowercase."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use a method that converts all characters to lowercase.",
+                "Ensure all characters, including non-letters, remain unchanged."
+              ]
+            }
+          ]
+        },
+        "question": "Which method converts the string to lowercase?",
+        "options": [
+          "text.lowercase()",
+          "text.to_lower()",
+          "text.lower()",
+          "text.convert_lower()"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The lower() method converts all characters in the string to lowercase."
+      }
+    ]
+  },
+  {
+    "title": "Dictionaries",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You have a dictionary of employee salaries:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "employee_salaries = {'Alice': 50000, 'Bob': 70000, 'Charlie': 45000}"
+            },
+            {
+              "type": "paragraph",
+              "text": "You need to increase the salary of each employee by 10%."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use a loop to iterate over the keys.",
+                "Calculate the new salary by multiplying the current salary by 1.1.",
+                "Update the dictionary with the new salary."
+              ]
+            }
+          ]
+        },
+        "question": "Which code correctly updates the salaries?",
+        "options": [
+          "for employee, salary in employee_salaries:\n    employee_salaries[employee] = salary * 1.1",
+          "for employee in employee_salaries.keys():\n    employee_salaries[employee] *= 1.1",
+          "employee_salaries = {employee: salary * 1.1 for employee, salary in employee_salaries.items()}",
+          "employee_salaries.values() = [salary * 1.1 for salary in employee_salaries.values()]"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "Using a dictionary comprehension with .items() correctly updates each salary."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Given a dictionary that tracks the number of products sold:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "sales = {'apple': 10, 'banana': 15, 'orange': 5}"
+            },
+            {
+              "type": "paragraph",
+              "text": "You want to add 5 more apples to the sales count."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Directly access the key 'apple' to update its value.",
+                "Ensure you perform the addition operation correctly."
+              ]
+            }
+          ]
+        },
+        "question": "Which statement correctly updates the count of apples?",
+        "options": [
+          "sales.add('apple', 5)",
+          "sales['apple'] += 5",
+          "sales.append('apple', 5)",
+          "sales['apple'] =+ 5"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "To update an existing key's value, use sales['apple'] += 5."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You have a dictionary of students' grades:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "grades = {'Alice': 'A', 'Bob': 'B', 'Charlie': 'C'}"
+            },
+            {
+              "type": "paragraph",
+              "text": "You need to remove the entry for 'Bob'."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use a method that removes the specified key.",
+                "Handle any potential return value if required."
+              ]
+            }
+          ]
+        },
+        "question": "Which method removes 'Bob' from the dictionary?",
+        "options": [
+          "grades.delete('Bob')",
+          "del grades['Bob']",
+          "grades.pop('Bob')",
+          "grades.remove('Bob')"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The pop() method removes 'Bob' and returns the value associated with the key."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You need to check if a specific key exists in the dictionary:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "inventory = {'apple': 5, 'banana': 8}"
+            },
+            {
+              "type": "paragraph",
+              "text": "Check if 'orange' is present."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use a conditional check with keys.",
+                "Ensure you do not raise a KeyError."
+              ]
+            }
+          ]
+        },
+        "question": "Which code checks for 'orange' in the inventory?",
+        "options": [
+          "'orange' in inventory",
+          "inventory.has_key('orange')",
+          "inventory.contains('orange')",
+          "inventory['orange']"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "Using 'in' is the correct way to check for key existence in a dictionary."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You want to create a dictionary from two lists:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "keys = ['name', 'age']\nvalues = ['Alice', 30]"
+            },
+            {
+              "type": "paragraph",
+              "text": "The result should map 'name' to 'Alice' and 'age' to 30."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use a method that combines two lists into key-value pairs.",
+                "Ensure the lengths of both lists match."
+              ]
+            }
+          ]
+        },
+        "question": "Which code correctly creates the dictionary?",
+        "options": [
+          "new_dict = dict(keys, values)",
+          "new_dict = {keys: values for keys, values in zip(keys, values)}",
+          "new_dict = dict(zip(keys, values))",
+          "new_dict = {keys: values}"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "Using dict(zip(keys, values)) creates a dictionary by combining keys and values from two lists."
+      }
+    ]
+  },
+  {
+    "title": "Sets",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You have a set of unique student IDs:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "student_ids = {101, 102, 103, 104}"
+            },
+            {
+              "type": "paragraph",
+              "text": "You need to add a new student ID (105) to the set."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Sets in Python only allow unique elements.",
+                "Use the appropriate method to add an element."
+              ]
+            }
+          ]
+        },
+        "question": "Which method correctly adds a new element to a set?",
+        "options": [
+          "student_ids.add(105)",
+          "student_ids.append(105)",
+          "student_ids.insert(105)",
+          "student_ids.push(105)"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "The add() method is used to add elements to a set."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You have two sets representing students who passed Math and Science exams:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "math_pass = {'Alice', 'Bob', 'Charlie'}\nscience_pass = {'Bob', 'Charlie', 'David'}"
+            },
+            {
+              "type": "paragraph",
+              "text": "You need to find students who passed both exams."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use a set operation to find the intersection.",
+                "The result should be a set containing students present in both sets."
+              ]
+            }
+          ]
+        },
+        "question": "Which operation correctly finds the intersection of the two sets?",
+        "options": [
+          "math_pass & science_pass",
+          "math_pass | science_pass",
+          "math_pass - science_pass",
+          "math_pass + science_pass"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "The & operator finds the intersection of two sets, returning common elements."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You want to remove a specific element from a set of fruits:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "fruits = {'apple', 'banana', 'cherry'}"
+            },
+            {
+              "type": "paragraph",
+              "text": "Consider removing 'banana' from the set."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use a method that removes an element safely.",
+                "Consider methods that raise errors versus those that do not."
+              ]
+            }
+          ]
+        },
+        "question": "Which method removes 'banana' from the set without raising an error if it does not exist?",
+        "options": [
+          "fruits.remove('banana')",
+          "fruits.discard('banana')",
+          "del fruits['banana']",
+          "fruits.pop('banana')"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The discard() method removes an element without raising an error if it is not found."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You have a set of numbers:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "numbers = {1, 2, 3, 4, 5}"
+            },
+            {
+              "type": "paragraph",
+              "text": "You want to create a new set containing all elements from another set:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "new_numbers = {4, 5, 6, 7}"
+            },
+            {
+              "type": "paragraph",
+              "text": "The goal is to merge both sets into one."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Consider using set operations for union.",
+                "Ensure no duplicates appear in the merged set."
+              ]
+            }
+          ]
+        },
+        "question": "Which operation correctly merges both sets?",
+        "options": [
+          "numbers.union(new_numbers)",
+          "numbers | new_numbers",
+          "numbers + new_numbers",
+          "numbers.merge(new_numbers)"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "The union() method or | operator merges two sets, removing duplicates."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You need to check if all elements of one set are present in another:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "set_a = {1, 2}\nset_b = {1, 2, 3, 4}"
+            },
+            {
+              "type": "paragraph",
+              "text": "Determine if set_a is a subset of set_b."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Consider using a method to check subset relationships.",
+                "Remember that a subset contains elements all present in the other set."
+              ]
+            }
+          ]
+        },
+        "question": "Which code correctly checks if set_a is a subset of set_b?",
+        "options": [
+          "set_a <= set_b",
+          "set_a >= set_b",
+          "set_a == set_b",
+          "set_a.subset(set_b)"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "The <= operator checks if all elements of set_a are present in set_b."
+      }
+    ]
+  },
+  {
+    "title": "Stacks",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A stack follows a specific order for adding and removing elements. You need to add an element to a stack and understand its behavior."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "stack = []\nstack.append(10)"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Stacks follow Last-In, First-Out (LIFO) order.",
+                "Elements are typically added and removed from the same end of the stack."
+              ]
+            }
+          ]
+        },
+        "question": "What happens when you append an element to a stack?",
+        "options": [
+          "The element is added to the front of the stack.",
+          "The element is added to the end of the stack.",
+          "The element replaces the last element.",
+          "The stack is cleared."
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Appending an element to a stack adds it to the end, maintaining LIFO order."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To remove an element from a stack, you typically use a specific operation. Consider the following stack:"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "stack = [1, 2, 3, 4]"
+            },
+            {
+              "type": "paragraph",
+              "text": "You need to remove the top element."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use a method that removes and returns the top element.",
+                "Ensure the order remains consistent with LIFO."
+              ]
+            }
+          ]
+        },
+        "question": "Which method removes the top element from a stack?",
+        "options": [
+          "stack.remove()",
+          "stack.pop()",
+          "stack.delete()",
+          "stack.clear()"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The pop() method removes and returns the last element in the stack, following LIFO order."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Stacks are often used to reverse the order of elements. Given the following input sequence:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "sequence = [1, 2, 3, 4]"
+            },
+            {
+              "type": "paragraph",
+              "text": "Use a stack to reverse the elements."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Push each element onto the stack.",
+                "Pop elements off the stack to reverse their order."
+              ]
+            }
+          ]
+        },
+        "question": "Which code correctly reverses the sequence using a stack?",
+        "options": [
+          "stack = []\nfor elem in sequence:\n    stack.push(elem)\nreversed_sequence = [stack.pop() for _ in range(len(stack))]",
+          "stack = []\nfor elem in sequence:\n    stack.append(elem)\nreversed_sequence = [stack.pop() for _ in range(len(stack))]",
+          "reversed_sequence = sequence.reverse()",
+          "stack = sequence[::-1]"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Using append() to push elements and pop() to retrieve them reverses the sequence."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You need to check if parentheses in an expression are balanced using a stack."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Push opening parentheses onto the stack.",
+                "Pop from the stack when encountering closing parentheses.",
+                "Ensure the stack is empty at the end for balanced parentheses."
+              ]
+            }
+          ]
+        },
+        "question": "Which code snippet correctly checks for balanced parentheses?",
+        "options": [
+          "stack = []\nfor char in expression:\n    if char == '(':\n        stack.append(char)\n    elif char == ')':\n        stack.pop()",
+          "stack = []\nfor char in expression:\n    if char == '(':\n        stack.pop()\n    elif char == ')':\n        stack.append(char)",
+          "balance = expression.count('(') == expression.count(')')",
+          "stack = []\nstack.append(expression)"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "Pushing opening parentheses and popping for closing ones ensures balanced parentheses."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A common stack application is evaluating postfix expressions (Reverse Polish Notation). Consider the expression:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "text",
+              "code": "3 4 + 2 *"
+            },
+            {
+              "type": "paragraph",
+              "text": "Use a stack to evaluate the expression."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Push numbers onto the stack.",
+                "Pop the top two elements for each operator and apply the operation.",
+                "Push the result back onto the stack."
+              ]
+            }
+          ]
+        },
+        "question": "What is the result of evaluating the expression using a stack?",
+        "options": ["7", "14", "12", "10"],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Evaluating '3 4 + 2 *' using a stack gives 14: (3 + 4) * 2."
+      }
+    ]
+  },
+  {
+    "title": "Queues",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Queues follow a First-In, First-Out (FIFO) order. You want to add elements to a queue."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "from collections import deque\nqueue = deque([1, 2, 3])"
+            },
+            {
+              "type": "paragraph",
+              "text": "Add the element 4 to the queue."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Queues add elements to the rear (end).",
+                "Consider using a method specifically designed for adding elements to a queue."
+              ]
+            }
+          ]
+        },
+        "question": "Which method correctly adds the element 4 to the queue?",
+        "options": [
+          "queue.appendleft(4)",
+          "queue.append(4)",
+          "queue.push(4)",
+          "queue.insert(4)"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The append() method adds elements to the end of a deque, maintaining FIFO order."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Given a queue of customer orders:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "orders = deque(['order1', 'order2', 'order3'])"
+            },
+            {
+              "type": "paragraph",
+              "text": "You need to process (remove) the first order."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use a method that removes and returns the first element.",
+                "Ensure the order of remaining elements maintains FIFO."
+              ]
+            }
+          ]
+        },
+        "question": "Which method correctly processes the first order?",
+        "options": [
+          "orders.pop()",
+          "orders.popleft()",
+          "orders.remove('order1')",
+          "orders.dequeue()"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The popleft() method removes and returns the first element of the deque, preserving FIFO behavior."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You are implementing a queue to manage print jobs. Jobs are added to the queue as they arrive."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Ensure jobs are processed in the order they are added.",
+                "New jobs are added to the end of the queue."
+              ]
+            }
+          ]
+        },
+        "question": "Which operation ensures jobs are added to the end of the queue?",
+        "options": [
+          "queue.insert(job)",
+          "queue.appendleft(job)",
+          "queue.add(job)",
+          "queue.append(job)"
+        ],
+        "answerIndex": 3,
+        "explanationAfterAnswer": "Appending jobs to the end of the queue maintains the correct FIFO order."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You have a queue of tasks, and you need to check if it is empty before processing."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Consider checking the length of the queue.",
+                "An empty queue has a length of zero."
+              ]
+            }
+          ]
+        },
+        "question": "How can you check if the queue is empty?",
+        "options": [
+          "if queue.isEmpty():",
+          "if len(queue) == 0:",
+          "if queue == []:",
+          "if queue.is_empty():"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Checking if len(queue) == 0 is a standard way to determine if the queue is empty."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You want to implement a circular queue where elements wrap around when the end is reached."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use modular arithmetic to manage the wrapping.",
+                "A circular queue reuses empty slots by moving front and rear pointers."
+              ]
+            }
+          ]
+        },
+        "question": "Which approach best describes a circular queue?",
+        "options": [
+          "Elements are inserted at the front and removed from the rear.",
+          "Elements wrap around to the front when the end is reached.",
+          "The queue uses a linked list with nodes.",
+          "All elements are stored in sorted order."
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "A circular queue wraps around to the front when the end is reached, reusing empty slots."
+      },
+      {
+        "id": 6,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You need to implement a priority queue where elements are dequeued based on priority, not order of insertion."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Higher priority elements are processed before lower priority ones.",
+                "The order of insertion is secondary to the priority."
+              ]
+            }
+          ]
+        },
+        "question": "Which data structure would best implement a priority queue?",
+        "options": [
+          "Regular list with append() and pop() operations",
+          "Stack with push() and pop()",
+          "Heap-based queue",
+          "Deque with appendleft() and pop()"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "A heap-based queue efficiently supports priority-based insertions and deletions."
+      }
+    ]
+  },
+  {
+    "title": "Monotonic Stacks",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A monotonic stack maintains elements in a specific order (either increasing or decreasing). Consider building a stack to find the next greater element for each element in an array."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "nums = [2, 1, 2, 4, 3]"
+            },
+            {
+              "type": "paragraph",
+              "text": "Use a monotonic stack to find the next greater element for each element."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Traverse the array while maintaining elements in a stack.",
+                "Use a stack to keep track of indices or values."
+              ]
+            }
+          ]
+        },
+        "question": "Which approach correctly uses a monotonic stack to find the next greater element?",
+        "options": [
+          "Traverse the array from left to right, pushing elements into the stack as you encounter them.",
+          "Traverse the array from right to left, maintaining a decreasing stack.",
+          "Use a queue instead of a stack to ensure elements are processed in order.",
+          "Push elements to the stack and immediately pop all elements when encountering a larger value."
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "A common approach involves traversing from right to left while maintaining a decreasing stack for next greater elements."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You have an array of daily temperatures:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "temperatures = [73, 74, 75, 71, 69, 72, 76, 73]"
+            },
+            {
+              "type": "paragraph",
+              "text": "For each day, find how many days you have to wait until a warmer temperature."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use a monotonic stack to store indices of temperatures.",
+                "Pop elements from the stack when a warmer temperature is found."
+              ]
+            }
+          ]
+        },
+        "question": "Which structure and approach best finds the days until a warmer temperature?",
+        "options": [
+          "Maintain a stack of temperature values.",
+          "Maintain a stack of indices and traverse from left to right.",
+          "Use a queue to process temperatures.",
+          "Reverse the array and process with a stack."
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Using a stack of indices while traversing from left to right allows efficient calculation of days until a warmer temperature."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You need to maintain a decreasing monotonic stack. Consider this input:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "nums = [5, 3, 1, 4, 2]"
+            },
+            {
+              "type": "paragraph",
+              "text": "What behavior should the stack exhibit as you traverse the array?"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Push elements in decreasing order.",
+                "Pop elements when a larger value is encountered."
+              ]
+            }
+          ]
+        },
+        "question": "What happens when you encounter a larger element while maintaining a decreasing stack?",
+        "options": [
+          "Push the element onto the stack.",
+          "Pop elements until the stack is empty or contains smaller elements.",
+          "Ignore the element and continue traversal.",
+          "Reset the stack."
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "When maintaining a decreasing stack, you pop elements until the stack contains smaller elements or is empty."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You want to find the maximum area of a rectangle in a histogram using a monotonic stack. Given heights:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "heights = [2, 1, 5, 6, 2, 3]"
+            },
+            {
+              "type": "paragraph",
+              "text": "Use a monotonic stack to find the maximum rectangular area."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Push indices of heights onto the stack.",
+                "Calculate areas when popping elements.",
+                "Use a dummy height to ensure all elements are processed."
+              ]
+            }
+          ]
+        },
+        "question": "Which approach correctly finds the maximum area?",
+        "options": [
+          "Traverse from right to left while maintaining a decreasing stack.",
+          "Traverse from left to right, pushing and popping based on heights.",
+          "Use a queue to process heights.",
+          "Calculate areas without using a stack."
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Maintaining a stack of indices while traversing from left to right allows efficient area calculation."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Monotonic stacks can be used to solve range queries efficiently by finding the next greater or smaller element. Consider finding the next smaller element for each element in an array:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "nums = [3, 7, 1, 7, 8]"
+            },
+            {
+              "type": "paragraph",
+              "text": "Use a monotonic stack to find the next smaller element."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Maintain a stack of elements or indices.",
+                "Pop elements when encountering a smaller value."
+              ]
+            }
+          ]
+        },
+        "question": "Which approach finds the next smaller element for each element?",
+        "options": [
+          "Maintain an increasing stack and pop when encountering a smaller value.",
+          "Maintain a decreasing stack and pop when encountering a smaller value.",
+          "Traverse the array and use a queue to find the next smaller element.",
+          "Use a priority queue to find the next smaller element."
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "An increasing stack helps find the next smaller element efficiently by popping elements when encountering smaller values."
+      }
+    ]
+  },
+  {
+    "title": "Singly Linked Lists",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A singly linked list is a data structure where each node points to the next node. Below is a basic implementation of a node:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None"
+            },
+            {
+              "type": "paragraph",
+              "text": "Given a linked list created using this `Node` class, you want to traverse and print all node values."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "**Start** from the head node.",
+                "Use the `next` pointer to move to the **next node**.",
+                "Continue until the `next` pointer is `None`."
+              ]
+            }
+          ]
+        },
+        "question": "Which code correctly traverses and prints all node values?",
+        "options": [
+          "while head:\n    print(head.value)\n    head.next",
+          "while head:\n    print(head.value)\n    head = head.next",
+          "for node in head:\n    print(node.value)",
+          "head.print()"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "To correctly traverse a singly linked list, update the `head` pointer to `head.next` in each iteration."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To insert a node at the beginning of a singly linked list, you need to modify the head pointer and set the new node's `next` pointer to the current head."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n\nhead = Node(1)\nsecond = Node(2)\nhead.next = second"
+            },
+            {
+              "type": "paragraph",
+              "text": "Insert a new node with value `0` at the beginning."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Create a **new node**.",
+                "Set the **new node's `next`** pointer to the current head.",
+                "Update the head to point to the **new node**."
+              ]
+            }
+          ]
+        },
+        "question": "Which code correctly inserts a new node with value 0 at the beginning?",
+        "options": [
+          "new_node = Node(0)\nnew_node.next = head\nhead = new_node",
+          "new_node = Node(0)\nhead = new_node\nnew_node.next = None",
+          "head.next = Node(0)",
+          "new_node = Node(0)\nnew_node = head\nhead = new_node"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "To insert a node at the beginning, the new node's `next` should point to the current head, and then the head is updated."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To delete a node with a specific value from a singly linked list, you need to traverse the list to find the node and update the `next` pointer of the previous node."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n\nhead = Node(1)\nsecond = Node(2)\nthird = Node(3)\nhead.next = second\nsecond.next = third"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use a **previous pointer** to track the node before the one being deleted.",
+                "Update the **`next` pointer** of the previous node to **bypass** the node being deleted."
+              ]
+            }
+          ]
+        },
+        "question": "Which approach correctly deletes a node with value 2?",
+        "options": [
+          "while head:\n    if head.value == 2:\n        head = head.next",
+          "prev = None\ncurr = head\nwhile curr:\n    if curr.value == 2:\n        prev.next = curr.next\n        break\n    prev = curr\n    curr = curr.next",
+          "head.remove(2)",
+          "curr = head\nhead = head.next"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Using a previous pointer to update the `next` pointer allows deletion of the target node from the list."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To reverse a singly linked list, the `next` pointers of each node must point to the previous node, effectively reversing the list's direction."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n\nhead = Node(1)\nsecond = Node(2)\nthird = Node(3)\nhead.next = second\nsecond.next = third"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use **three pointers**: `previous`, `current`, and `next`.",
+                "Adjust the **`next` pointer** of each node to point to the previous node."
+              ]
+            }
+          ]
+        },
+        "question": "Which code correctly reverses a singly linked list?",
+        "options": [
+          "prev = None\ncurr = head\nwhile curr:\n    next_node = curr.next\n    curr.next = prev\n    prev = curr\n    curr = next_node\nhead = prev",
+          "curr = head\nwhile curr:\n    curr = curr.next\nhead = curr",
+          "prev = None\nwhile head:\n    head.next = prev\n    prev = head",
+          "head.reverse()"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "The correct approach uses three pointers (`prev`, `curr`, `next`) to reverse the linked list's direction."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To find the length of a singly linked list, you need to traverse each node until reaching the end (`next` is `None`)."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n\nhead = Node(1)\nsecond = Node(2)\nhead.next = second"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Initialize a **counter** to track the number of nodes.",
+                "Traverse the list using a loop until the **end** is reached."
+              ]
+            }
+          ]
+        },
+        "question": "Which code correctly finds the length of the list?",
+        "options": [
+          "length = 0\nwhile head:\n    length += 1\n    head = head.next",
+          "length = len(head)",
+          "length = head.count()",
+          "length = sum(1 for node in head)"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "To find the length of a singly linked list, traverse each node and increment a counter."
+      }
+    ]
+  },
+  {
+    "title": "Doubly Linked Lists",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A doubly linked list node contains a value and pointers to both the next and previous nodes. Consider the following node structure:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n        self.prev = None"
+            },
+            {
+              "type": "paragraph",
+              "text": "Given this structure, you want to insert a new node after an existing node."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Set the **new node's** `prev` pointer to the current node.",
+                "Adjust the **next** pointers of the current node and new node accordingly."
+              ]
+            }
+          ]
+        },
+        "question": "Which code correctly inserts a new node after the current node?",
+        "options": [
+          "new_node = Node(5)\nnew_node.next = current.next\nnew_node.prev = current\nif current.next:\n    current.next.prev = new_node\ncurrent.next = new_node",
+          "new_node = Node(5)\nnew_node.prev = current\nnew_node.next = None\ncurrent.next = new_node",
+          "new_node = Node(5)\ncurrent.prev = new_node\nnew_node.next = current",
+          "new_node = Node(5)\ncurrent.next = new_node\nnew_node.prev = None"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "The correct approach involves updating the `prev` and `next` pointers of both the new node and surrounding nodes."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To delete a node from a doubly linked list, you need to update the `next` pointer of the previous node and the `prev` pointer of the next node."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n        self.prev = None"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Ensure the **previous node's** `next` pointer skips the node to be deleted.",
+                "Update the **next node's** `prev` pointer to bypass the node."
+              ]
+            }
+          ]
+        },
+        "question": "Which code correctly deletes the current node from a doubly linked list?",
+        "options": [
+          "current.prev.next = current.next\nif current.next:\n    current.next.prev = current.prev\ncurrent = None",
+          "current.prev = None\ncurrent.next = None",
+          "current = current.next\ncurrent.prev = None",
+          "current.next = current.prev\ncurrent = None"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "The correct approach updates both the `next` pointer of the previous node and the `prev` pointer of the next node."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "In a doubly linked list, you can traverse both forward and backward due to the `prev` and `next` pointers."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "To traverse forward, use the **`next`** pointer.",
+                "To traverse backward, use the **`prev`** pointer."
+              ]
+            }
+          ]
+        },
+        "question": "Which code correctly traverses the list backward from the tail?",
+        "options": [
+          "while tail:\n    print(tail.value)\n    tail = tail.prev",
+          "while tail:\n    print(tail.value)\n    tail = tail.next",
+          "while head:\n    print(head.value)\n    head = head.prev",
+          "for node in tail:\n    print(node.value)"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "Traversing backward requires moving from the tail using the `prev` pointer."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You need to add a new node at the beginning of a doubly linked list."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Create a **new node**.",
+                "Set the **new node's `next`** to the current head.",
+                "Update the **head's `prev`** pointer to point to the new node.",
+                "Make the **new node** the new head."
+              ]
+            }
+          ]
+        },
+        "question": "Which code correctly adds a new node at the beginning?",
+        "options": [
+          "new_node = Node(0)\nnew_node.next = head\nhead.prev = new_node\nhead = new_node",
+          "new_node = Node(0)\nhead = new_node\nnew_node.next = None",
+          "new_node = Node(0)\nnew_node.prev = head\nhead = new_node",
+          "new_node = Node(0)\nhead.next = new_node"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "The correct approach sets the new node's `next` pointer to the current head and updates the head's `prev` pointer."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You need to find the length of a doubly linked list by traversing from the head to the tail."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Start at the **head**.",
+                "Move forward using the **`next`** pointer.",
+                "Count nodes until the **end** is reached."
+              ]
+            }
+          ]
+        },
+        "question": "Which code correctly finds the length of the list?",
+        "options": [
+          "length = 0\nwhile head:\n    length += 1\n    head = head.next",
+          "length = len(head)",
+          "length = head.count()",
+          "length = sum(1 for node in head)"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "To find the length, traverse the list using the `next` pointer and count nodes."
+      }
+    ]
+  },
+  {
+    "title": "Binary Trees",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A binary tree is a hierarchical data structure where each node has at most two children, called the left and right child. Consider the following node class:\n\n"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "class TreeNode:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None"
+            },
+            {
+              "type": "paragraph",
+              "text": "You want to traverse the tree in **in-order** (left, root, right)."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Start at the **leftmost node**.",
+                "Visit the **root node**.",
+                "Traverse the **right subtree**."
+              ]
+            }
+          ]
+        },
+        "question": "Which is the correct order of visiting nodes for an in-order traversal?",
+        "options": [
+          "Root, Left, Right",
+          "Left, Root, Right",
+          "Right, Left, Root",
+          "Left, Right, Root"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "In-order traversal visits the left subtree first, then the root node, and finally the right subtree."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A binary tree can be traversed in **pre-order** (root, left, right). This type of traversal is useful for copying the structure of the tree."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def pre_order(node):\n    if node:\n        print(node.value)\n        pre_order(node.left)\n        pre_order(node.right)"
+            }
+          ]
+        },
+        "question": "What is the correct order for pre-order traversal?",
+        "options": [
+          "Left, Right, Root",
+          "Root, Left, Right",
+          "Right, Left, Root",
+          "Left, Root, Right"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "In pre-order traversal, you visit the root node first, then traverse the left subtree, followed by the right subtree."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To perform a **post-order** traversal (left, right, root), you visit all children before visiting the root node. This is often used for deleting a tree."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def post_order(node):\n    if node:\n        post_order(node.left)\n        post_order(node.right)\n        print(node.value)"
+            }
+          ]
+        },
+        "question": "Which is the correct order for post-order traversal?",
+        "options": [
+          "Left, Right, Root",
+          "Root, Left, Right",
+          "Right, Root, Left",
+          "Left, Root, Right"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "In post-order traversal, you visit the left subtree, then the right subtree, and finally the root node."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You want to calculate the **height** of a binary tree, defined as the number of edges on the longest path from the root to a leaf node."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def find_height(node):\n    if not node:\n        return -1\n    left_height = find_height(node.left)\n    right_height = find_height(node.right)\n    return 1 + max(left_height, right_height)"
+            }
+          ]
+        },
+        "question": "What is the height of a binary tree with only a single root node and no children?",
+        "options": ["-1", "0", "1", "2"],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "A tree with a single root node and no children has a height of 0."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To perform a **level-order traversal** (breadth-first traversal), you visit nodes level by level, starting from the root and moving to each child level."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "from collections import deque\ndef level_order(root):\n    queue = deque([root])\n    while queue:\n        node = queue.popleft()\n        print(node.value)\n        if node.left:\n            queue.append(node.left)\n        if node.right:\n            queue.append(node.right)"
+            }
+          ]
+        },
+        "question": "Which data structure is typically used for level-order traversal?",
+        "options": ["Stack", "Queue", "Array", "Heap"],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "A queue is used for level-order traversal to process nodes level by level."
+      }
+    ]
+  },
+  {
+    "title": "Binary Search Trees",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A Binary Search Tree (BST) is a binary tree where each node follows specific properties: the left subtree contains values **less than** the node's value, and the right subtree contains values **greater than** the node's value."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "class TreeNode:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None"
+            },
+            {
+              "type": "paragraph",
+              "text": "You are given a BST with the root node value 10."
+            }
+          ]
+        },
+        "question": "Where should a new node with value 15 be inserted?",
+        "options": [
+          "Left subtree",
+          "Right subtree",
+          "Above the root",
+          "Replace the root"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Since 15 is greater than 10, it should be inserted into the right subtree."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To search for a value in a BST, you compare it with the root node's value and decide whether to traverse left or right."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def search_bst(root, value):\n    if not root or root.value == value:\n        return root\n    if value < root.value:\n        return search_bst(root.left, value)\n    return search_bst(root.right, value)"
+            },
+            {
+              "type": "paragraph",
+              "text": "You want to find a node with value 7."
+            }
+          ]
+        },
+        "question": "Where should you search for the value 7 if the root node's value is 10?",
+        "options": [
+          "Left subtree",
+          "Right subtree",
+          "Both subtrees",
+          "None (not possible in a BST)"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "Since 7 is less than 10, you should search in the left subtree."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You want to find the minimum value in a BST. The minimum value is always found at the **leftmost node**."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def find_min(root):\n    while root.left:\n        root = root.left\n    return root.value"
+            }
+          ]
+        },
+        "question": "How can you find the minimum value in a BST?",
+        "options": [
+          "Traverse right until no more nodes exist",
+          "Traverse left until no more nodes exist",
+          "Check both subtrees",
+          "Search the root"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The minimum value in a BST is found by traversing left until there are no more nodes."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You need to delete a node from a BST. If the node has two children, replace it with the **in-order successor** (smallest node in the right subtree)."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def delete_node(root, value):\n    if not root:\n        return root\n    if value < root.value:\n        root.left = delete_node(root.left, value)\n    elif value > root.value:\n        root.right = delete_node(root.right, value)\n    else:\n        if not root.left:\n            return root.right\n        elif not root.right:\n            return root.left\n        min_larger_node = find_min(root.right)\n        root.value = min_larger_node.value\n        root.right = delete_node(root.right, min_larger_node.value)\n    return root"
+            }
+          ]
+        },
+        "question": "What should you do if a node to be deleted has two children?",
+        "options": [
+          "Remove both children",
+          "Replace it with the in-order predecessor",
+          "Replace it with the in-order successor",
+          "Ignore the node"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The in-order successor (smallest node in the right subtree) is used to replace the node."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Balancing a BST ensures that the height of the tree remains minimal, improving search operations. One way to balance a BST is by using a self-balancing tree like an **AVL tree**."
+            }
+          ]
+        },
+        "question": "What is the purpose of balancing a BST?",
+        "options": [
+          "To minimize the height and improve search efficiency",
+          "To keep nodes in sorted order",
+          "To allow duplicates",
+          "To remove leaves"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "Balancing a BST minimizes its height, which improves search, insertion, and deletion efficiency."
+      }
+    ]
+  },
+  {
+    "title": "Tries",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A Trie (prefix tree) is a tree-like data structure used to store strings by breaking them into individual characters. Below is a simple TrieNode class:"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "class TrieNode:\n    def __init__(self):\n        self.children = {}\n        self.is_end_of_word = False"
+            },
+            {
+              "type": "paragraph",
+              "text": "Each node in the Trie can have multiple children, each representing a character of the string."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Nodes store **characters** as keys in a dictionary.",
+                "The **end-of-word** flag indicates the end of a valid string."
+              ]
+            }
+          ]
+        },
+        "question": "What does the `is_end_of_word` flag represent in a TrieNode?",
+        "options": [
+          "The start of a string",
+          "The end of a valid string",
+          "An empty node",
+          "A special character"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The `is_end_of_word` flag indicates that a complete string ends at that node."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To insert a word into a Trie, traverse through each character and create child nodes as necessary. Consider inserting the word 'cat'."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def insert(root, word):\n    node = root\n    for char in word:\n        if char not in node.children:\n            node.children[char] = TrieNode()\n        node = node.children[char]\n    node.is_end_of_word = True"
+            },
+            {
+              "type": "paragraph",
+              "text": "Each character in 'cat' is stored as a separate node."
+            }
+          ]
+        },
+        "question": "What happens if a character already exists in the Trie during insertion?",
+        "options": [
+          "The existing node is overwritten",
+          "A new node is always created",
+          "The existing node is reused",
+          "The word is discarded"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "If a character already exists, the existing node is reused instead of creating a new one."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To search for a word in a Trie, traverse each character in the word and check if it exists as a child node."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def search(root, word):\n    node = root\n    for char in word:\n        if char not in node.children:\n            return False\n        node = node.children[char]\n    return node.is_end_of_word"
+            }
+          ]
+        },
+        "question": "What is returned if a word is found in the Trie?",
+        "options": [
+          "The word itself",
+          "True if the `is_end_of_word` is True",
+          "A new node",
+          "The parent node"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "If a word is found, `True` is returned if the `is_end_of_word` flag is set for the last character."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Tries are often used for prefix-based operations, such as finding all words with a specific prefix. For example, finding all words that start with 'ap'."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def starts_with(root, prefix):\n    node = root\n    for char in prefix:\n        if char not in node.children:\n            return []\n        node = node.children[char]\n    # Collect all words starting with the prefix\n    return collect_words(node, prefix)"
+            },
+            {
+              "type": "paragraph",
+              "text": "This method allows efficient retrieval of words with a specific prefix."
+            }
+          ]
+        },
+        "question": "What is a common use case for Tries?",
+        "options": [
+          "Sorting numbers",
+          "Finding all words with a given prefix",
+          "Storing unique numbers",
+          "Performing arithmetic operations"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Tries are commonly used for operations like finding all words with a given prefix."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Deleting a word from a Trie requires careful handling to remove nodes only if they are no longer part of any other word."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def delete(root, word, depth=0):\n    if not root:\n        return False\n    if depth == len(word):\n        if not root.is_end_of_word:\n            return False\n        root.is_end_of_word = False\n        return len(root.children) == 0\n    char = word[depth]\n    if char in root.children:\n        should_delete = delete(root.children[char], word, depth + 1)\n        if should_delete:\n            del root.children[char]\n            return len(root.children) == 0\n    return False"
+            }
+          ]
+        },
+        "question": "What should be done when deleting a word from a Trie?",
+        "options": [
+          "Always remove the entire branch",
+          "Remove nodes only if they are no longer part of any other word",
+          "Keep all nodes even if the word is deleted",
+          "Convert nodes to placeholders"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "When deleting a word, nodes should be removed only if they are no longer part of any other word."
+      }
+    ]
+  },
+  {
+    "title": "Heaps",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A heap is a specialized binary tree-based data structure that satisfies the **heap property**. In a max-heap, for example, the value of each parent node is **greater than or equal** to the values of its children."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "import heapq\nheap = []\nheapq.heappush(heap, 3)\nheapq.heappush(heap, 1)\nheapq.heappush(heap, 4)"
+            },
+            {
+              "type": "paragraph",
+              "text": "The above code uses Python's `heapq` module to create a min-heap."
+            }
+          ]
+        },
+        "question": "What is the value at the root of the heap after inserting 3, 1, and 4?",
+        "options": ["3", "1", "4", "Heap is empty"],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "In a min-heap, the smallest value (1) is at the root."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To remove the root element from a heap, you typically replace it with the last element and then **heapify** the structure to maintain the heap property."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "import heapq\nheap = [1, 3, 4]\nheapq.heappop(heap)"
+            }
+          ]
+        },
+        "question": "What happens to the heap after removing the root element 1?",
+        "options": [
+          "3 becomes the new root",
+          "4 becomes the new root",
+          "The heap is empty",
+          "Heap remains unchanged"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "After removing the root (1), 3 becomes the new root, and the heap is restructured to maintain the min-heap property."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Heaps are commonly used to implement **priority queues**, where elements with higher priority are served before those with lower priority."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "import heapq\npriority_queue = []\nheapq.heappush(priority_queue, (2, 'task1'))\nheapq.heappush(priority_queue, (1, 'task2'))"
+            }
+          ]
+        },
+        "question": "Which task is served first from the priority queue?",
+        "options": [
+          "'task1'",
+          "'task2'",
+          "Tasks are served in arbitrary order",
+          "None"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "In a priority queue implemented with a min-heap, the task with the smallest priority value (1, 'task2') is served first."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A max-heap can be created by inserting the negative of each value when using Python's `heapq`, as it only supports min-heaps."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "import heapq\nmax_heap = []\nheapq.heappush(max_heap, -1)\nheapq.heappush(max_heap, -3)\nheapq.heappush(max_heap, -2)"
+            }
+          ]
+        },
+        "question": "What value is at the root of this max-heap?",
+        "options": ["-3", "-1", "3", "1"],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "In a max-heap implemented using negative values, the smallest negative value (-3) represents the largest positive value (3)."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The time complexity for inserting an element into a heap or removing the root element is **O(log n)** due to the logarithmic height of the heap."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "heapq.heappush(heap, 5)\nheapq.heappop(heap)"
+            }
+          ]
+        },
+        "question": "What is the time complexity for inserting or removing an element from a heap?",
+        "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The time complexity for inserting or removing an element from a heap is O(log n) due to the height of the heap."
+      }
+    ]
+  },
+  {
+    "title": "Graphs",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A graph is a data structure consisting of **nodes (vertices)** connected by **edges**. Graphs can be directed or undirected."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "class Graph:\n    def __init__(self):\n        self.graph = {}"
+            },
+            {
+              "type": "paragraph",
+              "text": "This simple class initializes an empty graph using a dictionary to store nodes and edges."
+            }
+          ]
+        },
+        "question": "What does a graph consist of?",
+        "options": [
+          "Nodes only",
+          "Nodes and edges",
+          "Edges only",
+          "Nodes and trees"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "A graph consists of nodes (vertices) and edges connecting these nodes."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Graphs can be traversed using **Breadth-First Search (BFS)**. This traversal explores all nodes at the current depth level before moving on to nodes at the next level."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "from collections import deque\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    while queue:\n        node = queue.popleft()\n        if node not in visited:\n            print(node)\n            visited.add(node)\n            queue.extend(graph[node])"
+            }
+          ]
+        },
+        "question": "Which data structure is used for BFS traversal?",
+        "options": ["Stack", "Queue", "Tree", "List"],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "BFS uses a queue to traverse nodes level by level."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "**Depth-First Search (DFS)** explores as far as possible along a branch before backtracking. It can be implemented using recursion or an explicit stack."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def dfs(graph, node, visited=set()):\n    if node not in visited:\n        print(node)\n        visited.add(node)\n        for neighbor in graph[node]:\n            dfs(graph, neighbor, visited)"
+            }
+          ]
+        },
+        "question": "What data structure is commonly used to implement DFS iteratively?",
+        "options": ["Queue", "Stack", "Heap", "Tree"],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "A stack is used for iterative implementations of DFS."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Graphs can have **cycles**, which are paths that start and end at the same node without repeating edges or nodes. Detecting cycles is important in directed and undirected graphs."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def detect_cycle(graph, node, visited, parent):\n    visited.add(node)\n    for neighbor in graph[node]:\n        if neighbor not in visited:\n            if detect_cycle(graph, neighbor, visited, node):\n                return True\n        elif parent != neighbor:\n            return True\n    return False"
+            }
+          ]
+        },
+        "question": "Why is cycle detection important in graphs?",
+        "options": [
+          "To find isolated nodes",
+          "To prevent infinite loops",
+          "To count edges",
+          "To sort nodes"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Cycle detection is important to avoid infinite loops during graph traversal."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "**Weighted graphs** have edges with associated weights or costs, representing distances, costs, or other metrics between nodes."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "graph = {\n    'A': [('B', 1), ('C', 3)],\n    'B': [('C', 1), ('D', 4)],\n    'C': [('D', 2)],\n    'D': []\n}"
+            }
+          ]
+        },
+        "question": "What do weights in a weighted graph represent?",
+        "options": [
+          "Node colors",
+          "Edge costs or distances",
+          "Traversal order",
+          "Graph size"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Weights in a weighted graph represent costs, distances, or other metrics associated with edges."
+      }
+    ]
+  },
+  {
+    "title": "Adjacency Lists",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "An adjacency list is a common way to represent graphs. Each node (vertex) has a list of its neighboring nodes. This structure is efficient for representing **sparse graphs**."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "graph = {\n    'A': ['B', 'C'],\n    'B': ['A', 'D'],\n    'C': ['A', 'D'],\n    'D': ['B', 'C']\n}"
+            },
+            {
+              "type": "paragraph",
+              "text": "The above graph uses an adjacency list to represent the connections between nodes."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Nodes are represented as **keys**.",
+                "Neighbors are stored in **lists**."
+              ]
+            }
+          ]
+        },
+        "question": "What is the adjacency list representation of node 'A'?",
+        "options": ["['B', 'D']", "['A', 'D']", "['B', 'C']", "['C', 'D']"],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "In the adjacency list, node 'A' is connected to nodes 'B' and 'C'."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Adjacency lists are efficient for adding and removing **edges** in sparse graphs since only the relevant lists need to be updated."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "graph['A'].append('D')\ngraph['D'].append('A')"
+            },
+            {
+              "type": "paragraph",
+              "text": "This code adds an edge between 'A' and 'D' in an undirected graph."
+            }
+          ]
+        },
+        "question": "What operation is needed to add an edge between 'X' and 'Y' in an undirected graph represented as an adjacency list?",
+        "options": [
+          "Add 'Y' to X's list only",
+          "Add 'X' to Y's list only",
+          "Add 'X' to Y's list and 'Y' to X's list",
+          "Create a new graph"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "For an undirected graph, an edge between 'X' and 'Y' requires adding 'Y' to X's list and 'X' to Y's list."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Adjacency lists can also represent **weighted graphs** by associating weights with edges."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "weighted_graph = {\n    'A': [('B', 2), ('C', 3)],\n    'B': [('A', 2), ('D', 4)],\n    'C': [('A', 3), ('D', 1)],\n    'D': [('B', 4), ('C', 1)]\n}"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Each edge is represented as a **tuple** containing the neighboring node and the weight.",
+                "This allows for **efficient** storage of weights alongside connections."
+              ]
+            }
+          ]
+        },
+        "question": "What does the tuple ('C', 3) represent in the adjacency list?",
+        "options": [
+          "Node 'C' has no weight",
+          "Node 'C' is connected to itself",
+          "An edge between 'A' and 'C' with weight 3",
+          "A cycle involving 'C'"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The tuple ('C', 3) represents an edge between 'A' and 'C' with a weight of 3."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To find all neighbors of a node in an adjacency list, access the **list** of neighbors associated with that node."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "neighbors = graph['B']\nprint(neighbors)  # Output: ['A', 'D']"
+            },
+            {
+              "type": "paragraph",
+              "text": "This retrieves all nodes connected to 'B'."
+            }
+          ]
+        },
+        "question": "How can you find all neighbors of node 'X' in an adjacency list?",
+        "options": [
+          "By searching all nodes",
+          "By accessing graph['X']",
+          "By deleting node 'X'",
+          "By adding an edge"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "In an adjacency list, all neighbors of node 'X' can be found by accessing graph['X']."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Adjacency lists use **O(n + m)** space, where **n** is the number of nodes and **m** is the number of edges."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Efficient for **sparse graphs** with fewer edges.",
+                "Can be less efficient for **dense graphs** with many edges."
+              ]
+            }
+          ]
+        },
+        "question": "Why are adjacency lists efficient for sparse graphs?",
+        "options": [
+          "They store only nodes",
+          "They store edges as nodes",
+          "They store only non-existing edges",
+          "They store only existing edges"
+        ],
+        "answerIndex": 3,
+        "explanationAfterAnswer": "Adjacency lists are efficient for sparse graphs because they store only existing edges."
+      }
+    ]
+  },
+  {
+    "title": "Intervals",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "An interval is a range defined by a **start** and an **end**, commonly represented as [start, end]. Intervals are used to represent ranges, such as time periods or numerical ranges."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "interval = [1, 5]\nprint(interval[0])  # Output: 1 (start)\nprint(interval[1])  # Output: 5 (end)"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Intervals are often used for **range-based** operations.",
+                "They can represent **continuous ranges** between values."
+              ]
+            }
+          ]
+        },
+        "question": "What does [1, 5] represent in an interval?",
+        "options": [
+          "A list of elements 1 and 5",
+          "A continuous range from 1 to 5",
+          "An unordered pair of numbers",
+          "A matrix row"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The interval [1, 5] represents a continuous range from 1 to 5."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To check if two intervals **overlap**, you compare their start and end values. If the end of one interval is greater than or equal to the start of another, they overlap."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def intervals_overlap(interval1, interval2):\n    return interval1[1] >= interval2[0] and interval2[1] >= interval1[0]"
+            }
+          ]
+        },
+        "question": "Do [1, 5] and [4, 8] overlap?",
+        "options": [
+          "Yes",
+          "No",
+          "Only if they are sorted",
+          "Only if they are non-overlapping"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "The intervals [1, 5] and [4, 8] overlap because the end of [1, 5] (5) is greater than the start of [4, 8] (4)."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "When **merging intervals**, you combine overlapping intervals into a single interval. For example, merging [1, 5] and [4, 8] results in [1, 8]."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def merge_intervals(interval1, interval2):\n    return [min(interval1[0], interval2[0]), max(interval1[1], interval2[1])]\nmerged = merge_intervals([1, 5], [4, 8])\nprint(merged)  # Output: [1, 8]"
+            }
+          ]
+        },
+        "question": "What is the result of merging intervals [2, 6] and [5, 9]?",
+        "options": ["[2, 6]", "[2, 9]", "[5, 9]", "No merge occurs"],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Merging [2, 6] and [5, 9] results in [2, 9] because they overlap."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "**Sorting intervals** by their start values is a common preprocessing step when merging multiple intervals."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "intervals = [[5, 10], [1, 4], [7, 8]]\nsorted_intervals = sorted(intervals, key=lambda x: x[0])\nprint(sorted_intervals)  # Output: [[1, 4], [5, 10], [7, 8]]"
+            }
+          ]
+        },
+        "question": "Why is sorting intervals by their start values useful?",
+        "options": [
+          "To check for non-overlapping intervals",
+          "To simplify merging intervals",
+          "To avoid using lists",
+          "To find duplicates"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Sorting intervals by their start values simplifies the process of merging overlapping intervals."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "An interval [a, b] is considered **non-overlapping** with [c, d] if b < c or a > d."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def is_non_overlapping(interval1, interval2):\n    return interval1[1] < interval2[0] or interval1[0] > interval2[1]"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Non-overlapping intervals do not share any common values.",
+                "Efficient checks can be done using their start and end values."
+              ]
+            }
+          ]
+        },
+        "question": "Are [1, 3] and [5, 7] non-overlapping?",
+        "options": ["Yes", "No", "Only if sorted", "Only if merged"],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "The intervals [1, 3] and [5, 7] are non-overlapping because they do not share any values."
+      }
+    ]
+  },
+  {
+    "title": "Binary Search",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Binary search is an efficient algorithm for finding an item in a **sorted array**. It works by repeatedly dividing the search interval in half."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1"
+            },
+            {
+              "type": "paragraph",
+              "text": "In the code above, the target element is compared with the **middle** element, and the search range is adjusted accordingly."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Time complexity: **O(log n)** for searching.",
+                "Requires a **sorted array** as input."
+              ]
+            }
+          ]
+        },
+        "question": "What is the time complexity of binary search?",
+        "options": ["O(n)", "O(log n)", "O(n^2)", "O(1)"],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Binary search has a time complexity of O(log n) because the search space is halved with each iteration."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Consider a sorted array where you need to find the first occurrence of a target element. Binary search can be modified to achieve this by checking whether the **midpoint** element is the first occurrence."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def find_first_occurrence(arr, target):\n    left, right = 0, len(arr) - 1\n    result = -1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            result = mid\n            right = mid - 1  # Continue searching on the left\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return result"
+            }
+          ]
+        },
+        "question": "What modification is made to find the first occurrence of a target element?",
+        "options": [
+          "Search the entire array again",
+          "Continue searching to the left after finding the target",
+          "Stop searching once the target is found",
+          "Double the search range"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "To find the first occurrence, we continue searching to the left after finding the target."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Imagine you are tasked with finding the **smallest element** in a rotated sorted array using binary search. A rotated sorted array might look like [4, 5, 6, 1, 2, 3]."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def find_min_in_rotated_array(arr):\n    left, right = 0, len(arr) - 1\n    while left < right:\n        mid = (left + right) // 2\n        if arr[mid] > arr[right]:\n            left = mid + 1\n        else:\n            right = mid\n    return arr[left]"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "The array is rotated, so binary search needs **adjustments**.",
+                "Compare the midpoint with the **rightmost** element to determine the search direction."
+              ]
+            }
+          ]
+        },
+        "question": "In a rotated sorted array [4, 5, 6, 1, 2, 3], which element will this function find?",
+        "options": ["4", "1", "6", "3"],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The function finds the smallest element (1) in the rotated sorted array."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You have an infinite sorted array (unknown size) and need to find an element using binary search. To do this, you first find a suitable range containing the target."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def find_in_infinite_array(arr, target):\n    left, right = 0, 1\n    while arr[right] < target:\n        left = right\n        right *= 2\n    return binary_search_within_bounds(arr, left, right, target)"
+            },
+            {
+              "type": "paragraph",
+              "text": "This approach finds a range containing the target before applying binary search."
+            }
+          ]
+        },
+        "question": "How do you initially find a suitable range to search in an infinite sorted array?",
+        "options": [
+          "By doubling the search range size",
+          "By using linear search",
+          "By dividing the array in half",
+          "By starting from the end"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "To find a suitable range, you double the search range size until the target is within bounds."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Binary search can also be used to find the **peak element** in an unsorted array. A peak element is one that is greater than its neighbors."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def find_peak_element(arr):\n    left, right = 0, len(arr) - 1\n    while left < right:\n        mid = (left + right) // 2\n        if arr[mid] > arr[mid + 1]:\n            right = mid\n        else:\n            left = mid + 1\n    return arr[left]"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "The algorithm works even if there are multiple peaks.",
+                "It compares the **midpoint** with its neighbor."
+              ]
+            }
+          ]
+        },
+        "question": "What does this function return when applied to [1, 3, 20, 4, 1, 0]?",
+        "options": ["1", "3", "20", "4"],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The function finds 20, which is a peak element in the array."
+      }
+    ]
+  },
+  {
+    "title": "Breadth-First Search",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Breadth-First Search (BFS) is a graph traversal algorithm that explores nodes layer by layer, starting from a given node. It uses a **queue** to keep track of the nodes to be explored."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "from collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    while queue:\n        node = queue.popleft()\n        if node not in visited:\n            print(node)\n            visited.add(node)\n            queue.extend(graph[node])"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "BFS uses a **queue** to explore nodes.",
+                "It visits all **neighbors** of a node before moving to the next layer."
+              ]
+            }
+          ]
+        },
+        "question": "What data structure does BFS typically use to keep track of nodes to be explored?",
+        "options": ["Stack", "Queue", "Heap", "Tree"],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "BFS uses a queue to explore nodes layer by layer, ensuring that all neighbors are visited before moving deeper into the graph."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Imagine you are traversing a social network graph where nodes represent people and edges represent connections. You want to find the **shortest path** between two people."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def shortest_path_bfs(graph, start, target):\n    from collections import deque\n    queue = deque([(start, [start])])\n    visited = set()\n    while queue:\n        node, path = queue.popleft()\n        if node == target:\n            return path\n        if node not in visited:\n            visited.add(node)\n            for neighbor in graph[node]:\n                queue.append((neighbor, path + [neighbor]))"
+            },
+            {
+              "type": "paragraph",
+              "text": "The BFS approach finds the shortest path by exploring neighbors layer by layer."
+            }
+          ]
+        },
+        "question": "Why is BFS suitable for finding the shortest path in an unweighted graph?",
+        "options": [
+          "It explores all nodes",
+          "It visits nodes randomly",
+          "It explores nodes layer by layer",
+          "It uses a stack for traversal"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "BFS is suitable for finding the shortest path in an unweighted graph because it explores nodes layer by layer, ensuring the shortest path is found first."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Consider a grid-based game where you need to find the minimum number of moves to reach a target cell from a starting cell. You can move up, down, left, or right."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def bfs_min_moves(grid, start, target):\n    from collections import deque\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    queue = deque([(start, 0)])\n    visited = set()\n    while queue:\n        (x, y), moves = queue.popleft()\n        if (x, y) == target:\n            return moves\n        for dx, dy in directions:\n            nx, ny = x + dx, y + dy\n            if (nx, ny) not in visited and is_valid(nx, ny, grid):\n                visited.add((nx, ny))\n                queue.append(((nx, ny), moves + 1))"
+            },
+            {
+              "type": "paragraph",
+              "text": "BFS can be used to find the minimum number of moves in grid-based problems."
+            }
+          ]
+        },
+        "question": "How does BFS find the minimum number of moves in grid-based problems?",
+        "options": [
+          "By exploring all paths simultaneously",
+          "By exploring only one path at a time",
+          "By randomly selecting paths",
+          "By using a stack instead of a queue"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "BFS finds the minimum number of moves by exploring all paths simultaneously using a queue, ensuring that the shortest path is found first."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "In a network graph with nodes representing computers and edges representing connections, you need to **broadcast** a message from one computer to all others."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "BFS is suitable for **broadcasting** tasks.",
+                "It ensures all nodes are reached in the **minimum number of hops**."
+              ]
+            }
+          ]
+        },
+        "question": "What is the benefit of using BFS for broadcasting messages in a network graph?",
+        "options": [
+          "It finds the longest path",
+          "It ensures all nodes are reached in the minimum number of hops",
+          "It randomly selects nodes",
+          "It uses a stack for traversal"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "BFS ensures that all nodes are reached in the minimum number of hops, making it ideal for broadcasting messages."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "BFS can detect **cycles** in an undirected graph. While traversing, if a node is visited again that is not the parent, a cycle exists."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def bfs_cycle_detection(graph, start):\n    from collections import deque\n    queue = deque([(start, None)])\n    visited = set()\n    while queue:\n        node, parent = queue.popleft()\n        if node in visited:\n            return True\n        visited.add(node)\n        for neighbor in graph[node]:\n            if neighbor != parent:\n                queue.append((neighbor, node))\n    return False"
+            }
+          ]
+        },
+        "question": "What condition is checked to detect a cycle in an undirected graph using BFS?",
+        "options": [
+          "If a node has more than one neighbor",
+          "If a node is visited again and is not the parent",
+          "If the graph is unconnected",
+          "If all nodes are visited"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "A cycle is detected if a node is visited again and is not the parent of the current node."
+      }
+    ]
+  },
+  {
+    "title": "Depth-First Search",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Depth-First Search (DFS) is a graph traversal algorithm that explores as far as possible along one branch before backtracking. DFS can be implemented using **recursion** or an **explicit stack**."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def dfs_recursive(graph, node, visited=set()):\n    if node not in visited:\n        print(node)\n        visited.add(node)\n        for neighbor in graph[node]:\n            dfs_recursive(graph, neighbor, visited)"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "DFS explores nodes **deeply** before visiting siblings.",
+                "It can be used to detect **cycles** in a graph."
+              ]
+            }
+          ]
+        },
+        "question": "What data structure is typically used to implement DFS iteratively?",
+        "options": ["Queue", "Stack", "Heap", "Array"],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "A stack is used for iterative implementations of DFS, ensuring a depth-first traversal."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "DFS can be used to find **connected components** in an undirected graph by repeatedly applying the algorithm to unvisited nodes."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def find_connected_components(graph):\n    visited = set()\n    components = []\n\n    for node in graph:\n        if node not in visited:\n            component = []\n            dfs_collect(graph, node, visited, component)\n            components.append(component)\n\n    return components\n\ndef dfs_collect(graph, node, visited, component):\n    if node not in visited:\n        visited.add(node)\n        component.append(node)\n        for neighbor in graph[node]:\n            dfs_collect(graph, neighbor, visited, component)"
+            }
+          ]
+        },
+        "question": "What does the function `find_connected_components` do when applied to a graph?",
+        "options": [
+          "Finds the shortest path",
+          "Detects cycles",
+          "Finds connected components",
+          "Sorts the nodes"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The function finds all connected components by applying DFS to unvisited nodes."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Consider a tree structure where nodes represent tasks and edges represent dependencies. DFS can be used to determine the **order** in which tasks should be completed."
+            },
+            {
+              "type": "paragraph",
+              "text": "For example, if task A depends on task B, DFS ensures that B is processed before A."
+            }
+          ]
+        },
+        "question": "What application of DFS is described here?",
+        "options": [
+          "Cycle detection",
+          "Finding shortest paths",
+          "Topological sorting",
+          "Breadth-first traversal"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "DFS can be used for topological sorting, which determines a valid order for tasks with dependencies."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "In a **maze-solving problem**, DFS explores all possible paths from a starting point. It backtracks when a path reaches a dead end, exploring other paths."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def dfs_maze_solver(maze, start, end, path=[], visited=set()):\n    if start == end:\n        return path + [end]\n    visited.add(start)\n    for neighbor in get_neighbors(maze, start):\n        if neighbor not in visited:\n            result = dfs_maze_solver(maze, neighbor, end, path + [start], visited)\n            if result:\n                return result\n    return None"
+            }
+          ]
+        },
+        "question": "What is a key characteristic of DFS when solving mazes?",
+        "options": [
+          "It guarantees the shortest path",
+          "It explores all possible paths",
+          "It only explores one path",
+          "It uses a priority queue"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "DFS explores all possible paths, though it does not guarantee the shortest path."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "DFS can detect **back edges** in a graph, which indicate the presence of a cycle in a directed graph. Back edges point from a node to one of its ancestors in the DFS tree."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def dfs_cycle_detection(graph, node, visited, parent):\n    visited.add(node)\n    for neighbor in graph[node]:\n        if neighbor not in visited:\n            if dfs_cycle_detection(graph, neighbor, visited, node):\n                return True\n        elif neighbor != parent:\n            return True\n    return False"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "A back edge connects a node to its **ancestor**.",
+                "Cycle detection is important for **graph traversal**."
+              ]
+            }
+          ]
+        },
+        "question": "What does a back edge in a directed graph signify?",
+        "options": [
+          "The graph is unconnected",
+          "The presence of a cycle",
+          "A node has no children",
+          "A node is isolated"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "A back edge indicates a cycle in a directed graph, connecting a node to its ancestor."
+      }
+    ]
+  },
+  {
+    "title": "Kadanes Algorithm",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Kadane's Algorithm is used to find the **maximum sum subarray** in a given array. It works by maintaining a running sum and updating the maximum encountered sum as it traverses the array."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def kadane(arr):\n    max_current = max_global = arr[0]\n    for i in range(1, len(arr)):\n        max_current = max(arr[i], max_current + arr[i])\n        if max_current > max_global:\n            max_global = max_current\n    return max_global"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Keeps track of the **current maximum sum** at each step.",
+                "Updates the **global maximum sum** when a new maximum is found."
+              ]
+            }
+          ]
+        },
+        "question": "What does Kadane's Algorithm find in a given array?",
+        "options": [
+          "Minimum element",
+          "Maximum sum subarray",
+          "Median element",
+          "Sum of all elements"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Kadane's Algorithm finds the maximum sum subarray by maintaining a running sum and updating the maximum encountered sum."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Consider an array with a mix of positive and negative numbers: **[3, -2, 5, -1, 6, -3, 2, -1, 4]**. Kadane's Algorithm finds the subarray with the maximum sum by selectively including or excluding elements."
+            },
+            {
+              "type": "paragraph",
+              "text": "The algorithm uses a comparison between the current element and the sum including the current element."
+            }
+          ]
+        },
+        "question": "What is the maximum sum subarray for [3, -2, 5, -1, 6, -3, 2, -1, 4]?",
+        "options": [
+          "[3, -2, 5]",
+          "[5, -1, 6, -3]",
+          "[5, -1, 6, -3, 2, -1, 4]",
+          "[3, -2, 5, -1, 6]"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The maximum sum subarray for the given array is [5, -1, 6, -3, 2, -1, 4]."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Kadane's Algorithm can handle arrays with all **negative** numbers. In this case, it will select the maximum single element as the maximum sum subarray."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "arr = [-3, -1, -2, -4]\nprint(kadane(arr))  # Output: -1"
+            },
+            {
+              "type": "paragraph",
+              "text": "The algorithm compares the current element with the sum including the current element."
+            }
+          ]
+        },
+        "question": "What does Kadane's Algorithm return for an array of all negative numbers?",
+        "options": [
+          "0",
+          "Sum of all elements",
+          "Maximum single element",
+          "Minimum single element"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "For an array of all negative numbers, Kadane's Algorithm returns the maximum single element."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Suppose you are given a large array of **stock prices** where each element represents the price of the stock on a given day. Kadane's Algorithm can be modified to find the **maximum profit** that can be made by buying and selling the stock."
+            },
+            {
+              "type": "paragraph",
+              "text": "The algorithm focuses on calculating the difference between prices and finding the subarray with the maximum sum of differences."
+            }
+          ]
+        },
+        "question": "How would you modify Kadane's Algorithm to find the maximum profit from stock prices?",
+        "options": [
+          "Track the minimum price",
+          "Calculate maximum differences",
+          "Sort the prices",
+          "Find the sum of prices"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "To find the maximum profit, you calculate the maximum differences between stock prices using a modified Kadane's approach."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Kadane's Algorithm works in **O(n)** time complexity, where n is the length of the array. It achieves this by iterating over the array once."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Optimal for finding maximum sum subarrays.",
+                "Does not require additional space."
+              ]
+            }
+          ]
+        },
+        "question": "What is the time complexity of Kadane's Algorithm?",
+        "options": ["O(n^2)", "O(log n)", "O(n)", "O(1)"],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "Kadane's Algorithm works in O(n) time complexity by iterating over the array once."
+      }
+    ]
+  },
+  {
+    "title": "Topological Sort",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Topological Sort is a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge **(u, v)**, vertex **u** comes before vertex **v**."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "from collections import defaultdict\n\ndef topological_sort(graph):\n    in_degree = {node: 0 for node in graph}\n    for nodes in graph.values():\n        for node in nodes:\n            in_degree[node] += 1\n\n    queue = [node for node in graph if in_degree[node] == 0]\n    order = []\n\n    while queue:\n        node = queue.pop(0)\n        order.append(node)\n        for neighbor in graph[node]:\n            in_degree[neighbor] -= 1\n            if in_degree[neighbor] == 0:\n                queue.append(neighbor)\n    return order"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Topological sorting is only possible for **DAGs**.",
+                "Commonly used for **task scheduling** with dependencies."
+              ]
+            }
+          ]
+        },
+        "question": "What type of graph is suitable for topological sorting?",
+        "options": [
+          "Undirected graph",
+          "Directed acyclic graph (DAG)",
+          "Cyclic graph",
+          "Weighted graph"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Topological sorting is only applicable to directed acyclic graphs (DAGs)."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Consider a task dependency graph where tasks **A, B, C, D** must be completed in a specific order due to dependencies. Task A must be completed before tasks B and C, while task C must be completed before task D."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "graph = {\n    'A': ['B', 'C'],\n    'B': [],\n    'C': ['D'],\n    'D': []\n}\nprint(topological_sort(graph))"
+            },
+            {
+              "type": "paragraph",
+              "text": "The topological sort of this graph will respect the dependencies among tasks."
+            }
+          ]
+        },
+        "question": "Which of the following is a valid topological order for the given graph?",
+        "options": [
+          "['B', 'A', 'C', 'D']",
+          "['A', 'C', 'D', 'B']",
+          "['C', 'D', 'A', 'B']",
+          "['D', 'C', 'B', 'A']"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The valid topological order respects the dependencies: A must come before B and C, and C must come before D."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "To perform a **topological sort** using Depth-First Search (DFS), we recursively visit all unvisited nodes, adding each node to the ordering as we backtrack."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def dfs_topological_sort(graph, node, visited, stack):\n    visited.add(node)\n    for neighbor in graph[node]:\n        if neighbor not in visited:\n            dfs_topological_sort(graph, neighbor, visited, stack)\n    stack.append(node)"
+            },
+            {
+              "type": "paragraph",
+              "text": "Nodes are added to the stack once all their dependencies have been visited."
+            }
+          ]
+        },
+        "question": "In a DFS-based topological sort, when is a node added to the ordering?",
+        "options": [
+          "Before visiting its neighbors",
+          "When it is first visited",
+          "After visiting all its dependencies",
+          "When its in-degree becomes zero"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "In a DFS-based topological sort, a node is added to the ordering after all its dependencies have been visited."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Suppose you are tasked with organizing **project milestones** based on dependencies. Each milestone must be completed before others can proceed."
+            },
+            {
+              "type": "paragraph",
+              "text": "Topological sorting ensures that all dependencies are respected in the ordering."
+            }
+          ]
+        },
+        "question": "What is a potential use case for topological sorting in project management?",
+        "options": [
+          "Detecting cycles",
+          "Finding shortest paths",
+          "Scheduling tasks with dependencies",
+          "Sorting tasks by priority"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "Topological sorting is useful for scheduling tasks with dependencies, ensuring tasks are completed in the correct order."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "If a cycle exists in a directed graph, **topological sorting** is impossible. Cycles create a situation where a node cannot be resolved before itself."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Topological sorting fails for **cyclic graphs**.",
+                "Cycle detection algorithms can be used to determine if a topological sort is possible."
+              ]
+            }
+          ]
+        },
+        "question": "Why can't topological sorting be performed on graphs with cycles?",
+        "options": [
+          "Cycles are always removed first",
+          "Nodes in cycles have unresolved dependencies",
+          "Cycles are ignored by topological sorting",
+          "Topological sorting is designed for undirected graphs"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Nodes in cycles have unresolved dependencies, making it impossible to perform a topological sort."
+      }
+    ]
+  },
+  {
+    "title": "Union-Find",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The Union-Find data structure, also known as **Disjoint Set Union (DSU)**, is used to keep track of a set of elements partitioned into disjoint subsets. It supports two main operations: **union** and **find**."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "class UnionFind:\n    def __init__(self, size):\n        self.parent = [i for i in range(size)]\n\n    def find(self, x):\n        if self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])  # Path compression\n        return self.parent[x]\n\n    def union(self, x, y):\n        rootX = self.find(x)\n        rootY = self.find(y)\n        if rootX != rootY:\n            self.parent[rootX] = rootY"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Union-Find supports **efficient merging** of sets.",
+                "The **find** operation helps determine the root of a set."
+              ]
+            }
+          ]
+        },
+        "question": "What is the primary purpose of the Union-Find data structure?",
+        "options": [
+          "Sorting elements",
+          "Tracking connected components",
+          "Finding minimum elements",
+          "Implementing queues"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The primary purpose of Union-Find is to track connected components in a dynamic set."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Union-Find can be optimized using **path compression** during the find operation, which makes each node point directly to the root."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def find(self, x):\n    if self.parent[x] != x:\n        self.parent[x] = self.find(self.parent[x])  # Path compression\n    return self.parent[x]"
+            },
+            {
+              "type": "paragraph",
+              "text": "Path compression ensures that subsequent find operations are faster by flattening the structure."
+            }
+          ]
+        },
+        "question": "How does path compression improve the Union-Find structure?",
+        "options": [
+          "By merging all sets",
+          "By making each node point to the root directly",
+          "By increasing the number of nodes",
+          "By duplicating parent nodes"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Path compression makes each node point to the root directly, optimizing future find operations."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Union-Find can be used to detect **cycles** in a graph. If two vertices belong to the same set and an edge connects them, a cycle exists."
+            },
+            {
+              "type": "paragraph",
+              "text": "In the example below, we try to union nodes that are already connected:"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def has_cycle(edges, num_nodes):\n    uf = UnionFind(num_nodes)\n    for u, v in edges:\n        if uf.find(u) == uf.find(v):\n            return True  # Cycle detected\n        uf.union(u, v)\n    return False"
+            }
+          ]
+        },
+        "question": "How does Union-Find detect cycles in an undirected graph?",
+        "options": [
+          "By finding isolated nodes",
+          "By merging all nodes into one set",
+          "By checking if two nodes are already in the same set before union",
+          "By sorting the nodes first"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "Union-Find detects cycles by checking if two nodes are already in the same set before performing a union."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Consider a network of **friendship connections** represented as an undirected graph. Each node represents a person, and an edge represents a friendship."
+            },
+            {
+              "type": "paragraph",
+              "text": "Union-Find can efficiently determine if two people are **connected** by finding the root of their respective sets."
+            }
+          ]
+        },
+        "question": "What operation would you perform to check if two people are connected in a network?",
+        "options": [
+          "Sort their connections",
+          "Find their roots and compare them",
+          "Add more connections",
+          "Count their edges"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "To check if two people are connected, find the roots of their sets and compare them."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Union-Find with **union by rank** optimizes the merging of sets by always attaching the smaller tree under the larger tree, reducing the tree's height."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def union(self, x, y):\n    rootX = self.find(x)\n    rootY = self.find(y)\n    if rootX != rootY:\n        if self.rank[rootX] > self.rank[rootY]:\n            self.parent[rootY] = rootX\n        elif self.rank[rootX] < self.rank[rootY]:\n            self.parent[rootX] = rootY\n        else:\n            self.parent[rootY] = rootX\n            self.rank[rootX] += 1"
+            }
+          ]
+        },
+        "question": "What is the benefit of using union by rank in Union-Find?",
+        "options": [
+          "It increases the size of trees",
+          "It always merges nodes randomly",
+          "It reduces the tree height",
+          "It merges isolated nodes first"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "Union by rank reduces the tree height by attaching smaller trees under larger trees, improving efficiency."
+      }
+    ]
+  },
+  {
+    "title": "Two Pointers",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The **two pointers** technique is commonly used to solve problems involving arrays and strings. It involves using two pointers to traverse an array from either end or from different positions."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def two_sum_sorted(arr, target):\n    left, right = 0, len(arr) - 1\n    while left < right:\n        curr_sum = arr[left] + arr[right]\n        if curr_sum == target:\n            return [left, right]\n        elif curr_sum < target:\n            left += 1\n        else:\n            right -= 1\n    return None"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Efficient for problems requiring **sorted arrays**.",
+                "Can reduce the **time complexity** of certain problems to O(n)."
+              ]
+            }
+          ]
+        },
+        "question": "What is the main advantage of using the two pointers technique?",
+        "options": [
+          "It always requires a stack",
+          "It works for unsorted arrays only",
+          "It often reduces the time complexity",
+          "It avoids using loops"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The two pointers technique often reduces the time complexity of problems by allowing efficient traversal and comparisons."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Consider an array where you need to find the longest substring of **unique characters** using two pointers. The left pointer can be used to shrink the window when duplicates are found, and the right pointer can expand the window."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def longest_unique_substring(s):\n    seen = {}\n    left = 0\n    max_len = 0\n    for right in range(len(s)):\n        if s[right] in seen:\n            left = max(left, seen[s[right]] + 1)\n        seen[s[right]] = right\n        max_len = max(max_len, right - left + 1)\n    return max_len"
+            }
+          ]
+        },
+        "question": "How does the two pointers technique help find the longest substring of unique characters?",
+        "options": [
+          "By shrinking the window only",
+          "By using one pointer to track duplicates",
+          "By expanding and shrinking the window as needed",
+          "By sorting the characters first"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The two pointers technique allows for dynamic expansion and shrinking of the window to maintain unique characters."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "You are tasked with finding pairs of numbers in a **sorted array** that sum up to a given target. The two pointers technique can traverse the array from both ends to efficiently locate such pairs."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Moving the **left pointer** increases the sum.",
+                "Moving the **right pointer** decreases the sum."
+              ]
+            }
+          ]
+        },
+        "question": "What should you do if the sum of elements at two pointers is less than the target?",
+        "options": [
+          "Move both pointers",
+          "Move the left pointer",
+          "Move the right pointer",
+          "Stop searching"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "If the sum is less than the target, moving the left pointer increases the sum, bringing it closer to the target."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Imagine a scenario where you need to partition an array such that all even numbers are on the left and all odd numbers are on the right. Two pointers can start from opposite ends and swap elements as needed."
+            }
+          ]
+        },
+        "question": "How would you approach partitioning an array using two pointers?",
+        "options": [
+          "Move both pointers to the middle",
+          "Move one pointer while keeping the other fixed",
+          "Start from both ends and swap as needed",
+          "Sort the entire array first"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "To partition the array, start from both ends and swap elements as needed to place even numbers on the left and odd numbers on the right."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The two pointers technique can be extended to **three pointers** for problems such as finding **triplets** that sum up to a target in a sorted array."
+            },
+            {
+              "type": "paragraph",
+              "text": "The left and right pointers are used while the outer pointer iterates over the array."
+            }
+          ]
+        },
+        "question": "How does the three pointers extension of two pointers work?",
+        "options": [
+          "By using a stack",
+          "By iterating with an outer pointer while two pointers traverse",
+          "By doubling the window size",
+          "By moving all pointers randomly"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The three pointers extension involves an outer pointer iterating while two pointers traverse the array to find triplets."
+      }
+    ]
+  },
+  {
+    "title": "Sliding Window",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The **sliding window** technique is often used to solve problems that involve finding subarrays or substrings within an array or string. It involves maintaining a window that expands or contracts as needed."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def max_sum_subarray(arr, k):\n    max_sum = curr_sum = sum(arr[:k])\n    for i in range(k, len(arr)):\n        curr_sum += arr[i] - arr[i - k]\n        max_sum = max(max_sum, curr_sum)\n    return max_sum"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "The sliding window can be **fixed** or **dynamic** in size.",
+                "Useful for problems involving **contiguous subarrays** or substrings."
+              ]
+            }
+          ]
+        },
+        "question": "What is the main benefit of using the sliding window technique?",
+        "options": [
+          "It reduces the number of iterations",
+          "It works for any kind of data structure",
+          "It requires sorting the array first",
+          "It uses multiple pointers"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "The sliding window technique reduces the number of iterations by reusing computations within a window."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Consider finding the **longest substring** with at most k distinct characters in a given string. The sliding window technique involves expanding the window until the constraint is violated, and then contracting it."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def longest_substring_k_distinct(s, k):\n    from collections import defaultdict\n    char_count = defaultdict(int)\n    left = 0\n    max_len = 0\n\n    for right in range(len(s)):\n        char_count[s[right]] += 1\n        while len(char_count) > k:\n            char_count[s[left]] -= 1\n            if char_count[s[left]] == 0:\n                del char_count[s[left]]\n            left += 1\n        max_len = max(max_len, right - left + 1)\n\n    return max_len"
+            }
+          ]
+        },
+        "question": "How does the sliding window technique maintain the longest substring with at most k distinct characters?",
+        "options": [
+          "By expanding the window only",
+          "By shrinking the window when constraints are violated",
+          "By sorting the characters first",
+          "By removing characters randomly"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The sliding window maintains the longest substring by shrinking when constraints are violated."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "In problems involving arrays of **positive integers**, such as finding the minimum size subarray whose sum is greater than or equal to a given value, a dynamic sliding window can be used."
+            },
+            {
+              "type": "paragraph",
+              "text": "The window expands until the sum condition is met, and then contracts from the left to minimize the window size."
+            }
+          ]
+        },
+        "question": "What approach is used to minimize the window size when the sum condition is met?",
+        "options": [
+          "Expanding the window further",
+          "Shrinking the window from the left",
+          "Starting a new window",
+          "Sorting the array"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The window is minimized by contracting it from the left once the sum condition is met."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A **variable-length** sliding window can be used to find substrings in a string that match certain conditions, such as containing all characters of another string."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Expands the window until all conditions are met.",
+                "Contracts the window to find the smallest valid window."
+              ]
+            }
+          ]
+        },
+        "question": "When is a variable-length sliding window most useful?",
+        "options": [
+          "For sorting arrays",
+          "For finding substrings matching specific conditions",
+          "For searching binary trees",
+          "For counting characters"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "A variable-length sliding window is useful for finding substrings that match specific conditions."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The sliding window technique can also solve **maximum product subarray** problems by tracking both the maximum and minimum products at each step due to potential negative values."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def max_product_subarray(nums):\n    max_prod = min_prod = result = nums[0]\n    for i in range(1, len(nums)):\n        if nums[i] < 0:\n            max_prod, min_prod = min_prod, max_prod\n        max_prod = max(nums[i], nums[i] * max_prod)\n        min_prod = min(nums[i], nums[i] * min_prod)\n        result = max(result, max_prod)\n    return result"
+            }
+          ]
+        },
+        "question": "Why is it necessary to track both the maximum and minimum products when solving the maximum product subarray problem?",
+        "options": [
+          "To handle zeroes",
+          "To maximize performance",
+          "To account for negative values",
+          "To maintain a fixed window size"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "Tracking both the maximum and minimum products allows handling of negative values, which can flip the sign of the product."
+      }
+    ]
+  },
+  {
+    "title": "Recursion",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Recursion is a technique in which a function **calls itself** directly or indirectly to solve a problem by breaking it into smaller subproblems."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Recursion requires a **base case** to prevent infinite calls.",
+                "Useful for problems involving **divide and conquer** strategies."
+              ]
+            }
+          ]
+        },
+        "question": "What is the purpose of the base case in a recursive function?",
+        "options": [
+          "To call the function multiple times",
+          "To stop the recursion",
+          "To sort elements",
+          "To increase time complexity"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The base case is used to stop the recursion and prevent infinite calls."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Consider solving the **Fibonacci sequence** using recursion. The Fibonacci sequence is defined as follows: **F(n) = F(n-1) + F(n-2)**, with base cases F(0) = 0 and F(1) = 1."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n - 1) + fibonacci(n - 2)"
+            },
+            {
+              "type": "paragraph",
+              "text": "This approach can be inefficient for large inputs due to repeated calculations."
+            }
+          ]
+        },
+        "question": "What is the time complexity of the recursive Fibonacci solution shown?",
+        "options": ["O(n)", "O(log n)", "O(2^n)", "O(n^2)"],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The time complexity of the naive recursive Fibonacci solution is O(2^n) due to repeated calculations."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Recursion can be used for **backtracking** problems, such as generating all subsets of a set or solving the N-Queens problem."
+            },
+            {
+              "type": "paragraph",
+              "text": "Consider generating all subsets of a list using recursion:"
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def generate_subsets(nums, index=0, subset=[]):\n    if index == len(nums):\n        print(subset)\n        return\n    generate_subsets(nums, index + 1, subset + [nums[index]])\n    generate_subsets(nums, index + 1, subset)"
+            }
+          ]
+        },
+        "question": "How does the recursive approach ensure all subsets are generated?",
+        "options": [
+          "By iterating over elements",
+          "By using loops",
+          "By branching into different calls for inclusion and exclusion",
+          "By sorting the list"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The recursive approach generates all subsets by branching into calls that include or exclude each element."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Recursion can lead to **stack overflow** if the depth of recursion exceeds the maximum stack size. Tail recursion optimization helps mitigate this issue in certain languages by allowing calls to be replaced with jumps."
+            }
+          ]
+        },
+        "question": "What can cause stack overflow in a recursive function?",
+        "options": [
+          "Too many recursive calls without a base case",
+          "Using too many variables",
+          "Sorting elements in each call",
+          "Calling other functions"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "Stack overflow occurs when too many recursive calls are made without reaching a base case."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Imagine you are solving a **maze** using recursion. The function tries moving in all possible directions until it finds a solution or reaches a dead end, at which point it backtracks."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def solve_maze(maze, x, y, solution):\n    if (x, y) is the goal:\n        return True\n    if is_valid_move(maze, x, y):\n        solution[x][y] = 1\n        if solve_maze(maze, x + 1, y, solution):\n            return True\n        if solve_maze(maze, x, y + 1, solution):\n            return True\n        solution[x][y] = 0  # Backtrack\n    return False"
+            }
+          ]
+        },
+        "question": "How does recursion help in solving the maze problem?",
+        "options": [
+          "By moving randomly",
+          "By iterating over the entire maze",
+          "By exploring all paths and backtracking when necessary",
+          "By using a stack data structure"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "Recursion helps solve the maze problem by exploring all possible paths and backtracking when necessary."
+      }
+    ]
+  },
+  {
+    "title": "Backtracking",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Backtracking is a technique used to solve problems by **exploring all possible options** and backtracking as soon as it determines that an option cannot lead to a valid solution."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def solve_n_queens(board, row):\n    if row == len(board):\n        print(board)\n        return True\n    for col in range(len(board)):\n        if is_safe(board, row, col):\n            board[row][col] = 'Q'\n            if solve_n_queens(board, row + 1):\n                return True\n            board[row][col] = '.'  # Backtrack\n    return False"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Backtracking involves **recursively** exploring options.",
+                "Often used for **combinatorial** and **constraint-satisfaction** problems."
+              ]
+            }
+          ]
+        },
+        "question": "What is the role of backtracking in the N-Queens problem?",
+        "options": [
+          "To place all queens at once",
+          "To check all possible positions and backtrack when necessary",
+          "To randomly choose positions",
+          "To only solve for a fixed board size"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Backtracking helps by exploring all possible positions for queens and backtracking when conflicts occur."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Consider solving the **subset sum** problem where you need to find all subsets of a set that sum to a given target. Backtracking can explore each possibility by including or excluding each element."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def subset_sum(nums, target, index=0, subset=[]):\n    if sum(subset) == target:\n        print(subset)\n        return True\n    if index >= len(nums):\n        return False\n    subset.append(nums[index])\n    if subset_sum(nums, target, index + 1, subset):\n        return True\n    subset.pop()  # Backtrack\n    return subset_sum(nums, target, index + 1, subset)"
+            }
+          ]
+        },
+        "question": "How does backtracking help solve the subset sum problem?",
+        "options": [
+          "By randomly generating subsets",
+          "By including elements without conditions",
+          "By exploring each possibility and backtracking if needed",
+          "By sorting the set first"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "Backtracking explores each possibility by including or excluding elements, and backtracks if the subset doesn't meet the condition."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Backtracking can be used to solve the **sudoku puzzle**. The algorithm places numbers on the grid and backtracks if any placement leads to a conflict."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Checks constraints such as **row, column, and subgrid uniqueness**.",
+                "Backtracks if a number placement leads to an unsolvable state."
+              ]
+            }
+          ]
+        },
+        "question": "When solving a sudoku puzzle using backtracking, what happens when a number placement leads to a conflict?",
+        "options": [
+          "The number is permanently placed",
+          "The algorithm stops immediately",
+          "The algorithm backtracks and tries a different number",
+          "The grid is reshuffled"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "Backtracking allows the algorithm to try a different number when a conflict occurs."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Imagine solving a **maze** where you need to find a path from the start to the end. Backtracking explores each possible path and backtracks when a dead end is reached."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def solve_maze(maze, x, y):\n    if (x, y) is the goal:\n        return True\n    if is_valid_move(maze, x, y):\n        maze[x][y] = 1  # Mark as visited\n        if solve_maze(maze, x + 1, y):\n            return True\n        if solve_maze(maze, x, y + 1):\n            return True\n        maze[x][y] = 0  # Backtrack\n    return False"
+            }
+          ]
+        },
+        "question": "How does backtracking help in maze-solving algorithms?",
+        "options": [
+          "By finding the shortest path immediately",
+          "By exploring each possible path and backtracking when necessary",
+          "By using a fixed path",
+          "By ignoring dead ends"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Backtracking explores each possible path and backtracks when a dead end is reached, allowing it to find a valid solution."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Backtracking can generate **permutations** of a set by recursively swapping elements and backtracking after each permutation is generated."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def permute(nums, l, r):\n    if l == r:\n        print(nums)\n    else:\n        for i in range(l, r + 1):\n            nums[l], nums[i] = nums[i], nums[l]  # Swap\n            permute(nums, l + 1, r)\n            nums[l], nums[i] = nums[i], nums[l]  # Backtrack"
+            }
+          ]
+        },
+        "question": "What is the purpose of backtracking in generating permutations?",
+        "options": [
+          "To sort the elements",
+          "To randomly shuffle elements",
+          "To revert to a previous state after generating a permutation",
+          "To stop once the first permutation is found"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "Backtracking reverts to a previous state after generating each permutation, enabling the generation of all possible permutations."
+      }
+    ]
+  },
+  {
+    "title": "Dynamic Programming",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Dynamic Programming (DP) is a technique used to solve problems by **breaking them down into overlapping subproblems** and storing solutions to subproblems to avoid redundant computations."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def fib(n, memo={}):\n    if n <= 1:\n        return n\n    if n not in memo:\n        memo[n] = fib(n - 1, memo) + fib(n - 2, memo)\n    return memo[n]"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "DP is often used for **optimization** problems.",
+                "Problems can be approached using **top-down (memoization)** or **bottom-up (tabulation)** methods."
+              ]
+            }
+          ]
+        },
+        "question": "What is the primary purpose of memoization in dynamic programming?",
+        "options": [
+          "To slow down recursion",
+          "To avoid recalculating already solved subproblems",
+          "To sort data",
+          "To make code more readable"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "Memoization avoids recalculating already solved subproblems, improving the efficiency of recursive solutions."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Consider the **Knapsack Problem**, where you have a set of items each with a weight and a value, and a knapsack with a maximum capacity. The goal is to maximize the total value without exceeding the capacity."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def knapsack(weights, values, capacity):\n    n = len(weights)\n    dp = [[0] * (capacity + 1) for _ in range(n + 1)]\n\n    for i in range(1, n + 1):\n        for w in range(1, capacity + 1):\n            if weights[i - 1] <= w:\n                dp[i][w] = max(dp[i - 1][w], dp[i - 1][w - weights[i - 1]] + values[i - 1])\n            else:\n                dp[i][w] = dp[i - 1][w]\n\n    return dp[n][capacity]"
+            },
+            {
+              "type": "paragraph",
+              "text": "The DP approach builds up solutions iteratively using a **2D table** to store the maximum value at each capacity."
+            }
+          ]
+        },
+        "question": "How does dynamic programming help solve the knapsack problem?",
+        "options": [
+          "By sorting items first",
+          "By exploring each combination recursively without storing results",
+          "By building solutions iteratively and storing intermediate results",
+          "By using a stack"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "DP builds solutions iteratively and stores intermediate results to avoid recalculating the same subproblems."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The **Longest Common Subsequence (LCS)** problem involves finding the longest sequence of characters that appear in the same order in both strings."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def lcs(X, Y):\n    m, n = len(X), len(Y)\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if X[i - 1] == Y[j - 1]:\n                dp[i][j] = dp[i - 1][j - 1] + 1\n            else:\n                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])\n\n    return dp[m][n]"
+            }
+          ]
+        },
+        "question": "What is the purpose of the 2D table in the LCS problem?",
+        "options": [
+          "To store the characters in the sequence",
+          "To count distinct characters",
+          "To store intermediate results for subproblems",
+          "To store indices of characters"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The 2D table stores intermediate results for subproblems, enabling efficient calculation of the LCS."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The **minimum edit distance** problem involves finding the minimum number of operations (insertions, deletions, substitutions) required to convert one string into another using DP."
+            },
+            {
+              "type": "paragraph",
+              "text": "This problem can be solved using a **2D table** where dp[i][j] represents the minimum operations needed for substrings of length i and j."
+            }
+          ]
+        },
+        "question": "What does dp[i][j] represent in the minimum edit distance problem?",
+        "options": [
+          "The maximum operations for the substrings",
+          "The minimum operations needed for substrings of length i and j",
+          "The total length of both substrings",
+          "The sum of character codes"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "dp[i][j] represents the minimum operations needed for substrings of length i and j."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "In the **coin change** problem, you are given coins of different denominations and asked to make up a target amount using the minimum number of coins."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def coin_change(coins, amount):\n    dp = [float('inf')] * (amount + 1)\n    dp[0] = 0\n\n    for coin in coins:\n        for x in range(coin, amount + 1):\n            dp[x] = min(dp[x], dp[x - coin] + 1)\n\n    return dp[amount] if dp[amount] != float('inf') else -1"
+            }
+          ]
+        },
+        "question": "What does dp[x] represent in the coin change problem?",
+        "options": [
+          "The total value of coins",
+          "The minimum number of coins needed to make amount x",
+          "The maximum coins used",
+          "The sum of coin denominations"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "dp[x] represents the minimum number of coins needed to make up amount x."
+      }
+    ]
+  },
+  {
+    "title": "Greedy",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The **greedy algorithm** technique makes a series of choices, each of which looks optimal at the moment. The algorithm does not revisit or revise these choices."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def fractional_knapsack(weights, values, capacity):\n    ratio = [(values[i] / weights[i], weights[i]) for i in range(len(weights))]\n    ratio.sort(reverse=True)\n\n    total_value = 0\n    for r, w in ratio:\n        if capacity >= w:\n            total_value += r * w\n            capacity -= w\n        else:\n            total_value += r * capacity\n            break\n    return total_value"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Greedy algorithms **choose the best option** available at each step.",
+                "Optimal solutions are not guaranteed for all problem types."
+              ]
+            }
+          ]
+        },
+        "question": "What is the primary characteristic of a greedy algorithm?",
+        "options": [
+          "It revises choices frequently",
+          "It makes the locally optimal choice at each step",
+          "It always guarantees a globally optimal solution",
+          "It uses recursion heavily"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "A greedy algorithm makes the locally optimal choice at each step, which may or may not lead to a globally optimal solution."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Consider the **activity selection problem**, where you need to select the maximum number of non-overlapping activities given their start and end times."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def activity_selection(start, end):\n    activities = sorted(zip(start, end), key=lambda x: x[1])\n    selected = [activities[0]]\n\n    for i in range(1, len(activities)):\n        if activities[i][0] >= selected[-1][1]:\n            selected.append(activities[i])\n\n    return len(selected)"
+            },
+            {
+              "type": "paragraph",
+              "text": "The **greedy choice** here is to always select the activity that finishes earliest."
+            }
+          ]
+        },
+        "question": "How does the greedy approach solve the activity selection problem?",
+        "options": [
+          "By sorting activities by start time",
+          "By always selecting the activity that starts first",
+          "By selecting the activity that finishes earliest and does not overlap",
+          "By using dynamic programming"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The greedy approach selects the activity that finishes earliest and does not overlap with previously selected activities."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The **Huffman coding** algorithm is used for lossless data compression. It builds a binary tree based on character frequencies, assigning shorter codes to more frequent characters."
+            },
+            {
+              "type": "paragraph",
+              "text": "The greedy choice is to always combine the two least frequent nodes first."
+            }
+          ]
+        },
+        "question": "What is the greedy choice in Huffman coding?",
+        "options": [
+          "Combining the two least frequent nodes",
+          "Combining the two most frequent nodes",
+          "Ignoring character frequencies",
+          "Sorting characters alphabetically"
+        ],
+        "answerIndex": 0,
+        "explanationAfterAnswer": "The greedy choice in Huffman coding is to always combine the two least frequent nodes first."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A **coin change** problem involves finding the minimum number of coins to make a given amount using coins of specified denominations. A greedy algorithm may not always produce an optimal solution."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def min_coins_greedy(coins, amount):\n    coins.sort(reverse=True)\n    count = 0\n\n    for coin in coins:\n        while amount >= coin:\n            amount -= coin\n            count += 1\n\n    return count if amount == 0 else -1"
+            },
+            {
+              "type": "paragraph",
+              "text": "Greedy solutions work well when the denominations allow for an optimal substructure."
+            }
+          ]
+        },
+        "question": "When does the greedy approach work well for the coin change problem?",
+        "options": [
+          "When the coins are all prime numbers",
+          "When the denominations allow for an optimal substructure",
+          "When the amount is less than 10",
+          "When using only one type of coin"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The greedy approach works well when the denominations allow for an optimal substructure."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "In the **job sequencing** problem, each job has a deadline and a profit. The goal is to maximize profit by selecting jobs that can be completed within their deadlines."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Jobs are sorted by **descending profit**.",
+                "Each job is placed in the latest available slot before its deadline."
+              ]
+            }
+          ]
+        },
+        "question": "What is the first step in the greedy approach to the job sequencing problem?",
+        "options": [
+          "Sort jobs by deadline",
+          "Sort jobs by ascending profit",
+          "Sort jobs by descending profit",
+          "Select jobs randomly"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The first step is to sort jobs by descending profit to maximize total profit."
+      }
+    ]
+  },
+  {
+    "title": "Bit Manipulation",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Bit manipulation involves performing operations directly on binary representations of numbers, often using bitwise operators like **AND (&)**, **OR (|)**, **XOR (^)**, and **shifts (<<, >>)**."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def is_power_of_two(n):\n    return n > 0 and (n & (n - 1)) == 0"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Bitwise operations are typically **faster** than arithmetic operations.",
+                "Useful for solving **optimization** and **binary encoding** problems."
+              ]
+            }
+          ]
+        },
+        "question": "What does the expression (n & (n - 1)) == 0 check for in the given code?",
+        "options": [
+          "If n is negative",
+          "If n is odd",
+          "If n is a power of two",
+          "If n is greater than zero"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "The expression (n & (n - 1)) == 0 checks if n is a power of two by ensuring there is only one set bit."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Consider using the XOR operation for **swapping two numbers** without a temporary variable. XOR has properties such as **a ^ a = 0** and **a ^ 0 = a**."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "a = 5\nb = 3\na = a ^ b\nb = a ^ b\na = a ^ b"
+            },
+            {
+              "type": "paragraph",
+              "text": "This approach leverages XOR's properties to swap values without additional memory."
+            }
+          ]
+        },
+        "question": "What is the primary benefit of using XOR to swap two numbers?",
+        "options": [
+          "It uses more memory",
+          "It simplifies addition",
+          "It swaps values without a temporary variable",
+          "It changes the data type"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "Using XOR to swap values eliminates the need for a temporary variable, making it memory efficient."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Bitwise shifts can be used for **efficient multiplication** and **division** by powers of two. The left shift operator (<<) multiplies a number by 2, while the right shift operator (>>) divides a number by 2."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "x = 4\nx = x << 1  # x is now 8"
+            }
+          ]
+        },
+        "question": "What is the effect of the expression x << 1?",
+        "options": [
+          "It divides x by 2",
+          "It multiplies x by 2",
+          "It adds 1 to x",
+          "It subtracts 1 from x"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The left shift operator (<<) multiplies the value of x by 2."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "The **bitmasking** technique can be used to check, set, or clear specific bits of a number. For example, to check if the k-th bit is set, you can use the expression **n & (1 << k)**."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def is_kth_bit_set(n, k):\n    return (n & (1 << k)) != 0"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Useful for **bit-level operations** in low-level programming.",
+                "Commonly used in **flags** and **binary representations**."
+              ]
+            }
+          ]
+        },
+        "question": "What does the expression (n & (1 << k)) do?",
+        "options": [
+          "Clears the k-th bit",
+          "Checks if the k-th bit is set",
+          "Inverts all bits",
+          "Adds k to n"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The expression (n & (1 << k)) checks if the k-th bit is set."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "In some bit manipulation problems, you need to find the **single number** in an array where every other number appears twice. Using XOR, you can find the single number with **O(n)** time complexity and **O(1)** space."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "def single_number(nums):\n    result = 0\n    for num in nums:\n        result ^= num\n    return result"
+            }
+          ]
+        },
+        "question": "How does XOR help find the single number in an array where all other numbers appear twice?",
+        "options": [
+          "By sorting the array",
+          "By canceling out identical numbers",
+          "By adding all numbers together",
+          "By using recursion"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "XOR cancels out identical numbers, leaving only the single number."
+      }
+    ]
+  }
+]

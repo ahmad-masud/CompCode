@@ -1,136 +1,151 @@
 .lesson-container {
-    max-width: 1200px;
-    width: calc(100% - 20px);
-    height: 100vh;
-    margin: 50px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    color: var(--font-color);
+  max-width: 1200px;
+  width: calc(100% - 20px);
+  height: 100vh;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--font-color);
 }
-  
+
 .lesson-header {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .lesson-bottom {
-    display: flex;
-    height: calc(100% - 30px);
+  display: flex;
+  height: calc(100% - 30px);
 }
-  
+
 .lesson-sidebar {
-    width: 30%;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+  width: 30%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-right: 20px;
+  border-right: 1px solid var(--secondary-color);
 }
 
 .lesson-link {
-    font-size: 1rem;
-    text-align: left;
-    color: var(--font-color);
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 50px;
+  font-size: 1rem;
+  text-align: left;
+  color: var(--font-color);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 50px;
 }
 
 .lesson-link:hover {
-    background-color: var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 .lessons {
-    width: calc(70% - 20px);
-    overflow-y: scroll;
-    padding-right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+  width: 70%;
+  overflow-y: scroll;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .lesson {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .lesson-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
-  
+
 .lesson-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: left;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
 }
 
 .lesson-paragraph {
-    font-size: 1rem;
-    text-align: left;
-    line-height: 25px;
+  font-size: 1rem;
+  text-align: left;
+  line-height: 25px;
 }
 
 .lesson-highlight {
-    background-color: var(--secondary-color);
-    padding: 2px 4px;
-    border-radius: 4px;
+  background-color: var(--secondary-color);
+  padding: 2px 4px;
+  border-radius: 4px;
 }
-  
+
 .lesson-list {
-    list-style-type: disc;
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  list-style-type: disc;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .lesson-code-block {
-    position: relative;
+  position: relative;
 }
-  
+
 .lesson-copy-button {
-    position: absolute;
-    top: 30px;
-    right: 15px;
-    color: var(--font-color);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 100000000000;
-    font-size: 1rem;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  color: var(--font-color);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 100000000000;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.lesson-copy-button:hover {
+  background: var(--third-color);
 }
 
 .lesson-fallback {
-    height: calc(100vh - 160px);
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--font-color);
+  height: calc(100vh - 160px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--font-color);
 }
 
 .lesson-fallback p {
-    font-size: 1.25rem;
-    font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 768px) {
-    .lesson-container {
-        margin: 50px 10px 100px 10px;
-        height: auto;
-    }
+  .lesson-container {
+    margin: 50px 10px 100px 10px;
+    height: auto;
+  }
 
-    .lesson-sidebar {
-        display: none;
-    }
+  .lesson-bottom {
+    flex-direction: column;
+    height: auto;
+  }
 
-    .lessons {
-        width: 100%;
-        height: auto;
-        padding: 0;
-        overflow: auto;
-    } 
+  .lesson-sidebar {
+    width: 100%;
+    padding-right: 0;
+    border-right: none;
+  }
+
+  .lessons {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    overflow: auto;
+  }
 }

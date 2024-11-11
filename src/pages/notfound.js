@@ -4,10 +4,12 @@ import '../styles/notfound.css';
 
 const NotFound = () => {
   return (
-    <div className='notfound'>
+    <div className="notfound">
       <p>404</p>
       <p>Page Not Found</p>
-      <Link to='/' className='notfound-link'>Go Home</Link>
+      <Link to="/" className="notfound-link">
+        Go Home
+      </Link>
     </div>
   );
 };

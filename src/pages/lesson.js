@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; 
-import { CopyToClipboard } from 'react-copy-to-clipboard'; 
-import '../styles/lesson.css'; 
+import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import '../styles/lesson.css';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../context/usercontext';
+import { useTheme } from '../context/themecontext';
 
-const Lesson = ({ data, theme, premiumInfo }) => {
+const Lesson = ({ data }) => {
   const [lesson, setLesson] = useState(null);
-  const [copiedState, setCopiedState] = useState([]); 
-  const [loading, setLoading] = useState(true); 
+  const [copiedState, setCopiedState] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const { premiumInfo } = useUser();
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (!data) return;
@@ -19,7 +23,7 @@ const Lesson = ({ data, theme, premiumInfo }) => {
     }
     setLoading(true);
     setLesson(data);
-    setCopiedState(Array(data.lessons?.length || 0).fill(false)); 
+    setCopiedState(Array(data.lessons?.length || 0).fill(false));
     setLoading(false);
   }, [data, navigate, premiumInfo]);
 
@@ -27,10 +31,9 @@ const Lesson = ({ data, theme, premiumInfo }) => {
 
   const handleCopy = (lessonIdx, blockIdx) => {
     const newCopiedState = [...copiedState];
-    newCopiedState[lessonIdx][blockIdx] = true; 
+    newCopiedState[lessonIdx][blockIdx] = true;
     setCopiedState(newCopiedState);
 
-    
     setTimeout(() => {
       const resetCopiedState = [...copiedState];
       resetCopiedState[lessonIdx][blockIdx] = false;
@@ -42,29 +45,24 @@ const Lesson = ({ data, theme, premiumInfo }) => {
     const parts = text.split(/(\*\*[^*]+\*\*)/g);
     return parts.map((part, index) => {
       if (part.startsWith('**') && part.endsWith('**')) {
-        return (
-          <strong key={index}>
-            {part.slice(2, -2)}
-          </strong>
-        );
+        return <strong key={index}>{part.slice(2, -2)}</strong>;
       }
       return part;
     });
   };
-  
+
   const renderParagraphWithHighlights = (text) => {
     const parts = text.split(/(`[^`]+`)/g);
 
     return parts.map((part, index) => {
       if (part.startsWith('`') && part.endsWith('`')) {
-        
         return (
           <span key={index} className="lesson-highlight">
             {part.slice(1, -1)}
           </span>
         );
       }
-      return renderBoldText(part); 
+      return renderBoldText(part);
     });
   };
 
@@ -74,15 +72,24 @@ const Lesson = ({ data, theme, premiumInfo }) => {
       <div className="lesson-bottom">
         <div className="lesson-sidebar">
           {lesson.lessons.map((lesson, lessonIdx) => (
-            <a key={lessonIdx} href={`#${lesson.title.replaceAll(' ', '-')}`} className="lesson-link">
+            <a
+              key={lessonIdx}
+              href={`#${lesson.title.replaceAll(' ', '-')}`}
+              className="lesson-link"
+            >
               {lesson.title}
             </a>
           ))}
         </div>
-        <div className="lessons">  
+        <div className="lessons">
           {lesson.lessons.map((lesson, lessonIdx) => (
             <div key={lessonIdx} className="lesson">
-              <p id={lesson.title.replaceAll(' ', '-')} className="lesson-title">{lesson.title}</p>
+              <p
+                id={lesson.title.replaceAll(' ', '-')}
+                className="lesson-title"
+              >
+                {lesson.title}
+              </p>
               {lesson.content.map((block, blockIdx) => {
                 if (block.type === 'paragraph') {
                   return (
@@ -103,10 +110,13 @@ const Lesson = ({ data, theme, premiumInfo }) => {
                   );
                 }
                 if (block.type === 'code') {
-                  if (!copiedState[lessonIdx]) copiedState[lessonIdx] = []; 
+                  if (!copiedState[lessonIdx]) copiedState[lessonIdx] = [];
                   return (
                     <div key={blockIdx} className="lesson-code-block">
-                      <CopyToClipboard text={block.code} onCopy={() => handleCopy(lessonIdx, blockIdx)}>
+                      <CopyToClipboard
+                        text={block.code}
+                        onCopy={() => handleCopy(lessonIdx, blockIdx)}
+                      >
                         <button className="lesson-copy-button">
                           {copiedState[lessonIdx][blockIdx] ? (
                             <i className="bi bi-check-lg"></i>
@@ -121,8 +131,13 @@ const Lesson = ({ data, theme, premiumInfo }) => {
                           theme === 'dark'
                             ? materialDark
                             : theme === 'system'
-                            ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? materialDark : undefined)
-                            : undefined
+                              ? window.matchMedia &&
+                                window.matchMedia(
+                                  '(prefers-color-scheme: dark)'
+                                ).matches
+                                ? materialDark
+                                : undefined
+                              : undefined
                         }
                       >
                         {block.code}
@@ -134,7 +149,7 @@ const Lesson = ({ data, theme, premiumInfo }) => {
               })}
             </div>
           ))}
-        </div> 
+        </div>
       </div>
     </div>
   );

@@ -7,13 +7,11 @@
   gap: 20px;
 }
 
-
 .policy-main-title {
   font-size: 2rem;
   color: var(--font-color);
   text-align: center;
 }
-
 
 .policy-effective-date {
   font-size: 1.25rem;
@@ -27,12 +25,10 @@
   gap: 10px;
 }
 
-
 .policy-section-title {
   font-size: 1.25rem;
   color: var(--font-color);
 }
-
 
 .policy-section-paragraph {
   font-size: 1rem;

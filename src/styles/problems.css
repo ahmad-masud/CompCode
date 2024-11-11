@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 .overlay-backdrop {
@@ -16,21 +16,25 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
 }
 
 .problems-overlay-content {
   background-color: var(--background-color);
-  padding: 40px;
-  border-radius: 8px;
+  padding: 30px;
+  border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1001; 
+  z-index: 1001;
   position: relative;
-  width: calc(100% - 100px);
+  width: calc(100% - 80px);
   max-width: 1200px;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 80px);
   overflow: auto;
+}
+
+.problems-overlay-content::-webkit-scrollbar-track {
+  border-radius: 0 20px 20px 0;
 }
 
 .problems-overlay-content h2 {
@@ -39,10 +43,10 @@
   margin-bottom: 10px;
 }
 
-.close-button {
+.problems-close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
@@ -53,7 +57,7 @@
   background-color: transparent;
 }
 
-.close-button:hover {
+.problems-close-button:hover {
   background-color: var(--secondary-color);
 }
 
@@ -75,7 +79,8 @@
   filter: brightness(75%);
 }
 
-.table-header, .table-row {
+.table-header,
+.table-row {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,23 +91,28 @@
   background-color: var(--secondary-color);
 }
 
-.table-row div, .table-header div {
+.table-row div,
+.table-header div {
   flex: 1;
 }
 
-.table-row .check, .table-header .check-head {
+.table-row .check,
+.table-header .check-head {
   flex: 0.5;
 }
 
-.table-row .title, .table-header .title-head {
+.table-row .title,
+.table-header .title-head {
   flex: 3;
 }
 
-.table-row .solution-link, .table-header .solution-link-head {
+.table-row .solution-link,
+.table-header .solution-link-head {
   flex: 0.75;
 }
 
-.table-row .difficulty, .table-header .difficulty-head {
+.table-row .difficulty,
+.table-header .difficulty-head {
   flex: 0.75;
 }
 
@@ -115,6 +125,11 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.solution-link .fa-tools {
+  color: #a0a0a0;
+  cursor: not-allowed;
 }
 
 .solution-link button {
@@ -153,11 +168,7 @@
 .progress {
   height: 100%;
   width: 0%;
-  background-color: #3FCA7D;
-}
-
-.progress.completed {
-  background-color: purple;
+  background-color: #3fca7d;
 }
 
 .problems-overlay-content h2 {
@@ -189,7 +200,7 @@
 
 .check i {
   font-size: 1.25rem;
-  color: #3FCA7D;
+  color: #3fca7d;
 }
 
 .premium-link i {
@@ -217,7 +228,7 @@
 }
 
 .roadmap-lesson:hover {
-  background: #3FCA7D;
+  background: #3fca7d;
 }
 
 .fa-ban {
@@ -230,26 +241,28 @@
     height: calc(100vh - 60px);
     padding: 20px 5px;
   }
-  
-  .table-header, .table-row {
-    font-size: 0.75rem; 
-    padding: 10px; 
+
+  .table-header,
+  .table-row {
+    font-size: 0.75rem;
+    padding: 10px;
   }
 
-  .table-row .difficulty, .table-header .difficulty-head {
+  .table-row .difficulty,
+  .table-header .difficulty-head {
     flex: 2;
-  } 
-  
+  }
+
   .table-row a {
-    font-size: 0.75rem; 
+    font-size: 0.75rem;
   }
 
   .sort-button {
-    font-size: 0.75rem; 
+    font-size: 0.75rem;
   }
 
   .solution-link button {
-    font-size: 1rem; 
+    font-size: 1rem;
   }
 
   .title {

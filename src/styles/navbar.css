@@ -1,162 +1,162 @@
 .navbar {
-    width: 100%;
-    height: 60px;
-    background: var(--secondary-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 60px;
+  background: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-container {
-    width: calc(100% - 20px);
-    max-width: 1200px;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: calc(100% - 20px);
+  max-width: 1200px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .left {
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  gap: 10px;
 }
 
 .left .fa-meteor {
-    font-size: 1.5rem;
-    color: tomato;
+  font-size: 1.5rem;
+  color: tomato;
 }
 
 .nav-links {
-    display: flex;
+  display: flex;
 }
 
 .nav-link {
-    display: flex;
-    gap: 0px;
+  display: flex;
+  gap: 0px;
 }
 
 .nav-link {
-    font-size: 1rem;
-    color: var(--font-color);
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 50px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+  font-size: 1rem;
+  color: var(--font-color);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 50px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .nav-link:hover {
-    background: var(--background-color);
+  background: var(--background-color);
 }
 
 .right {
-    display: flex;
-    margin-right: 10px;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  margin-right: 10px;
+  gap: 10px;
+  align-items: center;
 }
 
 .login-right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .premium-button {
-    padding: 7.5px;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    cursor: pointer;
-    color: white;
-    background: goldenrod;
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
+  padding: 7.5px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: white;
+  background: goldenrod;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .premium-button:hover {
-    filter: brightness(0.75);
+  filter: brightness(0.75);
 }
 
 .login-button {
-    padding: 5px;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    cursor: pointer;
-    color: black;
-    background: white;
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
+  padding: 5px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: black;
+  background: white;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-button img {
-    width: 22px;
-    height: 22px;
+  width: 22px;
+  height: 22px;
 }
 
 .login-button:hover {
-    background: #eee;
+  background: #eee;
 }
 
 .user-button {
-    background: none;
-    border: none;
-    cursor: pointer;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .user-avatar {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: var(--background-color);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--background-color);
 }
 
 .color-button {
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--font-color);
-    background: transparent;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--font-color);
+  background: transparent;
 }
 
 .color-button:hover {
-    background: var(--background-color);
+  background: var(--background-color);
 }
 
 .szh-menu {
-    background: var(--secondary-color) !important;
-    color: var(--font-color) !important;
+  background: var(--secondary-color) !important;
+  color: var(--font-color) !important;
 }
 
 .szh-menu__item {
-    gap: 10px;
-    padding: 0.75rem 1.5rem !important;
-    transition: all 0.1s ease-in-out !important;
+  gap: 10px;
+  padding: 0.75rem 1.5rem !important;
+  transition: all 0.1s ease-in-out !important;
 }
 
 .szh-menu__item--hover {
-    background-color: var(--background-color) !important;
+  background-color: var(--background-color) !important;
 }
 
 .fa-bars {
-    color: var(--font-color);
-    font-size: 1.5rem;
+  color: var(--font-color);
+  font-size: 1.5rem;
 }
 
 .menu-divider {
-    border-bottom: 1px solid var(--font-color);
-    opacity: 0.2;
-    margin: 0 20px;
+  border-bottom: 1px solid var(--font-color);
+  opacity: 0.2;
+  margin: 0 20px;
 }

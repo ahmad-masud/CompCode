@@ -1,11 +1,9 @@
-
 .lesson-types {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
-
 
 .lesson-type-title {
   font-size: 2rem;
@@ -14,7 +12,6 @@
   margin-bottom: 20px;
   text-align: center;
 }
-
 
 .lessons-container {
   display: flex;
@@ -27,7 +24,7 @@
   align-items: flex-start;
   justify-content: center;
 }
-  
+
 .lesson-card {
   border-radius: 10px;
   width: 290px;
@@ -37,19 +34,10 @@
   flex-direction: column;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  cursor: pointer;
 }
 
 .lesson-card-disabled {
   cursor: not-allowed;
-}
-
-.lesson-card:hover {
-  filter: brightness(75%);
-}
-
-.lesson-card-disabled:hover {
-  filter: brightness(100%);
 }
 
 .lesson-card-text {
@@ -61,14 +49,38 @@
   gap: 10px;
 }
 
-.lesson-card-sub-text {
+.lesson-card-buttons {
   display: flex;
-  gap: 10px;
+  gap: 5px;
+}
+
+.lesson-card-button {
+  padding: 10px 15px;
+  border-radius: 50px;
+  background: var(--background-color);
+  color: var(--font-color);
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  border: none;
   align-items: center;
 }
 
-.lesson-card-sub-text i {
+.lesson-card-button:hover {
+  filter: brightness(75%);
+}
+
+.lesson-card-button.disabled {
+  cursor: not-allowed;
+  filter: brightness(100%);
+}
+
+.lesson-card-button .fa-crown {
   color: goldenrod;
+}
+
+.lesson-card-button .fa-check-circle {
+  color: #3fca7d;
 }
 
 .lesson-card-image-container {
@@ -89,10 +101,12 @@
   background: linear-gradient(90deg, #ff0000, #520d9b);
 }
 
-.lesson-card-image{
+.lesson-card-image {
   width: 100%;
   height: auto;
-  transition: filter 0.5s ease, opacity 0.5s ease;
+  transition:
+    filter 0.5s ease,
+    opacity 0.5s ease;
 }
 
 .lesson-card-image.blurred {

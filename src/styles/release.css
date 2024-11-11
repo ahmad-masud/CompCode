@@ -1,69 +1,69 @@
 .release-notes {
-    width: calc(100% - 100px);
-    max-width: 1200px;
-    padding: 40px;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 200px auto;
+  width: calc(100% - 100px);
+  max-width: 1200px;
+  padding: 40px;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 200px auto;
 }
 
 .release-notes h2 {
-    color: var(--font-color);
-    align-self: center;
+  color: var(--font-color);
+  align-self: center;
 }
 
 .release-notes ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .release-notes li {
-    color: var(--font-color);
-    font-size: 1.25rem;
+  color: var(--font-color);
+  font-size: 1.25rem;
 }
 
 .release-notes .release-date {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .release-notes .show-more {
-    background: transparent;
-    color: #007bff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    align-self: center;
-    font-weight: bold;
-    font-size: 1.25rem;
+  background: transparent;
+  color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center;
+  font-weight: bold;
+  font-size: 1.25rem;
 }
 
 .release-notes .show-more:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 768px) {
-    .release-notes {
-        padding: 20px;
-        margin: 100px auto;
-        width: calc(100% - 60px);
-    }
+  .release-notes {
+    padding: 20px;
+    margin: 100px auto;
+    width: calc(100% - 60px);
+  }
 
-    .release-notes h2 {
-        font-size: 1.5rem;
-    }
+  .release-notes h2 {
+    font-size: 1.5rem;
+  }
 
-    .release-notes li {
-        font-size: 1rem;
-    }
+  .release-notes li {
+    font-size: 1rem;
+  }
 
-    .release-notes .show-more {
-        font-size: 1rem;
-    }
+  .release-notes .show-more {
+    font-size: 1rem;
+  }
 }

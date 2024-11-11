@@ -1,15 +1,14 @@
-
 .search-container {
   margin: 0 auto;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   width: 75%;
 }
 
-.search-container input[type=text] {
+.search-container input[type='text'] {
   width: 100%;
   padding: 10px;
   border: none;
-  border-radius: 8px;
+  border-radius: 50px;
   box-sizing: border-box;
   font-size: 1rem;
   background: var(--secondary-color);
@@ -72,7 +71,7 @@
   color: var(--font-color);
 }
 
-.company-table td, 
+.company-table td,
 .company-table th {
   flex: 1;
   padding: 15px;
@@ -89,15 +88,15 @@
 }
 
 .hard {
-  color: #FF375F;
+  color: #ff375f;
 }
 
 .medium {
-  color: #B98D1D;
+  color: #b98d1d;
 }
 
 .easy {
-  color: #00B8A3;
+  color: #00b8a3;
 }
 
 .pagination {
@@ -132,7 +131,7 @@
   color: var(--font-color);
 }
 
-.pages button{
+.pages button {
   background: none;
   border: none;
   cursor: pointer;
@@ -168,11 +167,7 @@
 .company-progress {
   height: 100%;
   width: 0%;
-  background-color: #3FCA7D;
-}
-
-.company-progress.completed {
-  background-color: purple;
+  background-color: #3fca7d;
 }
 
 @media (max-width: 768px) {

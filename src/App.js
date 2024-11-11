@@ -1,154 +1,97 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from './components/navbar';
-import Footer from './components/footer';
-import Companies from './pages/companies';
-import NotFound from './pages/notfound';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/home';
-import './styles/app.css';
-import Settings from './components/settings';
-import Submission from './components/submission';
-import Premium from './pages/premium';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import Alerts from './components/alerts';
 import { AlertsProvider } from './context/alertscontext';
-import Lesson from './pages/lesson';
-import Policy from './pages/policy';
-import Terms from './pages/terms';
-import Roadmap from './pages/roadmap';
+import { ThemeProvider } from './context/themecontext';
+import { UserProvider } from './context/usercontext';
+import Navbar from './components/navbar';
+import Alerts from './components/alerts';
+import Footer from './components/footer';
+import Settings from './components/settings';
+import Report from './components/report';
+import ScrollToTop from './utils/scrolltotop';
 import lessons from './content/lessons.json';
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import { firestore } from './config/firebase-config';
-import Lessons from './pages/lessons';
+import quizzes from './content/quizzes.json';
+import importAllPages from './utils/importallpages';
+import './styles/app.css';
 
-const stripePromise = loadStripe(String(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY));
+const stripePromise = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
+  ? loadStripe(String(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY))
+  : null;
+
+const pages = importAllPages(require.context('./pages', false, /\.js$/));
 
 const App = () => {
-  const [user, setUser] = useState(null);
-  const [theme, setTheme] = useState('system');
   const [displaySettings, setDisplaySettings] = useState(false);
-  const [displaySubmission, setDisplaySubmission] = useState(false);
-  const [premiumInfo, setPremiumInfo] = useState({
-    premium: false,
-    subscriptionId: '',
-    canceled: false,
-    customerId: '',
-    subscriptionEnd: null,
-  });
+  const [displayReport, setDisplayReport] = useState(false);
 
-  useEffect(() => {
-    if (user) {
-      const userRef = doc(firestore, 'users', user.uid);
-      getDoc(userRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
-            const userData = docSnap.data();
-
-            if (userData.premiumInfo) {
-              setPremiumInfo({
-                premium: userData.premiumInfo.premium || false,  
-                subscriptionId: userData.premiumInfo.subscriptionId || "",  
-                canceled: userData.premiumInfo.canceled || false,  
-                customerId: userData.premiumInfo.stripeCustomerId || "",  
-                subscriptionEnd: userData.premiumInfo.subscriptionEnd || null,  
-              });
-            }
-
-            if (userData.theme) {
-              setTheme(userData.theme);
-            } else {
-              setTheme('system');
-            }
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching user data: ", error);
-        });
-    } else {
-      setPremiumInfo({
-        premium: false,
-        subscriptionId: '',
-        canceled: false,
-        customerId: '',
-        subscriptionEnd: null,
-      });
-    }
-  }, [user]);
-
-  useEffect(() => {
-    if (theme === 'system') {
-      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.querySelector(":root").className = isDarkMode ? 'dark' : 'light';
-    } else {
-      document.querySelector(":root").className = theme;
-    }
-  }, [theme]);
-
-  const handleThemeChange = (newTheme) => {
-    setTheme(newTheme);
-
-    if (user) {
-      const userRef = doc(firestore, 'users', user.uid);
-      updateDoc(userRef, {
-        theme: newTheme,
-      })
-        .then(() => {
-          console.log("Theme updated successfully");
-        })
-        .catch((error) => {
-          console.error("Error updating theme: ", error);
-        });
-    }
-  }
+  const routes = [
+    { path: '/', element: React.createElement(pages['home']) },
+    { path: '/companies', element: React.createElement(pages['companies']) },
+    { path: '/roadmap', element: React.createElement(pages['roadmap']) },
+    {
+      path: '/lessons',
+      element: React.createElement(pages['lessons'], { lessons }),
+    },
+    { path: '/premium', element: React.createElement(pages['premium']) },
+    { path: '/policy', element: React.createElement(pages['policy']) },
+    { path: '/terms', element: React.createElement(pages['terms']) },
+    ...lessons.map((lesson, index) => ({
+      path: `/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`,
+      element: React.createElement(pages['lesson'], { data: lesson }),
+      key: `lesson-${lesson.id}-${index}`,
+    })),
+    ...quizzes.map((quiz, index) => ({
+      path: `/quiz/${quiz.title.replaceAll(' ', '-').toLowerCase()}`,
+      element: React.createElement(pages['quiz'], { data: quiz }),
+      key: `quiz-${quiz.id}-${index}`,
+    })),
+    { path: '*', element: React.createElement(pages['notfound']) },
+  ];
 
   return (
-    <div className='app'>
+    <div className="app">
       <AlertsProvider>
-        <Alerts />
-        {displaySettings && 
-          <Settings 
-            user={user} 
-            onClose={() => setDisplaySettings(false)} 
-            theme={theme} 
-            onThemeChange={(newTheme) => handleThemeChange(newTheme)} 
-            premiumInfo={premiumInfo} 
-          />
-        }
-        {displaySubmission && 
-          <Submission 
-            user={user} 
-            onClose={() => setDisplaySubmission(false)} 
-          />
-        }
-        <Router>
-          <Navbar 
-            user={user} 
-            onUserChange={(newUser) => setUser(newUser)} 
-            onThemeChange={(newTheme) => setTheme(newTheme)} 
-            onSettingsOpen={() => setDisplaySettings(true)}
-            onSubmissionOpen={() => setDisplaySubmission(true)} 
-          />
-          <Elements stripe={stripePromise}>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/companies' element={<Companies theme={theme} user={user} premiumInfo={premiumInfo} />} />
-              <Route path='/roadmap' element={<Roadmap theme={theme} user={user} />} />
-              <Route path='/lessons' element={<Lessons lessons={lessons} premiumInfo={premiumInfo} />} />
-              <Route path='/premium' element={<Premium user={user} premiumInfo={premiumInfo} />} />
-              {lessons.map((lesson, index) => (
-                <Route 
-                  key={`${lesson.id}-${index}`} 
-                  path={`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`} 
-                  element={<Lesson data={lesson} theme={theme} premiumInfo={premiumInfo} />} />
-              ))}
-              <Route path='/policy' element={<Policy />} />
-              <Route path='/terms' element={<Terms />} />
-              <Route path='*' element={<NotFound />} />
-            </Routes>
-          </Elements>
-          <Footer />
-        </Router>
+        <UserProvider>
+          <ThemeProvider>
+            <Alerts />
+            {displaySettings && (
+              <Settings onClose={() => setDisplaySettings(false)} />
+            )}
+            <Report
+              onClose={() => setDisplayReport(false)}
+              onOpen={() => setDisplayReport(true)}
+              open={displayReport}
+            />
+            <Router>
+              <Navbar onSettingsOpen={() => setDisplaySettings(true)} />
+              {stripePromise && (
+                <Elements stripe={stripePromise}>
+                  <ScrollToTop />
+                  <Routes>
+                    {routes.map((route) =>
+                      route.key ? (
+                        <Route
+                          key={route.key}
+                          path={route.path}
+                          element={route.element}
+                        />
+                      ) : (
+                        <Route
+                          key={route.path}
+                          path={route.path}
+                          element={route.element}
+                        />
+                      )
+                    )}
+                  </Routes>
+                </Elements>
+              )}
+              <Footer />
+            </Router>
+          </ThemeProvider>
+        </UserProvider>
       </AlertsProvider>
     </div>
   );

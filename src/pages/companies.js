@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/companies.css'; 
+import '../styles/companies.css';
 import { firestore } from '../config/firebase-config';
 import { doc, getDoc } from 'firebase/firestore';
 import Problems from '../components/problems';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import companies from '../content/companies.json';
+import { useUser } from '../context/usercontext';
 
 const average = (array) => {
   if (array.length === 0) return 0;
@@ -13,14 +14,20 @@ const average = (array) => {
   return sum / array.length;
 };
 
-const Companies = ({ user, premiumInfo, theme }) => {
+const Companies = () => {
   const [companiesData, setCompaniesData] = useState([]);
-  const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'ascending' });
+  const [sortConfig, setSortConfig] = useState({
+    key: 'name',
+    direction: 'ascending',
+  });
   const [searchTerm, setSearchTerm] = useState('');
   const [uniqueProblems, setUniqueProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
-  const [openCompany, setOpenCompany] = useState("");
+  const [openCompany, setOpenCompany] = useState('');
   const [narrow, setNarrow] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [companiesPerPage, setCompaniesPerPage] = useState(20);
+  const { user } = useUser();
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,23 +41,25 @@ const Companies = ({ user, premiumInfo, theme }) => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
-  
-  const [currentPage, setCurrentPage] = useState(1);
-  const [companiesPerPage, setCompaniesPerPage] = useState(20); 
 
   const handleClose = () => {
-    setOpenCompany("");
+    setOpenCompany('');
   };
 
   useEffect(() => {
     const fetchCompaniesData = async () => {
-      const companiesInfo = companies.map(company => {
-        const acceptanceRates = company.data.map(problem => problem.Acceptance);
-        const difficulties = company.data.map(problem => problem.Difficulty);
+      const companiesInfo = companies.map((company) => {
+        const acceptanceRates = company.data.map(
+          (problem) => problem.Acceptance
+        );
+        const difficulties = company.data.map((problem) => problem.Difficulty);
         const numProblems = company.data.length;
-        const avgAcceptance = acceptanceRates.length > 0 ? parseInt(average(acceptanceRates).toFixed(2)) + '%' : 'N/A';
-        const mostCommonDifficulty = difficulties.length > 0 ? mostCommon(difficulties) : 'N/A';
+        const avgAcceptance =
+          acceptanceRates.length > 0
+            ? parseInt(average(acceptanceRates).toFixed(2)) + '%'
+            : 'N/A';
+        const mostCommonDifficulty =
+          difficulties.length > 0 ? mostCommon(difficulties) : 'N/A';
 
         return {
           name: company.name.charAt(0).toUpperCase() + company.name.slice(1),
@@ -64,8 +73,12 @@ const Companies = ({ user, premiumInfo, theme }) => {
       const sortedCompanies = [...companiesInfo].sort((a, b) => {
         if (sortConfig.key === 'name') {
           return sortConfig.direction === 'ascending'
-            ? (a[sortConfig.key] > b[sortConfig.key] ? 1 : -1)
-            : (a[sortConfig.key] < b[sortConfig.key] ? 1 : -1);
+            ? a[sortConfig.key] > b[sortConfig.key]
+              ? 1
+              : -1
+            : a[sortConfig.key] < b[sortConfig.key]
+              ? 1
+              : -1;
         } else if (sortConfig.key === 'avgAcceptance') {
           const aRate = parseFloat(a[sortConfig.key].replace('%', ''));
           const bRate = parseFloat(b[sortConfig.key].replace('%', ''));
@@ -75,8 +88,10 @@ const Companies = ({ user, premiumInfo, theme }) => {
         } else if (sortConfig.key === 'mostCommonDifficulty') {
           const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
           return sortConfig.direction === 'ascending'
-            ? difficultyOrder[a[sortConfig.key]] - difficultyOrder[b[sortConfig.key]]
-            : difficultyOrder[b[sortConfig.key]] - difficultyOrder[a[sortConfig.key]];
+            ? difficultyOrder[a[sortConfig.key]] -
+                difficultyOrder[b[sortConfig.key]]
+            : difficultyOrder[b[sortConfig.key]] -
+                difficultyOrder[a[sortConfig.key]];
         } else {
           return sortConfig.direction === 'ascending'
             ? a[sortConfig.key] - b[sortConfig.key]
@@ -84,9 +99,10 @@ const Companies = ({ user, premiumInfo, theme }) => {
         }
       });
 
-      const allProblems = companiesInfo.flatMap(company => company.problems);
-      const uniqueProblems = Array.from(new Set(allProblems.map(problem => problem.ID)))
-        .map(id => allProblems.find(problem => problem.ID === id));
+      const allProblems = companiesInfo.flatMap((company) => company.problems);
+      const uniqueProblems = Array.from(
+        new Set(allProblems.map((problem) => problem.ID))
+      ).map((id) => allProblems.find((problem) => problem.ID === id));
 
       setCompaniesData(sortedCompanies);
       setUniqueProblems(uniqueProblems);
@@ -98,14 +114,16 @@ const Companies = ({ user, premiumInfo, theme }) => {
   useEffect(() => {
     if (user) {
       const userRef = doc(firestore, 'users', user.uid);
-      getDoc(userRef).then((docSnap) => {
-        if (docSnap.exists()) {
-          const userData = docSnap.data();
-          setCompletedProblems(userData.completedProblems || {});
-        }
-      }).catch((error) => {
-        console.error("Error fetching user data: ", error);
-      });
+      getDoc(userRef)
+        .then((docSnap) => {
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+            setCompletedProblems(userData.completedProblems || {});
+          }
+        })
+        .catch((error) => {
+          console.error('Error fetching user data: ', error);
+        });
     } else {
       setCompletedProblems({});
     }
@@ -116,14 +134,14 @@ const Companies = ({ user, premiumInfo, theme }) => {
 
     const counts = {};
 
-    array.forEach(difficulty => {
+    array.forEach((difficulty) => {
       counts[difficulty] = (counts[difficulty] || 0) + 1;
     });
 
     let mostCommonDifficulty = null;
     let maxCount = -1;
 
-    Object.keys(counts).forEach(difficulty => {
+    Object.keys(counts).forEach((difficulty) => {
       if (counts[difficulty] > maxCount) {
         mostCommonDifficulty = difficulty;
         maxCount = counts[difficulty];
@@ -156,14 +174,16 @@ const Companies = ({ user, premiumInfo, theme }) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredCompanies = companiesData
-    .filter(company =>
-      company.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  
+  const filteredCompanies = companiesData.filter((company) =>
+    company.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   const indexOfLastCompany = currentPage * companiesPerPage;
   const indexOfFirstCompany = indexOfLastCompany - companiesPerPage;
-  const currentCompanies = filteredCompanies.slice(indexOfFirstCompany, indexOfLastCompany);
+  const currentCompanies = filteredCompanies.slice(
+    indexOfFirstCompany,
+    indexOfLastCompany
+  );
 
   const completedCount = uniqueProblems.reduce((count, problem) => {
     if (completedProblems[problem.ID]) {
@@ -176,21 +196,21 @@ const Companies = ({ user, premiumInfo, theme }) => {
 
   const handlePreviousPage = () => {
     if (currentPage > 1) {
-      setCurrentPage(prevPage => prevPage - 1);
+      setCurrentPage((prevPage) => prevPage - 1);
     }
   };
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
-      setCurrentPage(prevPage => prevPage + 1);
+      setCurrentPage((prevPage) => prevPage + 1);
     }
   };
 
   const renderPageNumbers = () => {
     const pages = [];
     const maxPagesToShow = 5;
-    const startPage = Math.max(2, currentPage - Math.floor(maxPagesToShow / 2)); 
-    const endPage = Math.min(totalPages - 1, startPage + maxPagesToShow - 1); 
+    const startPage = Math.max(2, currentPage - Math.floor(maxPagesToShow / 2));
+    const endPage = Math.min(totalPages - 1, startPage + maxPagesToShow - 1);
 
     if (totalPages > 0) {
       pages.push(
@@ -204,9 +224,13 @@ const Companies = ({ user, premiumInfo, theme }) => {
         </button>
       );
     }
-    
+
     if (startPage > 2) {
-      pages.push(<button key="start-ellipsis" disabled>...</button>);
+      pages.push(
+        <button key="start-ellipsis" disabled>
+          ...
+        </button>
+      );
     }
 
     for (let i = startPage; i <= endPage; i++) {
@@ -223,7 +247,11 @@ const Companies = ({ user, premiumInfo, theme }) => {
     }
 
     if (endPage < totalPages - 1) {
-      pages.push(<button key="end-ellipsis" disabled>...</button>);
+      pages.push(
+        <button key="end-ellipsis" disabled>
+          ...
+        </button>
+      );
     }
 
     if (totalPages > 1) {
@@ -244,10 +272,26 @@ const Companies = ({ user, premiumInfo, theme }) => {
 
   return (
     <>
-      {openCompany && <Problems theme={theme} company={companies.find(company => company.name === openCompany)} onClose={handleClose} user={user} page={'companies'} premiumInfo={premiumInfo} />}
+      {openCompany && (
+        <Problems
+          company={companies.find((company) => company.name === openCompany)}
+          onClose={handleClose}
+          page={'companies'}
+        />
+      )}
       <div className="companies-page">
-        <p className="solved-count">{completedCount}<span> | {uniqueProblems.length}</span></p>
-        <div className="progress-bar"><div className={completedCount === uniqueProblems.length ? "progress completed": "progress"} style={{ width: `${(completedCount/uniqueProblems.length) * 100}%` }}></div></div>
+        <p className="solved-count">
+          {completedCount}
+          <span> | {uniqueProblems.length}</span>
+        </p>
+        <div className="progress-bar">
+          <div
+            className="progress"
+            style={{
+              width: `${(completedCount / uniqueProblems.length) * 100}%`,
+            }}
+          ></div>
+        </div>
         <div className="search-container">
           <input
             type="text"
@@ -260,34 +304,95 @@ const Companies = ({ user, premiumInfo, theme }) => {
           <table>
             <thead>
               <tr>
-                <th>Name <button className="sort-button" onClick={() => sortCompanies('name')}>{getSortIcon('name')}</button></th>
-                {!narrow && <th>Acceptance <button className="sort-button" onClick={() => sortCompanies('avgAcceptance')}>{getSortIcon('avgAcceptance')}</button></th>}
-                <th>Problems <button className="sort-button" onClick={() => sortCompanies('numProblems')}>{getSortIcon('numProblems')}</button></th>
-                <th>Difficulty <button className="sort-button" onClick={() => sortCompanies('mostCommonDifficulty')}>{getSortIcon('mostCommonDifficulty')}</button></th>
+                <th>
+                  Name{' '}
+                  <button
+                    className="sort-button"
+                    onClick={() => sortCompanies('name')}
+                  >
+                    {getSortIcon('name')}
+                  </button>
+                </th>
+                {!narrow && (
+                  <th>
+                    Acceptance{' '}
+                    <button
+                      className="sort-button"
+                      onClick={() => sortCompanies('avgAcceptance')}
+                    >
+                      {getSortIcon('avgAcceptance')}
+                    </button>
+                  </th>
+                )}
+                <th>
+                  Problems{' '}
+                  <button
+                    className="sort-button"
+                    onClick={() => sortCompanies('numProblems')}
+                  >
+                    {getSortIcon('numProblems')}
+                  </button>
+                </th>
+                <th>
+                  Difficulty{' '}
+                  <button
+                    className="sort-button"
+                    onClick={() => sortCompanies('mostCommonDifficulty')}
+                  >
+                    {getSortIcon('mostCommonDifficulty')}
+                  </button>
+                </th>
               </tr>
             </thead>
             <tbody>
               {currentCompanies.map((company, index) => (
                 <tr key={index}>
-                  <td><button onClick={() => setOpenCompany(company.name.toLowerCase())}>{company.name.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase())}</button></td>
+                  <td>
+                    <button
+                      onClick={() => setOpenCompany(company.name.toLowerCase())}
+                    >
+                      {company.name
+                        .replace('-', ' ')
+                        .replace(/\b\w/g, (c) => c.toUpperCase())}
+                    </button>
+                  </td>
                   {!narrow && <td>{company.avgAcceptance}</td>}
                   <td>{company.numProblems}</td>
-                  <td className={company.mostCommonDifficulty.toLowerCase()}>{company.mostCommonDifficulty}</td>
+                  <td className={company.mostCommonDifficulty.toLowerCase()}>
+                    {company.mostCommonDifficulty}
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
         <div className="pagination">
-          <Menu menuButton={<MenuButton className="page-button">{`${companiesPerPage} / page`}</MenuButton>}>
-            <MenuItem onClick={() => setCompaniesPerPage(20)}>20 / page</MenuItem>
-            <MenuItem onClick={() => setCompaniesPerPage(50)}>50 / page</MenuItem>
-            <MenuItem onClick={() => setCompaniesPerPage(100)}>100 / page</MenuItem>
+          <Menu
+            menuButton={
+              <MenuButton className="page-button">{`${companiesPerPage} / page`}</MenuButton>
+            }
+          >
+            <MenuItem onClick={() => setCompaniesPerPage(20)}>
+              20 / page
+            </MenuItem>
+            <MenuItem onClick={() => setCompaniesPerPage(50)}>
+              50 / page
+            </MenuItem>
+            <MenuItem onClick={() => setCompaniesPerPage(100)}>
+              100 / page
+            </MenuItem>
           </Menu>
-          <div className='pages'>
-            <button onClick={handlePreviousPage} disabled={currentPage === 1}><i className="fa-solid fa-angle-left"></i></button>
+          <div className="pages">
+            <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+              <i className="fa-solid fa-angle-left"></i>
+            </button>
             {renderPageNumbers()}
-            <button onClick={handleNextPage} disabled={currentPage === totalPages}><i className="fa-solid fa-angle-right"></i></button>
+            <button
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages}
+            >
+              <i className="fa-solid fa-angle-right"></i>
+            </button>
           </div>
         </div>
       </div>

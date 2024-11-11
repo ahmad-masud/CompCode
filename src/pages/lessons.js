@@ -1,17 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/lessons.css';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../context/usercontext';
+import { firestore } from '../config/firebase-config';
+import { getDoc, setDoc, doc } from 'firebase/firestore';
 
-const Lessons = ({ lessons, premiumInfo }) => {
+const Lessons = ({ lessons }) => {
   const navigate = useNavigate();
+  const { premiumInfo } = useUser();
+  const [completedQuizzes, setCompletedQuizzes] = useState([]);
   const categorizedLessons = {
     dataStructures: [],
     algorithms: [],
     concepts: [],
   };
+  const { user } = useUser();
+
+  useEffect(() => {
+    if (user) {
+      const userRef = doc(firestore, 'users', user.uid);
+      getDoc(userRef)
+        .then((docSnap) => {
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+            setCompletedQuizzes(userData.completedQuizzes || {});
+          } else {
+            setDoc(userRef, { completedQuizzes: {} });
+          }
+        })
+        .catch((error) => {
+          console.error('Error fetching user data: ', error);
+        });
+    } else {
+      setCompletedQuizzes({});
+    }
+  }, [user]);
 
   const images = lessons.reduce((map, lesson) => {
-    map[lesson.title] = require(`../content/images/${lesson.title.replace(/\s|-/g, '').toLowerCase()}.webp`);
+    map[lesson.title] = require(
+      `../content/images/${lesson.title.replace(/\s|-/g, '').toLowerCase()}.webp`
+    );
     return map;
   }, {});
 
@@ -25,7 +53,9 @@ const Lessons = ({ lessons, premiumInfo }) => {
     }
   });
 
-  const [loadedImages, setLoadedImages] = useState(Array(lessons.length).fill(false));
+  const [loadedImages, setLoadedImages] = useState(
+    Array(lessons.length).fill(false)
+  );
 
   const handleImageLoad = (index) => {
     setLoadedImages((prevLoadedImages) => {
@@ -35,22 +65,24 @@ const Lessons = ({ lessons, premiumInfo }) => {
     });
   };
 
-  const handleClick = (lesson) => {
+  const handleLessonClick = (lesson) => {
     if (lesson.premium && !premiumInfo.premium) return;
     navigate(`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`);
   };
 
+  const handleQuizClick = (quiz) => {
+    navigate(`/quiz/${quiz.title.replaceAll(' ', '-').toLowerCase()}`);
+  };
+
   const renderLessons = (category, title) => (
     <div key={title}>
-      <p className='lesson-type-title'>{title}</p>
+      <p className="lesson-type-title">{title}</p>
       <div className="lessons-container">
         {category.map((lesson, index) => (
-          <div
-            onClick={() => handleClick(lesson)}
-            key={index}
-            className={`lesson-card ${lesson.premium && !premiumInfo.premium ? 'lesson-card-disabled' : ''}`}
-          >
-            <div className={`lesson-card-image-container ${title.toLowerCase().split(' ').join('-')}`}>
+          <div key={index} className="lesson-card">
+            <div
+              className={`lesson-card-image-container ${title.toLowerCase().split(' ').join('-')}`}
+            >
               <img
                 className={`lesson-card-image ${loadedImages[index] ? 'loaded' : 'blurred'}`}
                 src={images[lesson.title]}
@@ -60,11 +92,27 @@ const Lessons = ({ lessons, premiumInfo }) => {
             </div>
             <div className="lesson-card-text">
               <p className="lesson-card-title">{lesson.title}</p>
-              <div className="lesson-card-sub-text">
-                <p className={'lesson-card-difficulty ' + lesson.difficulty}>
-                  {lesson.difficulty[0].toUpperCase() + lesson.difficulty.slice(1) || 'N/A'}
-                </p>
-                {lesson.premium && <i className="fa-solid fa-crown"></i>}
+              <p className={'lesson-card-difficulty ' + lesson.difficulty}>
+                {lesson.difficulty[0].toUpperCase() +
+                  lesson.difficulty.slice(1) || 'N/A'}
+              </p>
+              <div className="lesson-card-buttons">
+                <button
+                  className={`lesson-card-button ${lesson.premium && !premiumInfo.premium ? 'disabled' : ''}`}
+                  onClick={() => handleLessonClick(lesson)}
+                >
+                  Lesson
+                  {lesson.premium && <i className="fa-solid fa-crown"></i>}
+                </button>
+                <button
+                  className="lesson-card-button"
+                  onClick={() => handleQuizClick(lesson)}
+                >
+                  Quiz{' '}
+                  {completedQuizzes[lesson.title] && (
+                    <i className="fa-solid fa-check-circle"></i>
+                  )}
+                </button>
               </div>
             </div>
           </div>
@@ -74,7 +122,7 @@ const Lessons = ({ lessons, premiumInfo }) => {
   );
 
   return (
-    <div className='lesson-types'>
+    <div className="lesson-types">
       {renderLessons(categorizedLessons.dataStructures, 'Data Structures')}
       {renderLessons(categorizedLessons.algorithms, 'Algorithms')}
       {renderLessons(categorizedLessons.concepts, 'Concepts')}
