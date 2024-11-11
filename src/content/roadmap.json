@@ -28,20 +28,6 @@
         "Acceptance": 63
       },
       {
-        "ID": 392,
-        "Title": "Is Subsequence",
-        "Difficulty": "Easy",
-        "Leetcode Question Link": "https://leetcode.com/problems/is-subsequence",
-        "Acceptance": 48
-      },
-      {
-        "ID": 121,
-        "Title": "Best Time to Buy and Sell Stock",
-        "Difficulty": "Easy",
-        "Leetcode Question Link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock",
-        "Acceptance": 54
-      },
-      {
         "ID": 14,
         "Title": "Longest Common Prefix",
         "Difficulty": "Easy",
@@ -173,6 +159,13 @@
         "Acceptance": 77
       },
       {
+        "ID": 121,
+        "Title": "Best Time to Buy and Sell Stock",
+        "Difficulty": "Easy",
+        "Leetcode Question Link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock",
+        "Acceptance": 54
+      },
+      {
         "ID": 345,
         "Title": "Reverse Vowels of a String",
         "Difficulty": "Easy",
@@ -192,13 +185,6 @@
         "Difficulty": "Easy",
         "Leetcode Question Link": "https://leetcode.com/problems/move-zeroes",
         "Acceptance": 63
-      },
-      {
-        "ID": 26,
-        "Title": "Remove Duplicates from Sorted Array",
-        "Difficulty": "Easy",
-        "Leetcode Question Link": "https://leetcode.com/problems/remove-duplicates-from-sorted-array",
-        "Acceptance": 52
       },
       {
         "ID": 27,
@@ -267,13 +253,6 @@
         "Acceptance": 61
       },
       {
-        "ID": 503,
-        "Title": "Next Greater Element II",
-        "Difficulty": "Medium",
-        "Leetcode Question Link": "https://leetcode.com/problems/next-greater-element-ii",
-        "Acceptance": 59
-      },
-      {
         "ID": 84,
         "Title": "Largest Rectangle in Histogram",
         "Difficulty": "Hard",
@@ -333,13 +312,6 @@
         "Acceptance": 70
       },
       {
-        "ID": 328,
-        "Title": "Odd Even Linked List",
-        "Difficulty": "Medium",
-        "Leetcode Question Link": "https://leetcode.com/problems/odd-even-linked-list",
-        "Acceptance": 57
-      },
-      {
         "ID": 143,
         "Title": "Reorder List",
         "Difficulty": "Medium",
@@ -380,13 +352,6 @@
         "Difficulty": "Medium",
         "Leetcode Question Link": "https://leetcode.com/problems/rotate-list",
         "Acceptance": 30
-      },
-      {
-        "ID": 237,
-        "Title": "Delete Node in a Linked List",
-        "Difficulty": "Medium",
-        "Leetcode Question Link": "https://leetcode.com/problems/delete-node-in-a-linked-list",
-        "Acceptance": 81
       },
       {
         "ID": 24,
