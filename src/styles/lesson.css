@@ -93,8 +93,8 @@
   
 .lesson-copy-button {
     position: absolute;
-    top: 20px;
-    right: 10px;
+    top: 30px;
+    right: 15px;
     color: var(--font-color);
     background: transparent;
     border: none;
@@ -132,6 +132,5 @@
         height: auto;
         padding: 0;
         overflow: auto;
-    }
-    
+    } 
 }

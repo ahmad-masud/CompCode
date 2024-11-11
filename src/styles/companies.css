@@ -1,7 +1,7 @@
-/* Default styling for larger screens */
+
 .search-container {
   margin: 0 auto;
-  margin-bottom: 20px; /* Add some space below the search bar */
+  margin-bottom: 20px; 
   width: 75%;
 }
 
@@ -175,7 +175,6 @@
   background-color: purple;
 }
 
-/* Media query for screens 768px and below */
 @media (max-width: 768px) {
   .companies-page {
     margin: 10px auto;

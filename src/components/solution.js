@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Import Axios
+import axios from 'axios'; 
 import '../styles/solution.css';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark, materialLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -20,16 +20,16 @@ const Solution = ({ problemId, onClose, theme }) => {
     const fetchSolutions = async () => {
       setLoading(true);
       setFailed(false);
-      setSolutions([]); // Reset solutions state on each new fetch
+      setSolutions([]); 
 
       try {
-        // Use Axios to fetch content from GitHub API with Authorization Header
+        
         const headers = {
-          'Authorization': `token ${process.env.REACT_APP_GITHUB_TOKEN}`, // Ensure you have this set up in your environment variables
-          'Accept': 'application/vnd.github.v3.raw' // Return raw content
+          'Authorization': `token ${process.env.REACT_APP_GITHUB_TOKEN}`, 
+          'Accept': 'application/vnd.github.v3.raw' 
         };
 
-        // Fetch the main directory content
+        
         const response = await axios.get(`https://api.github.com/repos/ahmad-masud/CompCode-Solutions/contents/${problemId}`, {
           headers
         });
@@ -37,22 +37,18 @@ const Solution = ({ problemId, onClose, theme }) => {
         if (response.status !== 200) {
           addAlert('Failed to fetch solutions', 'error');
           setFailed(true);
-          return; // Exit early on non-200 response
+          return; 
         }
 
         const data = response.data;
         const solutionPromises = data.map(async (solution) => {
           if (solution.type === 'dir') {
             try {
-              // Fetch info.json using Axios
               const infoResponse = await axios.get(`https://raw.githubusercontent.com/ahmad-masud/CompCode-Solutions/main/${problemId}/${solution.name}/info.json`);
               const infoData = infoResponse.data;
-
-              // Fetch code.py using Axios
               const codeResponse = await axios.get(`https://raw.githubusercontent.com/ahmad-masud/CompCode-Solutions/main/${problemId}/${solution.name}/code.py`);
               const codeData = codeResponse.data;
 
-              // Set video URL if not already set
               if (!videoUrl && infoData.video) {
                 setVideoUrl(infoData.video);
               }
@@ -63,7 +59,7 @@ const Solution = ({ problemId, onClose, theme }) => {
               };
             } catch (innerError) {
               console.error(`Error fetching data for solution ${solution.name}:`, innerError);
-              return null; // Return null on inner fetch error to avoid breaking other solutions
+              return null; 
             }
           }
           return null;
@@ -76,7 +72,7 @@ const Solution = ({ problemId, onClose, theme }) => {
         addAlert('Not available yet', 'warning');
         setFailed(true);
       } finally {
-        setLoading(false); // Ensure loading state is cleared in all cases
+        setLoading(false); 
       }
     };
 
@@ -101,7 +97,6 @@ const Solution = ({ problemId, onClose, theme }) => {
         <button className="close-button" onClick={onClose}>
           <i className="bi bi-x"></i>
         </button>
-
         {videoUrl && (
           <div className="video-container">
             <iframe
@@ -113,7 +108,6 @@ const Solution = ({ problemId, onClose, theme }) => {
             ></iframe>
           </div>
         )}
-
         <div className="solutions-container">
           {solutions.map((solution, index) => (
             <div key={index} className="solution">

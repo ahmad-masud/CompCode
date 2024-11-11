@@ -1,44 +1,25 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
-
+const functions = require("firebase-functions");
 const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
-
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
-
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
-
-const functions = require("firebase-functions");
 const admin = require("firebase-admin");
-const stripe = require("stripe")(String(process.env.STRIPE_SECRET)); // Replace with your Stripe secret key
+const stripe = require("stripe")(String(process.env.STRIPE_SECRET)); 
 
 admin.initializeApp();
 
-// A simple function to create a Stripe Checkout session
 exports.createCheckoutSession = functions.https.onCall(async (data, context) => {
-  const { priceId, email, isSubscription } = data;  // Add `isSubscription` flag
+  const { priceId, email, isSubscription } = data;  
 
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      customer_email: email,  // Use the user's email for the session
+      customer_email: email,  
       line_items: [
         {
-          price: priceId, // Ensure this is a valid Price ID from Stripe
+          price: priceId, 
           quantity: 1,
         },
       ],
-      mode: isSubscription ? 'subscription' : 'payment', // Use 'subscription' or 'payment' based on the product
+      mode: isSubscription ? 'subscription' : 'payment', 
       success_url: 'https://compcode.tech/premium',
       cancel_url: 'https://compcode.tech/premium',
     });
@@ -51,34 +32,31 @@ exports.createCheckoutSession = functions.https.onCall(async (data, context) => 
 });
 
 
-// Cloud function to handle Stripe webhooks
+
 exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
   const sig = req.headers['stripe-signature'];
-  const endpointSecret = String(process.env.STRIPE_WEBHOOK_SIGNING_SECRET); // Replace with your endpoint secret
+  const endpointSecret = String(process.env.STRIPE_WEBHOOK_SIGNING_SECRET); 
 
   let event;
 
   try {
-    // Verify webhook signature to ensure it came from Stripe
+    
     event = stripe.webhooks.constructEvent(req.rawBody, sig, endpointSecret);
   } catch (err) {
     console.log('Webhook signature verification failed:', err.message);
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  // Handle the event based on its type
+  
   switch (event.type) {
     case 'checkout.session.completed': {
       const session = event.data.object;
       const customerId = session.customer;
-      const userEmail = session.customer_email; // or session.customer if you're storing the Stripe customer ID
-
-      // Store the subscription status in Firestore or Realtime Database
+      const userEmail = session.customer_email; 
       const userRecord = await admin.auth().getUserByEmail(userEmail);
       const userUid = userRecord.uid;
-
-      // Use UID to update Firestore
       const userDoc = admin.firestore().collection('users').doc(userUid);
+
       await userDoc.set({
         premiumInfo: {
           premium: true,
@@ -95,7 +73,7 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
       const customerId = invoice.customer;
       const subscriptionId = invoice.subscription;
 
-      // Update the user's premium status if the payment succeeded
+      
       const userSnapshot = await admin.firestore().collection('users').where('stripeCustomerId', '==', customerId).get();
       if (!userSnapshot.empty) {
         userSnapshot.forEach(async (doc) => {
@@ -110,13 +88,13 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
       const subscription = event.data.object;
       const customerId = subscription.customer;
     
-      // Query Firestore for the user document based on the Stripe customer ID
+      
       const userSnapshot = await admin.firestore().collection('users')
         .where('premiumInfo.stripeCustomerId', '==', customerId).get();
     
       if (!userSnapshot.empty) {
         userSnapshot.forEach(async (doc) => {
-          // Delete the entire `premiumInfo` field from Firestore
+          
           await doc.ref.update({
             'premiumInfo': admin.firestore.FieldValue.delete(),
           });
@@ -131,9 +109,9 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
       const subscription = event.data.object;
       const customerId = subscription.customer;
     
-      // Check if the subscription is set to cancel at the end of the period
+      
       const isCanceledAtPeriodEnd = subscription.cancel_at_period_end;
-      const currentPeriodEnd = subscription.current_period_end * 1000;  // Convert Unix timestamp to milliseconds
+      const currentPeriodEnd = subscription.current_period_end * 1000;  
     
       const userSnapshot = await admin.firestore().collection('users')
         .where('premiumInfo.stripeCustomerId', '==', customerId).get();
@@ -141,34 +119,32 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
       if (!userSnapshot.empty) {
         userSnapshot.forEach(async (doc) => {
           const updateData = {
-            'premiumInfo.canceled': isCanceledAtPeriodEnd,  // Mark the subscription as canceled if set to end
+            'premiumInfo.canceled': isCanceledAtPeriodEnd,  
           };
     
           if (isCanceledAtPeriodEnd) {
-            // If the subscription is canceled but still active until the end of the billing period
-            updateData['premiumInfo.subscriptionEnd'] = new Date(currentPeriodEnd);  // Store the end date
+            
+            updateData['premiumInfo.subscriptionEnd'] = new Date(currentPeriodEnd);  
           } else {
-            // If the subscription is active and not canceled, remove the `subscriptionEnd`
+            
             updateData['premiumInfo.subscriptionEnd'] = admin.firestore.FieldValue.delete();
           }
     
           await doc.ref.update(updateData);
         });
       }
-    
       break;
     }     
     default:
       console.log(`Unhandled event type: ${event.type}`);
   }
-
-  // Return a 200 response to acknowledge receipt of the event
+  
   res.status(200).send('Webhook received');
 });
 
-// Function to cancel a Stripe subscription
+
 exports.cancelSubscription = functions.https.onCall(async (data, context) => {
-  const { subscriptionId, uid } = data;  // Get the subscription ID passed from the frontend
+  const { subscriptionId, uid } = data;  
 
   try {
     const subscription = await stripe.subscriptions.update(
@@ -188,7 +164,7 @@ exports.createCustomerPortalSession = functions.https.onCall(async (data, contex
 
   const session = await stripe.billingPortal.sessions.create({
     customer: customerId,
-    return_url: 'https://compcode.tech/premium', // Replace with your actual return URL
+    return_url: 'https://compcode.tech/premium', 
   });
 
   return { url: session.url };

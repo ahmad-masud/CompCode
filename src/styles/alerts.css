@@ -1,7 +1,7 @@
 .alerts {
   position: fixed;
-  bottom: 20px; /* Move it to the bottom */
-  right: 20px; /* Keep it on the right */
+  bottom: 20px; 
+  right: 20px; 
   z-index: 100000;
   display: flex;
   flex-direction: column;

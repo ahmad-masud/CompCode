@@ -18,8 +18,8 @@ const ReleaseNotes = () => {
             <h2>Release Notes</h2>
             <ul>
             {displayedReleases.map((release, index) => {
-                const [year, month, day] = release.date.split('-'); // Split date string
-                const releaseDate = new Date(year, month - 1, day); // Month is 0-indexed, so subtract 1
+                const [year, month, day] = release.date.split('-'); 
+                const releaseDate = new Date(year, month - 1, day); 
                 return (
                     <li key={index}>
                         <span className="release-date">

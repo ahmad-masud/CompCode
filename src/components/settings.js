@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/settings.css'; // Create and import your settings-specific CSS file
+import '../styles/settings.css'; 
 import { firestore } from '../config/firebase-config';
 import { getFunctions, httpsCallable } from 'firebase/functions';
 import { doc, updateDoc } from 'firebase/firestore';
@@ -20,12 +20,12 @@ const Settings = ({ user, premiumInfo, onClose, theme, onThemeChange }) => {
       try {
         const userRef = doc(firestore, 'users', user.uid);
         
-        // Use updateDoc with FieldValue.delete() to remove only the 'completedProblems' field
+        
         await updateDoc(userRef, {
           completedProblems: {},
         });
   
-        localStorage.removeItem('completedProblems');  // Optionally remove from localStorage too
+        localStorage.removeItem('completedProblems');  
         console.log("Completed problems deleted successfully");
         addAlert('Completed problems deleted successfully.', 'success');
         window.location.reload();

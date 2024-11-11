@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/problems.css'; // Import CSS file for styles
+import '../styles/problems.css'; 
 import { firestore } from '../config/firebase-config';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
@@ -18,11 +18,8 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
   const { addAlert } = useAlerts();
   const [problemId, setProblemId] = useState(null);
   const [isSolutionOpen, setIsSolutionOpen] = useState(false);
-
-  // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const [problemsPerPage, setProblemsPerPage] = useState(20); // Default to 20 problems per page
-
+  const [problemsPerPage, setProblemsPerPage] = useState(20); 
   const [narrow, setNarrow] = useState(false);
 
   useEffect(() => {
@@ -56,9 +53,9 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
       getDoc(userRef).then((docSnap) => {
         if (docSnap.exists()) {
           const userData = docSnap.data();
-          setCompletedProblems(userData.completedProblems || {}); // Check if the user is premium
+          setCompletedProblems(userData.completedProblems || {}); 
         } else {
-          // Create a new document if it doesn't exist
+          
           setDoc(userRef, { completedProblems: {} });
         }
       }).catch((error) => {
@@ -129,7 +126,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
     setSearchTerm(event.target.value);
   };
 
-  // Filter and paginate problems
+  
   const filteredProblems = problems.filter(problem =>
     problem.ID.toString().includes(searchTerm) || problem.Title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -137,7 +134,6 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
   const indexOfLastProblem = currentPage * problemsPerPage;
   const indexOfFirstProblem = indexOfLastProblem - problemsPerPage;
   const currentProblems = filteredProblems.slice(indexOfFirstProblem, indexOfLastProblem);
-
   const totalPages = Math.ceil(filteredProblems.length / problemsPerPage);
 
   const completedCount = filteredProblems.reduce((count, problem) => {
@@ -147,7 +143,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
     return count;
   }, 0);
 
-  // Pagination controls
+  
   const handlePreviousPage = () => {
     if (currentPage > 1) {
       setCurrentPage(prevPage => prevPage - 1);
@@ -280,7 +276,7 @@ const Problems = ({ company, user, onClose, page, premiumInfo, theme }) => {
                   {premiumInfo && premiumInfo.premium ? (
                     Math.round(problem.Frequency * 100) / 100
                   ) : (
-                    <Link to="/premium" className='premium-link'><i className="fa-solid fa-crown"></i></Link>  // Show lock if not premium
+                    <Link to="/premium" className='premium-link'><i className="fa-solid fa-crown"></i></Link>  
                   )}
                 </div>
               )}

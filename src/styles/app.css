@@ -30,25 +30,21 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Style for the entire scrollbar */
 *::-webkit-scrollbar {
-  width: 12px;               /* Width of the scrollbar */
+  width: 12px;               
 }
 
-/* Style for the scrollbar track (background) */
 *::-webkit-scrollbar-track {
-  background: var(--secondary-color);       /* Light grey background */
-  border-radius: 10px;        /* Rounded corners */
+  background: var(--secondary-color);       
+  border-radius: 10px;        
 }
 
-/* Style for the scrollbar handle (thumb) */
 *::-webkit-scrollbar-thumb {
-  background-color: var(--background-color);     /* Dark grey color */
-  border-radius: 10px;        /* Rounded corners */
-  border: 3px solid var(--secondary-color); ;  /* Adds padding around thumb */
+  background-color: var(--background-color);     
+  border-radius: 10px;        
+  border: 3px solid var(--secondary-color); ;  
 }
 
-/* Style for the scrollbar on hover */
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #555;     /* Darker grey when hovering */
+  background-color: #555;     
 }

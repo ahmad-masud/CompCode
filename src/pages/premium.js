@@ -21,13 +21,13 @@ const Premium = ({ user, premiumInfo }) => {
       addAlert('Customer ID not found', 'error');
       return;
     }
+
     addAlert('Loading customer portal...', 'info');
     const createCustomerPortalSession = httpsCallable(functions, 'createCustomerPortalSession');
   
     try {
-      const { data } = await createCustomerPortalSession({ customerId: premiumInfo.customerId }); // Make sure you have the user's Stripe customer ID stored in Firestore
-  
-      window.location.href = data.url; // Redirect to the Stripe Customer Portal
+      const { data } = await createCustomerPortalSession({ customerId: premiumInfo.customerId }); 
+      window.location.href = data.url; 
     } catch (error) {
       console.error('Error redirecting to customer portal:', error);
       addAlert('Error redirecting to customer portal', 'error');

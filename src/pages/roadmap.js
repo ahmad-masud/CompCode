@@ -38,7 +38,6 @@ const Roadmap = ({ user, theme }) => {
 
   useEffect(() => {
     const fetchCompaniesData = async () => {
-      // Iterate through the order to retrieve company data in the correct sequence
       const companiesInfo = companies.map(company => {
         const acceptanceRates = company.data.map(problem => problem.Acceptance);
         const difficulties = company.data.map(problem => problem.Difficulty);
@@ -114,13 +113,11 @@ const Roadmap = ({ user, theme }) => {
   const mostCommon = (array) => {
     if (array.length === 0) return 'N/A';
 
-    // Count occurrences of each difficulty level
     const counts = {};
     array.forEach(difficulty => {
       counts[difficulty] = (counts[difficulty] || 0) + 1;
     });
 
-    // Find the difficulty with the highest count
     let mostCommonDifficulty = null;
     let maxCount = -1;
     Object.keys(counts).forEach(difficulty => {
@@ -186,7 +183,7 @@ const Roadmap = ({ user, theme }) => {
   }, 0);
   
   return (
-    <>
+    <div>
       {openCompany && <Problems theme={theme} company={companies.find(company => company.name === openCompany)} onClose={handleClose} user={user} page={'roadmap'} />}
       <div className="companies-page">
         <p className="solved-count">{completedCount}<span> | {uniqueProblems.length}</span></p>
@@ -218,7 +215,7 @@ const Roadmap = ({ user, theme }) => {
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

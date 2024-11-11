@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { firestore } from '../config/firebase-config'; // Use your firebase-config
-import { doc, setDoc } from 'firebase/firestore'; // Firebase Firestore functions
-import '../styles/problemsubmissionform.css'; // Import a CSS file for styling
+import { firestore } from '../config/firebase-config'; 
+import { doc, setDoc } from 'firebase/firestore'; 
+import '../styles/problemsubmissionform.css'; 
 import { useAlerts } from '../context/alertscontext';
 
 const ProblemSubmissionForm = ({ user, onClose }) => {
@@ -17,22 +17,20 @@ const ProblemSubmissionForm = ({ user, onClose }) => {
       return;
     }
 
-    const email = user.email; // Get user email from props
+    const email = user.email; 
 
     try {
-      // Define the document reference for storing the data
       const submissionRef = doc(firestore, 'submissions', `${user.uid}-${problemNumber}`);
 
-      // Set the document with user data in Firestore
       await setDoc(submissionRef, {
         problemNumber,
         companyName,
         email,
-        submittedAt: new Date(), // Store the timestamp
+        submittedAt: new Date(), 
       });
 
       addAlert("Problem submitted successfully!", "success");
-      setProblemNumber(''); // Clear form fields
+      setProblemNumber(''); 
       setCompanyName('');
     } catch (error) {
       console.error("Error submitting data: ", error);
@@ -74,7 +72,9 @@ const ProblemSubmissionForm = ({ user, onClose }) => {
               <button type="submit" className="submit-button">Submit Problem</button>
           </form>
 
-          <p className="footer-text">Thank you for your contribution! Your submission helps others practice targeted questions for specific companies.</p>
+          <p className="footer-text">
+            Thank you for your contribution! Your submission helps others practice targeted questions for specific companies.
+          </p>
         </div>
       </div>
     </div>

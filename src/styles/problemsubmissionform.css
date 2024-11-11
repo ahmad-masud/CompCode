@@ -24,79 +24,78 @@
 }
 
 .submission-container {
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 8px;
-    font-family: Arial, sans-serif;
-    color: var(--font-color);
-  }
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  color: var(--font-color);
+}
   
-  h1 {
-    text-align: center;
-    font-size: 24px;
-    margin-top: 20px;
-  }
-  
-  p {
-    text-align: center;
-    font-size: 16px;
-  }
-  
-  .submission-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  label {
-    font-size: 14px;
-    align-self: flex-start;
-  }
-  
-  input {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: #fff;
-  }
-  
-  input:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  .submit-button {
-    padding: 12px 20px;
-    background-color: #3FCA7D;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    font-size: 16px;
-    cursor: pointer;
-  }
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 20px;
+}
 
-  .submit-button:hover {
-    filter: brightness(75%);
-  }
+p {
+  text-align: center;
+  font-size: 16px;
+}
 
-  .footer-text {
-    text-align: center;
-    font-size: 14px;
-    margin-top: 20px;
-  }  
+.submission-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
 
-  @media screen and (max-width: 768px) {
-    .submission-content {
-      padding: 20px;
-      width: calc(100% - 60px);
-    }
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+label {
+  font-size: 14px;
+  align-self: flex-start;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.submit-button {
+  padding: 12px 20px;
+  background-color: #3FCA7D;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  filter: brightness(75%);
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+}  
+
+@media screen and (max-width: 768px) {
+  .submission-content {
+    padding: 20px;
+    width: calc(100% - 60px);
   }
-  
+}

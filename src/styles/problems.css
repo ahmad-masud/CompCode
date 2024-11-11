@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000; /* Ensure overlay appears above other content */
+  z-index: 1000; 
 }
 
 .overlay-backdrop {
@@ -16,7 +16,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  background-color: rgba(0, 0, 0, 0.5); 
   backdrop-filter: blur(5px);
 }
 
@@ -25,7 +25,7 @@
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1001; /* Ensure content appears above backdrop */
+  z-index: 1001; 
   position: relative;
   width: calc(100% - 100px);
   max-width: 1200px;
@@ -105,7 +105,6 @@
 .table-row .difficulty, .table-header .difficulty-head {
   flex: 0.75;
 }
-
 
 .table-row a {
   color: var(--font-color);
@@ -231,10 +230,10 @@
     height: calc(100vh - 60px);
     padding: 20px 5px;
   }
-  /* Resize only the table elements */
+  
   .table-header, .table-row {
-    font-size: 0.75rem; /* Smaller font size for table headers and rows on mobile */
-    padding: 10px; /* Reduced padding for better spacing */
+    font-size: 0.75rem; 
+    padding: 10px; 
   }
 
   .table-row .difficulty, .table-header .difficulty-head {
@@ -242,15 +241,15 @@
   } 
   
   .table-row a {
-    font-size: 0.75rem; /* Smaller font size for links in the table */
+    font-size: 0.75rem; 
   }
 
   .sort-button {
-    font-size: 0.75rem; /* Smaller font size for sort buttons */
+    font-size: 0.75rem; 
   }
 
   .solution-link button {
-    font-size: 1rem; /* Smaller font size for solution links */
+    font-size: 1rem; 
   }
 
   .title {

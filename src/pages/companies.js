@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/companies.css'; // Import CSS file for styles
+import '../styles/companies.css'; 
 import { firestore } from '../config/firebase-config';
 import { doc, getDoc } from 'firebase/firestore';
 import Problems from '../components/problems';
@@ -35,9 +35,9 @@ const Companies = ({ user, premiumInfo, theme }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
-  // Pagination state
+  
   const [currentPage, setCurrentPage] = useState(1);
-  const [companiesPerPage, setCompaniesPerPage] = useState(20); // Number of companies to display per page
+  const [companiesPerPage, setCompaniesPerPage] = useState(20); 
 
   const handleClose = () => {
     setOpenCompany("");
@@ -114,15 +114,15 @@ const Companies = ({ user, premiumInfo, theme }) => {
   const mostCommon = (array) => {
     if (array.length === 0) return 'N/A';
 
-    // Count occurrences of each difficulty level
     const counts = {};
+
     array.forEach(difficulty => {
       counts[difficulty] = (counts[difficulty] || 0) + 1;
     });
 
-    // Find the difficulty with the highest count
     let mostCommonDifficulty = null;
     let maxCount = -1;
+
     Object.keys(counts).forEach(difficulty => {
       if (counts[difficulty] > maxCount) {
         mostCommonDifficulty = difficulty;
@@ -156,7 +156,6 @@ const Companies = ({ user, premiumInfo, theme }) => {
     setSearchTerm(event.target.value);
   };
 
-  // Filter and paginate companies
   const filteredCompanies = companiesData
     .filter(company =>
       company.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -175,7 +174,6 @@ const Companies = ({ user, premiumInfo, theme }) => {
 
   const totalPages = Math.ceil(filteredCompanies.length / companiesPerPage);
 
-  // Handle "Previous" and "Next" buttons
   const handlePreviousPage = () => {
     if (currentPage > 1) {
       setCurrentPage(prevPage => prevPage - 1);
@@ -188,14 +186,12 @@ const Companies = ({ user, premiumInfo, theme }) => {
     }
   };
 
-  // Generate pagination buttons with dynamic shifting but keep first and last page visible
   const renderPageNumbers = () => {
     const pages = [];
     const maxPagesToShow = 5;
-    const startPage = Math.max(2, currentPage - Math.floor(maxPagesToShow / 2)); // Start from page 2 (since 1 is always shown)
-    const endPage = Math.min(totalPages - 1, startPage + maxPagesToShow - 1); // Exclude last page (since it's always shown)
+    const startPage = Math.max(2, currentPage - Math.floor(maxPagesToShow / 2)); 
+    const endPage = Math.min(totalPages - 1, startPage + maxPagesToShow - 1); 
 
-    // Always show the first page
     if (totalPages > 0) {
       pages.push(
         <button
@@ -208,13 +204,11 @@ const Companies = ({ user, premiumInfo, theme }) => {
         </button>
       );
     }
-
-    // Add "..." if there is a gap between 1 and the starting page
+    
     if (startPage > 2) {
       pages.push(<button key="start-ellipsis" disabled>...</button>);
     }
 
-    // Add page buttons within the visible range
     for (let i = startPage; i <= endPage; i++) {
       pages.push(
         <button
@@ -228,12 +222,10 @@ const Companies = ({ user, premiumInfo, theme }) => {
       );
     }
 
-    // Add "..." if there is a gap between the endPage and the last page
     if (endPage < totalPages - 1) {
       pages.push(<button key="end-ellipsis" disabled>...</button>);
     }
 
-    // Always show the last page
     if (totalPages > 1) {
       pages.push(
         <button

@@ -47,11 +47,11 @@ const App = () => {
 
             if (userData.premiumInfo) {
               setPremiumInfo({
-                premium: userData.premiumInfo.premium || false,  // Set a default value if undefined
-                subscriptionId: userData.premiumInfo.subscriptionId || "",  // Set default empty string if undefined
-                canceled: userData.premiumInfo.canceled || false,  // Set default to false if undefined
-                customerId: userData.premiumInfo.stripeCustomerId || "",  // Set default empty string if undefined
-                subscriptionEnd: userData.premiumInfo.subscriptionEnd || null,  // Set default to null if undefined
+                premium: userData.premiumInfo.premium || false,  
+                subscriptionId: userData.premiumInfo.subscriptionId || "",  
+                canceled: userData.premiumInfo.canceled || false,  
+                customerId: userData.premiumInfo.stripeCustomerId || "",  
+                subscriptionEnd: userData.premiumInfo.subscriptionEnd || null,  
               });
             }
 
@@ -106,8 +106,21 @@ const App = () => {
     <div className='app'>
       <AlertsProvider>
         <Alerts />
-        {displaySettings && <Settings user={user} onClose={() => setDisplaySettings(false)} theme={theme} onThemeChange={(newTheme) => handleThemeChange(newTheme)} premiumInfo={premiumInfo} />}
-        {displaySubmission && <Submission user={user} onClose={() => setDisplaySubmission(false)} />}
+        {displaySettings && 
+          <Settings 
+            user={user} 
+            onClose={() => setDisplaySettings(false)} 
+            theme={theme} 
+            onThemeChange={(newTheme) => handleThemeChange(newTheme)} 
+            premiumInfo={premiumInfo} 
+          />
+        }
+        {displaySubmission && 
+          <Submission 
+            user={user} 
+            onClose={() => setDisplaySubmission(false)} 
+          />
+        }
         <Router>
           <Navbar 
             user={user} 
@@ -124,7 +137,10 @@ const App = () => {
               <Route path='/lessons' element={<Lessons lessons={lessons} premiumInfo={premiumInfo} />} />
               <Route path='/premium' element={<Premium user={user} premiumInfo={premiumInfo} />} />
               {lessons.map((lesson, index) => (
-                <Route key={`${lesson.id}-${index}`} path={`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`} element={<Lesson data={lesson} theme={theme} premiumInfo={premiumInfo} />} />
+                <Route 
+                  key={`${lesson.id}-${index}`} 
+                  path={`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`} 
+                  element={<Lesson data={lesson} theme={theme} premiumInfo={premiumInfo} />} />
               ))}
               <Route path='/policy' element={<Policy />} />
               <Route path='/terms' element={<Terms />} />

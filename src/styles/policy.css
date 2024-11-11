@@ -1,42 +1,42 @@
 .policy-container {
-    max-width: 1200px;
-    width: calc(100% - 20px);
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  /* Main Title (e.g., Privacy Policy, Terms and Conditions) */
-  .policy-main-title {
-    font-size: 2rem;
-    color: var(--font-color);
-    text-align: center;
-  }
-  
-  /* Effective Date Styling */
-  .policy-effective-date {
-    font-size: 1.25rem;
-    color: var(--font-color);
-    text-align: center;
-  }
+  max-width: 1200px;
+  width: calc(100% - 20px);
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-  .policy-section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  /* Section Title */
-  .policy-section-title {
-    font-size: 1.25rem;
-    color: var(--font-color);
-  }
-  
-  /* Section Paragraphs */
-  .policy-section-paragraph {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--font-color);
-    text-align: left;
-  }
+
+.policy-main-title {
+  font-size: 2rem;
+  color: var(--font-color);
+  text-align: center;
+}
+
+
+.policy-effective-date {
+  font-size: 1.25rem;
+  color: var(--font-color);
+  text-align: center;
+}
+
+.policy-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.policy-section-title {
+  font-size: 1.25rem;
+  color: var(--font-color);
+}
+
+
+.policy-section-paragraph {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--font-color);
+  text-align: left;
+}

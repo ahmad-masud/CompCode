@@ -6,7 +6,6 @@ import '../styles/alerts.css';
 const Alerts = () => {
   const { alerts, removeAlert } = useAlerts();
 
-  // Map alert types to FontAwesome icons and styles
   const getAlertIcon = (type) => {
     switch (type) {
       case 'success':
@@ -32,8 +31,7 @@ const Alerts = () => {
         return 'alert alert-info';
     }
   };
-
-  // Render alerts through a portal
+  
   return createPortal(
     <div className="alerts">
       {alerts.map((alert) => (
