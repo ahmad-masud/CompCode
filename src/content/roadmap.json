@@ -66,11 +66,11 @@
         "Acceptance": 70
       },
       {
-        "ID": 3,
-        "Title": "Longest Substring Without Repeating Characters",
+        "ID": 347,
+        "Title": "Top K Frequent Elements",
         "Difficulty": "Medium",
-        "Link": "https://leetcode.com/problems/longest-substring-without-repeating-characters",
-        "Acceptance": 34
+        "Link": "https://leetcode.com/problems/top-k-frequent-elements",
+        "Acceptance": 64
       },
       {
         "ID": 349,
