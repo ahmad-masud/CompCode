@@ -80,4 +80,4 @@ CompCode is a web application designed to help you prepare for coding interviews
 
 ## License
 
-Distributed under the MIT License. See [MIT License](LICENSE) for more information.
+Distributed under the MIT License. See [CC BY-NC-ND 4.0 License](LICENSE) for more information.
