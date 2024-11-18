@@ -248,7 +248,7 @@
     height: calc(100vh - 60px);
     padding: 20px 5px;
   }
-  
+
   .problem-table {
     max-height: calc(100% - 260px);
   }
