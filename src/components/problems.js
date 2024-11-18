@@ -278,50 +278,52 @@ const Problems = ({ company, onClose, page }) => {
         <button className="problems-close-button" onClick={onClose}>
           <i className="bi bi-x"></i>
         </button>
-        <h2>
-          {company && company.name.replace(/\b\w/g, (c) => c.toUpperCase())}
-        </h2>
-        <p className="solved-count">
-          {completedCount}
-          <span> | {filteredProblems.length}</span>
-        </p>
-        <div className="progress-bar">
-          <div
-            className="progress"
-            style={{
-              width: `${(completedCount / filteredProblems.length) * 100}%`,
-            }}
-          ></div>
+        <div className="problems-header">
+          <h2>
+            {company && company.name.replace(/\b\w/g, (c) => c.toUpperCase())}
+          </h2>
+          <p className="solved-count">
+            {completedCount}
+            <span> | {filteredProblems.length}</span>
+          </p>
+          <div className="progress-bar">
+            <div
+              className="progress"
+              style={{
+                width: `${(completedCount / filteredProblems.length) * 100}%`,
+              }}
+            ></div>
+          </div>
+          {page === 'roadmap' && (
+            <div className="roadmap-lessons">
+              {company &&
+                company.lessons &&
+                company.lessons.map((lesson, index) => (
+                  <div
+                    onClick={() => navigate(`/lesson/${lesson}`)}
+                    key={index}
+                    className="roadmap-lesson"
+                  >
+                    <p>
+                      {lesson
+                        .replace(/\b\w/g, (c) => c.toUpperCase())
+                        .replaceAll('-', ' ')}
+                    </p>
+                  </div>
+                ))}
+            </div>
+          )}
+          {page === 'companies' && (
+            <div className="search-container">
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchTerm}
+                onChange={handleSearch}
+              />
+            </div>
+          )}
         </div>
-        {page === 'roadmap' && (
-          <div className="roadmap-lessons">
-            {company &&
-              company.lessons &&
-              company.lessons.map((lesson, index) => (
-                <div
-                  onClick={() => navigate(`/lesson/${lesson}`)}
-                  key={index}
-                  className="roadmap-lesson"
-                >
-                  <p>
-                    {lesson
-                      .replace(/\b\w/g, (c) => c.toUpperCase())
-                      .replaceAll('-', ' ')}
-                  </p>
-                </div>
-              ))}
-          </div>
-        )}
-        {page === 'companies' && (
-          <div className="search-container">
-            <input
-              type="text"
-              placeholder="Search"
-              value={searchTerm}
-              onChange={handleSearch}
-            />
-          </div>
-        )}
         <div className="problem-table">
           <div className="table-header">
             <div className="check-head">Status</div>

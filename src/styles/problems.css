@@ -61,12 +61,19 @@
   background-color: var(--secondary-color);
 }
 
+.problems-header {
+  height: 175px;
+}
+
 .problem-table {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - 5px);
   color: var(--font-color);
-  overflow-x: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: calc(100% - 225px);
+  padding-right: 5px;
 }
 
 .table-header {
@@ -240,6 +247,10 @@
     width: calc(100% - 30px);
     height: calc(100vh - 60px);
     padding: 20px 5px;
+  }
+  
+  .problem-table {
+    max-height: calc(100% - 260px);
   }
 
   .table-header,

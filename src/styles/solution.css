@@ -19,14 +19,17 @@
   max-width: 1000px;
   position: relative;
   z-index: 1001;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   height: calc(90vh - 100px);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.solution-content::-webkit-scrollbar-track {
-  border-radius: 0 20px 20px 0;
+.solution-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: calc(100% - 5px);
+  height: calc(100% - 50px);
+  padding-right: 5px;
 }
 
 .solution-header {
@@ -34,6 +37,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  height: 40px;
 }
 
 .solution-close-button {
@@ -62,7 +66,6 @@
   opacity: 0.2;
   width: calc(100% + 60px);
   margin-left: -30px;
-  margin-bottom: 20px;
 }
 
 .video-container {
@@ -70,8 +73,8 @@
   width: 100%;
   padding-bottom: 56.25%;
   height: 0;
-  margin-top: 40px;
   overflow: hidden;
+  margin-top: 20px;
 }
 
 .video-iframe {
