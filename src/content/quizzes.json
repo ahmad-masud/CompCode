@@ -4379,5 +4379,143 @@
         "explanationAfterAnswer": "XOR cancels out identical numbers, leaving only the single number."
       }
     ]
+  },
+  {
+    "title": "Matrices",
+    "questions": [
+      {
+        "id": 1,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Matrices are two-dimensional structures that can be represented as lists of lists in Python. They are used to represent grids, tables, and mathematical concepts such as linear transformations."
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Each inner list represents a row.",
+                "Elements in the matrix can be accessed using `matrix[row][column]`.",
+                "Matrices are widely used in algorithms for pathfinding, image processing, and numerical computations."
+              ]
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "matrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\nprint(matrix[1][2])  # Output: 6"
+            }
+          ]
+        },
+        "question": "How do you access the element at the second row and third column of a matrix named `matrix`?",
+        "options": [
+          "matrix[2][3]",
+          "matrix[1][2]",
+          "matrix[3][1]",
+          "matrix[0][1]"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "The element at the second row and third column can be accessed using `matrix[1][2]` due to zero-based indexing."
+      },
+      {
+        "id": 2,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Matrix transposition involves flipping a matrix over its diagonal, turning its rows into columns. This operation is common in mathematical computations."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "matrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\ntranspose = [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]\nprint(transpose)  # Output: [[1, 4, 7], [2, 5, 8], [3, 6, 9]]"
+            }
+          ]
+        },
+        "question": "What is matrix transposition?",
+        "options": [
+          "Flipping a matrix horizontally",
+          "Rotating a matrix by 90 degrees",
+          "Turning rows into columns and vice versa",
+          "Reversing all elements in the matrix"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "Matrix transposition involves turning rows into columns and vice versa."
+      },
+      {
+        "id": 3,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Matrix rotation is a common operation used in image processing and computer graphics. Rotating a matrix by 90 degrees clockwise involves rearranging elements to transform rows into columns in a specific pattern."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "matrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\ndef rotate_matrix(matrix):\n    n = len(matrix)\n    for i in range(n // 2):\n        for j in range(i, n - i - 1):\n            temp = matrix[i][j]\n            matrix[i][j] = matrix[n - j - 1][i]\n            matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1]\n            matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1]\n            matrix[j][n - i - 1] = temp\nrotate_matrix(matrix)\nprint(matrix)  # Output: [[7, 4, 1], [8, 5, 2], [9, 6, 3]]"
+            }
+          ]
+        },
+        "question": "Which operation is used to rotate a matrix by 90 degrees clockwise?",
+        "options": [
+          "Transposing the matrix",
+          "Reversing each row",
+          "Reversing each column",
+          "Layer-wise swapping of elements"
+        ],
+        "answerIndex": 3,
+        "explanationAfterAnswer": "Rotating a matrix by 90 degrees clockwise is performed by layer-wise swapping of elements."
+      },
+      {
+        "id": 4,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Slicing a matrix allows you to access specific rows or columns, similar to list slicing. This is useful for extracting subsets of data from a matrix."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "matrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\nrow = matrix[1]\ncolumn = [row[0] for row in matrix]\nprint(row)  # Output: [4, 5, 6]\nprint(column)  # Output: [1, 4, 7]"
+            }
+          ]
+        },
+        "question": "How do you slice out the first column of a matrix?",
+        "options": [
+          "[row[1] for row in matrix]",
+          "[matrix[0] for row in matrix]",
+          "[row[0] for row in matrix]",
+          "matrix[0]"
+        ],
+        "answerIndex": 2,
+        "explanationAfterAnswer": "You can slice out the first column of a matrix using `[row[0] for row in matrix]`."
+      },
+      {
+        "id": 5,
+        "explanation": {
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Nested loops are commonly used to traverse matrices. The outer loop iterates through rows, while the inner loop iterates through elements within each row."
+            },
+            {
+              "type": "code",
+              "language": "python",
+              "code": "matrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\nfor row in matrix:\n    for element in row:\n        print(element, end=' ')  # Output: 1 2 3 4 5 6 7 8 9"
+            }
+          ]
+        },
+        "question": "How do you traverse all elements in a matrix?",
+        "options": [
+          "Using a single loop",
+          "Using nested loops",
+          "Using the `map()` function",
+          "Accessing elements directly"
+        ],
+        "answerIndex": 1,
+        "explanationAfterAnswer": "To traverse all elements in a matrix, you typically use nested loops."
+      }
+    ]
   }
 ]

@@ -106,20 +106,6 @@
         "Difficulty": "Easy",
         "Link": "https://leetcode.com/problems/contains-duplicate",
         "Acceptance": 60
-      },
-      {
-        "ID": 451,
-        "Title": "Sort Characters By Frequency",
-        "Difficulty": "Medium",
-        "Link": "https://leetcode.com/problems/sort-characters-by-frequency",
-        "Acceptance": 65
-      },
-      {
-        "ID": 49,
-        "Title": "Group Anagrams",
-        "Difficulty": "Medium",
-        "Link": "https://leetcode.com/problems/group-anagrams",
-        "Acceptance": 64
       }
     ]
   },
@@ -156,32 +142,11 @@
         "Acceptance": 54
       },
       {
-        "ID": 345,
-        "Title": "Reverse Vowels of a String",
-        "Difficulty": "Easy",
-        "Link": "https://leetcode.com/problems/reverse-vowels-of-a-string",
-        "Acceptance": 48
-      },
-      {
         "ID": 11,
         "Title": "Container With Most Water",
         "Difficulty": "Medium",
         "Link": "https://leetcode.com/problems/container-with-most-water",
         "Acceptance": 59
-      },
-      {
-        "ID": 283,
-        "Title": "Move Zeroes",
-        "Difficulty": "Easy",
-        "Link": "https://leetcode.com/problems/move-zeroes",
-        "Acceptance": 63
-      },
-      {
-        "ID": 27,
-        "Title": "Remove Element",
-        "Difficulty": "Easy",
-        "Link": "https://leetcode.com/problems/remove-element",
-        "Acceptance": 54
       },
       {
         "ID": 1253,
@@ -196,6 +161,13 @@
         "Difficulty": "Easy",
         "Link": "https://leetcode.com/problems/merge-sorted-array",
         "Acceptance": 46
+      },
+      {
+        "ID": 42,
+        "Title": "Trapping Rain Water",
+        "Difficulty": "Hard",
+        "Link": "https://leetcode.com/problems/trapping-rain-water",
+        "Acceptance": 64
       }
     ]
   },
@@ -237,13 +209,6 @@
         "Difficulty": "Hard",
         "Link": "https://leetcode.com/problems/trapping-rain-water",
         "Acceptance": 61
-      },
-      {
-        "ID": 84,
-        "Title": "Largest Rectangle in Histogram",
-        "Difficulty": "Hard",
-        "Link": "https://leetcode.com/problems/largest-rectangle-in-histogram",
-        "Acceptance": 43
       }
     ]
   },
@@ -995,6 +960,54 @@
         "Difficulty": "Medium",
         "Link": "https://leetcode.com/problems/valid-parenthesis-string",
         "Acceptance": 34
+      }
+    ]
+  },
+  {
+    "name": "math",
+    "lessons": ["matrices"],
+    "data": [
+      {
+        "ID": 202,
+        "Title": "Happy Number",
+        "Difficulty": "Easy",
+        "Link": "https://leetcode.com/problems/happy-number",
+        "Acceptance": 54
+      },
+      {
+        "ID": 66,
+        "Title": "Plus One",
+        "Difficulty": "Easy",
+        "Link": "https://leetcode.com/problems/plus-one",
+        "Acceptance": 43
+      },
+      {
+        "ID": 50,
+        "Title": "Pow(x, n)",
+        "Difficulty": "Medium",
+        "Link": "https://leetcode.com/problems/powx-n",
+        "Acceptance": 32
+      },
+      {
+        "ID": 48,
+        "Title": "Rotate Image",
+        "Difficulty": "Medium",
+        "Link": "https://leetcode.com/problems/rotate-image",
+        "Acceptance": 60
+      },
+      {
+        "ID": 54,
+        "Title": "Spiral Matrix",
+        "Difficulty": "Medium",
+        "Link": "https://leetcode.com/problems/spiral-matrix",
+        "Acceptance": 42
+      },
+      {
+        "ID": 73,
+        "Title": "Set Matrix Zeroes",
+        "Difficulty": "Medium",
+        "Link": "https://leetcode.com/problems/set-matrix-zeroes",
+        "Acceptance": 51
       }
     ]
   }
