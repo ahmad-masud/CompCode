@@ -64,6 +64,7 @@
   gap: 5px;
   border: none;
   align-items: center;
+  font-size: 1rem;
 }
 
 .lesson-card-button:hover {
