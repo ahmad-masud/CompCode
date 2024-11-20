@@ -123,7 +123,7 @@ const Navbar = ({ onSettingsOpen }) => {
           </div>
           <div className="right">
             <Link to="/premium" className="premium-button">
-              <i className="fa-solid fa-crown"></i> {!narrow && 'Premium'}
+              <i className="fa-solid fa-rocket"></i> {!narrow && 'Premium'}
             </Link>
             {user ? (
               <div className="login-right">

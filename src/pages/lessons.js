@@ -102,7 +102,7 @@ const Lessons = ({ lessons }) => {
                   onClick={() => handleLessonClick(lesson)}
                 >
                   Lesson
-                  {lesson.premium && <i className="fa-solid fa-crown"></i>}
+                  {lesson.premium && <i className="fa-solid fa-rocket"></i>}
                 </button>
                 <button
                   className="lesson-card-button"

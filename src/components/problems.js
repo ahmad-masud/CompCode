@@ -420,7 +420,7 @@ const Problems = ({ company, onClose, page }) => {
                     Math.round(problem.Frequency * 100) / 100
                   ) : (
                     <Link to="/premium" className="premium-link">
-                      <i className="fa-solid fa-crown"></i>
+                      <i className="fa-solid fa-rocket"></i>
                     </Link>
                   )}
                 </div>
