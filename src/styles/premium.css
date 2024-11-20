@@ -28,7 +28,7 @@
 
 .subscription-option {
   padding: 40px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: var(--secondary-color);
   color: var(--font-color);
   display: flex;
@@ -44,14 +44,26 @@
 }
 
 .subscription-cost {
-  font-size: 2rem;
+  font-size: 3rem;
   color: var(--font-color);
+  display: flex;
+  gap: 5px;
+  height: 40px;
+  align-items: center;
 }
 
 .subscription-cost span {
-  font-size: 1rem;
   filter: brightness(50%);
-  margin-left: 5px;
+}
+
+.subscription-cost span:nth-child(2) {
+  align-self: flex-end;
+  font-size: 1rem;
+}
+
+.subscription-cost span:nth-child(1) {
+  align-self: flex-start;
+  font-size: 1.5rem;
 }
 
 .subscription-features {

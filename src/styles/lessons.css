@@ -22,6 +22,7 @@
   margin: 0 auto;
   margin-bottom: 50px;
   align-items: flex-start;
+  justify-content: center;
 }
 
 .lesson-card {
@@ -75,7 +76,7 @@
   filter: brightness(100%);
 }
 
-.lesson-card-button .fa-crown {
+.lesson-card-button .fa-rocket {
   color: royalblue;
 }
 
@@ -122,10 +123,4 @@
 .lesson-card-title {
   font-size: 1.25rem;
   text-align: center;
-}
-
-@media screen and (max-width: 768px) {
-  .lessons-container {
-    justify-content: center;
-  }
 }

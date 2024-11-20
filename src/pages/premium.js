@@ -84,7 +84,7 @@ const Premium = () => {
         <div className="subscription-option">
           <p className="subscription-title">Free</p>
           <p className="subscription-cost">
-            $0<span>USD | month</span>
+            <span>$</span>0<span>USD | month</span>
           </p>
           <button className="checkout-button disabled">
             {user
@@ -109,7 +109,7 @@ const Premium = () => {
         <div className="subscription-option">
           <p className="subscription-title">Premium</p>
           <p className="subscription-cost">
-            $5<span>USD | month</span>
+            <span>$</span>5<span>USD | month</span>
           </p>
           <button
             className={
