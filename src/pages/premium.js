@@ -52,6 +52,8 @@ const Premium = () => {
       return;
     }
 
+    addAlert('Loading Customer Portal...', 'info');
+
     try {
       const createCheckoutSession = httpsCallable(
         functions,
