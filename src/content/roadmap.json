@@ -149,7 +149,7 @@
         "Acceptance": 59
       },
       {
-        "ID": 1253,
+        "ID": 763,
         "Title": "Partition Labels",
         "Difficulty": "Medium",
         "Link": "https://leetcode.com/problems/partition-labels",
