@@ -1,6 +1,6 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
-import { doc, getDoc } from 'firebase/firestore';
-import { firestore } from '../config/firebase-config';
+import React, { createContext, useState, useContext, useEffect } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { firestore } from "../config/firebase-config";
 
 const UserContext = createContext();
 
@@ -8,15 +8,15 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [premiumInfo, setPremiumInfo] = useState({
     premium: false,
-    subscriptionId: '',
+    subscriptionId: "",
     canceled: false,
-    customerId: '',
+    customerId: "",
     subscriptionEnd: null,
   });
 
   useEffect(() => {
     if (user) {
-      const userRef = doc(firestore, 'users', user.uid);
+      const userRef = doc(firestore, "users", user.uid);
       getDoc(userRef)
         .then((docSnap) => {
           if (docSnap.exists()) {
@@ -24,23 +24,23 @@ export const UserProvider = ({ children }) => {
             if (userData.premiumInfo) {
               setPremiumInfo({
                 premium: userData.premiumInfo.premium || false,
-                subscriptionId: userData.premiumInfo.subscriptionId || '',
+                subscriptionId: userData.premiumInfo.subscriptionId || "",
                 canceled: userData.premiumInfo.canceled || false,
-                customerId: userData.premiumInfo.stripeCustomerId || '',
+                customerId: userData.premiumInfo.stripeCustomerId || "",
                 subscriptionEnd: userData.premiumInfo.subscriptionEnd || null,
               });
             }
           }
         })
         .catch((error) => {
-          console.error('Error fetching user data: ', error);
+          console.error("Error fetching user data: ", error);
         });
     } else {
       setPremiumInfo({
         premium: false,
-        subscriptionId: '',
+        subscriptionId: "",
         canceled: false,
-        customerId: '',
+        customerId: "",
         subscriptionEnd: null,
       });
     }

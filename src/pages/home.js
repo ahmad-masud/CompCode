@@ -1,8 +1,8 @@
-import React from 'react';
-import '../styles/home.css';
-import { Link } from 'react-router-dom';
-import ReleaseNotes from '../components/release';
-import tips from '../content/tips';
+import React from "react";
+import "../styles/home.css";
+import { Link } from "react-router-dom";
+import ReleaseNotes from "../components/release";
+import tips from "../content/tips";
 
 const Home = () => {
   const today = new Date();
@@ -19,7 +19,7 @@ const Home = () => {
           <p className="hero-title">
             <span>
               <i className="fa-solid fa-meteor"></i> CompCode:
-            </span>{' '}
+            </span>{" "}
             The best resource for doing LeetCode Problems
           </p>
           <p className="hero-overview">

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import '../styles/lesson.css';
-import { useNavigate } from 'react-router-dom';
-import { useUser } from '../context/usercontext';
-import { useTheme } from '../context/themecontext';
+import React, { useEffect, useState } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import "../styles/lesson.css";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/usercontext";
+import { useTheme } from "../context/themecontext";
 
 const Lesson = ({ data }) => {
   const [lesson, setLesson] = useState(null);
@@ -18,7 +18,7 @@ const Lesson = ({ data }) => {
   useEffect(() => {
     if (!data) return;
     if (data.premium && !premiumInfo.premium) {
-      navigate('/premium');
+      navigate("/premium");
       return;
     }
     setLoading(true);
@@ -44,7 +44,7 @@ const Lesson = ({ data }) => {
   const renderBoldText = (text) => {
     const parts = text.split(/(\*\*[^*]+\*\*)/g);
     return parts.map((part, index) => {
-      if (part.startsWith('**') && part.endsWith('**')) {
+      if (part.startsWith("**") && part.endsWith("**")) {
         return <strong key={index}>{part.slice(2, -2)}</strong>;
       }
       return part;
@@ -55,7 +55,7 @@ const Lesson = ({ data }) => {
     const parts = text.split(/(`[^`]+`)/g);
 
     return parts.map((part, index) => {
-      if (part.startsWith('`') && part.endsWith('`')) {
+      if (part.startsWith("`") && part.endsWith("`")) {
         return (
           <span key={index} className="lesson-highlight">
             {part.slice(1, -1)}
@@ -74,7 +74,7 @@ const Lesson = ({ data }) => {
           {lesson.lessons.map((lesson, lessonIdx) => (
             <a
               key={lessonIdx}
-              href={`#${lesson.title.replaceAll(' ', '-')}`}
+              href={`#${lesson.title.replaceAll(" ", "-")}`}
               className="lesson-link"
             >
               {lesson.title}
@@ -85,20 +85,20 @@ const Lesson = ({ data }) => {
           {lesson.lessons.map((lesson, lessonIdx) => (
             <div key={lessonIdx} className="lesson">
               <p
-                id={lesson.title.replaceAll(' ', '-')}
+                id={lesson.title.replaceAll(" ", "-")}
                 className="lesson-title"
               >
                 {lesson.title}
               </p>
               {lesson.content.map((block, blockIdx) => {
-                if (block.type === 'paragraph') {
+                if (block.type === "paragraph") {
                   return (
                     <p className="lesson-paragraph" key={blockIdx}>
                       {renderParagraphWithHighlights(block.text)}
                     </p>
                   );
                 }
-                if (block.type === 'bullets') {
+                if (block.type === "bullets") {
                   return (
                     <ul className="lesson-list" key={blockIdx}>
                       {block.items.map((item, i) => (
@@ -109,7 +109,7 @@ const Lesson = ({ data }) => {
                     </ul>
                   );
                 }
-                if (block.type === 'code') {
+                if (block.type === "code") {
                   if (!copiedState[lessonIdx]) copiedState[lessonIdx] = [];
                   return (
                     <div key={blockIdx} className="lesson-code-block">
@@ -128,12 +128,12 @@ const Lesson = ({ data }) => {
                       <SyntaxHighlighter
                         language={block.language}
                         style={
-                          theme === 'dark'
+                          theme === "dark"
                             ? materialDark
-                            : theme === 'system'
+                            : theme === "system"
                               ? window.matchMedia &&
                                 window.matchMedia(
-                                  '(prefers-color-scheme: dark)'
+                                  "(prefers-color-scheme: dark)"
                                 ).matches
                                 ? materialDark
                                 : undefined

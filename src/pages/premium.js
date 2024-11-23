@@ -1,9 +1,9 @@
-import React from 'react';
-import { useStripe } from '@stripe/react-stripe-js';
-import { getFunctions, httpsCallable } from 'firebase/functions';
-import '../styles/premium.css';
-import { useAlerts } from '../context/alertscontext';
-import { useUser } from '../context/usercontext';
+import React from "react";
+import { useStripe } from "@stripe/react-stripe-js";
+import { getFunctions, httpsCallable } from "firebase/functions";
+import "../styles/premium.css";
+import { useAlerts } from "../context/alertscontext";
+import { useUser } from "../context/usercontext";
 
 const Premium = () => {
   const stripe = useStripe();
@@ -13,21 +13,21 @@ const Premium = () => {
 
   const handleManageSubscription = async () => {
     if (!user) {
-      console.error('User not logged in');
-      addAlert('You must login first', 'warning');
+      console.error("User not logged in");
+      addAlert("You must login first", "warning");
       return;
     }
 
     if (!premiumInfo.customerId) {
-      console.error('Customer ID not found.');
-      addAlert('Customer ID not found', 'error');
+      console.error("Customer ID not found.");
+      addAlert("Customer ID not found", "error");
       return;
     }
 
-    addAlert('Loading customer portal...', 'info');
+    addAlert("Loading customer portal...", "info");
     const createCustomerPortalSession = httpsCallable(
       functions,
-      'createCustomerPortalSession'
+      "createCustomerPortalSession"
     );
 
     try {
@@ -36,15 +36,15 @@ const Premium = () => {
       });
       window.location.href = data.url;
     } catch (error) {
-      console.error('Error redirecting to customer portal:', error);
-      addAlert('Error redirecting to customer portal', 'error');
+      console.error("Error redirecting to customer portal:", error);
+      addAlert("Error redirecting to customer portal", "error");
     }
   };
 
   const handlePremium = async (priceId, isSubscription) => {
     if (!user) {
-      console.error('User not logged in');
-      addAlert('You must login first', 'warning');
+      console.error("User not logged in");
+      addAlert("You must login first", "warning");
       return;
     }
 
@@ -52,12 +52,12 @@ const Premium = () => {
       return;
     }
 
-    addAlert('Loading Customer Portal...', 'info');
+    addAlert("Loading Customer Portal...", "info");
 
     try {
       const createCheckoutSession = httpsCallable(
         functions,
-        'createCheckoutSession'
+        "createCheckoutSession"
       );
       const { data } = await createCheckoutSession({
         priceId: priceId,
@@ -69,12 +69,12 @@ const Premium = () => {
         sessionId: data.sessionId,
       });
       if (error) {
-        console.error('Error redirecting to checkout:', error);
-        addAlert('Error redirecting to checkout', 'error');
+        console.error("Error redirecting to checkout:", error);
+        addAlert("Error redirecting to checkout", "error");
       }
     } catch (error) {
-      console.error('Error creating checkout session:', error);
-      addAlert('Error creating checkout session', 'error');
+      console.error("Error creating checkout session:", error);
+      addAlert("Error creating checkout session", "error");
     }
   };
 
@@ -91,9 +91,9 @@ const Premium = () => {
           <button className="checkout-button disabled">
             {user
               ? premiumInfo.premium
-                ? 'Previous Plan'
-                : 'Current Plan'
-              : 'Free Plan'}
+                ? "Previous Plan"
+                : "Current Plan"
+              : "Free Plan"}
           </button>
           <div className="subscription-features">
             <p className="subscription-feature">
@@ -115,13 +115,13 @@ const Premium = () => {
           </p>
           <button
             className={
-              'checkout-button' + (premiumInfo.premium ? ' disabled' : '')
+              "checkout-button" + (premiumInfo.premium ? " disabled" : "")
             }
             onClick={() =>
-              handlePremium('price_1Q9xzfFyVXgjLrCzwNw8Hrxc', true)
+              handlePremium("price_1Q9xzfFyVXgjLrCzwNw8Hrxc", true)
             }
           >
-            {premiumInfo.premium ? 'Current Plan' : 'Upgrade to Premium'}
+            {premiumInfo.premium ? "Current Plan" : "Upgrade to Premium"}
           </button>
           <div className="subscription-features">
             <p className="subscription-feature">
@@ -154,7 +154,7 @@ const Premium = () => {
             premiumInfo.canceled &&
             premiumInfo.subscriptionEnd && (
               <p className="cancel-info">
-                You will have access to premium until{' '}
+                You will have access to premium until{" "}
                 {premiumInfo.subscriptionEnd.toDate().toLocaleDateString()}.
               </p>
             )}

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { firestore } from '../config/firebase-config';
-import { doc, setDoc } from 'firebase/firestore';
-import '../styles/report.css';
-import { useAlerts } from '../context/alertscontext';
-import { useUser } from '../context/usercontext';
+import React, { useState } from "react";
+import { firestore } from "../config/firebase-config";
+import { doc, setDoc } from "firebase/firestore";
+import "../styles/report.css";
+import { useAlerts } from "../context/alertscontext";
+import { useUser } from "../context/usercontext";
 
 const Report = ({ onClose, onOpen, open }) => {
-  const [problemNumber, setProblemNumber] = useState('');
-  const [companyName, setCompanyName] = useState('');
+  const [problemNumber, setProblemNumber] = useState("");
+  const [companyName, setCompanyName] = useState("");
   const { addAlert } = useAlerts();
   const { user } = useUser();
 
@@ -15,7 +15,7 @@ const Report = ({ onClose, onOpen, open }) => {
     e.preventDefault();
 
     if (!user) {
-      addAlert('You must be logged in to submit.', 'warning');
+      addAlert("You must be logged in to submit.", "warning");
       return;
     }
 
@@ -24,7 +24,7 @@ const Report = ({ onClose, onOpen, open }) => {
     try {
       const submissionRef = doc(
         firestore,
-        'submissions',
+        "submissions",
         `${user.uid}-${problemNumber}`
       );
 
@@ -35,12 +35,12 @@ const Report = ({ onClose, onOpen, open }) => {
         submittedAt: new Date(),
       });
 
-      addAlert('Problem submitted successfully!', 'success');
-      setProblemNumber('');
-      setCompanyName('');
+      addAlert("Problem submitted successfully!", "success");
+      setProblemNumber("");
+      setCompanyName("");
     } catch (error) {
-      console.error('Error submitting data: ', error);
-      addAlert('Error submitting data.', 'error');
+      console.error("Error submitting data: ", error);
+      addAlert("Error submitting data.", "error");
     }
   };
 

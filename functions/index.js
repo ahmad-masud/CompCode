@@ -1,8 +1,8 @@
-const functions = require('firebase-functions');
-const { onRequest } = require('firebase-functions/v2/https');
-const logger = require('firebase-functions/logger');
-const admin = require('firebase-admin');
-const stripe = require('stripe')(String(process.env.STRIPE_SECRET));
+const functions = require("firebase-functions");
+const { onRequest } = require("firebase-functions/v2/https");
+const logger = require("firebase-functions/logger");
+const admin = require("firebase-admin");
+const stripe = require("stripe")(String(process.env.STRIPE_SECRET));
 
 admin.initializeApp();
 
@@ -12,7 +12,7 @@ exports.createCheckoutSession = functions.https.onCall(
 
     try {
       const session = await stripe.checkout.sessions.create({
-        payment_method_types: ['card'],
+        payment_method_types: ["card"],
         customer_email: email,
         line_items: [
           {
@@ -20,24 +20,24 @@ exports.createCheckoutSession = functions.https.onCall(
             quantity: 1,
           },
         ],
-        mode: isSubscription ? 'subscription' : 'payment',
-        success_url: 'https://compcode.tech/premium',
-        cancel_url: 'https://compcode.tech/premium',
+        mode: isSubscription ? "subscription" : "payment",
+        success_url: "https://compcode.tech/premium",
+        cancel_url: "https://compcode.tech/premium",
       });
 
       return { sessionId: session.id };
     } catch (error) {
-      console.error('Error creating Stripe checkout session:', error);
+      console.error("Error creating Stripe checkout session:", error);
       throw new functions.https.HttpsError(
-        'internal',
-        'Unable to create checkout session'
+        "internal",
+        "Unable to create checkout session"
       );
     }
   }
 );
 
 exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
-  const sig = req.headers['stripe-signature'];
+  const sig = req.headers["stripe-signature"];
   const endpointSecret = String(process.env.STRIPE_WEBHOOK_SIGNING_SECRET);
 
   let event;
@@ -45,18 +45,18 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
   try {
     event = stripe.webhooks.constructEvent(req.rawBody, sig, endpointSecret);
   } catch (err) {
-    console.log('Webhook signature verification failed:', err.message);
+    console.log("Webhook signature verification failed:", err.message);
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
   switch (event.type) {
-    case 'checkout.session.completed': {
+    case "checkout.session.completed": {
       const session = event.data.object;
       const customerId = session.customer;
       const userEmail = session.customer_email;
       const userRecord = await admin.auth().getUserByEmail(userEmail);
       const userUid = userRecord.uid;
-      const userDoc = admin.firestore().collection('users').doc(userUid);
+      const userDoc = admin.firestore().collection("users").doc(userUid);
 
       await userDoc.set(
         {
@@ -72,15 +72,15 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
 
       break;
     }
-    case 'invoice.payment_succeeded': {
+    case "invoice.payment_succeeded": {
       const invoice = event.data.object;
       const customerId = invoice.customer;
       const subscriptionId = invoice.subscription;
 
       const userSnapshot = await admin
         .firestore()
-        .collection('users')
-        .where('stripeCustomerId', '==', customerId)
+        .collection("users")
+        .where("stripeCustomerId", "==", customerId)
         .get();
       if (!userSnapshot.empty) {
         userSnapshot.forEach(async (doc) => {
@@ -91,14 +91,14 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
       }
       break;
     }
-    case 'customer.subscription.deleted': {
+    case "customer.subscription.deleted": {
       const subscription = event.data.object;
       const customerId = subscription.customer;
 
       const userSnapshot = await admin
         .firestore()
-        .collection('users')
-        .where('premiumInfo.stripeCustomerId', '==', customerId)
+        .collection("users")
+        .where("premiumInfo.stripeCustomerId", "==", customerId)
         .get();
 
       if (!userSnapshot.empty) {
@@ -113,7 +113,7 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
 
       break;
     }
-    case 'customer.subscription.updated': {
+    case "customer.subscription.updated": {
       const subscription = event.data.object;
       const customerId = subscription.customer;
 
@@ -122,22 +122,22 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
 
       const userSnapshot = await admin
         .firestore()
-        .collection('users')
-        .where('premiumInfo.stripeCustomerId', '==', customerId)
+        .collection("users")
+        .where("premiumInfo.stripeCustomerId", "==", customerId)
         .get();
 
       if (!userSnapshot.empty) {
         userSnapshot.forEach(async (doc) => {
           const updateData = {
-            'premiumInfo.canceled': isCanceledAtPeriodEnd,
+            "premiumInfo.canceled": isCanceledAtPeriodEnd,
           };
 
           if (isCanceledAtPeriodEnd) {
-            updateData['premiumInfo.subscriptionEnd'] = new Date(
+            updateData["premiumInfo.subscriptionEnd"] = new Date(
               currentPeriodEnd
             );
           } else {
-            updateData['premiumInfo.subscriptionEnd'] =
+            updateData["premiumInfo.subscriptionEnd"] =
               admin.firestore.FieldValue.delete();
           }
 
@@ -150,7 +150,7 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
       console.log(`Unhandled event type: ${event.type}`);
   }
 
-  res.status(200).send('Webhook received');
+  res.status(200).send("Webhook received");
 });
 
 exports.cancelSubscription = functions.https.onCall(async (data, context) => {
@@ -161,12 +161,12 @@ exports.cancelSubscription = functions.https.onCall(async (data, context) => {
       cancel_at_period_end: true,
     });
 
-    return { status: 'success', message: 'Subscription canceled successfully' };
+    return { status: "success", message: "Subscription canceled successfully" };
   } catch (error) {
-    console.error('Error canceling subscription:', error);
+    console.error("Error canceling subscription:", error);
     throw new functions.https.HttpsError(
-      'internal',
-      'Unable to cancel subscription'
+      "internal",
+      "Unable to cancel subscription"
     );
   }
 });
@@ -177,7 +177,7 @@ exports.createCustomerPortalSession = functions.https.onCall(
 
     const session = await stripe.billingPortal.sessions.create({
       customer: customerId,
-      return_url: 'https://compcode.tech/premium',
+      return_url: "https://compcode.tech/premium",
     });
 
     return { url: session.url };
@@ -187,8 +187,8 @@ exports.createCustomerPortalSession = functions.https.onCall(
 exports.logoutAllDevices = functions.https.onCall(async (data, context) => {
   if (!context.auth) {
     throw new functions.https.HttpsError(
-      'unauthenticated',
-      'The function must be called while authenticated.'
+      "unauthenticated",
+      "The function must be called while authenticated."
     );
   }
 
@@ -196,12 +196,12 @@ exports.logoutAllDevices = functions.https.onCall(async (data, context) => {
 
   try {
     await admin.auth().revokeRefreshTokens(uid);
-    return { message: 'Successfully logged out of all devices.' };
+    return { message: "Successfully logged out of all devices." };
   } catch (error) {
-    console.error('Error logging out of all devices:', error);
+    console.error("Error logging out of all devices:", error);
     throw new functions.https.HttpsError(
-      'internal',
-      'Unable to logout user from all devices.'
+      "internal",
+      "Unable to logout user from all devices."
     );
   }
 });

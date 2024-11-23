@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { doc, updateDoc } from 'firebase/firestore';
-import { firestore } from '../config/firebase-config';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { useTheme } from '../context/themecontext';
-import { useAlerts } from '../context/alertscontext';
-import { useUser } from '../context/usercontext';
-import '../styles/quiz.css';
+import React, { useState } from "react";
+import { doc, updateDoc } from "firebase/firestore";
+import { firestore } from "../config/firebase-config";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useTheme } from "../context/themecontext";
+import { useAlerts } from "../context/alertscontext";
+import { useUser } from "../context/usercontext";
+import "../styles/quiz.css";
 
 const Quiz = ({ data }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -33,17 +33,17 @@ const Quiz = ({ data }) => {
       setSelectedOptionIndex(null);
       setShowExplanation(false);
     } else {
-      addAlert('Quiz complete', 'success');
+      addAlert("Quiz complete", "success");
 
       if (user) {
         try {
-          const userRef = doc(firestore, 'users', user.uid);
+          const userRef = doc(firestore, "users", user.uid);
           await updateDoc(userRef, {
             [`completedQuizzes.${data.title}`]: true,
           });
         } catch (error) {
-          console.error('Error recording completed quiz:', error);
-          addAlert('Error recording quiz completion.', 'error');
+          console.error("Error recording completed quiz:", error);
+          addAlert("Error recording quiz completion.", "error");
         }
       }
     }
@@ -72,10 +72,10 @@ const Quiz = ({ data }) => {
   const renderBoldAndHighlightedText = (text) => {
     const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`)/g);
     return parts.map((part, index) => {
-      if (part.startsWith('**') && part.endsWith('**')) {
+      if (part.startsWith("**") && part.endsWith("**")) {
         return <strong key={index}>{part.slice(2, -2)}</strong>;
       }
-      if (part.startsWith('`') && part.endsWith('`')) {
+      if (part.startsWith("`") && part.endsWith("`")) {
         return (
           <span key={index} className="quiz-highlight">
             {part.slice(1, -1)}
@@ -88,14 +88,14 @@ const Quiz = ({ data }) => {
 
   const renderExplanationContent = (content) => {
     return content.map((block, index) => {
-      if (block.type === 'paragraph') {
+      if (block.type === "paragraph") {
         return (
           <p className="quiz-paragraph" key={index}>
             {renderBoldAndHighlightedText(block.text)}
           </p>
         );
       }
-      if (block.type === 'bullets') {
+      if (block.type === "bullets") {
         return (
           <ul className="quiz-list" key={index}>
             {block.items.map((item, i) => (
@@ -106,7 +106,7 @@ const Quiz = ({ data }) => {
           </ul>
         );
       }
-      if (block.type === 'code') {
+      if (block.type === "code") {
         return (
           <div key={index} className="quiz-code-block">
             <CopyToClipboard text={block.code} onCopy={() => handleCopy(index)}>
@@ -121,11 +121,11 @@ const Quiz = ({ data }) => {
             <SyntaxHighlighter
               language={block.language}
               style={
-                theme === 'dark'
+                theme === "dark"
                   ? materialDark
-                  : theme === 'system'
+                  : theme === "system"
                     ? window.matchMedia &&
-                      window.matchMedia('(prefers-color-scheme: dark)').matches
+                      window.matchMedia("(prefers-color-scheme: dark)").matches
                       ? materialDark
                       : undefined
                     : undefined
@@ -157,7 +157,7 @@ const Quiz = ({ data }) => {
           {currentQuestion.options.map((option, index) => (
             <button
               key={index}
-              className={`quiz-option-button ${selectedOptionIndex === index ? 'selected' : ''} ${submitted && selectedOptionIndex === index && selectedOptionIndex === currentQuestion.answerIndex ? 'correct' : ''} ${submitted && selectedOptionIndex === index && selectedOptionIndex !== currentQuestion.answerIndex ? 'incorrect' : ''}`}
+              className={`quiz-option-button ${selectedOptionIndex === index ? "selected" : ""} ${submitted && selectedOptionIndex === index && selectedOptionIndex === currentQuestion.answerIndex ? "correct" : ""} ${submitted && selectedOptionIndex === index && selectedOptionIndex !== currentQuestion.answerIndex ? "incorrect" : ""}`}
               onClick={() => handleOptionSelect(index)}
               disabled={showExplanation}
             >

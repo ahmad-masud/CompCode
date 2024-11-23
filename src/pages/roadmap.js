@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import '../styles/companies.css';
-import { firestore } from '../config/firebase-config';
-import { doc, getDoc } from 'firebase/firestore';
-import Problems from '../components/problems';
-import companies from '../content/roadmap.json';
-import { useUser } from '../context/usercontext';
+import React, { useEffect, useState } from "react";
+import "../styles/companies.css";
+import { firestore } from "../config/firebase-config";
+import { doc, getDoc } from "firebase/firestore";
+import Problems from "../components/problems";
+import companies from "../content/roadmap.json";
+import { useUser } from "../context/usercontext";
 
 const average = (array) => {
   if (array.length === 0) return 0;
@@ -15,12 +15,12 @@ const average = (array) => {
 const Roadmap = ({ theme }) => {
   const [companiesData, setCompaniesData] = useState([]);
   const [sortConfig, setSortConfig] = useState({
-    key: '',
-    direction: 'ascending',
+    key: "",
+    direction: "ascending",
   });
   const [uniqueProblems, setUniqueProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
-  const [openCompany, setOpenCompany] = useState('');
+  const [openCompany, setOpenCompany] = useState("");
   const [narrow, setNarrow] = useState(false);
   const { user } = useUser();
 
@@ -33,12 +33,12 @@ const Roadmap = ({ theme }) => {
       }
     };
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleClose = () => {
-    setOpenCompany('');
+    setOpenCompany("");
   };
 
   useEffect(() => {
@@ -54,10 +54,10 @@ const Roadmap = ({ theme }) => {
         ).length;
         const avgAcceptance =
           acceptanceRates.length > 0
-            ? parseInt(average(acceptanceRates).toFixed(2)) + '%'
-            : 'N/A';
+            ? parseInt(average(acceptanceRates).toFixed(2)) + "%"
+            : "N/A";
         const mostCommonDifficulty =
-          difficulties.length > 0 ? mostCommon(difficulties) : 'N/A';
+          difficulties.length > 0 ? mostCommon(difficulties) : "N/A";
 
         return {
           name: company.name.charAt(0).toUpperCase() + company.name.slice(1),
@@ -70,35 +70,35 @@ const Roadmap = ({ theme }) => {
       });
 
       const sortedCompanies = [...companiesInfo].sort((a, b) => {
-        if (sortConfig.key === 'name') {
-          return sortConfig.direction === 'ascending'
+        if (sortConfig.key === "name") {
+          return sortConfig.direction === "ascending"
             ? a[sortConfig.key] > b[sortConfig.key]
               ? 1
               : -1
             : a[sortConfig.key] < b[sortConfig.key]
               ? 1
               : -1;
-        } else if (sortConfig.key === 'avgAcceptance') {
-          const aRate = parseFloat(a[sortConfig.key].replace('%', ''));
-          const bRate = parseFloat(b[sortConfig.key].replace('%', ''));
-          return sortConfig.direction === 'ascending'
+        } else if (sortConfig.key === "avgAcceptance") {
+          const aRate = parseFloat(a[sortConfig.key].replace("%", ""));
+          const bRate = parseFloat(b[sortConfig.key].replace("%", ""));
+          return sortConfig.direction === "ascending"
             ? aRate - bRate
             : bRate - aRate;
-        } else if (sortConfig.key === 'mostCommonDifficulty') {
+        } else if (sortConfig.key === "mostCommonDifficulty") {
           const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
-          return sortConfig.direction === 'ascending'
+          return sortConfig.direction === "ascending"
             ? difficultyOrder[a[sortConfig.key]] -
                 difficultyOrder[b[sortConfig.key]]
             : difficultyOrder[b[sortConfig.key]] -
                 difficultyOrder[a[sortConfig.key]];
-        } else if (sortConfig.key === 'solved') {
-          return sortConfig.direction === 'ascending'
+        } else if (sortConfig.key === "solved") {
+          return sortConfig.direction === "ascending"
             ? a.solvedProblems / a.numProblems -
                 b.solvedProblems / b.numProblems
             : b.solvedProblems / b.numProblems -
                 a.solvedProblems / a.numProblems;
         } else {
-          return sortConfig.direction === 'ascending'
+          return sortConfig.direction === "ascending"
             ? a[sortConfig.key] - b[sortConfig.key]
             : b[sortConfig.key] - a[sortConfig.key];
         }
@@ -118,7 +118,7 @@ const Roadmap = ({ theme }) => {
 
   useEffect(() => {
     if (user) {
-      const userRef = doc(firestore, 'users', user.uid);
+      const userRef = doc(firestore, "users", user.uid);
       getDoc(userRef)
         .then((docSnap) => {
           if (docSnap.exists()) {
@@ -127,7 +127,7 @@ const Roadmap = ({ theme }) => {
           }
         })
         .catch((error) => {
-          console.error('Error fetching user data: ', error);
+          console.error("Error fetching user data: ", error);
         });
     } else {
       setCompletedProblems({});
@@ -135,7 +135,7 @@ const Roadmap = ({ theme }) => {
   }, [user, openCompany]);
 
   const mostCommon = (array) => {
-    if (array.length === 0) return 'N/A';
+    if (array.length === 0) return "N/A";
 
     const counts = {};
     array.forEach((difficulty) => {
@@ -151,13 +151,13 @@ const Roadmap = ({ theme }) => {
       }
     });
 
-    return mostCommonDifficulty || 'N/A';
+    return mostCommonDifficulty || "N/A";
   };
 
   const sortCompanies = (key) => {
-    let direction = 'ascending';
-    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
-      direction = 'descending';
+    let direction = "ascending";
+    if (sortConfig.key === key && sortConfig.direction === "ascending") {
+      direction = "descending";
     }
 
     setSortConfig({ key, direction });
@@ -167,7 +167,7 @@ const Roadmap = ({ theme }) => {
     if (sortConfig.key !== key) {
       return <i className="fa-solid fa-sort"></i>;
     }
-    if (sortConfig.direction === 'ascending') {
+    if (sortConfig.direction === "ascending") {
       return <i className="fa-solid fa-sort-down"></i>;
     }
     return <i className="fa-solid fa-sort-up"></i>;
@@ -187,7 +187,7 @@ const Roadmap = ({ theme }) => {
           theme={theme}
           company={companies.find((company) => company.name === openCompany)}
           onClose={handleClose}
-          page={'roadmap'}
+          page={"roadmap"}
         />
       )}
       <div className="companies-page">
@@ -208,43 +208,43 @@ const Roadmap = ({ theme }) => {
             <thead>
               <tr>
                 <th>
-                  Name{' '}
+                  Name{" "}
                   <button
                     className="sort-button"
-                    onClick={() => sortCompanies('name')}
+                    onClick={() => sortCompanies("name")}
                   >
-                    {getSortIcon('name')}
+                    {getSortIcon("name")}
                   </button>
                 </th>
                 {!narrow && (
                   <th>
-                    Acceptance{' '}
+                    Acceptance{" "}
                     <button
                       className="sort-button"
-                      onClick={() => sortCompanies('avgAcceptance')}
+                      onClick={() => sortCompanies("avgAcceptance")}
                     >
-                      {getSortIcon('avgAcceptance')}
+                      {getSortIcon("avgAcceptance")}
                     </button>
                   </th>
                 )}
                 {!narrow && (
                   <th>
-                    Solved{' '}
+                    Solved{" "}
                     <button
                       className="sort-button"
-                      onClick={() => sortCompanies('solved')}
+                      onClick={() => sortCompanies("solved")}
                     >
-                      {getSortIcon('solved')}
+                      {getSortIcon("solved")}
                     </button>
                   </th>
                 )}
                 <th>
-                  Difficulty{' '}
+                  Difficulty{" "}
                   <button
                     className="sort-button"
-                    onClick={() => sortCompanies('mostCommonDifficulty')}
+                    onClick={() => sortCompanies("mostCommonDifficulty")}
                   >
-                    {getSortIcon('mostCommonDifficulty')}
+                    {getSortIcon("mostCommonDifficulty")}
                   </button>
                 </th>
               </tr>

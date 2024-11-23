@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/settings.css';
-import { firestore } from '../config/firebase-config';
-import { getFunctions, httpsCallable } from 'firebase/functions';
-import { doc, updateDoc, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
-import Confirm from '../components/confirm';
-import { useAlerts } from '../context/alertscontext';
-import { useUser } from '../context/usercontext';
-import { useTheme } from '../context/themecontext';
+import React, { useState, useEffect } from "react";
+import "../styles/settings.css";
+import { firestore } from "../config/firebase-config";
+import { getFunctions, httpsCallable } from "firebase/functions";
+import { doc, updateDoc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import Confirm from "../components/confirm";
+import { useAlerts } from "../context/alertscontext";
+import { useUser } from "../context/usercontext";
+import { useTheme } from "../context/themecontext";
 
 const Settings = ({ onClose }) => {
   const auth = getAuth();
   const functions = getFunctions();
   const [displayConfirm, setDisplayConfirm] = useState(false);
-  const [confirmMessage, setConfirmMessage] = useState('');
-  const [confirmType, setConfirmType] = useState('');
+  const [confirmMessage, setConfirmMessage] = useState("");
+  const [confirmType, setConfirmType] = useState("");
   const { addAlert } = useAlerts();
   const { user, premiumInfo, setUser } = useUser();
   const { theme, changeTheme } = useTheme();
@@ -23,7 +23,7 @@ const Settings = ({ onClose }) => {
 
   useEffect(() => {
     if (user) {
-      const userRef = doc(firestore, 'users', user.uid);
+      const userRef = doc(firestore, "users", user.uid);
       getDoc(userRef)
         .then((docSnap) => {
           if (docSnap.exists()) {
@@ -32,7 +32,7 @@ const Settings = ({ onClose }) => {
           }
         })
         .catch((error) => {
-          console.error('Error fetching user theme data:', error);
+          console.error("Error fetching user theme data:", error);
         });
     }
   }, [user]);
@@ -40,18 +40,18 @@ const Settings = ({ onClose }) => {
   const deleteUserData = async () => {
     if (user) {
       try {
-        const userRef = doc(firestore, 'users', user.uid);
+        const userRef = doc(firestore, "users", user.uid);
         await updateDoc(userRef, {
           completedProblems: {},
           completedQuizzes: {},
           notifications: true,
-          theme: 'system',
+          theme: "system",
         });
-        addAlert('Completed problems deleted successfully.', 'success');
+        addAlert("Completed problems deleted successfully.", "success");
         window.location.reload();
       } catch (error) {
-        addAlert('Error deleting data.', 'error');
-        console.error('Error deleting completed problems: ', error);
+        addAlert("Error deleting data.", "error");
+        console.error("Error deleting completed problems: ", error);
       }
     }
   };
@@ -60,7 +60,7 @@ const Settings = ({ onClose }) => {
     const currentUser = auth.currentUser;
     if (currentUser) {
       try {
-        const userRef = doc(firestore, 'users', currentUser.uid);
+        const userRef = doc(firestore, "users", currentUser.uid);
         await deleteDoc(userRef);
 
         await currentUser.delete();
@@ -68,11 +68,11 @@ const Settings = ({ onClose }) => {
         handleCancelSubscription();
         onClose();
       } catch (error) {
-        if (error.code === 'auth/requires-recent-login') {
-          addAlert('Please re-authenticate and try again.', 'warning');
+        if (error.code === "auth/requires-recent-login") {
+          addAlert("Please re-authenticate and try again.", "warning");
         } else {
-          addAlert('Error deleting account.', 'error');
-          console.error('Error deleting account:', error);
+          addAlert("Error deleting account.", "error");
+          console.error("Error deleting account:", error);
         }
       }
     }
@@ -83,29 +83,29 @@ const Settings = ({ onClose }) => {
       return;
     }
 
-    const cancelSubscription = httpsCallable(functions, 'cancelSubscription');
+    const cancelSubscription = httpsCallable(functions, "cancelSubscription");
 
     try {
       const result = await cancelSubscription({
         subscriptionId: premiumInfo.subscriptionId,
         uid: user.uid,
       });
-      if (result.data.status === 'success') {
-        console.log('Subscription canceled successfully.');
+      if (result.data.status === "success") {
+        console.log("Subscription canceled successfully.");
       } else {
-        console.error('Failed to cancel subscription.');
+        console.error("Failed to cancel subscription.");
       }
     } catch (error) {
-      console.error('Error canceling subscription:', error);
+      console.error("Error canceling subscription:", error);
     }
   };
 
   const confirmAction = () => {
-    if (confirmType === 'deleteData') {
+    if (confirmType === "deleteData") {
       deleteUserData();
-    } else if (confirmType === 'deleteAccount') {
+    } else if (confirmType === "deleteAccount") {
       handleDeleteAccount();
-    } else if (confirmType === 'logoutAllDevices') {
+    } else if (confirmType === "logoutAllDevices") {
       logoutAllDevices();
       setUser(null);
       onClose();
@@ -125,40 +125,40 @@ const Settings = ({ onClose }) => {
     }
 
     try {
-      const userRef = doc(firestore, 'users', user.uid);
+      const userRef = doc(firestore, "users", user.uid);
       const userSnap = await getDoc(userRef);
 
       if (userSnap.exists()) {
         const userData = userSnap.data();
         const { premiumInfo, ...filteredData } = userData;
         const dataStr = JSON.stringify(filteredData, null, 2);
-        const blob = new Blob([dataStr], { type: 'application/json' });
+        const blob = new Blob([dataStr], { type: "application/json" });
         const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
+        const a = document.createElement("a");
 
         a.href = url;
-        a.download = 'userData.json';
+        a.download = "userData.json";
         a.click();
 
         URL.revokeObjectURL(url);
       } else {
-        addAlert('No data available for download.', 'warning');
+        addAlert("No data available for download.", "warning");
       }
     } catch (error) {
-      console.error('Error downloading data:', error);
-      addAlert('Error downloading data.', 'error');
+      console.error("Error downloading data:", error);
+      addAlert("Error downloading data.", "error");
     }
   };
 
   const importData = async (data) => {
     if (!user) return;
 
-    const validThemes = ['system', 'dark', 'light'];
+    const validThemes = ["system", "dark", "light"];
     const sanitizedData = {};
 
     if (
       data.completedProblems &&
-      typeof data.completedProblems === 'object' &&
+      typeof data.completedProblems === "object" &&
       !Array.isArray(data.completedProblems)
     ) {
       sanitizedData.completedProblems = data.completedProblems;
@@ -166,7 +166,7 @@ const Settings = ({ onClose }) => {
 
     if (
       data.completedQuizzes &&
-      typeof data.completedQuizzes === 'object' &&
+      typeof data.completedQuizzes === "object" &&
       !Array.isArray(data.completedQuizzes)
     ) {
       sanitizedData.completedQuizzes = data.completedQuizzes;
@@ -178,15 +178,15 @@ const Settings = ({ onClose }) => {
 
     if (Object.keys(sanitizedData).length > 0) {
       try {
-        const userRef = doc(firestore, 'users', user.uid);
+        const userRef = doc(firestore, "users", user.uid);
         await setDoc(userRef, sanitizedData, { merge: true });
-        addAlert('Data uploaded successfully', 'success');
+        addAlert("Data uploaded successfully", "success");
       } catch (error) {
-        console.error('Error uploading data:', error);
-        addAlert('Error uploading data', 'error');
+        console.error("Error uploading data:", error);
+        addAlert("Error uploading data", "error");
       }
     } else {
-      addAlert('No valid data to upload', 'warning');
+      addAlert("No valid data to upload", "warning");
     }
   };
 
@@ -194,12 +194,12 @@ const Settings = ({ onClose }) => {
     const functions = getFunctions();
 
     try {
-      const logoutAll = httpsCallable(functions, 'logoutAllDevices');
+      const logoutAll = httpsCallable(functions, "logoutAllDevices");
       await logoutAll();
-      addAlert('Logged out of all devices.', 'success');
+      addAlert("Logged out of all devices.", "success");
     } catch (error) {
-      console.error('Error logging out of all devices:', error);
-      addAlert('Error logging out of all devices.', 'error');
+      console.error("Error logging out of all devices:", error);
+      addAlert("Error logging out of all devices.", "error");
     }
   };
 
@@ -208,13 +208,13 @@ const Settings = ({ onClose }) => {
 
     try {
       setNotifications(value);
-      const userRef = doc(firestore, 'users', user.uid);
+      const userRef = doc(firestore, "users", user.uid);
       await updateDoc(userRef, {
         notifications: value,
       });
     } catch (error) {
-      console.error('Error updating notifications:', error);
-      addAlert('Error updating notifications.', 'error');
+      console.error("Error updating notifications:", error);
+      addAlert("Error updating notifications.", "error");
     }
   };
 
@@ -239,19 +239,19 @@ const Settings = ({ onClose }) => {
         <div className="settings-container">
           <div className="settings-sidebar">
             <button
-              className={`settings-sidebar-item ${current === 0 ? 'active' : ''}`}
+              className={`settings-sidebar-item ${current === 0 ? "active" : ""}`}
               onClick={() => setCurrent(0)}
             >
               <i className="bi bi-gear"></i>General
             </button>
             <button
-              className={`settings-sidebar-item ${current === 1 ? 'active' : ''}`}
+              className={`settings-sidebar-item ${current === 1 ? "active" : ""}`}
               onClick={() => setCurrent(1)}
             >
               <i className="bi bi-database"></i>Data
             </button>
             <button
-              className={`settings-sidebar-item ${current === 2 ? 'active' : ''}`}
+              className={`settings-sidebar-item ${current === 2 ? "active" : ""}`}
               onClick={() => setCurrent(2)}
             >
               <i className="bi bi-shield-shaded"></i>Security
@@ -294,7 +294,7 @@ const Settings = ({ onClose }) => {
                   type="file"
                   accept=".json"
                   id="upload-doc"
-                  style={{ display: 'none' }}
+                  style={{ display: "none" }}
                   onChange={async (event) => {
                     const file = event.target.files[0];
                     if (!file) return;
@@ -312,16 +312,16 @@ const Settings = ({ onClose }) => {
                       importData(dataToUpload);
                     } catch (error) {
                       console.error(
-                        'Error reading or parsing the JSON file:',
+                        "Error reading or parsing the JSON file:",
                         error
                       );
-                      addAlert('Invalid JSON file.', 'error');
+                      addAlert("Invalid JSON file.", "error");
                     }
                   }}
                 />
                 <button
                   className="upload-doc"
-                  onClick={() => document.getElementById('upload-doc').click()}
+                  onClick={() => document.getElementById("upload-doc").click()}
                 >
                   Import
                 </button>
@@ -342,8 +342,8 @@ const Settings = ({ onClose }) => {
                   className="delete-doc"
                   onClick={() =>
                     showConfirm(
-                      'deleteData',
-                      'Are you sure you want to delete all your data?'
+                      "deleteData",
+                      "Are you sure you want to delete all your data?"
                     )
                   }
                 >
@@ -358,8 +358,8 @@ const Settings = ({ onClose }) => {
                   className="delete-doc"
                   onClick={() =>
                     showConfirm(
-                      'deleteAccount',
-                      'Are you sure you want to delete your account?'
+                      "deleteAccount",
+                      "Are you sure you want to delete your account?"
                     )
                   }
                 >
@@ -374,8 +374,8 @@ const Settings = ({ onClose }) => {
                   className="upload-doc"
                   onClick={() =>
                     showConfirm(
-                      'logoutAllDevices',
-                      'Are you sure you want to logout of all devices?'
+                      "logoutAllDevices",
+                      "Are you sure you want to logout of all devices?"
                     )
                   }
                 >

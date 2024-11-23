@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import '../styles/companies.css';
-import { firestore } from '../config/firebase-config';
-import { doc, getDoc } from 'firebase/firestore';
-import Problems from '../components/problems';
-import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
-import '@szhsin/react-menu/dist/index.css';
-import companies from '../content/companies.json';
-import { useUser } from '../context/usercontext';
+import React, { useEffect, useState } from "react";
+import "../styles/companies.css";
+import { firestore } from "../config/firebase-config";
+import { doc, getDoc } from "firebase/firestore";
+import Problems from "../components/problems";
+import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
+import "@szhsin/react-menu/dist/index.css";
+import companies from "../content/companies.json";
+import { useUser } from "../context/usercontext";
 
 const average = (array) => {
   if (array.length === 0) return 0;
@@ -17,13 +17,13 @@ const average = (array) => {
 const Companies = () => {
   const [companiesData, setCompaniesData] = useState([]);
   const [sortConfig, setSortConfig] = useState({
-    key: 'name',
-    direction: 'ascending',
+    key: "name",
+    direction: "ascending",
   });
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [uniqueProblems, setUniqueProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
-  const [openCompany, setOpenCompany] = useState('');
+  const [openCompany, setOpenCompany] = useState("");
   const [narrow, setNarrow] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [companiesPerPage, setCompaniesPerPage] = useState(20);
@@ -38,12 +38,12 @@ const Companies = () => {
       }
     };
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleClose = () => {
-    setOpenCompany('');
+    setOpenCompany("");
   };
 
   useEffect(() => {
@@ -56,10 +56,10 @@ const Companies = () => {
         const numProblems = company.data.length;
         const avgAcceptance =
           acceptanceRates.length > 0
-            ? parseInt(average(acceptanceRates).toFixed(2)) + '%'
-            : 'N/A';
+            ? parseInt(average(acceptanceRates).toFixed(2)) + "%"
+            : "N/A";
         const mostCommonDifficulty =
-          difficulties.length > 0 ? mostCommon(difficulties) : 'N/A';
+          difficulties.length > 0 ? mostCommon(difficulties) : "N/A";
 
         return {
           name: company.name.charAt(0).toUpperCase() + company.name.slice(1),
@@ -71,29 +71,29 @@ const Companies = () => {
       });
 
       const sortedCompanies = [...companiesInfo].sort((a, b) => {
-        if (sortConfig.key === 'name') {
-          return sortConfig.direction === 'ascending'
+        if (sortConfig.key === "name") {
+          return sortConfig.direction === "ascending"
             ? a[sortConfig.key] > b[sortConfig.key]
               ? 1
               : -1
             : a[sortConfig.key] < b[sortConfig.key]
               ? 1
               : -1;
-        } else if (sortConfig.key === 'avgAcceptance') {
-          const aRate = parseFloat(a[sortConfig.key].replace('%', ''));
-          const bRate = parseFloat(b[sortConfig.key].replace('%', ''));
-          return sortConfig.direction === 'ascending'
+        } else if (sortConfig.key === "avgAcceptance") {
+          const aRate = parseFloat(a[sortConfig.key].replace("%", ""));
+          const bRate = parseFloat(b[sortConfig.key].replace("%", ""));
+          return sortConfig.direction === "ascending"
             ? aRate - bRate
             : bRate - aRate;
-        } else if (sortConfig.key === 'mostCommonDifficulty') {
+        } else if (sortConfig.key === "mostCommonDifficulty") {
           const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
-          return sortConfig.direction === 'ascending'
+          return sortConfig.direction === "ascending"
             ? difficultyOrder[a[sortConfig.key]] -
                 difficultyOrder[b[sortConfig.key]]
             : difficultyOrder[b[sortConfig.key]] -
                 difficultyOrder[a[sortConfig.key]];
         } else {
-          return sortConfig.direction === 'ascending'
+          return sortConfig.direction === "ascending"
             ? a[sortConfig.key] - b[sortConfig.key]
             : b[sortConfig.key] - a[sortConfig.key];
         }
@@ -113,7 +113,7 @@ const Companies = () => {
 
   useEffect(() => {
     if (user) {
-      const userRef = doc(firestore, 'users', user.uid);
+      const userRef = doc(firestore, "users", user.uid);
       getDoc(userRef)
         .then((docSnap) => {
           if (docSnap.exists()) {
@@ -122,7 +122,7 @@ const Companies = () => {
           }
         })
         .catch((error) => {
-          console.error('Error fetching user data: ', error);
+          console.error("Error fetching user data: ", error);
         });
     } else {
       setCompletedProblems({});
@@ -130,7 +130,7 @@ const Companies = () => {
   }, [user, openCompany]);
 
   const mostCommon = (array) => {
-    if (array.length === 0) return 'N/A';
+    if (array.length === 0) return "N/A";
 
     const counts = {};
 
@@ -148,13 +148,13 @@ const Companies = () => {
       }
     });
 
-    return mostCommonDifficulty || 'N/A';
+    return mostCommonDifficulty || "N/A";
   };
 
   const sortCompanies = (key) => {
-    let direction = 'ascending';
-    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
-      direction = 'descending';
+    let direction = "ascending";
+    if (sortConfig.key === key && sortConfig.direction === "ascending") {
+      direction = "descending";
     }
 
     setSortConfig({ key, direction });
@@ -164,7 +164,7 @@ const Companies = () => {
     if (sortConfig.key !== key) {
       return <i className="fa-solid fa-sort"></i>;
     }
-    if (sortConfig.direction === 'ascending') {
+    if (sortConfig.direction === "ascending") {
       return <i className="fa-solid fa-sort-down"></i>;
     }
     return <i className="fa-solid fa-sort-up"></i>;
@@ -217,7 +217,7 @@ const Companies = () => {
         <button
           key={1}
           onClick={() => setCurrentPage(1)}
-          className={currentPage === 1 ? 'active' : ''}
+          className={currentPage === 1 ? "active" : ""}
           disabled={currentPage === 1}
         >
           1
@@ -238,7 +238,7 @@ const Companies = () => {
         <button
           key={i}
           onClick={() => setCurrentPage(i)}
-          className={currentPage === i ? 'active' : ''}
+          className={currentPage === i ? "active" : ""}
           disabled={currentPage === i}
         >
           {i}
@@ -259,7 +259,7 @@ const Companies = () => {
         <button
           key={totalPages}
           onClick={() => setCurrentPage(totalPages)}
-          className={currentPage === totalPages ? 'active' : ''}
+          className={currentPage === totalPages ? "active" : ""}
           disabled={currentPage === totalPages}
         >
           {totalPages}
@@ -276,7 +276,7 @@ const Companies = () => {
         <Problems
           company={companies.find((company) => company.name === openCompany)}
           onClose={handleClose}
-          page={'companies'}
+          page={"companies"}
         />
       )}
       <div className="companies-page">
@@ -305,41 +305,41 @@ const Companies = () => {
             <thead>
               <tr>
                 <th>
-                  Name{' '}
+                  Name{" "}
                   <button
                     className="sort-button"
-                    onClick={() => sortCompanies('name')}
+                    onClick={() => sortCompanies("name")}
                   >
-                    {getSortIcon('name')}
+                    {getSortIcon("name")}
                   </button>
                 </th>
                 {!narrow && (
                   <th>
-                    Acceptance{' '}
+                    Acceptance{" "}
                     <button
                       className="sort-button"
-                      onClick={() => sortCompanies('avgAcceptance')}
+                      onClick={() => sortCompanies("avgAcceptance")}
                     >
-                      {getSortIcon('avgAcceptance')}
+                      {getSortIcon("avgAcceptance")}
                     </button>
                   </th>
                 )}
                 <th>
-                  Problems{' '}
+                  Problems{" "}
                   <button
                     className="sort-button"
-                    onClick={() => sortCompanies('numProblems')}
+                    onClick={() => sortCompanies("numProblems")}
                   >
-                    {getSortIcon('numProblems')}
+                    {getSortIcon("numProblems")}
                   </button>
                 </th>
                 <th>
-                  Difficulty{' '}
+                  Difficulty{" "}
                   <button
                     className="sort-button"
-                    onClick={() => sortCompanies('mostCommonDifficulty')}
+                    onClick={() => sortCompanies("mostCommonDifficulty")}
                   >
-                    {getSortIcon('mostCommonDifficulty')}
+                    {getSortIcon("mostCommonDifficulty")}
                   </button>
                 </th>
               </tr>
@@ -352,7 +352,7 @@ const Companies = () => {
                       onClick={() => setOpenCompany(company.name.toLowerCase())}
                     >
                       {company.name
-                        .replace('-', ' ')
+                        .replace("-", " ")
                         .replace(/\b\w/g, (c) => c.toUpperCase())}
                     </button>
                   </td>

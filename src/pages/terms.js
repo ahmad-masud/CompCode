@@ -1,6 +1,6 @@
-import React from 'react';
-import termsConditionsData from '../content/terms.json';
-import '../styles/policy.css';
+import React from "react";
+import termsConditionsData from "../content/terms.json";
+import "../styles/policy.css";
 
 const PolicySection = ({ title, content }) => (
   <div className="policy-section">

@@ -27,3 +27,24 @@
   color: #007bff;
   text-decoration: none;
 }
+
+.footer-external-links {
+  display: flex;
+  gap: 5px;
+}
+
+.footer-external-link {
+  color: var(--font-color);
+  text-decoration: none;
+  font-size: 1.25rem;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.footer-external-link:hover {
+  background-color: var(--secondary-color);
+}

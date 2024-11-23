@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import '../styles/solution.css';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import React, { useState } from "react";
+import "../styles/solution.css";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   materialDark,
   materialLight,
-} from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { InlineMath } from 'react-katex';
-import { useTheme } from '../context/themecontext';
-import 'katex/dist/katex.min.css';
+} from "react-syntax-highlighter/dist/esm/styles/prism";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { InlineMath } from "react-katex";
+import { useTheme } from "../context/themecontext";
+import "katex/dist/katex.min.css";
 
 const Solution = ({ data, onClose }) => {
   const [copiedIndex, setCopiedIndex] = useState(null);
@@ -76,13 +76,13 @@ const Solution = ({ data, onClose }) => {
                     </button>
                   </CopyToClipboard>
                   <SyntaxHighlighter
-                    language={'python'}
+                    language={"python"}
                     style={
-                      theme === 'dark'
+                      theme === "dark"
                         ? materialDark
-                        : theme === 'system'
+                        : theme === "system"
                           ? window.matchMedia &&
-                            window.matchMedia('(prefers-color-scheme: dark)')
+                            window.matchMedia("(prefers-color-scheme: dark)")
                               .matches
                             ? materialDark
                             : materialLight
@@ -94,11 +94,11 @@ const Solution = ({ data, onClose }) => {
                 </div>
                 <p className="complexity-title">Complexity Analysis</p>
                 <p className="complexity">
-                  Time Complexity:{' '}
+                  Time Complexity:{" "}
                   <InlineMath>{solution.timeComplexity}</InlineMath>
                 </p>
                 <p className="complexity">
-                  Space Complexity:{' '}
+                  Space Complexity:{" "}
                   <InlineMath>{solution.spaceComplexity}</InlineMath>
                 </p>
                 <hr className="solution-divider" />

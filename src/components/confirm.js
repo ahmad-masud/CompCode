@@ -1,12 +1,12 @@
-import React from 'react';
-import '../styles/confirm.css';
+import React from "react";
+import "../styles/confirm.css";
 
 const Confirm = ({ onClose, onConfirm, message }) => {
   return (
     <div className="confirm-overlay">
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="confirm-content">
-        <p className="confirm-message">{message ? message : 'Are you sure?'}</p>
+        <p className="confirm-message">{message ? message : "Are you sure?"}</p>
         <div className="confirm-buttons">
           <button className="confirm-button" onClick={onClose}>
             Cancel

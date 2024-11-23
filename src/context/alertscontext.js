@@ -1,11 +1,11 @@
-import React, { createContext, useState, useContext, useCallback } from 'react';
+import React, { createContext, useState, useContext, useCallback } from "react";
 
 const AlertContext = createContext();
 
 export const AlertsProvider = ({ children }) => {
   const [alerts, setAlerts] = useState([]);
 
-  const addAlert = useCallback((message, type = 'info', timeout = 3000) => {
+  const addAlert = useCallback((message, type = "info", timeout = 3000) => {
     setAlerts((prevAlerts) => {
       if (prevAlerts.some((alert) => alert.message === message)) {
         return prevAlerts;

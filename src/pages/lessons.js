@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/lessons.css';
-import { useNavigate } from 'react-router-dom';
-import { useUser } from '../context/usercontext';
-import { firestore } from '../config/firebase-config';
-import { getDoc, setDoc, doc } from 'firebase/firestore';
+import React, { useState, useEffect } from "react";
+import "../styles/lessons.css";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/usercontext";
+import { firestore } from "../config/firebase-config";
+import { getDoc, setDoc, doc } from "firebase/firestore";
 
 const Lessons = ({ lessons }) => {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Lessons = ({ lessons }) => {
 
   useEffect(() => {
     if (user) {
-      const userRef = doc(firestore, 'users', user.uid);
+      const userRef = doc(firestore, "users", user.uid);
       getDoc(userRef)
         .then((docSnap) => {
           if (docSnap.exists()) {
@@ -29,7 +29,7 @@ const Lessons = ({ lessons }) => {
           }
         })
         .catch((error) => {
-          console.error('Error fetching user data: ', error);
+          console.error("Error fetching user data: ", error);
         });
     } else {
       setCompletedQuizzes({});
@@ -38,17 +38,17 @@ const Lessons = ({ lessons }) => {
 
   const images = lessons.reduce((map, lesson) => {
     map[lesson.title] = require(
-      `../content/images/${lesson.title.replace(/\s|-/g, '').toLowerCase()}.webp`
+      `../content/images/${lesson.title.replace(/\s|-/g, "").toLowerCase()}.webp`
     );
     return map;
   }, {});
 
   lessons.forEach((lesson) => {
-    if (lesson.type === 'datastructure') {
+    if (lesson.type === "datastructure") {
       categorizedLessons.dataStructures.push(lesson);
-    } else if (lesson.type === 'algorithm') {
+    } else if (lesson.type === "algorithm") {
       categorizedLessons.algorithms.push(lesson);
-    } else if (lesson.type === 'concept') {
+    } else if (lesson.type === "concept") {
       categorizedLessons.concepts.push(lesson);
     }
   });
@@ -67,11 +67,11 @@ const Lessons = ({ lessons }) => {
 
   const handleLessonClick = (lesson) => {
     if (lesson.premium && !premiumInfo.premium) return;
-    navigate(`/lesson/${lesson.title.replaceAll(' ', '-').toLowerCase()}`);
+    navigate(`/lesson/${lesson.title.replaceAll(" ", "-").toLowerCase()}`);
   };
 
   const handleQuizClick = (quiz) => {
-    navigate(`/quiz/${quiz.title.replaceAll(' ', '-').toLowerCase()}`);
+    navigate(`/quiz/${quiz.title.replaceAll(" ", "-").toLowerCase()}`);
   };
 
   const renderLessons = (category, title) => (
@@ -81,10 +81,10 @@ const Lessons = ({ lessons }) => {
         {category.map((lesson, index) => (
           <div key={index} className="lesson-card">
             <div
-              className={`lesson-card-image-container ${title.toLowerCase().split(' ').join('-')}`}
+              className={`lesson-card-image-container ${title.toLowerCase().split(" ").join("-")}`}
             >
               <img
-                className={`lesson-card-image ${loadedImages[index] ? 'loaded' : 'blurred'}`}
+                className={`lesson-card-image ${loadedImages[index] ? "loaded" : "blurred"}`}
                 src={images[lesson.title]}
                 alt={lesson.title}
                 onLoad={() => handleImageLoad(index)}
@@ -92,13 +92,13 @@ const Lessons = ({ lessons }) => {
             </div>
             <div className="lesson-card-text">
               <p className="lesson-card-title">{lesson.title}</p>
-              <p className={'lesson-card-difficulty ' + lesson.difficulty}>
+              <p className={"lesson-card-difficulty " + lesson.difficulty}>
                 {lesson.difficulty[0].toUpperCase() +
-                  lesson.difficulty.slice(1) || 'N/A'}
+                  lesson.difficulty.slice(1) || "N/A"}
               </p>
               <div className="lesson-card-buttons">
                 <button
-                  className={`lesson-card-button ${lesson.premium && !premiumInfo.premium ? 'disabled' : ''}`}
+                  className={`lesson-card-button ${lesson.premium && !premiumInfo.premium ? "disabled" : ""}`}
                   onClick={() => handleLessonClick(lesson)}
                 >
                   Lesson
@@ -108,7 +108,7 @@ const Lessons = ({ lessons }) => {
                   className="lesson-card-button"
                   onClick={() => handleQuizClick(lesson)}
                 >
-                  Quiz{' '}
+                  Quiz{" "}
                   {completedQuizzes[lesson.title] && (
                     <i className="fa-solid fa-check-circle"></i>
                   )}
@@ -123,9 +123,9 @@ const Lessons = ({ lessons }) => {
 
   return (
     <div className="lesson-types">
-      {renderLessons(categorizedLessons.dataStructures, 'Data Structures')}
-      {renderLessons(categorizedLessons.algorithms, 'Algorithms')}
-      {renderLessons(categorizedLessons.concepts, 'Concepts')}
+      {renderLessons(categorizedLessons.dataStructures, "Data Structures")}
+      {renderLessons(categorizedLessons.algorithms, "Algorithms")}
+      {renderLessons(categorizedLessons.concepts, "Concepts")}
     </div>
   );
 };

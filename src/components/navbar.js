@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import '../styles/navbar.css';
-import { auth, provider } from '../config/firebase-config';
-import { signInWithPopup, signOut } from 'firebase/auth';
-import Google from '../content/images/google.webp';
-import { Link } from 'react-router-dom';
-import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
-import '@szhsin/react-menu/dist/index.css';
-import { useAlerts } from '../context/alertscontext';
-import Confirm from '../components/confirm';
-import { useUser } from '../context/usercontext';
+import React, { useEffect, useState } from "react";
+import "../styles/navbar.css";
+import { auth, provider } from "../config/firebase-config";
+import { signInWithPopup, signOut } from "firebase/auth";
+import Google from "../content/images/google.webp";
+import { Link } from "react-router-dom";
+import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
+import "@szhsin/react-menu/dist/index.css";
+import { useAlerts } from "../context/alertscontext";
+import Confirm from "../components/confirm";
+import { useUser } from "../context/usercontext";
 
 const Navbar = ({ onSettingsOpen }) => {
   const [narrow, setNarrow] = useState(false);
   const { addAlert } = useAlerts();
   const [displayConfirm, setDisplayConfirm] = useState(false);
-  const [confirmMessage, setConfirmMessage] = useState('');
+  const [confirmMessage, setConfirmMessage] = useState("");
   const { user, setUser } = useUser();
 
   useEffect(() => {
@@ -26,8 +26,8 @@ const Navbar = ({ onSettingsOpen }) => {
       }
     };
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -45,24 +45,24 @@ const Navbar = ({ onSettingsOpen }) => {
   const handleLogin = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        addAlert('User signed in successfully', 'success');
+        addAlert("User signed in successfully", "success");
         setUser(result.user);
       })
       .catch((error) => {
-        addAlert('Error during sign in', 'error');
-        console.error('Error during sign in:', error);
+        addAlert("Error during sign in", "error");
+        console.error("Error during sign in:", error);
       });
   };
 
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-        addAlert('User signed out successfully', 'success');
+        addAlert("User signed out successfully", "success");
         setUser(null);
       })
       .catch((error) => {
-        addAlert('Error during sign out', 'error');
-        console.error('Error during sign out:', error);
+        addAlert("Error during sign out", "error");
+        console.error("Error during sign out:", error);
       });
   };
 
@@ -123,7 +123,7 @@ const Navbar = ({ onSettingsOpen }) => {
           </div>
           <div className="right">
             <Link to="/premium" className="premium-button">
-              <i className="fa-solid fa-rocket"></i> {!narrow && 'Premium'}
+              <i className="fa-solid fa-rocket"></i> {!narrow && "Premium"}
             </Link>
             {user ? (
               <div className="login-right">
@@ -143,7 +143,7 @@ const Navbar = ({ onSettingsOpen }) => {
                   </MenuItem>
                   <hr className="menu-divider" />
                   <MenuItem onClick={handleLogout}>
-                    <i className="fa-solid fa-arrow-right-from-bracket"></i>{' '}
+                    <i className="fa-solid fa-arrow-right-from-bracket"></i>{" "}
                     Logout
                   </MenuItem>
                 </Menu>
@@ -153,12 +153,12 @@ const Navbar = ({ onSettingsOpen }) => {
                 className="login-button"
                 onClick={() =>
                   showConfirm(
-                    'By confirming you agree to our Terms and Conditions'
+                    "By confirming you agree to our Terms and Conditions"
                   )
                 }
               >
                 <img src={Google} alt="google" />
-                {!narrow && 'Continue with Google'}
+                {!narrow && "Continue with Google"}
               </button>
             )}
           </div>

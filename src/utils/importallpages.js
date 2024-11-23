@@ -1,6 +1,6 @@
 const importAllPages = (requireContext) => {
   return requireContext.keys().reduce((acc, path) => {
-    const key = path.replace('./', '').replace(/\.[^/.]+$/, '');
+    const key = path.replace("./", "").replace(/\.[^/.]+$/, "");
     acc[key] = requireContext(path).default;
     return acc;
   }, {});

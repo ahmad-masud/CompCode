@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/problems.css';
-import { firestore } from '../config/firebase-config';
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
-import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
-import '@szhsin/react-menu/dist/index.css';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { useAlerts } from '../context/alertscontext';
-import Solution from './solution';
-import { useUser } from '../context/usercontext';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import "../styles/problems.css";
+import { firestore } from "../config/firebase-config";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
+import "@szhsin/react-menu/dist/index.css";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAlerts } from "../context/alertscontext";
+import Solution from "./solution";
+import { useUser } from "../context/usercontext";
+import axios from "axios";
 
 const Problems = ({ company, onClose, page }) => {
   const [problems, setProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [sortConfig, setSortConfig] = useState({
-    key: 'Difficulty',
-    direction: 'ascending',
+    key: "Difficulty",
+    direction: "ascending",
   });
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
   const { addAlert } = useAlerts();
   const [problemId, setProblemId] = useState(null);
@@ -33,7 +33,7 @@ const Problems = ({ company, onClose, page }) => {
     const fetchSolutions = async () => {
       try {
         const response = await axios.get(
-          'https://raw.githubusercontent.com/ahmad-masud/LeetCode-Solutions/main/solutions.json'
+          "https://raw.githubusercontent.com/ahmad-masud/LeetCode-Solutions/main/solutions.json"
         );
 
         const companyIDs = new Set(company.data.map((problem) => problem.ID));
@@ -44,7 +44,7 @@ const Problems = ({ company, onClose, page }) => {
 
         setSolutions(filteredSolutions);
       } catch (error) {
-        console.error('Error fetching solutions.json:', error);
+        console.error("Error fetching solutions.json:", error);
       }
     };
 
@@ -60,8 +60,8 @@ const Problems = ({ company, onClose, page }) => {
       }
     };
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -72,13 +72,13 @@ const Problems = ({ company, onClose, page }) => {
       });
       setProblems(sortedData);
     } else {
-      console.error('Company data not found');
+      console.error("Company data not found");
     }
   }, [page, company]);
 
   useEffect(() => {
     if (user) {
-      const userRef = doc(firestore, 'users', user.uid);
+      const userRef = doc(firestore, "users", user.uid);
       getDoc(userRef)
         .then((docSnap) => {
           if (docSnap.exists()) {
@@ -89,7 +89,7 @@ const Problems = ({ company, onClose, page }) => {
           }
         })
         .catch((error) => {
-          console.error('Error fetching user data: ', error);
+          console.error("Error fetching user data: ", error);
         });
     } else {
       setCompletedProblems({});
@@ -98,7 +98,7 @@ const Problems = ({ company, onClose, page }) => {
 
   const handleCheckboxChange = async (problemId) => {
     if (!user) {
-      addAlert('Sign in to track your progress', 'warning');
+      addAlert("Sign in to track your progress", "warning");
       return;
     }
 
@@ -108,34 +108,34 @@ const Problems = ({ company, onClose, page }) => {
     };
     setCompletedProblems(newCompletedProblems);
 
-    const userRef = doc(firestore, 'users', user.uid);
+    const userRef = doc(firestore, "users", user.uid);
     await updateDoc(userRef, { completedProblems: newCompletedProblems }).catch(
       async (error) => {
-        if (error.code === 'not-found') {
+        if (error.code === "not-found") {
           await setDoc(userRef, { completedProblems: newCompletedProblems });
         } else {
-          console.error('Error updating user data: ', error);
+          console.error("Error updating user data: ", error);
         }
       }
     );
   };
 
   const sortProblems = (key) => {
-    let direction = 'ascending';
-    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
-      direction = 'descending';
+    let direction = "ascending";
+    if (sortConfig.key === key && sortConfig.direction === "ascending") {
+      direction = "descending";
     }
 
     const sortedProblems = [...problems].sort((a, b) => {
-      if (key === 'ID') {
-        return direction === 'ascending' ? a[key] - b[key] : b[key] - a[key];
-      } else if (key === 'Difficulty') {
+      if (key === "ID") {
+        return direction === "ascending" ? a[key] - b[key] : b[key] - a[key];
+      } else if (key === "Difficulty") {
         const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
-        return direction === 'ascending'
+        return direction === "ascending"
           ? difficultyOrder[a[key]] - difficultyOrder[b[key]]
           : difficultyOrder[b[key]] - difficultyOrder[a[key]];
       } else {
-        return direction === 'ascending'
+        return direction === "ascending"
           ? a[key] < b[key]
             ? -1
             : 1
@@ -153,7 +153,7 @@ const Problems = ({ company, onClose, page }) => {
     if (sortConfig.key !== key) {
       return <i className="fa-solid fa-sort"></i>;
     }
-    if (sortConfig.direction === 'ascending') {
+    if (sortConfig.direction === "ascending") {
       return <i className="fa-solid fa-sort-down"></i>;
     }
     return <i className="fa-solid fa-sort-up"></i>;
@@ -207,7 +207,7 @@ const Problems = ({ company, onClose, page }) => {
         <button
           key={1}
           onClick={() => setCurrentPage(1)}
-          className={currentPage === 1 ? 'active' : ''}
+          className={currentPage === 1 ? "active" : ""}
           disabled={currentPage === 1}
         >
           1
@@ -228,7 +228,7 @@ const Problems = ({ company, onClose, page }) => {
         <button
           key={i}
           onClick={() => setCurrentPage(i)}
-          className={currentPage === i ? 'active' : ''}
+          className={currentPage === i ? "active" : ""}
           disabled={currentPage === i}
         >
           {i}
@@ -249,7 +249,7 @@ const Problems = ({ company, onClose, page }) => {
         <button
           key={totalPages}
           onClick={() => setCurrentPage(totalPages)}
-          className={currentPage === totalPages ? 'active' : ''}
+          className={currentPage === totalPages ? "active" : ""}
           disabled={currentPage === totalPages}
         >
           {totalPages}
@@ -294,7 +294,7 @@ const Problems = ({ company, onClose, page }) => {
               }}
             ></div>
           </div>
-          {page === 'roadmap' && (
+          {page === "roadmap" && (
             <div className="roadmap-lessons">
               {company &&
                 company.lessons &&
@@ -307,13 +307,13 @@ const Problems = ({ company, onClose, page }) => {
                     <p>
                       {lesson
                         .replace(/\b\w/g, (c) => c.toUpperCase())
-                        .replaceAll('-', ' ')}
+                        .replaceAll("-", " ")}
                     </p>
                   </div>
                 ))}
             </div>
           )}
-          {page === 'companies' && (
+          {page === "companies" && (
             <div className="search-container">
               <input
                 type="text"
@@ -328,48 +328,48 @@ const Problems = ({ company, onClose, page }) => {
           <div className="table-header">
             <div className="check-head">Status</div>
             <div className="title-head">
-              Problem{' '}
+              Problem{" "}
               <button
                 className="sort-button"
-                onClick={() => sortProblems('ID')}
+                onClick={() => sortProblems("ID")}
               >
-                {getSortIcon('ID')}
+                {getSortIcon("ID")}
               </button>
             </div>
-            {page === 'roadmap' && (
+            {page === "roadmap" && (
               <div className="solution-link-head">Solution</div>
             )}
             {!narrow && (
               <div>
-                Acceptance{' '}
+                Acceptance{" "}
                 <button
                   className="sort-button"
-                  onClick={() => sortProblems('Acceptance')}
+                  onClick={() => sortProblems("Acceptance")}
                 >
-                  {getSortIcon('Acceptance')}
+                  {getSortIcon("Acceptance")}
                 </button>
               </div>
             )}
-            {(!narrow || page === 'companies') && (
+            {(!narrow || page === "companies") && (
               <div className="difficulty-head">
-                Difficulty{' '}
+                Difficulty{" "}
                 <button
                   className="sort-button"
-                  onClick={() => sortProblems('Difficulty')}
+                  onClick={() => sortProblems("Difficulty")}
                 >
-                  {getSortIcon('Difficulty')}
+                  {getSortIcon("Difficulty")}
                 </button>
               </div>
             )}
-            {page === 'companies' && !narrow && (
+            {page === "companies" && !narrow && (
               <div className="frequency-head">
-                Frequency{' '}
+                Frequency{" "}
                 {premiumInfo && premiumInfo.premium && (
                   <button
                     className="sort-button"
-                    onClick={() => sortProblems('Frequency')}
+                    onClick={() => sortProblems("Frequency")}
                   >
-                    {getSortIcon('Frequency')}
+                    {getSortIcon("Frequency")}
                   </button>
                 )}
               </div>
@@ -395,7 +395,7 @@ const Problems = ({ company, onClose, page }) => {
                   {problem.ID}. {problem.Title}
                 </a>
               </div>
-              {page === 'roadmap' && (
+              {page === "roadmap" && (
                 <div className="solution-link">
                   {solutions.find((solution) => solution.id === problem.ID) ? (
                     <button onClick={() => handleSolutionClick(problem.ID)}>
@@ -407,14 +407,14 @@ const Problems = ({ company, onClose, page }) => {
                 </div>
               )}
               {!narrow && <div>{`${problem.Acceptance}%`}</div>}
-              {(!narrow || page === 'companies') && (
+              {(!narrow || page === "companies") && (
                 <div
                   className={`difficulty ${problem.Difficulty.toLowerCase()}`}
                 >
                   {problem.Difficulty}
                 </div>
               )}
-              {page === 'companies' && !narrow && (
+              {page === "companies" && !narrow && (
                 <div className="frequency">
                   {premiumInfo && premiumInfo.premium ? (
                     Math.round(problem.Frequency * 100) / 100
