@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import {
+  a11yDark as codeDark,
+  oneLight as codeLight,
+} from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import "../styles/lesson.css";
 import { useNavigate } from "react-router-dom";
@@ -126,18 +129,18 @@ const Lesson = ({ data }) => {
                         </button>
                       </CopyToClipboard>
                       <SyntaxHighlighter
-                        language={block.language}
+                        language={"python"}
                         style={
                           theme === "dark"
-                            ? materialDark
+                            ? codeDark
                             : theme === "system"
                               ? window.matchMedia &&
                                 window.matchMedia(
                                   "(prefers-color-scheme: dark)"
                                 ).matches
-                                ? materialDark
-                                : undefined
-                              : undefined
+                                ? codeDark
+                                : codeLight
+                              : codeLight
                         }
                       >
                         {block.code}

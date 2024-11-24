@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "../styles/solution.css";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
-  materialDark,
-  materialLight,
+  a11yDark as codeDark,
+  oneLight as codeLight,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { InlineMath } from "react-katex";
@@ -48,6 +48,13 @@ const Solution = ({ data, onClose }) => {
               ></iframe>
             </div>
           )}
+          {data.overview && (
+            <div className="solutions-overview">
+              <p className="solutions-overview-title">Overview</p>
+              <p className="solutions-overview-paragraph">{data.overview}</p>
+            </div>
+          )}
+          <hr className="solution-divider" />
           <div className="solutions-container">
             {data.solutions.map((solution, index) => (
               <div key={index} className="solution">
@@ -79,28 +86,32 @@ const Solution = ({ data, onClose }) => {
                     language={"python"}
                     style={
                       theme === "dark"
-                        ? materialDark
+                        ? codeDark
                         : theme === "system"
                           ? window.matchMedia &&
                             window.matchMedia("(prefers-color-scheme: dark)")
                               .matches
-                            ? materialDark
-                            : materialLight
-                          : materialLight
+                            ? codeDark
+                            : codeLight
+                          : codeLight
                     }
                   >
                     {solution.pythonCode}
                   </SyntaxHighlighter>
                 </div>
-                <p className="complexity-title">Complexity Analysis</p>
-                <p className="complexity">
-                  Time Complexity:{" "}
-                  <InlineMath>{solution.timeComplexity}</InlineMath>
-                </p>
-                <p className="complexity">
-                  Space Complexity:{" "}
-                  <InlineMath>{solution.spaceComplexity}</InlineMath>
-                </p>
+                <div className="complexity-container">
+                  <p className="complexity-title">Complexity Analysis</p>
+                  <div className="complexities">
+                    <p className="complexity">
+                      Time Complexity:{" "}
+                      <InlineMath>{solution.timeComplexity}</InlineMath>
+                    </p>
+                    <p className="complexity">
+                      Space Complexity:{" "}
+                      <InlineMath>{solution.spaceComplexity}</InlineMath>
+                    </p>
+                  </div>
+                </div>
                 <hr className="solution-divider" />
               </div>
             ))}

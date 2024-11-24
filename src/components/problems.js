@@ -399,7 +399,7 @@ const Problems = ({ company, onClose, page }) => {
                 <div className="solution-link">
                   {solutions.find((solution) => solution.id === problem.ID) ? (
                     <button onClick={() => handleSolutionClick(problem.ID)}>
-                      <i className="fa-regular fa-lightbulb"></i>
+                      <i className="fa-regular fa-file-code"></i>
                     </button>
                   ) : (
                     <i className="fas fa-tools"></i>
