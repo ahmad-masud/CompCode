@@ -562,13 +562,6 @@
         "Acceptance": 64
       },
       {
-        "ID": 347,
-        "Title": "Top K Frequent Elements",
-        "Difficulty": "Medium",
-        "Link": "https://leetcode.com/problems/top-k-frequent-elements",
-        "Acceptance": 64
-      },
-      {
         "ID": 973,
         "Title": "K Closest Points to Origin",
         "Difficulty": "Medium",
@@ -1008,6 +1001,13 @@
         "Difficulty": "Medium",
         "Link": "https://leetcode.com/problems/set-matrix-zeroes",
         "Acceptance": 51
+      },
+      {
+        "ID": 43,
+        "Title": "Multiply Strings",
+        "Difficulty": "Medium",
+        "Link": "https://leetcode.com/problems/multiply-strings",
+        "Acceptance": 41
       }
     ]
   }
