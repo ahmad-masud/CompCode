@@ -1001,13 +1001,6 @@
         "Difficulty": "Medium",
         "Link": "https://leetcode.com/problems/set-matrix-zeroes",
         "Acceptance": 51
-      },
-      {
-        "ID": 43,
-        "Title": "Multiply Strings",
-        "Difficulty": "Medium",
-        "Link": "https://leetcode.com/problems/multiply-strings",
-        "Acceptance": 41
       }
     ]
   }
