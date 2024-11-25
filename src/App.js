@@ -13,6 +13,8 @@ import Report from "./components/report";
 import ScrollToTop from "./utils/scrolltotop";
 import lessons from "./content/lessons.json";
 import quizzes from "./content/quizzes.json";
+import roadmap from "./content/roadmap.json";
+import companies from "./content/companies.json";
 import importAllPages from "./utils/importallpages";
 import "./styles/app.css";
 
@@ -25,6 +27,24 @@ const pages = importAllPages(require.context("./pages", false, /\.js$/));
 const App = () => {
   const [displaySettings, setDisplaySettings] = useState(false);
   const [displayReport, setDisplayReport] = useState(false);
+
+  const roadmapRoutes = roadmap.map((topic, index) => ({
+    path: `/roadmap/${topic.name.replaceAll(" ", "-").toLowerCase()}`,
+    element: React.createElement(pages["problems"], {
+      company: topic,
+      page: "roadmap",
+    }),
+    key: `roadmap-${index}`,
+  }));
+
+  const companiesRoutes = companies.map((company, index) => ({
+    path: `/companies/${company.name.replaceAll(" ", "-").toLowerCase()}`,
+    element: React.createElement(pages["problems"], {
+      company: company,
+      page: "companies",
+    }),
+    key: `companies-${index}`,
+  }));
 
   const routes = [
     { path: "/", element: React.createElement(pages["home"]) },
@@ -47,6 +67,8 @@ const App = () => {
       element: React.createElement(pages["quiz"], { data: quiz }),
       key: `quiz-${quiz.id}-${index}`,
     })),
+    ...roadmapRoutes,
+    ...companiesRoutes,
     { path: "*", element: React.createElement(pages["notfound"]) },
   ];
 

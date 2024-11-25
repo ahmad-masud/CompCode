@@ -10,7 +10,7 @@ import { InlineMath } from "react-katex";
 import { useTheme } from "../context/themecontext";
 import "katex/dist/katex.min.css";
 
-const Solution = ({ data, onClose }) => {
+const Solution = ({ data, onClose, title, link }) => {
   const [copiedIndex, setCopiedIndex] = useState(null);
   const { theme } = useTheme();
 
@@ -30,7 +30,12 @@ const Solution = ({ data, onClose }) => {
       <div className="overlay-backdrop" onClick={onClose}></div>
       <div className="solution-content">
         <div className="solution-header">
-          <p className="solution-title">Solution</p>
+          <p className="solution-title">
+            {title}
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              <i className="fa-solid fa-up-right-from-square"></i>
+            </a>
+          </p>
           <button className="solution-close-button" onClick={onClose}>
             <i className="bi bi-x"></i>
           </button>

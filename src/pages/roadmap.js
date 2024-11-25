@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import "../styles/companies.css";
 import { firestore } from "../config/firebase-config";
 import { doc, getDoc } from "firebase/firestore";
-import Problems from "../components/problems";
 import companies from "../content/roadmap.json";
 import { useUser } from "../context/usercontext";
+import { useNavigate } from "react-router-dom";
 
 const average = (array) => {
   if (array.length === 0) return 0;
@@ -20,9 +20,9 @@ const Roadmap = ({ theme }) => {
   });
   const [uniqueProblems, setUniqueProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
-  const [openCompany, setOpenCompany] = useState("");
   const [narrow, setNarrow] = useState(false);
   const { user } = useUser();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,10 +36,6 @@ const Roadmap = ({ theme }) => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const handleClose = () => {
-    setOpenCompany("");
-  };
 
   useEffect(() => {
     const fetchCompaniesData = async () => {
@@ -132,7 +128,7 @@ const Roadmap = ({ theme }) => {
     } else {
       setCompletedProblems({});
     }
-  }, [user, openCompany]);
+  }, [user]);
 
   const mostCommon = (array) => {
     if (array.length === 0) return "N/A";
@@ -181,105 +177,99 @@ const Roadmap = ({ theme }) => {
   }, 0);
 
   return (
-    <div>
-      {openCompany && (
-        <Problems
-          theme={theme}
-          company={companies.find((company) => company.name === openCompany)}
-          onClose={handleClose}
-          page={"roadmap"}
-        />
-      )}
-      <div className="companies-page">
-        <p className="solved-count">
-          {completedCount}
-          <span> | {uniqueProblems.length}</span>
-        </p>
-        <div className="progress-bar">
-          <div
-            className="progress"
-            style={{
-              width: `${(completedCount / uniqueProblems.length) * 100}%`,
-            }}
-          ></div>
-        </div>
-        <div className="company-table">
-          <table>
-            <thead>
-              <tr>
+    <div className="companies-page">
+      <p className="solved-count">
+        {completedCount}
+        <span> | {uniqueProblems.length}</span>
+      </p>
+      <div className="progress-bar">
+        <div
+          className="progress"
+          style={{
+            width: `${(completedCount / uniqueProblems.length) * 100}%`,
+          }}
+        ></div>
+      </div>
+      <div className="company-table">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                Name{" "}
+                <button
+                  className="sort-button"
+                  onClick={() => sortCompanies("name")}
+                >
+                  {getSortIcon("name")}
+                </button>
+              </th>
+              {!narrow && (
                 <th>
-                  Name{" "}
+                  Acceptance{" "}
                   <button
                     className="sort-button"
-                    onClick={() => sortCompanies("name")}
+                    onClick={() => sortCompanies("avgAcceptance")}
                   >
-                    {getSortIcon("name")}
+                    {getSortIcon("avgAcceptance")}
                   </button>
                 </th>
-                {!narrow && (
-                  <th>
-                    Acceptance{" "}
-                    <button
-                      className="sort-button"
-                      onClick={() => sortCompanies("avgAcceptance")}
-                    >
-                      {getSortIcon("avgAcceptance")}
-                    </button>
-                  </th>
-                )}
-                {!narrow && (
-                  <th>
-                    Solved{" "}
-                    <button
-                      className="sort-button"
-                      onClick={() => sortCompanies("solved")}
-                    >
-                      {getSortIcon("solved")}
-                    </button>
-                  </th>
-                )}
+              )}
+              {!narrow && (
                 <th>
-                  Difficulty{" "}
+                  Solved{" "}
                   <button
                     className="sort-button"
-                    onClick={() => sortCompanies("mostCommonDifficulty")}
+                    onClick={() => sortCompanies("solved")}
                   >
-                    {getSortIcon("mostCommonDifficulty")}
+                    {getSortIcon("solved")}
                   </button>
                 </th>
-              </tr>
-            </thead>
-            <tbody>
-              {companiesData.map((company, index) => (
-                <tr key={index}>
+              )}
+              <th>
+                Difficulty{" "}
+                <button
+                  className="sort-button"
+                  onClick={() => sortCompanies("mostCommonDifficulty")}
+                >
+                  {getSortIcon("mostCommonDifficulty")}
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {companiesData.map((company, index) => (
+              <tr key={index}>
+                <td>
+                  <button
+                    onClick={() =>
+                      navigate(
+                        `/roadmap/${company.name.replaceAll(" ", "-").toLowerCase()}`
+                      )
+                    }
+                  >
+                    {company.name.replace(/\b\w/g, (c) => c.toUpperCase())}
+                  </button>
+                </td>
+                {!narrow && <td>{company.avgAcceptance}</td>}
+                {!narrow && (
                   <td>
-                    <button
-                      onClick={() => setOpenCompany(company.name.toLowerCase())}
-                    >
-                      {company.name.replace(/\b\w/g, (c) => c.toUpperCase())}
-                    </button>
+                    <div className="company-progress-bar">
+                      <div
+                        className="company-progress"
+                        style={{
+                          width: `${(company.solvedProblems / company.numProblems) * 100}%`,
+                        }}
+                      ></div>
+                    </div>
                   </td>
-                  {!narrow && <td>{company.avgAcceptance}</td>}
-                  {!narrow && (
-                    <td>
-                      <div className="company-progress-bar">
-                        <div
-                          className="company-progress"
-                          style={{
-                            width: `${(company.solvedProblems / company.numProblems) * 100}%`,
-                          }}
-                        ></div>
-                      </div>
-                    </td>
-                  )}
-                  <td className={company.mostCommonDifficulty.toLowerCase()}>
-                    {company.mostCommonDifficulty}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+                )}
+                <td className={company.mostCommonDifficulty.toLowerCase()}>
+                  {company.mostCommonDifficulty}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

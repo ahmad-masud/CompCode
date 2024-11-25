@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import "../styles/companies.css";
 import { firestore } from "../config/firebase-config";
 import { doc, getDoc } from "firebase/firestore";
-import Problems from "../components/problems";
 import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import companies from "../content/companies.json";
 import { useUser } from "../context/usercontext";
+import { useNavigate } from "react-router-dom";
 
 const average = (array) => {
   if (array.length === 0) return 0;
@@ -23,11 +23,11 @@ const Companies = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [uniqueProblems, setUniqueProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
-  const [openCompany, setOpenCompany] = useState("");
   const [narrow, setNarrow] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [companiesPerPage, setCompaniesPerPage] = useState(20);
   const { user } = useUser();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -41,10 +41,6 @@ const Companies = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const handleClose = () => {
-    setOpenCompany("");
-  };
 
   useEffect(() => {
     const fetchCompaniesData = async () => {
@@ -127,7 +123,7 @@ const Companies = () => {
     } else {
       setCompletedProblems({});
     }
-  }, [user, openCompany]);
+  }, [user]);
 
   const mostCommon = (array) => {
     if (array.length === 0) return "N/A";
@@ -271,132 +267,121 @@ const Companies = () => {
   };
 
   return (
-    <>
-      {openCompany && (
-        <Problems
-          company={companies.find((company) => company.name === openCompany)}
-          onClose={handleClose}
-          page={"companies"}
+    <div className="companies-page">
+      <p className="solved-count">
+        {completedCount}
+        <span> | {uniqueProblems.length}</span>
+      </p>
+      <div className="progress-bar">
+        <div
+          className="progress"
+          style={{
+            width: `${(completedCount / uniqueProblems.length) * 100}%`,
+          }}
+        ></div>
+      </div>
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={handleSearch}
         />
-      )}
-      <div className="companies-page">
-        <p className="solved-count">
-          {completedCount}
-          <span> | {uniqueProblems.length}</span>
-        </p>
-        <div className="progress-bar">
-          <div
-            className="progress"
-            style={{
-              width: `${(completedCount / uniqueProblems.length) * 100}%`,
-            }}
-          ></div>
-        </div>
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={handleSearch}
-          />
-        </div>
-        <div className="company-table">
-          <table>
-            <thead>
-              <tr>
+      </div>
+      <div className="company-table">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <span>Name </span>
+                <button
+                  className="sort-button"
+                  onClick={() => sortCompanies("name")}
+                >
+                  {getSortIcon("name")}
+                </button>
+              </th>
+              {!narrow && (
                 <th>
-                  Name{" "}
+                  <span>Acceptance </span>
                   <button
                     className="sort-button"
-                    onClick={() => sortCompanies("name")}
+                    onClick={() => sortCompanies("avgAcceptance")}
                   >
-                    {getSortIcon("name")}
+                    {getSortIcon("avgAcceptance")}
                   </button>
                 </th>
-                {!narrow && (
-                  <th>
-                    Acceptance{" "}
-                    <button
-                      className="sort-button"
-                      onClick={() => sortCompanies("avgAcceptance")}
-                    >
-                      {getSortIcon("avgAcceptance")}
-                    </button>
-                  </th>
-                )}
-                <th>
-                  Problems{" "}
+              )}
+              <th>
+                <span>Problems </span>
+                <button
+                  className="sort-button"
+                  onClick={() => sortCompanies("numProblems")}
+                >
+                  {getSortIcon("numProblems")}
+                </button>
+              </th>
+              <th>
+                <span>Difficulty </span>
+                <button
+                  className="sort-button"
+                  onClick={() => sortCompanies("mostCommonDifficulty")}
+                >
+                  {getSortIcon("mostCommonDifficulty")}
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentCompanies.map((company, index) => (
+              <tr key={index}>
+                <td>
                   <button
-                    className="sort-button"
-                    onClick={() => sortCompanies("numProblems")}
+                    onClick={() =>
+                      navigate(`/companies/${company.name.toLowerCase()}`)
+                    }
                   >
-                    {getSortIcon("numProblems")}
+                    {company.name
+                      .replace("-", " ")
+                      .replace(/\b\w/g, (c) => c.toUpperCase())}
                   </button>
-                </th>
-                <th>
-                  Difficulty{" "}
-                  <button
-                    className="sort-button"
-                    onClick={() => sortCompanies("mostCommonDifficulty")}
-                  >
-                    {getSortIcon("mostCommonDifficulty")}
-                  </button>
-                </th>
+                </td>
+                {!narrow && <td>{company.avgAcceptance}</td>}
+                <td>{company.numProblems}</td>
+                <td className={company.mostCommonDifficulty.toLowerCase()}>
+                  {company.mostCommonDifficulty}
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {currentCompanies.map((company, index) => (
-                <tr key={index}>
-                  <td>
-                    <button
-                      onClick={() => setOpenCompany(company.name.toLowerCase())}
-                    >
-                      {company.name
-                        .replace("-", " ")
-                        .replace(/\b\w/g, (c) => c.toUpperCase())}
-                    </button>
-                  </td>
-                  {!narrow && <td>{company.avgAcceptance}</td>}
-                  <td>{company.numProblems}</td>
-                  <td className={company.mostCommonDifficulty.toLowerCase()}>
-                    {company.mostCommonDifficulty}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="pagination">
-          <Menu
-            menuButton={
-              <MenuButton className="page-button">{`${companiesPerPage} / page`}</MenuButton>
-            }
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="pagination">
+        <Menu
+          menuButton={
+            <MenuButton className="page-button">{`${companiesPerPage} / page`}</MenuButton>
+          }
+        >
+          <MenuItem onClick={() => setCompaniesPerPage(20)}>20 / page</MenuItem>
+          <MenuItem onClick={() => setCompaniesPerPage(50)}>50 / page</MenuItem>
+          <MenuItem onClick={() => setCompaniesPerPage(100)}>
+            100 / page
+          </MenuItem>
+        </Menu>
+        <div className="pages">
+          <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+            <i className="fa-solid fa-angle-left"></i>
+          </button>
+          {renderPageNumbers()}
+          <button
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
           >
-            <MenuItem onClick={() => setCompaniesPerPage(20)}>
-              20 / page
-            </MenuItem>
-            <MenuItem onClick={() => setCompaniesPerPage(50)}>
-              50 / page
-            </MenuItem>
-            <MenuItem onClick={() => setCompaniesPerPage(100)}>
-              100 / page
-            </MenuItem>
-          </Menu>
-          <div className="pages">
-            <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-              <i className="fa-solid fa-angle-left"></i>
-            </button>
-            {renderPageNumbers()}
-            <button
-              onClick={handleNextPage}
-              disabled={currentPage === totalPages}
-            >
-              <i className="fa-solid fa-angle-right"></i>
-            </button>
-          </div>
+            <i className="fa-solid fa-angle-right"></i>
+          </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -42,6 +42,10 @@
   font-weight: 100;
 }
 
+.company-table th span {
+  filter: brightness(75%);
+}
+
 .company-table tbody tr:nth-child(even) {
   background-color: var(--secondary-color);
 }

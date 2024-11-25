@@ -7,11 +7,11 @@ import "@szhsin/react-menu/dist/index.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAlerts } from "../context/alertscontext";
-import Solution from "./solution";
+import Solution from "../components/solution";
 import { useUser } from "../context/usercontext";
 import axios from "axios";
 
-const Problems = ({ company, onClose, page }) => {
+const Problems = ({ company, page }) => {
   const [problems, setProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [sortConfig, setSortConfig] = useState({
@@ -28,6 +28,8 @@ const Problems = ({ company, onClose, page }) => {
   const [narrow, setNarrow] = useState(false);
   const { user, premiumInfo } = useUser();
   const [solutions, setSolutions] = useState([]);
+  const [solutionTitle, setSolutionTitle] = useState("");
+  const [link, setLink] = useState("");
 
   useEffect(() => {
     const fetchSolutions = async () => {
@@ -260,206 +262,201 @@ const Problems = ({ company, onClose, page }) => {
     return pages;
   };
 
-  const handleSolutionClick = (id) => {
+  const handleSolutionClick = (id, title, link) => {
     setIsSolutionOpen(true);
     setProblemId(id);
+    setSolutionTitle(title);
+    setLink(link);
   };
 
   return (
-    <div className="problems-overlay">
+    <div className="problems-page">
       {isSolutionOpen && (
         <Solution
           data={solutions.find((solution) => solution.id === problemId)}
           onClose={() => setIsSolutionOpen(false)}
+          title={solutionTitle}
+          link={link}
         />
       )}
-      <div className="overlay-backdrop" onClick={onClose}></div>
-      <div className="problems-overlay-content">
-        <button className="problems-close-button" onClick={onClose}>
-          <i className="bi bi-x"></i>
-        </button>
-        <div className="problems-header">
-          <h2>
-            {company && company.name.replace(/\b\w/g, (c) => c.toUpperCase())}
-          </h2>
-          <p className="solved-count">
-            {completedCount}
-            <span> | {filteredProblems.length}</span>
-          </p>
-          <div className="progress-bar">
-            <div
-              className="progress"
-              style={{
-                width: `${(completedCount / filteredProblems.length) * 100}%`,
-              }}
-            ></div>
+      <p className="problems-title">
+        {company && company.name.replace(/\b\w/g, (c) => c.toUpperCase())}
+      </p>
+      <p className="solved-count">
+        {completedCount}
+        <span> | {filteredProblems.length}</span>
+      </p>
+      <div className="progress-bar">
+        <div
+          className="progress"
+          style={{
+            width: `${(completedCount / filteredProblems.length) * 100}%`,
+          }}
+        ></div>
+      </div>
+      {page === "roadmap" && (
+        <div className="roadmap-lessons">
+          {company &&
+            company.lessons &&
+            company.lessons.map((lesson, index) => (
+              <div
+                onClick={() => navigate(`/lesson/${lesson}`)}
+                key={index}
+                className="roadmap-lesson"
+              >
+                <p>
+                  {lesson
+                    .replace(/\b\w/g, (c) => c.toUpperCase())
+                    .replaceAll("-", " ")}
+                </p>
+              </div>
+            ))}
+        </div>
+      )}
+      {page === "companies" && (
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={handleSearch}
+          />
+        </div>
+      )}
+      <div className="problem-table">
+        <div className="table-header">
+          <div className="check-head">Status</div>
+          <div className="title-head">
+            Problem{" "}
+            <button className="sort-button" onClick={() => sortProblems("ID")}>
+              {getSortIcon("ID")}
+            </button>
           </div>
           {page === "roadmap" && (
-            <div className="roadmap-lessons">
-              {company &&
-                company.lessons &&
-                company.lessons.map((lesson, index) => (
-                  <div
-                    onClick={() => navigate(`/lesson/${lesson}`)}
-                    key={index}
-                    className="roadmap-lesson"
-                  >
-                    <p>
-                      {lesson
-                        .replace(/\b\w/g, (c) => c.toUpperCase())
-                        .replaceAll("-", " ")}
-                    </p>
-                  </div>
-                ))}
+            <div className="solution-link-head">Solution</div>
+          )}
+          {!narrow && (
+            <div>
+              Acceptance{" "}
+              <button
+                className="sort-button"
+                onClick={() => sortProblems("Acceptance")}
+              >
+                {getSortIcon("Acceptance")}
+              </button>
             </div>
           )}
-          {page === "companies" && (
-            <div className="search-container">
-              <input
-                type="text"
-                placeholder="Search"
-                value={searchTerm}
-                onChange={handleSearch}
-              />
+          {(!narrow || page === "companies") && (
+            <div className="difficulty-head">
+              Difficulty{" "}
+              <button
+                className="sort-button"
+                onClick={() => sortProblems("Difficulty")}
+              >
+                {getSortIcon("Difficulty")}
+              </button>
+            </div>
+          )}
+          {page === "companies" && !narrow && (
+            <div className="frequency-head">
+              Frequency{" "}
+              {premiumInfo && premiumInfo.premium && (
+                <button
+                  className="sort-button"
+                  onClick={() => sortProblems("Frequency")}
+                >
+                  {getSortIcon("Frequency")}
+                </button>
+              )}
             </div>
           )}
         </div>
-        <div className="problem-table">
-          <div className="table-header">
-            <div className="check-head">Status</div>
-            <div className="title-head">
-              Problem{" "}
-              <button
-                className="sort-button"
-                onClick={() => sortProblems("ID")}
-              >
-                {getSortIcon("ID")}
+        {currentProblems.map((problem, index) => (
+          <div className="table-row" key={index}>
+            <div className="check">
+              <button onClick={() => handleCheckboxChange(problem.ID)}>
+                {completedProblems[problem.ID] ? (
+                  <i className="fa-solid fa-square-check"></i>
+                ) : (
+                  <i className="fa-regular fa-square"></i>
+                )}
               </button>
             </div>
+            <div className="title">
+              <a href={problem.Link} target="_blank" rel="noopener noreferrer">
+                {problem.ID}. {problem.Title}
+              </a>
+            </div>
             {page === "roadmap" && (
-              <div className="solution-link-head">Solution</div>
-            )}
-            {!narrow && (
-              <div>
-                Acceptance{" "}
-                <button
-                  className="sort-button"
-                  onClick={() => sortProblems("Acceptance")}
-                >
-                  {getSortIcon("Acceptance")}
-                </button>
+              <div className="solution-link">
+                {solutions.find((solution) => solution.id === problem.ID) ? (
+                  <button
+                    onClick={() =>
+                      handleSolutionClick(
+                        problem.ID,
+                        `${problem.ID}. ${problem.Title}`,
+                        problem.Link
+                      )
+                    }
+                  >
+                    <i className="fa-regular fa-file-code"></i>
+                  </button>
+                ) : (
+                  <i className="fas fa-tools"></i>
+                )}
               </div>
             )}
+            {!narrow && <div>{`${problem.Acceptance}%`}</div>}
             {(!narrow || page === "companies") && (
-              <div className="difficulty-head">
-                Difficulty{" "}
-                <button
-                  className="sort-button"
-                  onClick={() => sortProblems("Difficulty")}
-                >
-                  {getSortIcon("Difficulty")}
-                </button>
+              <div className={`difficulty ${problem.Difficulty.toLowerCase()}`}>
+                {problem.Difficulty}
               </div>
             )}
             {page === "companies" && !narrow && (
-              <div className="frequency-head">
-                Frequency{" "}
-                {premiumInfo && premiumInfo.premium && (
-                  <button
-                    className="sort-button"
-                    onClick={() => sortProblems("Frequency")}
-                  >
-                    {getSortIcon("Frequency")}
-                  </button>
+              <div className="frequency">
+                {premiumInfo && premiumInfo.premium ? (
+                  Math.round(problem.Frequency * 100) / 100
+                ) : (
+                  <Link to="/premium" className="premium-link">
+                    <i className="fa-solid fa-rocket"></i>
+                  </Link>
                 )}
               </div>
             )}
           </div>
-          {currentProblems.map((problem, index) => (
-            <div className="table-row" key={index}>
-              <div className="check">
-                <button onClick={() => handleCheckboxChange(problem.ID)}>
-                  {completedProblems[problem.ID] ? (
-                    <i className="fa-solid fa-square-check"></i>
-                  ) : (
-                    <i className="fa-regular fa-square"></i>
-                  )}
-                </button>
-              </div>
-              <div className="title">
-                <a
-                  href={problem.Link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {problem.ID}. {problem.Title}
-                </a>
-              </div>
-              {page === "roadmap" && (
-                <div className="solution-link">
-                  {solutions.find((solution) => solution.id === problem.ID) ? (
-                    <button onClick={() => handleSolutionClick(problem.ID)}>
-                      <i className="fa-regular fa-file-code"></i>
-                    </button>
-                  ) : (
-                    <i className="fas fa-tools"></i>
-                  )}
-                </div>
-              )}
-              {!narrow && <div>{`${problem.Acceptance}%`}</div>}
-              {(!narrow || page === "companies") && (
-                <div
-                  className={`difficulty ${problem.Difficulty.toLowerCase()}`}
-                >
-                  {problem.Difficulty}
-                </div>
-              )}
-              {page === "companies" && !narrow && (
-                <div className="frequency">
-                  {premiumInfo && premiumInfo.premium ? (
-                    Math.round(problem.Frequency * 100) / 100
-                  ) : (
-                    <Link to="/premium" className="premium-link">
-                      <i className="fa-solid fa-rocket"></i>
-                    </Link>
-                  )}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-        {problems.length > 20 && (
-          <div className="pagination">
-            <Menu
-              menuButton={
-                <MenuButton className="page-button">{`${problemsPerPage} / page`}</MenuButton>
-              }
-            >
-              <MenuItem onClick={() => setProblemsPerPage(20)}>
-                20 / page
-              </MenuItem>
-              <MenuItem onClick={() => setProblemsPerPage(50)}>
-                50 / page
-              </MenuItem>
-              <MenuItem onClick={() => setProblemsPerPage(100)}>
-                100 / page
-              </MenuItem>
-            </Menu>
-            <div className="pages">
-              <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-                <i className="fa-solid fa-angle-left"></i>
-              </button>
-              {renderPageNumbers()}
-              <button
-                onClick={handleNextPage}
-                disabled={currentPage === totalPages}
-              >
-                <i className="fa-solid fa-angle-right"></i>
-              </button>
-            </div>
-          </div>
-        )}
+        ))}
       </div>
+      {problems.length > 20 && (
+        <div className="pagination">
+          <Menu
+            menuButton={
+              <MenuButton className="page-button">{`${problemsPerPage} / page`}</MenuButton>
+            }
+          >
+            <MenuItem onClick={() => setProblemsPerPage(20)}>
+              20 / page
+            </MenuItem>
+            <MenuItem onClick={() => setProblemsPerPage(50)}>
+              50 / page
+            </MenuItem>
+            <MenuItem onClick={() => setProblemsPerPage(100)}>
+              100 / page
+            </MenuItem>
+          </Menu>
+          <div className="pages">
+            <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+              <i className="fa-solid fa-angle-left"></i>
+            </button>
+            {renderPageNumbers()}
+            <button
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages}
+            >
+              <i className="fa-solid fa-angle-right"></i>
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
