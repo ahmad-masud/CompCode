@@ -10,9 +10,23 @@
 }
 
 .lesson-header {
-  text-align: center;
   font-size: 2rem;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.lesson-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.lesson-header button i {
+  font-size: 1.25rem;
+  color: #3fca7d;
 }
 
 .lesson-bottom {

@@ -9,14 +9,19 @@ import "../styles/lesson.css";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/usercontext";
 import { useTheme } from "../context/themecontext";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { firestore } from "../config/firebase-config";
+import { useAlerts } from "../context/alertscontext";
 
 const Lesson = ({ data }) => {
   const [lesson, setLesson] = useState(null);
   const [copiedState, setCopiedState] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [completed, setCompleted] = useState(false);
   const navigate = useNavigate();
-  const { premiumInfo } = useUser();
+  const { premiumInfo, user } = useUser();
   const { theme } = useTheme();
+  const { addAlert } = useAlerts();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!data) return;
@@ -24,13 +29,44 @@ const Lesson = ({ data }) => {
       navigate("/premium");
       return;
     }
-    setLoading(true);
     setLesson(data);
     setCopiedState(Array(data.lessons?.length || 0).fill(false));
-    setLoading(false);
-  }, [data, navigate, premiumInfo]);
 
-  if (loading) return;
+    const checkIfCompleted = async (lessonTitle) => {
+      if (!user) return;
+      const userRef = doc(firestore, "users", user.uid);
+      const userSnap = await getDoc(userRef);
+      if (userSnap.exists()) {
+        const completedLessons = userSnap.data().completedLessons || {};
+        setCompleted(!!completedLessons[lessonTitle]);
+      }
+    };
+
+    checkIfCompleted(data.title);
+    setLoading(false);
+  }, [user, data, navigate, premiumInfo]);
+
+  const handleCheckboxChange = async (lessonTitle) => {
+    if (!user) {
+      addAlert("Sign in to track your progress", "warning");
+      return;
+    }
+    const userRef = doc(firestore, "users", user.uid);
+    setCompleted(!completed);
+
+    try {
+      const userSnap = await getDoc(userRef);
+      if (!userSnap.exists()) {
+        await setDoc(userRef, { completedLessons: { [lessonTitle]: true } });
+      } else {
+        await updateDoc(userRef, {
+          [`completedLessons.${lessonTitle}`]: !completed,
+        });
+      }
+    } catch (error) {
+      console.error("Error updating lesson completion:", error);
+    }
+  };
 
   const handleCopy = (lessonIdx, blockIdx) => {
     const newCopiedState = [...copiedState];
@@ -69,9 +105,20 @@ const Lesson = ({ data }) => {
     });
   };
 
+  if (loading) return;
+
   return (
     <div className="lesson-container">
-      <p className="lesson-header">{lesson.title}</p>
+      <p className="lesson-header">
+        {lesson.title}
+        <button onClick={() => handleCheckboxChange(lesson.title)}>
+          {completed ? (
+            <i className="fa-solid fa-square-check"></i>
+          ) : (
+            <i className="fa-regular fa-square"></i>
+          )}
+        </button>
+      </p>
       <div className="lesson-bottom">
         <div className="lesson-sidebar">
           {lesson.lessons.map((lesson, lessonIdx) => (

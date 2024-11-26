@@ -12,7 +12,7 @@ const average = (array) => {
   return sum / array.length;
 };
 
-const Roadmap = ({ theme }) => {
+const Roadmap = () => {
   const [companiesData, setCompaniesData] = useState([]);
   const [sortConfig, setSortConfig] = useState({
     key: "",

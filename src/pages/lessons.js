@@ -7,14 +7,14 @@ import { getDoc, setDoc, doc } from "firebase/firestore";
 
 const Lessons = ({ lessons }) => {
   const navigate = useNavigate();
-  const { premiumInfo } = useUser();
   const [completedQuizzes, setCompletedQuizzes] = useState([]);
+  const [completedLessons, setCompletedLessons] = useState([]);
   const categorizedLessons = {
     dataStructures: [],
     algorithms: [],
     concepts: [],
   };
-  const { user } = useUser();
+  const { user, premiumInfo } = useUser();
 
   useEffect(() => {
     if (user) {
@@ -24,15 +24,17 @@ const Lessons = ({ lessons }) => {
           if (docSnap.exists()) {
             const userData = docSnap.data();
             setCompletedQuizzes(userData.completedQuizzes || {});
+            setCompletedLessons(userData.completedLessons || {});
           } else {
-            setDoc(userRef, { completedQuizzes: {} });
+            setDoc(userRef, { completedQuizzes: {}, completedLessons: {} });
           }
         })
         .catch((error) => {
           console.error("Error fetching user data: ", error);
         });
     } else {
-      setCompletedQuizzes({});
+      setCompletedQuizzes([]);
+      setCompletedLessons([]);
     }
   }, [user]);
 
@@ -102,7 +104,12 @@ const Lessons = ({ lessons }) => {
                   onClick={() => handleLessonClick(lesson)}
                 >
                   Lesson
-                  {lesson.premium && <i className="fa-solid fa-rocket"></i>}
+                  {completedLessons[lesson.title] && (
+                    <i className="fa-solid fa-check-circle"></i>
+                  )}
+                  {lesson.premium && !premiumInfo.premium && (
+                    <i className="fa-solid fa-rocket"></i>
+                  )}
                 </button>
                 <button
                   className="lesson-card-button"
