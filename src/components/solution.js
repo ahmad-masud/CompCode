@@ -53,13 +53,6 @@ const Solution = ({ data, onClose, title, link }) => {
               ></iframe>
             </div>
           )}
-          {data.overview && (
-            <div className="solutions-overview">
-              <p className="solutions-overview-title">Overview</p>
-              <p className="solutions-overview-paragraph">{data.overview}</p>
-            </div>
-          )}
-          <hr className="solution-divider" />
           <div className="solutions-container">
             {data.solutions.map((solution, index) => (
               <div key={index} className="solution">

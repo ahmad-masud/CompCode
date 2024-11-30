@@ -235,21 +235,3 @@
   color: var(--font-color);
   font-weight: bold;
 }
-
-.solutions-overview {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.solutions-overview-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--font-color);
-}
-
-.solutions-overview-paragraph {
-  font-size: 1rem;
-  color: var(--font-color);
-  line-height: 1.5;
-}
