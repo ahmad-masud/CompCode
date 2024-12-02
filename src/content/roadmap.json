@@ -1,6 +1,7 @@
 [
   {
     "name": "arrays & strings",
+    "children": ["hashmaps & sets"],
     "lessons": ["arrays", "strings"],
     "data": [
       {
@@ -49,6 +50,7 @@
   },
   {
     "name": "hashmaps & sets",
+    "children": ["two pointers", "stacks"],
     "lessons": ["dictionaries", "sets"],
     "data": [
       {
@@ -111,6 +113,7 @@
   },
   {
     "name": "two pointers",
+    "children": ["binary search", "sliding window", "linked lists"],
     "lessons": ["arrays", "strings", "two-pointers"],
     "data": [
       {
@@ -214,6 +217,7 @@
   },
   {
     "name": "linked lists",
+    "children": ["trees"],
     "lessons": ["singly-linked-lists", "two-pointers", "doubly-linked-lists"],
     "data": [
       {
@@ -311,6 +315,7 @@
   },
   {
     "name": "binary search",
+    "children": ["trees"],
     "lessons": ["arrays", "binary-search"],
     "data": [
       {
@@ -421,6 +426,7 @@
   },
   {
     "name": "trees",
+    "children": ["tries", "heaps", "backtracking"],
     "lessons": [
       "recursion",
       "binary-trees",
@@ -552,6 +558,7 @@
   },
   {
     "name": "heaps",
+    "children": ["intervals", "greedy"],
     "lessons": ["arrays", "heaps"],
     "data": [
       {
@@ -634,7 +641,8 @@
   },
   {
     "name": "backtracking",
-    "lessons": ["recursion", "backtracking"],
+    "children": ["dynamic programming", "graphs"],
+    "lessons": ["recursion", "backtracking", "graphs"],
     "data": [
       {
         "ID": 46,
@@ -689,6 +697,7 @@
   },
   {
     "name": "graphs",
+    "children": ["math"],
     "lessons": [
       "graphs",
       "adjacency-lists",
@@ -772,6 +781,7 @@
   },
   {
     "name": "dynamic programming",
+    "children": ["bit manipulation", "greedy"],
     "lessons": ["recursion", "backtracking", "dynamic-programming"],
     "data": [
       {
@@ -848,6 +858,7 @@
   },
   {
     "name": "bit manipulation",
+    "children": ["math"],
     "lessons": ["bit-manipulation"],
     "data": [
       {

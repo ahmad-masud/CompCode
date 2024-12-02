@@ -5,6 +5,7 @@ import { doc, getDoc } from "firebase/firestore";
 import companies from "../content/roadmap.json";
 import { useUser } from "../context/usercontext";
 import { useNavigate } from "react-router-dom";
+import Tree from "../components/tree";
 
 const average = (array) => {
   if (array.length === 0) return 0;
@@ -21,6 +22,7 @@ const Roadmap = () => {
   const [uniqueProblems, setUniqueProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [narrow, setNarrow] = useState(false);
+  const [view, setView] = useState(localStorage.getItem("view") || "table");
   const { user } = useUser();
   const navigate = useNavigate();
 
@@ -62,6 +64,7 @@ const Roadmap = () => {
           solvedProblems,
           mostCommonDifficulty,
           problems: company.data,
+          children: company.children,
         };
       });
 
@@ -190,87 +193,113 @@ const Roadmap = () => {
           }}
         ></div>
       </div>
-      <div className="company-table">
-        <table>
-          <thead>
-            <tr>
-              <th>
-                Name{" "}
-                <button
-                  className="sort-button"
-                  onClick={() => sortCompanies("name")}
-                >
-                  {getSortIcon("name")}
-                </button>
-              </th>
-              {!narrow && (
-                <th>
-                  Acceptance{" "}
-                  <button
-                    className="sort-button"
-                    onClick={() => sortCompanies("avgAcceptance")}
-                  >
-                    {getSortIcon("avgAcceptance")}
-                  </button>
-                </th>
-              )}
-              {!narrow && (
-                <th>
-                  Solved{" "}
-                  <button
-                    className="sort-button"
-                    onClick={() => sortCompanies("solved")}
-                  >
-                    {getSortIcon("solved")}
-                  </button>
-                </th>
-              )}
-              <th>
-                Difficulty{" "}
-                <button
-                  className="sort-button"
-                  onClick={() => sortCompanies("mostCommonDifficulty")}
-                >
-                  {getSortIcon("mostCommonDifficulty")}
-                </button>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {companiesData.map((company, index) => (
-              <tr key={index}>
-                <td>
-                  <button
-                    onClick={() =>
-                      navigate(
-                        `/roadmap/${company.name.replaceAll(" ", "-").toLowerCase()}`
-                      )
-                    }
-                  >
-                    {company.name.replace(/\b\w/g, (c) => c.toUpperCase())}
-                  </button>
-                </td>
-                {!narrow && <td>{company.avgAcceptance}</td>}
-                {!narrow && (
-                  <td>
-                    <div className="company-progress-bar">
-                      <div
-                        className="company-progress"
-                        style={{
-                          width: `${(company.solvedProblems / company.numProblems) * 100}%`,
-                        }}
-                      ></div>
-                    </div>
-                  </td>
-                )}
-                <td className={company.mostCommonDifficulty.toLowerCase()}>
-                  {company.mostCommonDifficulty}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="toggle-view">
+        <button
+          className={view === "table" ? "active" : ""}
+          onClick={() => {
+            setView("table");
+            localStorage.setItem("view", "table");
+          }}
+        >
+          Sequential
+        </button>
+        <button
+          className={view === "tree" ? "active" : ""}
+          onClick={() => {
+            setView("tree");
+            localStorage.setItem("view", "tree");
+          }}
+        >
+          Hierarchical
+        </button>
       </div>
+      {view === "table" ? (
+        <div className="company-table">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Name{" "}
+                  <button
+                    className="sort-button"
+                    onClick={() => sortCompanies("name")}
+                  >
+                    {getSortIcon("name")}
+                  </button>
+                </th>
+                {!narrow && (
+                  <th>
+                    Acceptance{" "}
+                    <button
+                      className="sort-button"
+                      onClick={() => sortCompanies("avgAcceptance")}
+                    >
+                      {getSortIcon("avgAcceptance")}
+                    </button>
+                  </th>
+                )}
+                {!narrow && (
+                  <th>
+                    Solved{" "}
+                    <button
+                      className="sort-button"
+                      onClick={() => sortCompanies("solved")}
+                    >
+                      {getSortIcon("solved")}
+                    </button>
+                  </th>
+                )}
+                <th>
+                  Difficulty{" "}
+                  <button
+                    className="sort-button"
+                    onClick={() => sortCompanies("mostCommonDifficulty")}
+                  >
+                    {getSortIcon("mostCommonDifficulty")}
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {companiesData.map((company, index) => (
+                <tr key={index}>
+                  <td>
+                    <button
+                      onClick={() =>
+                        navigate(
+                          `/roadmap/${company.name.replaceAll(" ", "-").toLowerCase()}`
+                        )
+                      }
+                    >
+                      {company.name.replace(/\b\w/g, (c) => c.toUpperCase())}
+                    </button>
+                  </td>
+                  {!narrow && <td>{company.avgAcceptance}</td>}
+                  {!narrow && (
+                    <td>
+                      <div className="company-progress-bar">
+                        <div
+                          className="company-progress"
+                          style={{
+                            width: `${(company.solvedProblems / company.numProblems) * 100}%`,
+                          }}
+                        ></div>
+                      </div>
+                    </td>
+                  )}
+                  <td className={company.mostCommonDifficulty.toLowerCase()}>
+                    {company.mostCommonDifficulty}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <div className="company-tree">
+          <Tree companiesData={companiesData} />
+        </div>
+      )}
     </div>
   );
 };

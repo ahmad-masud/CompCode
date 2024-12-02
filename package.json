@@ -17,7 +17,8 @@
     "react-katex": "^3.0.1",
     "react-router-dom": "^6.24.1",
     "react-scripts": "5.0.1",
-    "react-syntax-highlighter": "^15.5.0"
+    "react-syntax-highlighter": "^15.5.0",
+    "reactflow": "^11.11.4"
   },
   "scripts": {
     "start": "react-scripts start --no-eslint",
