@@ -29,8 +29,11 @@ body {
 * {
   margin: 0;
   padding: 0;
-  transition: all 0.1s ease-in-out;
   scroll-behavior: smooth;
+}
+
+*:not([class^="react-flow"]) {
+  transition: all 0.1s ease-in-out;
 }
 
 .overlay-backdrop {

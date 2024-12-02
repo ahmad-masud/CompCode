@@ -16,3 +16,8 @@
   align-items: center;
   gap: 5px;
 }
+
+.react-flow__handle {
+  cursor: default !important;
+  pointer-events: none !important;
+}

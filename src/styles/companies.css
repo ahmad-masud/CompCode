@@ -204,7 +204,7 @@
 
 .company-tree {
   width: 100%;
-  height: 100vh;
+  height: 1000px;
   border-radius: 10px;
   overflow: hidden;
 }

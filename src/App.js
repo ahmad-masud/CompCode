@@ -17,7 +17,6 @@ import roadmap from "./content/roadmap.json";
 import companies from "./content/companies.json";
 import importAllPages from "./utils/importallpages";
 import "./styles/app.css";
-import { ReactFlowProvider } from "reactflow";
 
 const stripePromise = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
   ? loadStripe(String(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY))
@@ -75,49 +74,47 @@ const App = () => {
 
   return (
     <div className="app">
-      <ReactFlowProvider>
-        <AlertsProvider>
-          <UserProvider>
-            <ThemeProvider>
-              <Alerts />
-              {displaySettings && (
-                <Settings onClose={() => setDisplaySettings(false)} />
+      <AlertsProvider>
+        <UserProvider>
+          <ThemeProvider>
+            <Alerts />
+            {displaySettings && (
+              <Settings onClose={() => setDisplaySettings(false)} />
+            )}
+            <Report
+              onClose={() => setDisplayReport(false)}
+              onOpen={() => setDisplayReport(true)}
+              open={displayReport}
+            />
+            <Router>
+              <Navbar onSettingsOpen={() => setDisplaySettings(true)} />
+              {stripePromise && (
+                <Elements stripe={stripePromise}>
+                  <ScrollToTop />
+                  <Routes>
+                    {routes.map((route) =>
+                      route.key ? (
+                        <Route
+                          key={route.key}
+                          path={route.path}
+                          element={route.element}
+                        />
+                      ) : (
+                        <Route
+                          key={route.path}
+                          path={route.path}
+                          element={route.element}
+                        />
+                      )
+                    )}
+                  </Routes>
+                </Elements>
               )}
-              <Report
-                onClose={() => setDisplayReport(false)}
-                onOpen={() => setDisplayReport(true)}
-                open={displayReport}
-              />
-              <Router>
-                <Navbar onSettingsOpen={() => setDisplaySettings(true)} />
-                {stripePromise && (
-                  <Elements stripe={stripePromise}>
-                    <ScrollToTop />
-                    <Routes>
-                      {routes.map((route) =>
-                        route.key ? (
-                          <Route
-                            key={route.key}
-                            path={route.path}
-                            element={route.element}
-                          />
-                        ) : (
-                          <Route
-                            key={route.path}
-                            path={route.path}
-                            element={route.element}
-                          />
-                        )
-                      )}
-                    </Routes>
-                  </Elements>
-                )}
-                <Footer />
-              </Router>
-            </ThemeProvider>
-          </UserProvider>
-        </AlertsProvider>
-      </ReactFlowProvider>
+              <Footer />
+            </Router>
+          </ThemeProvider>
+        </UserProvider>
+      </AlertsProvider>
     </div>
   );
 };
