@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 20px;
   left: 20px;
-  transition: none;
+  transition: none !important;
 }
 
 .report-button button {
@@ -31,7 +31,7 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  transition: none;
+  transition: none !important;
 }
 
 .submission-content {

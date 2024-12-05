@@ -26,7 +26,7 @@ const Home = () => {
             Prepare for your company's technical interview through solving
             frequently asked LeetCode problems.
           </p>
-          <Link to="/companies" className="hero-link">
+          <Link to="/roadmap" className="hero-link">
             Get Started
           </Link>
           <p className="tech-tip">Today's tech tip: {tip}</p>
