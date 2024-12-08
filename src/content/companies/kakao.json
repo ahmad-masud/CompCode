@@ -1,0 +1,13 @@
+{
+  "name": "kakao",
+  "data": [
+    {
+      "ID": "1210",
+      "Title": "Minimum Moves to Reach Target with Rotations",
+      "Acceptance": 45,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/minimum-moves-to-reach-target-with-rotations"
+    }
+  ]
+}

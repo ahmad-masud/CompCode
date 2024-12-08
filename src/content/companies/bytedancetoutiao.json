@@ -1,0 +1,13 @@
+{
+  "name": "bytedancetoutiao",
+  "data": [
+    {
+      "ID": "1140",
+      "Title": "Stone Game II",
+      "Acceptance": 63,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/stone-game-ii"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "title": "Binary Search Trees",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A Binary Search Tree (BST) is a binary tree where each node follows specific properties: the left subtree contains values **less than** the node's value, and the right subtree contains values **greater than** the node's value."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class TreeNode:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None"
+          },
+          {
+            "type": "paragraph",
+            "text": "You are given a BST with the root node value 10."
+          }
+        ]
+      },
+      "question": "Where should a new node with value 15 be inserted?",
+      "options": [
+        "Left subtree",
+        "Right subtree",
+        "Above the root",
+        "Replace the root"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Since 15 is greater than 10, it should be inserted into the right subtree."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To search for a value in a BST, you compare it with the root node's value and decide whether to traverse left or right."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def search_bst(root, value):\n    if not root or root.value == value:\n        return root\n    if value < root.value:\n        return search_bst(root.left, value)\n    return search_bst(root.right, value)"
+          },
+          {
+            "type": "paragraph",
+            "text": "You want to find a node with value 7."
+          }
+        ]
+      },
+      "question": "Where should you search for the value 7 if the root node's value is 10?",
+      "options": [
+        "Left subtree",
+        "Right subtree",
+        "Both subtrees",
+        "None (not possible in a BST)"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "Since 7 is less than 10, you should search in the left subtree."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You want to find the minimum value in a BST. The minimum value is always found at the **leftmost node**."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def find_min(root):\n    while root.left:\n        root = root.left\n    return root.value"
+          }
+        ]
+      },
+      "question": "How can you find the minimum value in a BST?",
+      "options": [
+        "Traverse right until no more nodes exist",
+        "Traverse left until no more nodes exist",
+        "Check both subtrees",
+        "Search the root"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The minimum value in a BST is found by traversing left until there are no more nodes."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You need to delete a node from a BST. If the node has two children, replace it with the **in-order successor** (smallest node in the right subtree)."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def delete_node(root, value):\n    if not root:\n        return root\n    if value < root.value:\n        root.left = delete_node(root.left, value)\n    elif value > root.value:\n        root.right = delete_node(root.right, value)\n    else:\n        if not root.left:\n            return root.right\n        elif not root.right:\n            return root.left\n        min_larger_node = find_min(root.right)\n        root.value = min_larger_node.value\n        root.right = delete_node(root.right, min_larger_node.value)\n    return root"
+          }
+        ]
+      },
+      "question": "What should you do if a node to be deleted has two children?",
+      "options": [
+        "Remove both children",
+        "Replace it with the in-order predecessor",
+        "Replace it with the in-order successor",
+        "Ignore the node"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The in-order successor (smallest node in the right subtree) is used to replace the node."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Balancing a BST ensures that the height of the tree remains minimal, improving search operations. One way to balance a BST is by using a self-balancing tree like an **AVL tree**."
+          }
+        ]
+      },
+      "question": "What is the purpose of balancing a BST?",
+      "options": [
+        "To minimize the height and improve search efficiency",
+        "To keep nodes in sorted order",
+        "To allow duplicates",
+        "To remove leaves"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "Balancing a BST minimizes its height, which improves search, insertion, and deletion efficiency."
+    }
+  ]
+}

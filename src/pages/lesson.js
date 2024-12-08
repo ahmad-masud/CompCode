@@ -6,61 +6,76 @@ import {
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import "../styles/lesson.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../context/usercontext";
 import { useTheme } from "../context/themecontext";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { firestore } from "../config/firebase-config";
 import { useAlerts } from "../context/alertscontext";
 
-const Lesson = ({ data }) => {
+const Lesson = () => {
   const [lesson, setLesson] = useState(null);
   const [copiedState, setCopiedState] = useState([]);
   const [completed, setCompleted] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
   const { premiumInfo, user } = useUser();
   const { theme } = useTheme();
   const { addAlert } = useAlerts();
-  const [loading, setLoading] = useState(true);
+  const { lessonId } = useParams();
 
   useEffect(() => {
-    if (!data) return;
-    if (data.premium && !premiumInfo.premium) {
-      navigate("/premium");
-      return;
-    }
-    setLesson(data);
-    setCopiedState(Array(data.lessons?.length || 0).fill(false));
+    const loadLesson = async () => {
+      try {
+        const data = await import(`../content/lessons/${lessonId}.json`);
+        setLesson(data);
 
-    const checkIfCompleted = async (lessonTitle) => {
-      if (!user) return;
-      const userRef = doc(firestore, "users", user.uid);
-      const userSnap = await getDoc(userRef);
-      if (userSnap.exists()) {
-        const completedLessons = userSnap.data().completedLessons || {};
-        setCompleted(!!completedLessons[lessonTitle]);
+        if (data.premium && !premiumInfo.premium) {
+          navigate("/premium");
+          return;
+        }
+
+        setCopiedState(Array(data.lessons?.length || 0).fill([]));
+
+        if (user) {
+          const userRef = doc(firestore, "users", user.uid);
+          const userSnap = await getDoc(userRef);
+          if (userSnap.exists()) {
+            const completedLessons = userSnap.data().completedLessons || {};
+            setCompleted(!!completedLessons[data.title]);
+          }
+        }
+      } catch (error) {
+        console.error("Error loading lesson:", error);
+        navigate("/notfound");
+      } finally {
+        setLoading(false);
       }
     };
 
-    checkIfCompleted(data.title);
-    setLoading(false);
-  }, [user, data, navigate, premiumInfo]);
+    if (lessonId) {
+      loadLesson();
+    }
+  }, [lessonId, premiumInfo, navigate, user]);
 
-  const handleCheckboxChange = async (lessonTitle) => {
+  const handleCheckboxChange = async () => {
     if (!user) {
       addAlert("Sign in to track your progress", "warning");
       return;
     }
+
     const userRef = doc(firestore, "users", user.uid);
-    setCompleted(!completed);
+    const updatedStatus = !completed;
+    setCompleted(updatedStatus);
 
     try {
       const userSnap = await getDoc(userRef);
       if (!userSnap.exists()) {
-        await setDoc(userRef, { completedLessons: { [lessonTitle]: true } });
+        await setDoc(userRef, { completedLessons: { [lesson.title]: true } });
       } else {
         await updateDoc(userRef, {
-          [`completedLessons.${lessonTitle}`]: !completed,
+          [`completedLessons.${lesson.title}`]: updatedStatus,
         });
       }
     } catch (error) {
@@ -69,14 +84,13 @@ const Lesson = ({ data }) => {
   };
 
   const handleCopy = (lessonIdx, blockIdx) => {
-    const newCopiedState = [...copiedState];
-    newCopiedState[lessonIdx][blockIdx] = true;
-    setCopiedState(newCopiedState);
+    const updatedState = [...copiedState];
+    updatedState[lessonIdx][blockIdx] = true;
+    setCopiedState(updatedState);
 
     setTimeout(() => {
-      const resetCopiedState = [...copiedState];
-      resetCopiedState[lessonIdx][blockIdx] = false;
-      setCopiedState(resetCopiedState);
+      updatedState[lessonIdx][blockIdx] = false;
+      setCopiedState([...updatedState]);
     }, 2000);
   };
 
@@ -92,7 +106,6 @@ const Lesson = ({ data }) => {
 
   const renderParagraphWithHighlights = (text) => {
     const parts = text.split(/(`[^`]+`)/g);
-
     return parts.map((part, index) => {
       if (part.startsWith("`") && part.endsWith("`")) {
         return (
@@ -105,13 +118,13 @@ const Lesson = ({ data }) => {
     });
   };
 
-  if (loading) return;
+  if (loading) return null;
 
   return (
     <div className="lesson-container">
       <p className="lesson-header">
         {lesson.title}
-        <button onClick={() => handleCheckboxChange(lesson.title)}>
+        <button onClick={handleCheckboxChange}>
           {completed ? (
             <i className="fa-solid fa-square-check"></i>
           ) : (
@@ -176,7 +189,7 @@ const Lesson = ({ data }) => {
                         </button>
                       </CopyToClipboard>
                       <SyntaxHighlighter
-                        language={"python"}
+                        language={block.language || "python"}
                         style={
                           theme === "dark"
                             ? codeDark

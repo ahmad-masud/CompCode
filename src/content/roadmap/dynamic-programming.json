@@ -1,0 +1,76 @@
+{
+  "name": "dynamic programming",
+  "lessons": ["recursion", "backtracking", "dynamic-programming"],
+  "data": [
+    {
+      "ID": 70,
+      "Title": "Climbing Stairs",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/climbing-stairs",
+      "Acceptance": 52
+    },
+    {
+      "ID": 746,
+      "Title": "Min Cost Climbing Stairs",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/min-cost-climbing-stairs",
+      "Acceptance": 62
+    },
+    {
+      "ID": 198,
+      "Title": "House Robber",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/house-robber",
+      "Acceptance": 49
+    },
+    {
+      "ID": 213,
+      "Title": "House Robber II",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/house-robber-ii",
+      "Acceptance": 40
+    },
+    {
+      "ID": 62,
+      "Title": "Unique Paths",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/unique-paths",
+      "Acceptance": 60
+    },
+    {
+      "ID": 63,
+      "Title": "Unique Paths II",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/unique-paths-ii",
+      "Acceptance": 39
+    },
+    {
+      "ID": 5,
+      "Title": "Longest Palindromic Substring",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/longest-palindromic-substring",
+      "Acceptance": 32
+    },
+    {
+      "ID": 300,
+      "Title": "Longest Increasing Subsequence",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/longest-increasing-subsequence",
+      "Acceptance": 48
+    },
+    {
+      "ID": 1143,
+      "Title": "Longest Common Subsequence",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/longest-common-subsequence",
+      "Acceptance": 61
+    },
+    {
+      "ID": 152,
+      "Title": "Maximum Product Subarray",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/maximum-product-subarray",
+      "Acceptance": 34
+    }
+  ]
+}

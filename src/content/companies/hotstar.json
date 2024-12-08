@@ -1,0 +1,13 @@
+{
+  "name": "hotstar",
+  "data": [
+    {
+      "ID": "927",
+      "Title": "Three Equal Parts",
+      "Acceptance": 33,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/three-equal-parts"
+    }
+  ]
+}

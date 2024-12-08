@@ -1,0 +1,117 @@
+{
+  "name": "twitch",
+  "data": [
+    {
+      "ID": "828",
+      "Title": "Count Unique Characters of All Substrings of a Given String",
+      "Acceptance": 45,
+      "Difficulty": "Hard",
+      "Frequency": "0.4064583363781751",
+      "Link": " https://leetcode.com/problems/count-unique-characters-of-all-substrings-of-a-given-string"
+    },
+    {
+      "ID": "695",
+      "Title": "Max Area of Island",
+      "Acceptance": 62,
+      "Difficulty": "Medium",
+      "Frequency": "0.2770125235595406",
+      "Link": " https://leetcode.com/problems/max-area-of-island"
+    },
+    {
+      "ID": "723",
+      "Title": "Candy Crush",
+      "Acceptance": 69,
+      "Difficulty": "Medium",
+      "Frequency": "0.1475667107409061",
+      "Link": " https://leetcode.com/problems/candy-crush"
+    },
+    {
+      "ID": "200",
+      "Title": "Number of Islands",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.06985103785996453",
+      "Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+      "ID": "56",
+      "Title": "Merge Intervals",
+      "Acceptance": 39,
+      "Difficulty": "Medium",
+      "Frequency": "0.030829638084076787",
+      "Link": " https://leetcode.com/problems/merge-intervals"
+    },
+    {
+      "ID": "977",
+      "Title": "Squares of a Sorted Array",
+      "Acceptance": 72,
+      "Difficulty": "Easy",
+      "Frequency": "0.015474196582597383",
+      "Link": " https://leetcode.com/problems/squares-of-a-sorted-array"
+    },
+    {
+      "ID": "41",
+      "Title": "First Missing Positive",
+      "Acceptance": 32,
+      "Difficulty": "Hard",
+      "Frequency": "0.014368063266920193",
+      "Link": " https://leetcode.com/problems/first-missing-positive"
+    },
+    {
+      "ID": "767",
+      "Title": "Reorganize String",
+      "Acceptance": 48,
+      "Difficulty": "Medium",
+      "Frequency": "0.01329806830463147",
+      "Link": " https://leetcode.com/problems/reorganize-string"
+    },
+    {
+      "ID": "146",
+      "Title": "LRU Cache",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.010321192540274932",
+      "Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+      "ID": "3",
+      "Title": "Longest Substring Without Repeating Characters",
+      "Acceptance": 30,
+      "Difficulty": "Medium",
+      "Frequency": "0.009683242444739549",
+      "Link": " https://leetcode.com/problems/longest-substring-without-repeating-characters"
+    },
+    {
+      "ID": "33",
+      "Title": "Search in Rotated Sorted Array",
+      "Acceptance": 34,
+      "Difficulty": "Medium",
+      "Frequency": "0.007252832180390353",
+      "Link": " https://leetcode.com/problems/search-in-rotated-sorted-array"
+    },
+    {
+      "ID": "1230",
+      "Title": "Toss Strange Coins",
+      "Acceptance": 48,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/toss-strange-coins"
+    },
+    {
+      "ID": "1435",
+      "Title": "Create a Session Bar Chart",
+      "Acceptance": 76,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/create-a-session-bar-chart"
+    },
+    {
+      "ID": "1500",
+      "Title": "Design a File Sharing System",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/design-a-file-sharing-system"
+    }
+  ]
+}

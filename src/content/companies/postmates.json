@@ -1,0 +1,77 @@
+{
+  "name": "postmates",
+  "data": [
+    {
+      "ID": "301",
+      "Title": "Remove Invalid Parentheses",
+      "Acceptance": 43,
+      "Difficulty": "Hard",
+      "Frequency": "0.13310393847431484",
+      "Link": " https://leetcode.com/problems/remove-invalid-parentheses"
+    },
+    {
+      "ID": "1190",
+      "Title": "Reverse Substrings Between Each Pair of Parentheses",
+      "Acceptance": 61,
+      "Difficulty": "Medium",
+      "Frequency": "0.09928670042921932",
+      "Link": " https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses"
+    },
+    {
+      "ID": "55",
+      "Title": "Jump Game",
+      "Acceptance": 34,
+      "Difficulty": "Medium",
+      "Frequency": "0.059854228581496645",
+      "Link": " https://leetcode.com/problems/jump-game"
+    },
+    {
+      "ID": "253",
+      "Title": "Meeting Rooms II",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0.04945628059066218",
+      "Link": " https://leetcode.com/problems/meeting-rooms-ii"
+    },
+    {
+      "ID": "227",
+      "Title": "Basic Calculator II",
+      "Acceptance": 36,
+      "Difficulty": "Medium",
+      "Frequency": "0.04870104158125306",
+      "Link": " https://leetcode.com/problems/basic-calculator-ii"
+    },
+    {
+      "ID": "759",
+      "Title": "Employee Free Time",
+      "Acceptance": 66,
+      "Difficulty": "Hard",
+      "Frequency": "0.04861224405509378",
+      "Link": " https://leetcode.com/problems/employee-free-time"
+    },
+    {
+      "ID": "56",
+      "Title": "Merge Intervals",
+      "Acceptance": 39,
+      "Difficulty": "Medium",
+      "Frequency": "0.04173304225331761",
+      "Link": " https://leetcode.com/problems/merge-intervals"
+    },
+    {
+      "ID": "20",
+      "Title": "Valid Parentheses",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.0023005704055949323",
+      "Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+      "ID": "15",
+      "Title": "3Sum",
+      "Acceptance": 26,
+      "Difficulty": "Medium",
+      "Frequency": "0.0021990113314367685",
+      "Link": " https://leetcode.com/problems/3sum"
+    }
+  ]
+}

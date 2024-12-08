@@ -1,0 +1,37 @@
+{
+  "name": "dataminr",
+  "data": [
+    {
+      "ID": "57",
+      "Title": "Insert Interval",
+      "Acceptance": 33,
+      "Difficulty": "Hard",
+      "Frequency": "0.05771586881832742",
+      "Link": " https://leetcode.com/problems/insert-interval"
+    },
+    {
+      "ID": "56",
+      "Title": "Merge Intervals",
+      "Acceptance": 39,
+      "Difficulty": "Medium",
+      "Frequency": "0.030829638084076787",
+      "Link": " https://leetcode.com/problems/merge-intervals"
+    },
+    {
+      "ID": "42",
+      "Title": "Trapping Rain Water",
+      "Acceptance": 48,
+      "Difficulty": "Hard",
+      "Frequency": "0.02688623073425064",
+      "Link": " https://leetcode.com/problems/trapping-rain-water"
+    },
+    {
+      "ID": "885",
+      "Title": "Spiral Matrix III",
+      "Acceptance": 69,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/spiral-matrix-iii"
+    }
+  ]
+}

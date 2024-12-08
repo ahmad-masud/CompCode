@@ -1,0 +1,93 @@
+{
+  "name": "robinhood",
+  "data": [
+    {
+      "ID": "418",
+      "Title": "Sentence Screen Fitting",
+      "Acceptance": 32,
+      "Difficulty": "Medium",
+      "Frequency": "0.7267557746113953",
+      "Link": " https://leetcode.com/problems/sentence-screen-fitting"
+    },
+    {
+      "ID": "755",
+      "Title": "Pour Water",
+      "Acceptance": 43,
+      "Difficulty": "Medium",
+      "Frequency": "0.5580780410684244",
+      "Link": " https://leetcode.com/problems/pour-water"
+    },
+    {
+      "ID": "224",
+      "Title": "Basic Calculator",
+      "Acceptance": 36,
+      "Difficulty": "Hard",
+      "Frequency": "0.4513597728444436",
+      "Link": " https://leetcode.com/problems/basic-calculator"
+    },
+    {
+      "ID": "54",
+      "Title": "Spiral Matrix",
+      "Acceptance": 34,
+      "Difficulty": "Medium",
+      "Frequency": "0.346812263982709",
+      "Link": " https://leetcode.com/problems/spiral-matrix"
+    },
+    {
+      "ID": "59",
+      "Title": "Spiral Matrix II",
+      "Acceptance": 53,
+      "Difficulty": "Medium",
+      "Frequency": "0.1781345304397381",
+      "Link": " https://leetcode.com/problems/spiral-matrix-ii"
+    },
+    {
+      "ID": "68",
+      "Title": "Text Justification",
+      "Acceptance": 27,
+      "Difficulty": "Hard",
+      "Frequency": "0.16143214434637243",
+      "Link": " https://leetcode.com/problems/text-justification"
+    },
+    {
+      "ID": "697",
+      "Title": "Degree of an Array",
+      "Acceptance": 53,
+      "Difficulty": "Easy",
+      "Frequency": "0.07117627846789498",
+      "Link": " https://leetcode.com/problems/degree-of-an-array"
+    },
+    {
+      "ID": "525",
+      "Title": "Contiguous Array",
+      "Acceptance": 42,
+      "Difficulty": "Medium",
+      "Frequency": "0.01975372873623256",
+      "Link": " https://leetcode.com/problems/contiguous-array"
+    },
+    {
+      "ID": "438",
+      "Title": "Find All Anagrams in a String",
+      "Acceptance": 43,
+      "Difficulty": "Medium",
+      "Frequency": "0.008126822460497498",
+      "Link": " https://leetcode.com/problems/find-all-anagrams-in-a-string"
+    },
+    {
+      "ID": "1391",
+      "Title": "Check if There is a Valid Path in a Grid",
+      "Acceptance": 44,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid"
+    },
+    {
+      "ID": "1393",
+      "Title": "Capital Gain/Loss",
+      "Acceptance": 89,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/capital-gainloss"
+    }
+  ]
+}

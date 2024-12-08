@@ -1,0 +1,53 @@
+{
+  "name": "netease",
+  "data": [
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.01757418391706516",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "33",
+      "Title": "Search in Rotated Sorted Array",
+      "Acceptance": 34,
+      "Difficulty": "Medium",
+      "Frequency": "0.012342978578758374",
+      "Link": " https://leetcode.com/problems/search-in-rotated-sorted-array"
+    },
+    {
+      "ID": "7",
+      "Title": "Reverse Integer",
+      "Acceptance": 25,
+      "Difficulty": "Easy",
+      "Frequency": "0.007111773240451589",
+      "Link": " https://leetcode.com/problems/reverse-integer"
+    },
+    {
+      "ID": "46",
+      "Title": "Permutations",
+      "Acceptance": 63,
+      "Difficulty": "Medium",
+      "Frequency": "0.003984069014874407",
+      "Link": " https://leetcode.com/problems/permutations"
+    },
+    {
+      "ID": "664",
+      "Title": "Strange Printer",
+      "Acceptance": 40,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/strange-printer"
+    },
+    {
+      "ID": "826",
+      "Title": "Most Profit Assigning Work",
+      "Acceptance": 38,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/most-profit-assigning-work"
+    }
+  ]
+}

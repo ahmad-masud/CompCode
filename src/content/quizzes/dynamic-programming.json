@@ -1,0 +1,140 @@
+{
+  "title": "Dynamic Programming",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Dynamic Programming (DP) is a technique used to solve problems by **breaking them down into overlapping subproblems** and storing solutions to subproblems to avoid redundant computations."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def fib(n, memo={}):\n    if n <= 1:\n        return n\n    if n not in memo:\n        memo[n] = fib(n - 1, memo) + fib(n - 2, memo)\n    return memo[n]"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "DP is often used for **optimization** problems.",
+              "Problems can be approached using **top-down (memoization)** or **bottom-up (tabulation)** methods."
+            ]
+          }
+        ]
+      },
+      "question": "What is the primary purpose of memoization in dynamic programming?",
+      "options": [
+        "To slow down recursion",
+        "To avoid recalculating already solved subproblems",
+        "To sort data",
+        "To make code more readable"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Memoization avoids recalculating already solved subproblems, improving the efficiency of recursive solutions."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Consider the **Knapsack Problem**, where you have a set of items each with a weight and a value, and a knapsack with a maximum capacity. The goal is to maximize the total value without exceeding the capacity."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def knapsack(weights, values, capacity):\n    n = len(weights)\n    dp = [[0] * (capacity + 1) for _ in range(n + 1)]\n\n    for i in range(1, n + 1):\n        for w in range(1, capacity + 1):\n            if weights[i - 1] <= w:\n                dp[i][w] = max(dp[i - 1][w], dp[i - 1][w - weights[i - 1]] + values[i - 1])\n            else:\n                dp[i][w] = dp[i - 1][w]\n\n    return dp[n][capacity]"
+          },
+          {
+            "type": "paragraph",
+            "text": "The DP approach builds up solutions iteratively using a **2D table** to store the maximum value at each capacity."
+          }
+        ]
+      },
+      "question": "How does dynamic programming help solve the knapsack problem?",
+      "options": [
+        "By sorting items first",
+        "By exploring each combination recursively without storing results",
+        "By building solutions iteratively and storing intermediate results",
+        "By using a stack"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "DP builds solutions iteratively and stores intermediate results to avoid recalculating the same subproblems."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The **Longest Common Subsequence (LCS)** problem involves finding the longest sequence of characters that appear in the same order in both strings."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def lcs(X, Y):\n    m, n = len(X), len(Y)\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if X[i - 1] == Y[j - 1]:\n                dp[i][j] = dp[i - 1][j - 1] + 1\n            else:\n                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])\n\n    return dp[m][n]"
+          }
+        ]
+      },
+      "question": "What is the purpose of the 2D table in the LCS problem?",
+      "options": [
+        "To store the characters in the sequence",
+        "To count distinct characters",
+        "To store intermediate results for subproblems",
+        "To store indices of characters"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The 2D table stores intermediate results for subproblems, enabling efficient calculation of the LCS."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The **minimum edit distance** problem involves finding the minimum number of operations (insertions, deletions, substitutions) required to convert one string into another using DP."
+          },
+          {
+            "type": "paragraph",
+            "text": "This problem can be solved using a **2D table** where dp[i][j] represents the minimum operations needed for substrings of length i and j."
+          }
+        ]
+      },
+      "question": "What does dp[i][j] represent in the minimum edit distance problem?",
+      "options": [
+        "The maximum operations for the substrings",
+        "The minimum operations needed for substrings of length i and j",
+        "The total length of both substrings",
+        "The sum of character codes"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "dp[i][j] represents the minimum operations needed for substrings of length i and j."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In the **coin change** problem, you are given coins of different denominations and asked to make up a target amount using the minimum number of coins."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def coin_change(coins, amount):\n    dp = [float('inf')] * (amount + 1)\n    dp[0] = 0\n\n    for coin in coins:\n        for x in range(coin, amount + 1):\n            dp[x] = min(dp[x], dp[x - coin] + 1)\n\n    return dp[amount] if dp[amount] != float('inf') else -1"
+          }
+        ]
+      },
+      "question": "What does dp[x] represent in the coin change problem?",
+      "options": [
+        "The total value of coins",
+        "The minimum number of coins needed to make amount x",
+        "The maximum coins used",
+        "The sum of coin denominations"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "dp[x] represents the minimum number of coins needed to make up amount x."
+    }
+  ]
+}

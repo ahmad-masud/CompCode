@@ -1,0 +1,21 @@
+{
+  "name": "radius",
+  "data": [
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.0051178232035212715",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "724",
+      "Title": "Find Pivot Index",
+      "Acceptance": 44,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/find-pivot-index"
+    }
+  ]
+}

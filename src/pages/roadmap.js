@@ -7,12 +7,6 @@ import { useUser } from "../context/usercontext";
 import { useNavigate } from "react-router-dom";
 import Tree from "../components/tree";
 
-const average = (array) => {
-  if (array.length === 0) return 0;
-  const sum = array.reduce((acc, val) => acc + val, 0);
-  return sum / array.length;
-};
-
 const Roadmap = () => {
   const [companiesData, setCompaniesData] = useState([]);
   const [sortConfig, setSortConfig] = useState({
@@ -28,11 +22,7 @@ const Roadmap = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 800) {
-        setNarrow(true);
-      } else {
-        setNarrow(false);
-      }
+      setNarrow(window.innerWidth <= 800);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -40,50 +30,34 @@ const Roadmap = () => {
   }, []);
 
   useEffect(() => {
-    const fetchCompaniesData = async () => {
+    const fetchCompaniesData = () => {
       const companiesInfo = companies.map((company) => {
-        const acceptanceRates = company.data.map(
-          (problem) => problem.Acceptance
-        );
-        const difficulties = company.data.map((problem) => problem.Difficulty);
-        const numProblems = company.data.length;
-        const solvedProblems = company.data.filter(
-          (problem) => completedProblems[problem.ID]
+        const solvedProblems = company.problems.filter(
+          (problemId) => completedProblems[problemId]
         ).length;
-        const avgAcceptance =
-          acceptanceRates.length > 0
-            ? parseInt(average(acceptanceRates).toFixed(2)) + "%"
-            : "N/A";
-        const mostCommonDifficulty =
-          difficulties.length > 0 ? mostCommon(difficulties) : "N/A";
 
         return {
-          name: company.name.charAt(0).toUpperCase() + company.name.slice(1),
-          avgAcceptance,
-          numProblems,
+          name: company.name,
+          acceptance: company.acceptance || "N/A",
           solvedProblems,
-          mostCommonDifficulty,
-          problems: company.data,
-          children: company.children,
+          difficulty: company.difficulty || "Unknown",
+          problems: company.problems || [],
+          children: company.children || [],
         };
       });
 
       const sortedCompanies = [...companiesInfo].sort((a, b) => {
         if (sortConfig.key === "name") {
           return sortConfig.direction === "ascending"
-            ? a[sortConfig.key] > b[sortConfig.key]
-              ? 1
-              : -1
-            : a[sortConfig.key] < b[sortConfig.key]
-              ? 1
-              : -1;
-        } else if (sortConfig.key === "avgAcceptance") {
-          const aRate = parseFloat(a[sortConfig.key].replace("%", ""));
-          const bRate = parseFloat(b[sortConfig.key].replace("%", ""));
+            ? a[sortConfig.key].localeCompare(b[sortConfig.key])
+            : b[sortConfig.key].localeCompare(a[sortConfig.key]);
+        } else if (sortConfig.key === "acceptance") {
+          const aRate = a[sortConfig.key] || 0;
+          const bRate = b[sortConfig.key] || 0;
           return sortConfig.direction === "ascending"
             ? aRate - bRate
             : bRate - aRate;
-        } else if (sortConfig.key === "mostCommonDifficulty") {
+        } else if (sortConfig.key === "difficulty") {
           const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
           return sortConfig.direction === "ascending"
             ? difficultyOrder[a[sortConfig.key]] -
@@ -92,21 +66,17 @@ const Roadmap = () => {
                 difficultyOrder[a[sortConfig.key]];
         } else if (sortConfig.key === "solved") {
           return sortConfig.direction === "ascending"
-            ? a.solvedProblems / a.numProblems -
-                b.solvedProblems / b.numProblems
-            : b.solvedProblems / b.numProblems -
-                a.solvedProblems / a.numProblems;
-        } else {
-          return sortConfig.direction === "ascending"
-            ? a[sortConfig.key] - b[sortConfig.key]
-            : b[sortConfig.key] - a[sortConfig.key];
+            ? a.solvedProblems / a.problems.length -
+                b.solvedProblems / b.problems.length
+            : b.solvedProblems / b.problems.length -
+                a.solvedProblems / a.problems.length;
         }
+        return 0;
       });
 
-      const allProblems = companiesInfo.flatMap((company) => company.problems);
       const uniqueProblems = Array.from(
-        new Set(allProblems.map((problem) => problem.ID))
-      ).map((id) => allProblems.find((problem) => problem.ID === id));
+        new Set(companies.flatMap((company) => company.problems))
+      );
 
       setCompaniesData(sortedCompanies);
       setUniqueProblems(uniqueProblems);
@@ -133,32 +103,11 @@ const Roadmap = () => {
     }
   }, [user]);
 
-  const mostCommon = (array) => {
-    if (array.length === 0) return "N/A";
-
-    const counts = {};
-    array.forEach((difficulty) => {
-      counts[difficulty] = (counts[difficulty] || 0) + 1;
-    });
-
-    let mostCommonDifficulty = null;
-    let maxCount = -1;
-    Object.keys(counts).forEach((difficulty) => {
-      if (counts[difficulty] > maxCount) {
-        mostCommonDifficulty = difficulty;
-        maxCount = counts[difficulty];
-      }
-    });
-
-    return mostCommonDifficulty || "N/A";
-  };
-
   const sortCompanies = (key) => {
     let direction = "ascending";
     if (sortConfig.key === key && sortConfig.direction === "ascending") {
       direction = "descending";
     }
-
     setSortConfig({ key, direction });
   };
 
@@ -166,18 +115,16 @@ const Roadmap = () => {
     if (sortConfig.key !== key) {
       return <i className="fa-solid fa-sort"></i>;
     }
-    if (sortConfig.direction === "ascending") {
-      return <i className="fa-solid fa-sort-down"></i>;
-    }
-    return <i className="fa-solid fa-sort-up"></i>;
+    return sortConfig.direction === "ascending" ? (
+      <i className="fa-solid fa-sort-down"></i>
+    ) : (
+      <i className="fa-solid fa-sort-up"></i>
+    );
   };
 
-  const completedCount = uniqueProblems.reduce((count, problem) => {
-    if (completedProblems[problem.ID]) {
-      return count + 1;
-    }
-    return count;
-  }, 0);
+  const completedCount = uniqueProblems.filter(
+    (problemId) => completedProblems[problemId]
+  ).length;
 
   return (
     <div className="companies-page">
@@ -189,7 +136,7 @@ const Roadmap = () => {
         <div
           className="progress"
           style={{
-            width: `${(completedCount / uniqueProblems.length) * 100}%`,
+            width: `${(completedCount / uniqueProblems.length) * 100 || 0}%`,
           }}
         ></div>
       </div>
@@ -232,9 +179,9 @@ const Roadmap = () => {
                     Acceptance{" "}
                     <button
                       className="sort-button"
-                      onClick={() => sortCompanies("avgAcceptance")}
+                      onClick={() => sortCompanies("acceptance")}
                     >
-                      {getSortIcon("avgAcceptance")}
+                      {getSortIcon("acceptance")}
                     </button>
                   </th>
                 )}
@@ -253,9 +200,9 @@ const Roadmap = () => {
                   Difficulty{" "}
                   <button
                     className="sort-button"
-                    onClick={() => sortCompanies("mostCommonDifficulty")}
+                    onClick={() => sortCompanies("difficulty")}
                   >
-                    {getSortIcon("mostCommonDifficulty")}
+                    {getSortIcon("difficulty")}
                   </button>
                 </th>
               </tr>
@@ -267,28 +214,36 @@ const Roadmap = () => {
                     <button
                       onClick={() =>
                         navigate(
-                          `/roadmap/${company.name.replaceAll(" ", "-").toLowerCase()}`
+                          `/roadmap/${company.name.replace(/\s+/g, "-").toLowerCase()}`
                         )
                       }
                     >
-                      {company.name.replace(/\b\w/g, (c) => c.toUpperCase())}
+                      {company.name
+                        .replaceAll("-", " ")
+                        .replace(/\b\w/g, (c) => c.toUpperCase())}
                     </button>
                   </td>
-                  {!narrow && <td>{company.avgAcceptance}</td>}
+                  {!narrow && <td>{company.acceptance}%</td>}
                   {!narrow && (
                     <td>
                       <div className="company-progress-bar">
                         <div
                           className="company-progress"
                           style={{
-                            width: `${(company.solvedProblems / company.numProblems) * 100}%`,
+                            width: `${
+                              company.problems.length
+                                ? (company.solvedProblems /
+                                    company.problems.length) *
+                                  100
+                                : 0
+                            }%`,
                           }}
                         ></div>
                       </div>
                     </td>
                   )}
-                  <td className={company.mostCommonDifficulty.toLowerCase()}>
-                    {company.mostCommonDifficulty}
+                  <td className={company.difficulty.toLowerCase()}>
+                    {company.difficulty}
                   </td>
                 </tr>
               ))}

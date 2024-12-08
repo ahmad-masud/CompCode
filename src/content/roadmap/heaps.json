@@ -1,0 +1,41 @@
+{
+  "name": "heaps",
+  "lessons": ["arrays", "heaps"],
+  "data": [
+    {
+      "ID": 215,
+      "Title": "Kth Largest Element in an Array",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/kth-largest-element-in-an-array",
+      "Acceptance": 64
+    },
+    {
+      "ID": 973,
+      "Title": "K Closest Points to Origin",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/k-closest-points-to-origin",
+      "Acceptance": 66
+    },
+    {
+      "ID": 703,
+      "Title": "Kth Largest Element in a Stream",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/kth-largest-element-in-a-stream",
+      "Acceptance": 54
+    },
+    {
+      "ID": 295,
+      "Title": "Find Median from Data Stream",
+      "Difficulty": "Hard",
+      "Link": "https://leetcode.com/problems/find-median-from-data-stream",
+      "Acceptance": 53
+    },
+    {
+      "ID": 1046,
+      "Title": "Last Stone Weight",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/last-stone-weight",
+      "Acceptance": 64
+    }
+  ]
+}

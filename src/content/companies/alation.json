@@ -1,0 +1,13 @@
+{
+  "name": "alation",
+  "data": [
+    {
+      "ID": "3",
+      "Title": "Longest Substring Without Repeating Characters",
+      "Acceptance": 30,
+      "Difficulty": "Medium",
+      "Frequency": "0.14469274653374686",
+      "Link": " https://leetcode.com/problems/longest-substring-without-repeating-characters"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "name": "groupon",
+  "data": [
+    {
+      "ID": "297",
+      "Title": "Serialize and Deserialize Binary Tree",
+      "Acceptance": 47,
+      "Difficulty": "Hard",
+      "Frequency": "0.04958336617493765",
+      "Link": " https://leetcode.com/problems/serialize-and-deserialize-binary-tree"
+    },
+    {
+      "ID": "146",
+      "Title": "LRU Cache",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.040660598211268925",
+      "Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+      "ID": "121",
+      "Title": "Best Time to Buy and Sell Stock",
+      "Acceptance": 50,
+      "Difficulty": "Easy",
+      "Frequency": "0.033453179586686504",
+      "Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+    },
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.024530411623017775",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "48",
+      "Title": "Rotate Image",
+      "Acceptance": 56,
+      "Difficulty": "Medium",
+      "Frequency": "0.020228249775471566",
+      "Link": " https://leetcode.com/problems/rotate-image"
+    },
+    {
+      "ID": "238",
+      "Title": "Product of Array Except Self",
+      "Acceptance": 60,
+      "Difficulty": "Medium",
+      "Frequency": "0.015629897160874744",
+      "Link": " https://leetcode.com/problems/product-of-array-except-self"
+    },
+    {
+      "ID": "155",
+      "Title": "Min Stack",
+      "Acceptance": 44,
+      "Difficulty": "Easy",
+      "Frequency": "0.010653509851791077",
+      "Link": " https://leetcode.com/problems/min-stack"
+    },
+    {
+      "ID": "15",
+      "Title": "3Sum",
+      "Acceptance": 26,
+      "Difficulty": "Medium",
+      "Frequency": "0.00876717944353383",
+      "Link": " https://leetcode.com/problems/3sum"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "name": "docusign",
+  "data": [
+    {
+      "ID": "92",
+      "Title": "Reverse Linked List II",
+      "Acceptance": 38,
+      "Difficulty": "Medium",
+      "Frequency": "0.06299677669844994",
+      "Link": " https://leetcode.com/problems/reverse-linked-list-ii"
+    },
+    {
+      "ID": "49",
+      "Title": "Group Anagrams",
+      "Acceptance": 56,
+      "Difficulty": "Medium",
+      "Frequency": "0.058734162515069785",
+      "Link": " https://leetcode.com/problems/group-anagrams"
+    },
+    {
+      "ID": "71",
+      "Title": "Simplify Path",
+      "Acceptance": 32,
+      "Difficulty": "Medium",
+      "Frequency": "0.03622126343431837",
+      "Link": " https://leetcode.com/problems/simplify-path"
+    },
+    {
+      "ID": "146",
+      "Title": "LRU Cache",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.028411001832779885",
+      "Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+      "ID": "73",
+      "Title": "Set Matrix Zeroes",
+      "Acceptance": 43,
+      "Difficulty": "Medium",
+      "Frequency": "0.027769920533553028",
+      "Link": " https://leetcode.com/problems/set-matrix-zeroes"
+    },
+    {
+      "ID": "206",
+      "Title": "Reverse Linked List",
+      "Acceptance": 62,
+      "Difficulty": "Easy",
+      "Frequency": "0.005257021452801617",
+      "Link": " https://leetcode.com/problems/reverse-linked-list"
+    },
+    {
+      "ID": "242",
+      "Title": "Valid Anagram",
+      "Acceptance": 56,
+      "Difficulty": "Easy",
+      "Frequency": "0.004154123743115972",
+      "Link": " https://leetcode.com/problems/valid-anagram"
+    },
+    {
+      "ID": "2",
+      "Title": "Add Two Numbers",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.00379539105290024",
+      "Link": " https://leetcode.com/problems/add-two-numbers"
+    },
+    {
+      "ID": "79",
+      "Title": "Word Search",
+      "Acceptance": 35,
+      "Difficulty": "Medium",
+      "Frequency": "0.003741741363018696",
+      "Link": " https://leetcode.com/problems/word-search"
+    }
+  ]
+}

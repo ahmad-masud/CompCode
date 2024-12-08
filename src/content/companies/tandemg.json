@@ -1,0 +1,13 @@
+{
+  "name": "tandemg",
+  "data": [
+    {
+      "ID": "915",
+      "Title": "Partition Array into Disjoint Intervals",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/partition-array-into-disjoint-intervals"
+    }
+  ]
+}

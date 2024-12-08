@@ -1,0 +1,29 @@
+{
+  "name": "deutsche-bank",
+  "data": [
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.021367083275821815",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "76",
+      "Title": "Minimum Window Substring",
+      "Acceptance": 34,
+      "Difficulty": "Hard",
+      "Frequency": "0.01693759130600622",
+      "Link": " https://leetcode.com/problems/minimum-window-substring"
+    },
+    {
+      "ID": "121",
+      "Title": "Best Time to Buy and Sell Stock",
+      "Acceptance": 50,
+      "Difficulty": "Easy",
+      "Frequency": "0.00846879565300311",
+      "Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+    }
+  ]
+}

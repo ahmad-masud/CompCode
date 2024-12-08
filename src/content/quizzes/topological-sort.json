@@ -1,0 +1,146 @@
+{
+  "title": "Topological Sort",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Topological Sort is a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge **(u, v)**, vertex **u** comes before vertex **v**."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "from collections import defaultdict\n\ndef topological_sort(graph):\n    in_degree = {node: 0 for node in graph}\n    for nodes in graph.values():\n        for node in nodes:\n            in_degree[node] += 1\n\n    queue = [node for node in graph if in_degree[node] == 0]\n    order = []\n\n    while queue:\n        node = queue.pop(0)\n        order.append(node)\n        for neighbor in graph[node]:\n            in_degree[neighbor] -= 1\n            if in_degree[neighbor] == 0:\n                queue.append(neighbor)\n    return order"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Topological sorting is only possible for **DAGs**.",
+              "Commonly used for **task scheduling** with dependencies."
+            ]
+          }
+        ]
+      },
+      "question": "What type of graph is suitable for topological sorting?",
+      "options": [
+        "Undirected graph",
+        "Directed acyclic graph (DAG)",
+        "Cyclic graph",
+        "Weighted graph"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Topological sorting is only applicable to directed acyclic graphs (DAGs)."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Consider a task dependency graph where tasks **A, B, C, D** must be completed in a specific order due to dependencies. Task A must be completed before tasks B and C, while task C must be completed before task D."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "graph = {\n    'A': ['B', 'C'],\n    'B': [],\n    'C': ['D'],\n    'D': []\n}\nprint(topological_sort(graph))"
+          },
+          {
+            "type": "paragraph",
+            "text": "The topological sort of this graph will respect the dependencies among tasks."
+          }
+        ]
+      },
+      "question": "Which of the following is a valid topological order for the given graph?",
+      "options": [
+        "['B', 'A', 'C', 'D']",
+        "['A', 'C', 'D', 'B']",
+        "['C', 'D', 'A', 'B']",
+        "['D', 'C', 'B', 'A']"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The valid topological order respects the dependencies: A must come before B and C, and C must come before D."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To perform a **topological sort** using Depth-First Search (DFS), we recursively visit all unvisited nodes, adding each node to the ordering as we backtrack."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def dfs_topological_sort(graph, node, visited, stack):\n    visited.add(node)\n    for neighbor in graph[node]:\n        if neighbor not in visited:\n            dfs_topological_sort(graph, neighbor, visited, stack)\n    stack.append(node)"
+          },
+          {
+            "type": "paragraph",
+            "text": "Nodes are added to the stack once all their dependencies have been visited."
+          }
+        ]
+      },
+      "question": "In a DFS-based topological sort, when is a node added to the ordering?",
+      "options": [
+        "Before visiting its neighbors",
+        "When it is first visited",
+        "After visiting all its dependencies",
+        "When its in-degree becomes zero"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "In a DFS-based topological sort, a node is added to the ordering after all its dependencies have been visited."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Suppose you are tasked with organizing **project milestones** based on dependencies. Each milestone must be completed before others can proceed."
+          },
+          {
+            "type": "paragraph",
+            "text": "Topological sorting ensures that all dependencies are respected in the ordering."
+          }
+        ]
+      },
+      "question": "What is a potential use case for topological sorting in project management?",
+      "options": [
+        "Detecting cycles",
+        "Finding shortest paths",
+        "Scheduling tasks with dependencies",
+        "Sorting tasks by priority"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "Topological sorting is useful for scheduling tasks with dependencies, ensuring tasks are completed in the correct order."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "If a cycle exists in a directed graph, **topological sorting** is impossible. Cycles create a situation where a node cannot be resolved before itself."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Topological sorting fails for **cyclic graphs**.",
+              "Cycle detection algorithms can be used to determine if a topological sort is possible."
+            ]
+          }
+        ]
+      },
+      "question": "Why can't topological sorting be performed on graphs with cycles?",
+      "options": [
+        "Cycles are always removed first",
+        "Nodes in cycles have unresolved dependencies",
+        "Cycles are ignored by topological sorting",
+        "Topological sorting is designed for undirected graphs"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Nodes in cycles have unresolved dependencies, making it impossible to perform a topological sort."
+    }
+  ]
+}

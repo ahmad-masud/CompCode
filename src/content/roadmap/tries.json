@@ -1,0 +1,20 @@
+{
+  "name": "tries",
+  "lessons": ["dictionaries", "tries"],
+  "data": [
+    {
+      "ID": 208,
+      "Title": "Implement Trie (Prefix Tree)",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/implement-trie-prefix-tree",
+      "Acceptance": 56
+    },
+    {
+      "ID": 211,
+      "Title": "Design Add and Search Words Data Structure",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/design-add-and-search-words-data-structure",
+      "Acceptance": 45
+    }
+  ]
+}

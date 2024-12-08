@@ -1,0 +1,138 @@
+{
+  "title": "Sliding Window",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The **sliding window** technique is often used to solve problems that involve finding subarrays or substrings within an array or string. It involves maintaining a window that expands or contracts as needed."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def max_sum_subarray(arr, k):\n    max_sum = curr_sum = sum(arr[:k])\n    for i in range(k, len(arr)):\n        curr_sum += arr[i] - arr[i - k]\n        max_sum = max(max_sum, curr_sum)\n    return max_sum"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "The sliding window can be **fixed** or **dynamic** in size.",
+              "Useful for problems involving **contiguous subarrays** or substrings."
+            ]
+          }
+        ]
+      },
+      "question": "What is the main benefit of using the sliding window technique?",
+      "options": [
+        "It reduces the number of iterations",
+        "It works for any kind of data structure",
+        "It requires sorting the array first",
+        "It uses multiple pointers"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "The sliding window technique reduces the number of iterations by reusing computations within a window."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Consider finding the **longest substring** with at most k distinct characters in a given string. The sliding window technique involves expanding the window until the constraint is violated, and then contracting it."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def longest_substring_k_distinct(s, k):\n    from collections import defaultdict\n    char_count = defaultdict(int)\n    left = 0\n    max_len = 0\n\n    for right in range(len(s)):\n        char_count[s[right]] += 1\n        while len(char_count) > k:\n            char_count[s[left]] -= 1\n            if char_count[s[left]] == 0:\n                del char_count[s[left]]\n            left += 1\n        max_len = max(max_len, right - left + 1)\n\n    return max_len"
+          }
+        ]
+      },
+      "question": "How does the sliding window technique maintain the longest substring with at most k distinct characters?",
+      "options": [
+        "By expanding the window only",
+        "By shrinking the window when constraints are violated",
+        "By sorting the characters first",
+        "By removing characters randomly"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The sliding window maintains the longest substring by shrinking when constraints are violated."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In problems involving arrays of **positive integers**, such as finding the minimum size subarray whose sum is greater than or equal to a given value, a dynamic sliding window can be used."
+          },
+          {
+            "type": "paragraph",
+            "text": "The window expands until the sum condition is met, and then contracts from the left to minimize the window size."
+          }
+        ]
+      },
+      "question": "What approach is used to minimize the window size when the sum condition is met?",
+      "options": [
+        "Expanding the window further",
+        "Shrinking the window from the left",
+        "Starting a new window",
+        "Sorting the array"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The window is minimized by contracting it from the left once the sum condition is met."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A **variable-length** sliding window can be used to find substrings in a string that match certain conditions, such as containing all characters of another string."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Expands the window until all conditions are met.",
+              "Contracts the window to find the smallest valid window."
+            ]
+          }
+        ]
+      },
+      "question": "When is a variable-length sliding window most useful?",
+      "options": [
+        "For sorting arrays",
+        "For finding substrings matching specific conditions",
+        "For searching binary trees",
+        "For counting characters"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "A variable-length sliding window is useful for finding substrings that match specific conditions."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The sliding window technique can also solve **maximum product subarray** problems by tracking both the maximum and minimum products at each step due to potential negative values."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def max_product_subarray(nums):\n    max_prod = min_prod = result = nums[0]\n    for i in range(1, len(nums)):\n        if nums[i] < 0:\n            max_prod, min_prod = min_prod, max_prod\n        max_prod = max(nums[i], nums[i] * max_prod)\n        min_prod = min(nums[i], nums[i] * min_prod)\n        result = max(result, max_prod)\n    return result"
+          }
+        ]
+      },
+      "question": "Why is it necessary to track both the maximum and minimum products when solving the maximum product subarray problem?",
+      "options": [
+        "To handle zeroes",
+        "To maximize performance",
+        "To account for negative values",
+        "To maintain a fixed window size"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "Tracking both the maximum and minimum products allows handling of negative values, which can flip the sign of the product."
+    }
+  ]
+}

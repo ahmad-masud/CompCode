@@ -1,0 +1,45 @@
+{
+  "name": "point72",
+  "data": [
+    {
+      "ID": "1294",
+      "Title": "Weather Type in Each Country",
+      "Acceptance": 63,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/weather-type-in-each-country"
+    },
+    {
+      "ID": "1321",
+      "Title": "Restaurant Growth",
+      "Acceptance": 67,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/restaurant-growth"
+    },
+    {
+      "ID": "1378",
+      "Title": "Replace Employee ID With The Unique Identifier",
+      "Acceptance": 87,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier"
+    },
+    {
+      "ID": "1407",
+      "Title": "Top Travellers",
+      "Acceptance": 82,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/top-travellers"
+    },
+    {
+      "ID": "1440",
+      "Title": "Evaluate Boolean Expression",
+      "Acceptance": 70,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/evaluate-boolean-expression"
+    }
+  ]
+}

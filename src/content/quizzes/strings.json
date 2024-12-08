@@ -1,0 +1,185 @@
+{
+  "title": "Strings",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You have a string that contains a sentence:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "sentence = 'Hello, welcome to the world of Python'"
+          },
+          {
+            "type": "paragraph",
+            "text": "You want to find the index of the first occurrence of the word 'welcome'."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Consider using a string method to find the position of a substring.",
+              "Ensure the method returns the index correctly."
+            ]
+          }
+        ]
+      },
+      "question": "Which method correctly finds the index of 'welcome'?",
+      "options": [
+        "sentence.index('welcome')",
+        "sentence.find('welcome')",
+        "sentence.search('welcome')",
+        "sentence.locate('welcome')"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The find() method returns the index of the first occurrence of a substring."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Given a string with extra whitespace:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "text = '   Python is fun   '"
+          },
+          {
+            "type": "paragraph",
+            "text": "You need to remove leading and trailing whitespace."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Consider using a method that trims whitespace from both ends.",
+              "Whitespace includes spaces, tabs, and newlines."
+            ]
+          }
+        ]
+      },
+      "question": "Which method removes leading and trailing whitespace?",
+      "options": [
+        "text.trim()",
+        "text.remove_whitespace()",
+        "text.strip()",
+        "text.clean()"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The strip() method removes whitespace from both the beginning and end of a string."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You have a string containing words separated by spaces:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "words = 'apple banana cherry'"
+          },
+          {
+            "type": "paragraph",
+            "text": "You need to split the string into a list of individual words."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Consider using a method that splits the string by whitespace.",
+              "Ensure the result is a list of words."
+            ]
+          }
+        ]
+      },
+      "question": "Which method splits the string into a list of words?",
+      "options": [
+        "words.split()",
+        "words.split('')",
+        "words.divide()",
+        "words.break()"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "The split() method splits a string into a list using whitespace as the default delimiter."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You need to replace all occurrences of a substring in a string:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "sentence = 'I love Java. Java is powerful.'"
+          },
+          {
+            "type": "paragraph",
+            "text": "You want to replace 'Java' with 'Python'."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Consider using a method that replaces occurrences of a substring.",
+              "Ensure all instances of the substring are replaced."
+            ]
+          }
+        ]
+      },
+      "question": "Which method replaces 'Java' with 'Python'?",
+      "options": [
+        "sentence.replace_all('Java', 'Python')",
+        "sentence.replace('Java', 'Python')",
+        "sentence.change('Java', 'Python')",
+        "sentence.sub('Java', 'Python')"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The replace() method replaces all occurrences of the old substring with the new substring."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Given a string that contains both uppercase and lowercase characters:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "text = 'Hello World'"
+          },
+          {
+            "type": "paragraph",
+            "text": "You need to convert the entire string to lowercase."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Use a method that converts all characters to lowercase.",
+              "Ensure all characters, including non-letters, remain unchanged."
+            ]
+          }
+        ]
+      },
+      "question": "Which method converts the string to lowercase?",
+      "options": [
+        "text.lowercase()",
+        "text.to_lower()",
+        "text.lower()",
+        "text.convert_lower()"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The lower() method converts all characters in the string to lowercase."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "math",
+  "data": [
+    {
+      "ID": 202,
+      "Title": "Happy Number",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/happy-number",
+      "Acceptance": 54
+    },
+    {
+      "ID": 66,
+      "Title": "Plus One",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/plus-one",
+      "Acceptance": 43
+    },
+    {
+      "ID": 50,
+      "Title": "Pow(x, n)",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/powx-n",
+      "Acceptance": 32
+    },
+    {
+      "ID": 48,
+      "Title": "Rotate Image",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/rotate-image",
+      "Acceptance": 60
+    },
+    {
+      "ID": 54,
+      "Title": "Spiral Matrix",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/spiral-matrix",
+      "Acceptance": 42
+    },
+    {
+      "ID": 73,
+      "Title": "Set Matrix Zeroes",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/set-matrix-zeroes",
+      "Acceptance": 51
+    }
+  ]
+}

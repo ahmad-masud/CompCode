@@ -1,0 +1,157 @@
+{
+  "title": "Doubly Linked Lists",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A doubly linked list node contains a value and pointers to both the next and previous nodes. Consider the following node structure:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n        self.prev = None"
+          },
+          {
+            "type": "paragraph",
+            "text": "Given this structure, you want to insert a new node after an existing node."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Set the **new node's** `prev` pointer to the current node.",
+              "Adjust the **next** pointers of the current node and new node accordingly."
+            ]
+          }
+        ]
+      },
+      "question": "Which code correctly inserts a new node after the current node?",
+      "options": [
+        "new_node = Node(5)\nnew_node.next = current.next\nnew_node.prev = current\nif current.next:\n    current.next.prev = new_node\ncurrent.next = new_node",
+        "new_node = Node(5)\nnew_node.prev = current\nnew_node.next = None\ncurrent.next = new_node",
+        "new_node = Node(5)\ncurrent.prev = new_node\nnew_node.next = current",
+        "new_node = Node(5)\ncurrent.next = new_node\nnew_node.prev = None"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "The correct approach involves updating the `prev` and `next` pointers of both the new node and surrounding nodes."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To delete a node from a doubly linked list, you need to update the `next` pointer of the previous node and the `prev` pointer of the next node."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n        self.prev = None"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Ensure the **previous node's** `next` pointer skips the node to be deleted.",
+              "Update the **next node's** `prev` pointer to bypass the node."
+            ]
+          }
+        ]
+      },
+      "question": "Which code correctly deletes the current node from a doubly linked list?",
+      "options": [
+        "current.prev.next = current.next\nif current.next:\n    current.next.prev = current.prev\ncurrent = None",
+        "current.prev = None\ncurrent.next = None",
+        "current = current.next\ncurrent.prev = None",
+        "current.next = current.prev\ncurrent = None"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "The correct approach updates both the `next` pointer of the previous node and the `prev` pointer of the next node."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In a doubly linked list, you can traverse both forward and backward due to the `prev` and `next` pointers."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "To traverse forward, use the **`next`** pointer.",
+              "To traverse backward, use the **`prev`** pointer."
+            ]
+          }
+        ]
+      },
+      "question": "Which code correctly traverses the list backward from the tail?",
+      "options": [
+        "while tail:\n    print(tail.value)\n    tail = tail.prev",
+        "while tail:\n    print(tail.value)\n    tail = tail.next",
+        "while head:\n    print(head.value)\n    head = head.prev",
+        "for node in tail:\n    print(node.value)"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "Traversing backward requires moving from the tail using the `prev` pointer."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You need to add a new node at the beginning of a doubly linked list."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Create a **new node**.",
+              "Set the **new node's `next`** to the current head.",
+              "Update the **head's `prev`** pointer to point to the new node.",
+              "Make the **new node** the new head."
+            ]
+          }
+        ]
+      },
+      "question": "Which code correctly adds a new node at the beginning?",
+      "options": [
+        "new_node = Node(0)\nnew_node.next = head\nhead.prev = new_node\nhead = new_node",
+        "new_node = Node(0)\nhead = new_node\nnew_node.next = None",
+        "new_node = Node(0)\nnew_node.prev = head\nhead = new_node",
+        "new_node = Node(0)\nhead.next = new_node"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "The correct approach sets the new node's `next` pointer to the current head and updates the head's `prev` pointer."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You need to find the length of a doubly linked list by traversing from the head to the tail."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Start at the **head**.",
+              "Move forward using the **`next`** pointer.",
+              "Count nodes until the **end** is reached."
+            ]
+          }
+        ]
+      },
+      "question": "Which code correctly finds the length of the list?",
+      "options": [
+        "length = 0\nwhile head:\n    length += 1\n    head = head.next",
+        "length = len(head)",
+        "length = head.count()",
+        "length = sum(1 for node in head)"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "To find the length, traverse the list using the `next` pointer and count nodes."
+    }
+  ]
+}

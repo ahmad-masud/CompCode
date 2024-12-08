@@ -1,0 +1,45 @@
+{
+  "name": "zoho",
+  "data": [
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.014983541429464405",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "2",
+      "Title": "Add Two Numbers",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.009003349524164856",
+      "Link": " https://leetcode.com/problems/add-two-numbers"
+    },
+    {
+      "ID": "3",
+      "Title": "Longest Substring Without Repeating Characters",
+      "Acceptance": 30,
+      "Difficulty": "Medium",
+      "Frequency": "0.008179203236736318",
+      "Link": " https://leetcode.com/problems/longest-substring-without-repeating-characters"
+    },
+    {
+      "ID": "15",
+      "Title": "3Sum",
+      "Acceptance": 26,
+      "Difficulty": "Medium",
+      "Frequency": "0.0021990113314367685",
+      "Link": " https://leetcode.com/problems/3sum"
+    },
+    {
+      "ID": "1275",
+      "Title": "Find Winner on a Tic Tac Toe Game",
+      "Acceptance": 52,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game"
+    }
+  ]
+}

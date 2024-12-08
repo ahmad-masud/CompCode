@@ -8,12 +8,6 @@ import companies from "../content/companies.json";
 import { useUser } from "../context/usercontext";
 import { useNavigate } from "react-router-dom";
 
-const average = (array) => {
-  if (array.length === 0) return 0;
-  const sum = array.reduce((acc, val) => acc + val, 0);
-  return sum / array.length;
-};
-
 const Companies = () => {
   const [companiesData, setCompaniesData] = useState([]);
   const [sortConfig, setSortConfig] = useState({
@@ -44,29 +38,7 @@ const Companies = () => {
 
   useEffect(() => {
     const fetchCompaniesData = async () => {
-      const companiesInfo = companies.map((company) => {
-        const acceptanceRates = company.data.map(
-          (problem) => problem.Acceptance
-        );
-        const difficulties = company.data.map((problem) => problem.Difficulty);
-        const numProblems = company.data.length;
-        const avgAcceptance =
-          acceptanceRates.length > 0
-            ? parseInt(average(acceptanceRates).toFixed(2)) + "%"
-            : "N/A";
-        const mostCommonDifficulty =
-          difficulties.length > 0 ? mostCommon(difficulties) : "N/A";
-
-        return {
-          name: company.name.charAt(0).toUpperCase() + company.name.slice(1),
-          avgAcceptance,
-          numProblems,
-          mostCommonDifficulty,
-          problems: company.data,
-        };
-      });
-
-      const sortedCompanies = [...companiesInfo].sort((a, b) => {
+      const sortedCompanies = [...companies].sort((a, b) => {
         if (sortConfig.key === "name") {
           return sortConfig.direction === "ascending"
             ? a[sortConfig.key] > b[sortConfig.key]
@@ -75,19 +47,25 @@ const Companies = () => {
             : a[sortConfig.key] < b[sortConfig.key]
               ? 1
               : -1;
-        } else if (sortConfig.key === "avgAcceptance") {
-          const aRate = parseFloat(a[sortConfig.key].replace("%", ""));
-          const bRate = parseFloat(b[sortConfig.key].replace("%", ""));
+        } else if (sortConfig.key === "acceptance") {
+          const aRate = a[sortConfig.key];
+          const bRate = b[sortConfig.key];
           return sortConfig.direction === "ascending"
             ? aRate - bRate
             : bRate - aRate;
-        } else if (sortConfig.key === "mostCommonDifficulty") {
+        } else if (sortConfig.key === "difficulty") {
           const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
           return sortConfig.direction === "ascending"
             ? difficultyOrder[a[sortConfig.key]] -
                 difficultyOrder[b[sortConfig.key]]
             : difficultyOrder[b[sortConfig.key]] -
                 difficultyOrder[a[sortConfig.key]];
+        } else if (sortConfig.key === "problems") {
+          const aRate = a[sortConfig.key].length;
+          const bRate = b[sortConfig.key].length;
+          return sortConfig.direction === "ascending"
+            ? aRate - bRate
+            : bRate - aRate;
         } else {
           return sortConfig.direction === "ascending"
             ? a[sortConfig.key] - b[sortConfig.key]
@@ -95,10 +73,9 @@ const Companies = () => {
         }
       });
 
-      const allProblems = companiesInfo.flatMap((company) => company.problems);
       const uniqueProblems = Array.from(
-        new Set(allProblems.map((problem) => problem.ID))
-      ).map((id) => allProblems.find((problem) => problem.ID === id));
+        new Set(companies.flatMap((company) => company.problems))
+      );
 
       setCompaniesData(sortedCompanies);
       setUniqueProblems(uniqueProblems);
@@ -125,28 +102,6 @@ const Companies = () => {
     }
   }, [user]);
 
-  const mostCommon = (array) => {
-    if (array.length === 0) return "N/A";
-
-    const counts = {};
-
-    array.forEach((difficulty) => {
-      counts[difficulty] = (counts[difficulty] || 0) + 1;
-    });
-
-    let mostCommonDifficulty = null;
-    let maxCount = -1;
-
-    Object.keys(counts).forEach((difficulty) => {
-      if (counts[difficulty] > maxCount) {
-        mostCommonDifficulty = difficulty;
-        maxCount = counts[difficulty];
-      }
-    });
-
-    return mostCommonDifficulty || "N/A";
-  };
-
   const sortCompanies = (key) => {
     let direction = "ascending";
     if (sortConfig.key === key && sortConfig.direction === "ascending") {
@@ -171,7 +126,10 @@ const Companies = () => {
   };
 
   const filteredCompanies = companiesData.filter((company) =>
-    company.name.toLowerCase().includes(searchTerm.toLowerCase())
+    company.name
+      .toLowerCase()
+      .replace("-", " ")
+      .includes(searchTerm.toLowerCase())
   );
 
   const indexOfLastCompany = currentPage * companiesPerPage;
@@ -181,8 +139,8 @@ const Companies = () => {
     indexOfLastCompany
   );
 
-  const completedCount = uniqueProblems.reduce((count, problem) => {
-    if (completedProblems[problem.ID]) {
+  const completedCount = uniqueProblems.reduce((count, problemId) => {
+    if (completedProblems[problemId]) {
       return count + 1;
     }
     return count;
@@ -306,9 +264,9 @@ const Companies = () => {
                   <span>Acceptance </span>
                   <button
                     className="sort-button"
-                    onClick={() => sortCompanies("avgAcceptance")}
+                    onClick={() => sortCompanies("acceptance")}
                   >
-                    {getSortIcon("avgAcceptance")}
+                    {getSortIcon("acceptance")}
                   </button>
                 </th>
               )}
@@ -316,18 +274,18 @@ const Companies = () => {
                 <span>Problems </span>
                 <button
                   className="sort-button"
-                  onClick={() => sortCompanies("numProblems")}
+                  onClick={() => sortCompanies("problems")}
                 >
-                  {getSortIcon("numProblems")}
+                  {getSortIcon("problems")}
                 </button>
               </th>
               <th>
                 <span>Difficulty </span>
                 <button
                   className="sort-button"
-                  onClick={() => sortCompanies("mostCommonDifficulty")}
+                  onClick={() => sortCompanies("difficulty")}
                 >
-                  {getSortIcon("mostCommonDifficulty")}
+                  {getSortIcon("difficulty")}
                 </button>
               </th>
             </tr>
@@ -342,14 +300,14 @@ const Companies = () => {
                     }
                   >
                     {company.name
-                      .replace("-", " ")
+                      .replaceAll("-", " ")
                       .replace(/\b\w/g, (c) => c.toUpperCase())}
                   </button>
                 </td>
-                {!narrow && <td>{company.avgAcceptance}</td>}
-                <td>{company.numProblems}</td>
-                <td className={company.mostCommonDifficulty.toLowerCase()}>
-                  {company.mostCommonDifficulty}
+                {!narrow && <td>{company.acceptance}%</td>}
+                <td>{company.problems.length}</td>
+                <td className={company.difficulty.toLowerCase()}>
+                  {company.difficulty}
                 </td>
               </tr>
             ))}

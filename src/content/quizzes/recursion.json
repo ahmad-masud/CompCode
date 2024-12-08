@@ -1,0 +1,135 @@
+{
+  "title": "Recursion",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Recursion is a technique in which a function **calls itself** directly or indirectly to solve a problem by breaking it into smaller subproblems."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Recursion requires a **base case** to prevent infinite calls.",
+              "Useful for problems involving **divide and conquer** strategies."
+            ]
+          }
+        ]
+      },
+      "question": "What is the purpose of the base case in a recursive function?",
+      "options": [
+        "To call the function multiple times",
+        "To stop the recursion",
+        "To sort elements",
+        "To increase time complexity"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The base case is used to stop the recursion and prevent infinite calls."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Consider solving the **Fibonacci sequence** using recursion. The Fibonacci sequence is defined as follows: **F(n) = F(n-1) + F(n-2)**, with base cases F(0) = 0 and F(1) = 1."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n - 1) + fibonacci(n - 2)"
+          },
+          {
+            "type": "paragraph",
+            "text": "This approach can be inefficient for large inputs due to repeated calculations."
+          }
+        ]
+      },
+      "question": "What is the time complexity of the recursive Fibonacci solution shown?",
+      "options": ["O(n)", "O(log n)", "O(2^n)", "O(n^2)"],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The time complexity of the naive recursive Fibonacci solution is O(2^n) due to repeated calculations."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Recursion can be used for **backtracking** problems, such as generating all subsets of a set or solving the N-Queens problem."
+          },
+          {
+            "type": "paragraph",
+            "text": "Consider generating all subsets of a list using recursion:"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def generate_subsets(nums, index=0, subset=[]):\n    if index == len(nums):\n        print(subset)\n        return\n    generate_subsets(nums, index + 1, subset + [nums[index]])\n    generate_subsets(nums, index + 1, subset)"
+          }
+        ]
+      },
+      "question": "How does the recursive approach ensure all subsets are generated?",
+      "options": [
+        "By iterating over elements",
+        "By using loops",
+        "By branching into different calls for inclusion and exclusion",
+        "By sorting the list"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The recursive approach generates all subsets by branching into calls that include or exclude each element."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Recursion can lead to **stack overflow** if the depth of recursion exceeds the maximum stack size. Tail recursion optimization helps mitigate this issue in certain languages by allowing calls to be replaced with jumps."
+          }
+        ]
+      },
+      "question": "What can cause stack overflow in a recursive function?",
+      "options": [
+        "Too many recursive calls without a base case",
+        "Using too many variables",
+        "Sorting elements in each call",
+        "Calling other functions"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "Stack overflow occurs when too many recursive calls are made without reaching a base case."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Imagine you are solving a **maze** using recursion. The function tries moving in all possible directions until it finds a solution or reaches a dead end, at which point it backtracks."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def solve_maze(maze, x, y, solution):\n    if (x, y) is the goal:\n        return True\n    if is_valid_move(maze, x, y):\n        solution[x][y] = 1\n        if solve_maze(maze, x + 1, y, solution):\n            return True\n        if solve_maze(maze, x, y + 1, solution):\n            return True\n        solution[x][y] = 0  # Backtrack\n    return False"
+          }
+        ]
+      },
+      "question": "How does recursion help in solving the maze problem?",
+      "options": [
+        "By moving randomly",
+        "By iterating over the entire maze",
+        "By exploring all paths and backtracking when necessary",
+        "By using a stack data structure"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "Recursion helps solve the maze problem by exploring all possible paths and backtracking when necessary."
+    }
+  ]
+}

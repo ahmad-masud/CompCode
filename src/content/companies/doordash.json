@@ -1,0 +1,181 @@
+{
+  "name": "doordash",
+  "data": [
+    {
+      "ID": "759",
+      "Title": "Employee Free Time",
+      "Acceptance": 66,
+      "Difficulty": "Hard",
+      "Frequency": "1.429184272146321",
+      "Link": " https://leetcode.com/problems/employee-free-time"
+    },
+    {
+      "ID": "1359",
+      "Title": "Count All Valid Pickup and Delivery Options",
+      "Acceptance": 57,
+      "Difficulty": "Hard",
+      "Frequency": "1.2093743507330705",
+      "Link": " https://leetcode.com/problems/count-all-valid-pickup-and-delivery-options"
+    },
+    {
+      "ID": "695",
+      "Title": "Max Area of Island",
+      "Acceptance": 62,
+      "Difficulty": "Medium",
+      "Frequency": "1.0938588036906711",
+      "Link": " https://leetcode.com/problems/max-area-of-island"
+    },
+    {
+      "ID": "1229",
+      "Title": "Meeting Scheduler",
+      "Acceptance": 52,
+      "Difficulty": "Medium",
+      "Frequency": "0.7486612660050764",
+      "Link": " https://leetcode.com/problems/meeting-scheduler"
+    },
+    {
+      "ID": "355",
+      "Title": "Design Twitter",
+      "Acceptance": 30,
+      "Difficulty": "Medium",
+      "Frequency": "0.6726996677085982",
+      "Link": " https://leetcode.com/problems/design-twitter"
+    },
+    {
+      "ID": "121",
+      "Title": "Best Time to Buy and Sell Stock",
+      "Acceptance": 50,
+      "Difficulty": "Easy",
+      "Frequency": "0.3275021300230036",
+      "Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+    },
+    {
+      "ID": "227",
+      "Title": "Basic Calculator II",
+      "Acceptance": 36,
+      "Difficulty": "Medium",
+      "Frequency": "0.14222709959207652",
+      "Link": " https://leetcode.com/problems/basic-calculator-ii"
+    },
+    {
+      "ID": "210",
+      "Title": "Course Schedule II",
+      "Acceptance": 40,
+      "Difficulty": "Medium",
+      "Frequency": "0.12930146274938759",
+      "Link": " https://leetcode.com/problems/course-schedule-ii"
+    },
+    {
+      "ID": "1174",
+      "Title": "Immediate Food Delivery II",
+      "Acceptance": 58,
+      "Difficulty": "Medium",
+      "Frequency": "0.12555653398976382",
+      "Link": " https://leetcode.com/problems/immediate-food-delivery-ii"
+    },
+    {
+      "ID": "56",
+      "Title": "Merge Intervals",
+      "Acceptance": 39,
+      "Difficulty": "Medium",
+      "Frequency": "0.06807635025869622",
+      "Link": " https://leetcode.com/problems/merge-intervals"
+    },
+    {
+      "ID": "1173",
+      "Title": "Immediate Food Delivery I",
+      "Acceptance": 80,
+      "Difficulty": "Easy",
+      "Frequency": "0.06592172080482424",
+      "Link": " https://leetcode.com/problems/immediate-food-delivery-i"
+    },
+    {
+      "ID": "37",
+      "Title": "Sudoku Solver",
+      "Acceptance": 43,
+      "Difficulty": "Hard",
+      "Frequency": "0.040527833612118376",
+      "Link": " https://leetcode.com/problems/sudoku-solver"
+    },
+    {
+      "ID": "528",
+      "Title": "Random Pick with Weight",
+      "Acceptance": 43,
+      "Difficulty": "Medium",
+      "Frequency": "0.03306693626657339",
+      "Link": " https://leetcode.com/problems/random-pick-with-weight"
+    },
+    {
+      "ID": "15",
+      "Title": "3Sum",
+      "Acceptance": 26,
+      "Difficulty": "Medium",
+      "Frequency": "0.02661031301111795",
+      "Link": " https://leetcode.com/problems/3sum"
+    },
+    {
+      "ID": "348",
+      "Title": "Design Tic-Tac-Toe",
+      "Acceptance": 54,
+      "Difficulty": "Medium",
+      "Frequency": "0.024214258120594613",
+      "Link": " https://leetcode.com/problems/design-tic-tac-toe"
+    },
+    {
+      "ID": "269",
+      "Title": "Alien Dictionary",
+      "Acceptance": 33,
+      "Difficulty": "Hard",
+      "Frequency": "0.012730916694039954",
+      "Link": " https://leetcode.com/problems/alien-dictionary"
+    },
+    {
+      "ID": "986",
+      "Title": "Interval List Intersections",
+      "Acceptance": 67,
+      "Difficulty": "Medium",
+      "Frequency": "0.011969023795320735",
+      "Link": " https://leetcode.com/problems/interval-list-intersections"
+    },
+    {
+      "ID": "200",
+      "Title": "Number of Islands",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.011509262420590827",
+      "Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+      "ID": "146",
+      "Title": "LRU Cache",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.010321192540274932",
+      "Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+      "ID": "36",
+      "Title": "Valid Sudoku",
+      "Acceptance": 48,
+      "Difficulty": "Medium",
+      "Frequency": "0.007258242715805398",
+      "Link": " https://leetcode.com/problems/valid-sudoku"
+    },
+    {
+      "ID": "20",
+      "Title": "Valid Parentheses",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.0023005704055949323",
+      "Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+      "ID": "772",
+      "Title": "Basic Calculator III",
+      "Acceptance": 41,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/basic-calculator-iii"
+    }
+  ]
+}

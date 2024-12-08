@@ -1,0 +1,13 @@
+{
+  "name": "arista",
+  "data": [
+    {
+      "ID": "997",
+      "Title": "Find the Town Judge",
+      "Acceptance": 50,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/find-the-town-judge"
+    }
+  ]
+}

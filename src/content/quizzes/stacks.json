@@ -1,0 +1,169 @@
+{
+  "title": "Stacks",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A stack follows a specific order for adding and removing elements. You need to add an element to a stack and understand its behavior."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "stack = []\nstack.append(10)"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Stacks follow Last-In, First-Out (LIFO) order.",
+              "Elements are typically added and removed from the same end of the stack."
+            ]
+          }
+        ]
+      },
+      "question": "What happens when you append an element to a stack?",
+      "options": [
+        "The element is added to the front of the stack.",
+        "The element is added to the end of the stack.",
+        "The element replaces the last element.",
+        "The stack is cleared."
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Appending an element to a stack adds it to the end, maintaining LIFO order."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To remove an element from a stack, you typically use a specific operation. Consider the following stack:"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "stack = [1, 2, 3, 4]"
+          },
+          {
+            "type": "paragraph",
+            "text": "You need to remove the top element."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Use a method that removes and returns the top element.",
+              "Ensure the order remains consistent with LIFO."
+            ]
+          }
+        ]
+      },
+      "question": "Which method removes the top element from a stack?",
+      "options": [
+        "stack.remove()",
+        "stack.pop()",
+        "stack.delete()",
+        "stack.clear()"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The pop() method removes and returns the last element in the stack, following LIFO order."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Stacks are often used to reverse the order of elements. Given the following input sequence:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "sequence = [1, 2, 3, 4]"
+          },
+          {
+            "type": "paragraph",
+            "text": "Use a stack to reverse the elements."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Push each element onto the stack.",
+              "Pop elements off the stack to reverse their order."
+            ]
+          }
+        ]
+      },
+      "question": "Which code correctly reverses the sequence using a stack?",
+      "options": [
+        "stack = []\nfor elem in sequence:\n    stack.push(elem)\nreversed_sequence = [stack.pop() for _ in range(len(stack))]",
+        "stack = []\nfor elem in sequence:\n    stack.append(elem)\nreversed_sequence = [stack.pop() for _ in range(len(stack))]",
+        "reversed_sequence = sequence.reverse()",
+        "stack = sequence[::-1]"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Using append() to push elements and pop() to retrieve them reverses the sequence."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You need to check if parentheses in an expression are balanced using a stack."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Push opening parentheses onto the stack.",
+              "Pop from the stack when encountering closing parentheses.",
+              "Ensure the stack is empty at the end for balanced parentheses."
+            ]
+          }
+        ]
+      },
+      "question": "Which code snippet correctly checks for balanced parentheses?",
+      "options": [
+        "stack = []\nfor char in expression:\n    if char == '(':\n        stack.append(char)\n    elif char == ')':\n        stack.pop()",
+        "stack = []\nfor char in expression:\n    if char == '(':\n        stack.pop()\n    elif char == ')':\n        stack.append(char)",
+        "balance = expression.count('(') == expression.count(')')",
+        "stack = []\nstack.append(expression)"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "Pushing opening parentheses and popping for closing ones ensures balanced parentheses."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A common stack application is evaluating postfix expressions (Reverse Polish Notation). Consider the expression:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "text",
+            "code": "3 4 + 2 *"
+          },
+          {
+            "type": "paragraph",
+            "text": "Use a stack to evaluate the expression."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Push numbers onto the stack.",
+              "Pop the top two elements for each operator and apply the operation.",
+              "Push the result back onto the stack."
+            ]
+          }
+        ]
+      },
+      "question": "What is the result of evaluating the expression using a stack?",
+      "options": ["7", "14", "12", "10"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Evaluating '3 4 + 2 *' using a stack gives 14: (3 + 4) * 2."
+    }
+  ]
+}

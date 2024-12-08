@@ -1,0 +1,29 @@
+{
+  "name": "opendoor",
+  "data": [
+    {
+      "ID": "289",
+      "Title": "Game of Life",
+      "Acceptance": 54,
+      "Difficulty": "Medium",
+      "Frequency": "0.4018470204215072",
+      "Link": " https://leetcode.com/problems/game-of-life"
+    },
+    {
+      "ID": "150",
+      "Title": "Evaluate Reverse Polish Notation",
+      "Acceptance": 36,
+      "Difficulty": "Medium",
+      "Frequency": "0.20518974769761397",
+      "Link": " https://leetcode.com/problems/evaluate-reverse-polish-notation"
+    },
+    {
+      "ID": "12",
+      "Title": "Integer to Roman",
+      "Acceptance": 55,
+      "Difficulty": "Medium",
+      "Frequency": "0.008532474973720734",
+      "Link": " https://leetcode.com/problems/integer-to-roman"
+    }
+  ]
+}

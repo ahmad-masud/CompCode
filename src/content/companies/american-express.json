@@ -1,0 +1,29 @@
+{
+  "name": "american-express",
+  "data": [
+    {
+      "ID": "1201",
+      "Title": "Ugly Number III",
+      "Acceptance": 25,
+      "Difficulty": "Medium",
+      "Frequency": "0.2586674025861649",
+      "Link": " https://leetcode.com/problems/ugly-number-iii"
+    },
+    {
+      "ID": "1224",
+      "Title": "Maximum Equal Frequency",
+      "Acceptance": 33,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/maximum-equal-frequency"
+    },
+    {
+      "ID": "1521",
+      "Title": "Find a Value of a Mysterious Function Closest to Target",
+      "Acceptance": 43,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/find-a-value-of-a-mysterious-function-closest-to-target"
+    }
+  ]
+}

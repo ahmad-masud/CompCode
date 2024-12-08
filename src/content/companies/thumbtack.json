@@ -1,0 +1,13 @@
+{
+  "name": "thumbtack",
+  "data": [
+    {
+      "ID": "966",
+      "Title": "Vowel Spellchecker",
+      "Acceptance": 47,
+      "Difficulty": "Medium",
+      "Frequency": "1.030624947683177",
+      "Link": " https://leetcode.com/problems/vowel-spellchecker"
+    }
+  ]
+}

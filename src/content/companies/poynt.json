@@ -1,0 +1,13 @@
+{
+  "name": "poynt",
+  "data": [
+    {
+      "ID": "655",
+      "Title": "Print Binary Tree",
+      "Acceptance": 55,
+      "Difficulty": "Medium",
+      "Frequency": "0.11153609770197609",
+      "Link": " https://leetcode.com/problems/print-binary-tree"
+    }
+  ]
+}

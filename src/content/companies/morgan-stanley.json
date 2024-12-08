@@ -1,0 +1,101 @@
+{
+  "name": "morgan-stanley",
+  "data": [
+    {
+      "ID": "121",
+      "Title": "Best Time to Buy and Sell Stock",
+      "Acceptance": 50,
+      "Difficulty": "Easy",
+      "Frequency": "0.17732840429038763",
+      "Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+    },
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.11788787746803375",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "160",
+      "Title": "Intersection of Two Linked Lists",
+      "Acceptance": 40,
+      "Difficulty": "Easy",
+      "Frequency": "0.05844735064567987",
+      "Link": " https://leetcode.com/problems/intersection-of-two-linked-lists"
+    },
+    {
+      "ID": "17",
+      "Title": "Letter Combinations of a Phone Number",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.03893646375009422",
+      "Link": " https://leetcode.com/problems/letter-combinations-of-a-phone-number"
+    },
+    {
+      "ID": "20",
+      "Title": "Valid Parentheses",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.03618871742239114",
+      "Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+      "ID": "53",
+      "Title": "Maximum Subarray",
+      "Acceptance": 46,
+      "Difficulty": "Easy",
+      "Frequency": "0.02622855485962836",
+      "Link": " https://leetcode.com/problems/maximum-subarray"
+    },
+    {
+      "ID": "146",
+      "Title": "LRU Cache",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.01827577993873683",
+      "Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+      "ID": "242",
+      "Title": "Valid Anagram",
+      "Acceptance": 56,
+      "Difficulty": "Easy",
+      "Frequency": "0.016513947375674708",
+      "Link": " https://leetcode.com/problems/valid-anagram"
+    },
+    {
+      "ID": "41",
+      "Title": "First Missing Positive",
+      "Acceptance": 32,
+      "Difficulty": "Hard",
+      "Frequency": "0.0064113058208121855",
+      "Link": " https://leetcode.com/problems/first-missing-positive"
+    },
+    {
+      "ID": "50",
+      "Title": "Pow(x;n)",
+      "Acceptance": 30,
+      "Difficulty": "Medium",
+      "Frequency": "0.0055950070772402055",
+      "Link": " https://leetcode.com/problems/powx-n"
+    },
+    {
+      "ID": "155",
+      "Title": "Min Stack",
+      "Acceptance": 44,
+      "Difficulty": "Easy",
+      "Frequency": "0.00474891074128171",
+      "Link": " https://leetcode.com/problems/min-stack"
+    },
+    {
+      "ID": "1217",
+      "Title": "Play with Chips",
+      "Acceptance": 64,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/play-with-chips"
+    }
+  ]
+}

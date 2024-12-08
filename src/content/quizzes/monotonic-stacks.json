@@ -1,0 +1,186 @@
+{
+  "title": "Monotonic Stacks",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A monotonic stack maintains elements in a specific order (either increasing or decreasing). Consider building a stack to find the next greater element for each element in an array."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "nums = [2, 1, 2, 4, 3]"
+          },
+          {
+            "type": "paragraph",
+            "text": "Use a monotonic stack to find the next greater element for each element."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Traverse the array while maintaining elements in a stack.",
+              "Use a stack to keep track of indices or values."
+            ]
+          }
+        ]
+      },
+      "question": "Which approach correctly uses a monotonic stack to find the next greater element?",
+      "options": [
+        "Traverse the array from left to right, pushing elements into the stack as you encounter them.",
+        "Traverse the array from right to left, maintaining a decreasing stack.",
+        "Use a queue instead of a stack to ensure elements are processed in order.",
+        "Push elements to the stack and immediately pop all elements when encountering a larger value."
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "A common approach involves traversing from right to left while maintaining a decreasing stack for next greater elements."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You have an array of daily temperatures:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "temperatures = [73, 74, 75, 71, 69, 72, 76, 73]"
+          },
+          {
+            "type": "paragraph",
+            "text": "For each day, find how many days you have to wait until a warmer temperature."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Use a monotonic stack to store indices of temperatures.",
+              "Pop elements from the stack when a warmer temperature is found."
+            ]
+          }
+        ]
+      },
+      "question": "Which structure and approach best finds the days until a warmer temperature?",
+      "options": [
+        "Maintain a stack of temperature values.",
+        "Maintain a stack of indices and traverse from left to right.",
+        "Use a queue to process temperatures.",
+        "Reverse the array and process with a stack."
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Using a stack of indices while traversing from left to right allows efficient calculation of days until a warmer temperature."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You need to maintain a decreasing monotonic stack. Consider this input:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "nums = [5, 3, 1, 4, 2]"
+          },
+          {
+            "type": "paragraph",
+            "text": "What behavior should the stack exhibit as you traverse the array?"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Push elements in decreasing order.",
+              "Pop elements when a larger value is encountered."
+            ]
+          }
+        ]
+      },
+      "question": "What happens when you encounter a larger element while maintaining a decreasing stack?",
+      "options": [
+        "Push the element onto the stack.",
+        "Pop elements until the stack is empty or contains smaller elements.",
+        "Ignore the element and continue traversal.",
+        "Reset the stack."
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "When maintaining a decreasing stack, you pop elements until the stack contains smaller elements or is empty."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You want to find the maximum area of a rectangle in a histogram using a monotonic stack. Given heights:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "heights = [2, 1, 5, 6, 2, 3]"
+          },
+          {
+            "type": "paragraph",
+            "text": "Use a monotonic stack to find the maximum rectangular area."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Push indices of heights onto the stack.",
+              "Calculate areas when popping elements.",
+              "Use a dummy height to ensure all elements are processed."
+            ]
+          }
+        ]
+      },
+      "question": "Which approach correctly finds the maximum area?",
+      "options": [
+        "Traverse from right to left while maintaining a decreasing stack.",
+        "Traverse from left to right, pushing and popping based on heights.",
+        "Use a queue to process heights.",
+        "Calculate areas without using a stack."
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Maintaining a stack of indices while traversing from left to right allows efficient area calculation."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Monotonic stacks can be used to solve range queries efficiently by finding the next greater or smaller element. Consider finding the next smaller element for each element in an array:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "nums = [3, 7, 1, 7, 8]"
+          },
+          {
+            "type": "paragraph",
+            "text": "Use a monotonic stack to find the next smaller element."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Maintain a stack of elements or indices.",
+              "Pop elements when encountering a smaller value."
+            ]
+          }
+        ]
+      },
+      "question": "Which approach finds the next smaller element for each element?",
+      "options": [
+        "Maintain an increasing stack and pop when encountering a smaller value.",
+        "Maintain a decreasing stack and pop when encountering a smaller value.",
+        "Traverse the array and use a queue to find the next smaller element.",
+        "Use a priority queue to find the next smaller element."
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "An increasing stack helps find the next smaller element efficiently by popping elements when encountering smaller values."
+    }
+  ]
+}

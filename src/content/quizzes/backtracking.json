@@ -1,0 +1,139 @@
+{
+  "title": "Backtracking",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Backtracking is a technique used to solve problems by **exploring all possible options** and backtracking as soon as it determines that an option cannot lead to a valid solution."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def solve_n_queens(board, row):\n    if row == len(board):\n        print(board)\n        return True\n    for col in range(len(board)):\n        if is_safe(board, row, col):\n            board[row][col] = 'Q'\n            if solve_n_queens(board, row + 1):\n                return True\n            board[row][col] = '.'  # Backtrack\n    return False"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Backtracking involves **recursively** exploring options.",
+              "Often used for **combinatorial** and **constraint-satisfaction** problems."
+            ]
+          }
+        ]
+      },
+      "question": "What is the role of backtracking in the N-Queens problem?",
+      "options": [
+        "To place all queens at once",
+        "To check all possible positions and backtrack when necessary",
+        "To randomly choose positions",
+        "To only solve for a fixed board size"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Backtracking helps by exploring all possible positions for queens and backtracking when conflicts occur."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Consider solving the **subset sum** problem where you need to find all subsets of a set that sum to a given target. Backtracking can explore each possibility by including or excluding each element."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def subset_sum(nums, target, index=0, subset=[]):\n    if sum(subset) == target:\n        print(subset)\n        return True\n    if index >= len(nums):\n        return False\n    subset.append(nums[index])\n    if subset_sum(nums, target, index + 1, subset):\n        return True\n    subset.pop()  # Backtrack\n    return subset_sum(nums, target, index + 1, subset)"
+          }
+        ]
+      },
+      "question": "How does backtracking help solve the subset sum problem?",
+      "options": [
+        "By randomly generating subsets",
+        "By including elements without conditions",
+        "By exploring each possibility and backtracking if needed",
+        "By sorting the set first"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "Backtracking explores each possibility by including or excluding elements, and backtracks if the subset doesn't meet the condition."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Backtracking can be used to solve the **sudoku puzzle**. The algorithm places numbers on the grid and backtracks if any placement leads to a conflict."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Checks constraints such as **row, column, and subgrid uniqueness**.",
+              "Backtracks if a number placement leads to an unsolvable state."
+            ]
+          }
+        ]
+      },
+      "question": "When solving a sudoku puzzle using backtracking, what happens when a number placement leads to a conflict?",
+      "options": [
+        "The number is permanently placed",
+        "The algorithm stops immediately",
+        "The algorithm backtracks and tries a different number",
+        "The grid is reshuffled"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "Backtracking allows the algorithm to try a different number when a conflict occurs."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Imagine solving a **maze** where you need to find a path from the start to the end. Backtracking explores each possible path and backtracks when a dead end is reached."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def solve_maze(maze, x, y):\n    if (x, y) is the goal:\n        return True\n    if is_valid_move(maze, x, y):\n        maze[x][y] = 1  # Mark as visited\n        if solve_maze(maze, x + 1, y):\n            return True\n        if solve_maze(maze, x, y + 1):\n            return True\n        maze[x][y] = 0  # Backtrack\n    return False"
+          }
+        ]
+      },
+      "question": "How does backtracking help in maze-solving algorithms?",
+      "options": [
+        "By finding the shortest path immediately",
+        "By exploring each possible path and backtracking when necessary",
+        "By using a fixed path",
+        "By ignoring dead ends"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Backtracking explores each possible path and backtracks when a dead end is reached, allowing it to find a valid solution."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Backtracking can generate **permutations** of a set by recursively swapping elements and backtracking after each permutation is generated."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def permute(nums, l, r):\n    if l == r:\n        print(nums)\n    else:\n        for i in range(l, r + 1):\n            nums[l], nums[i] = nums[i], nums[l]  # Swap\n            permute(nums, l + 1, r)\n            nums[l], nums[i] = nums[i], nums[l]  # Backtrack"
+          }
+        ]
+      },
+      "question": "What is the purpose of backtracking in generating permutations?",
+      "options": [
+        "To sort the elements",
+        "To randomly shuffle elements",
+        "To revert to a previous state after generating a permutation",
+        "To stop once the first permutation is found"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "Backtracking reverts to a previous state after generating each permutation, enabling the generation of all possible permutations."
+    }
+  ]
+}

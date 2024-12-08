@@ -1,0 +1,62 @@
+{
+  "name": "bit manipulation",
+  "lessons": ["bit-manipulation"],
+  "data": [
+    {
+      "ID": 136,
+      "Title": "Single Number",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/single-number",
+      "Acceptance": 70
+    },
+    {
+      "ID": 191,
+      "Title": "Number of 1 Bits",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/number-of-1-bits",
+      "Acceptance": 58
+    },
+    {
+      "ID": 231,
+      "Title": "Power of Two",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/power-of-two",
+      "Acceptance": 44
+    },
+    {
+      "ID": 338,
+      "Title": "Counting Bits",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/counting-bits",
+      "Acceptance": 74
+    },
+    {
+      "ID": 268,
+      "Title": "Missing Number",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/missing-number",
+      "Acceptance": 59
+    },
+    {
+      "ID": 371,
+      "Title": "Sum of Two Integers",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/sum-of-two-integers",
+      "Acceptance": 51
+    },
+    {
+      "ID": 260,
+      "Title": "Single Number III",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/single-number-iii",
+      "Acceptance": 66
+    },
+    {
+      "ID": 421,
+      "Title": "Maximum XOR of Two Numbers in an Array",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array",
+      "Acceptance": 54
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "title": "Topological Sort",
+  "type": "algorithm",
+  "difficulty": "hard",
+  "premium": true,
+  "lessons": [
+    {
+      "title": "Introduction to Topological Sort",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "**Topological Sort** is a linear ordering of vertices in a **Directed Acyclic Graph (DAG)**, such that for every directed edge `uv` from vertex `u` to vertex `v`, vertex `u` comes before vertex `v` in the ordering. Topological sorting is not possible if the graph contains cycles."
+        },
+        {
+          "type": "paragraph",
+          "text": "Topological Sort is primarily used in scenarios where certain tasks must be performed before others, such as scheduling tasks, course prerequisites, or resolving dependencies in build systems."
+        }
+      ]
+    },
+    {
+      "title": "Properties of Topological Sort",
+      "content": [
+        {
+          "type": "bullets",
+          "items": [
+            "Applicable only to **Directed Acyclic Graphs (DAGs)**.",
+            "A **directed edge** from `u` to `v` means `u` must come before `v` in the topological order.",
+            "If the graph contains a cycle, **topological sorting is not possible**."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Multiple valid topological sorts can exist for the same graph, depending on the graph structure and traversal approach."
+        }
+      ]
+    },
+    {
+      "title": "Graph Representation (Adjacency List)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "For topological sorting, we often use an **adjacency list** to represent the graph. Each vertex points to a list of its neighboring vertices (i.e., the vertices that depend on it)."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "# Example of an adjacency list representation of a DAG\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['D'],\n    'C': ['D'],\n    'D': ['E'],\n    'E': []\n}\n"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, vertex `'A'` must come before vertices `'B'` and `'C'`, and both `'B'` and `'C'` must come before `'D'`, with `'D'` coming before `'E'`."
+        }
+      ]
+    },
+    {
+      "title": "Topological Sort using Depth-First Search (DFS)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Topological sorting can be performed using **Depth-First Search (DFS)**. As we perform DFS, we recursively visit all adjacent nodes. Once a node's neighbors have been visited, the node itself is added to the stack. Finally, we reverse the stack to obtain the topological order."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "# Topological sort using DFS\ndef topological_sort_dfs(graph):\n    visited = set()\n    stack = []\n\n    def dfs(node):\n        visited.add(node)\n        for neighbor in graph[node]:\n            if neighbor not in visited:\n                dfs(neighbor)\n        stack.append(node)\n\n    for node in graph:\n        if node not in visited:\n            dfs(node)\n\n    return stack[::-1]  # Return the reversed stack as the topological order\n\n# Test the topological sort\nprint('Topological Sort (DFS):', topological_sort_dfs(graph))\n# Output: ['A', 'C', 'B', 'D', 'E']"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this DFS-based approach, we recursively visit each node and its neighbors. Once all the neighbors are processed, we append the node to the stack. The stack is reversed at the end to obtain the correct topological ordering."
+        }
+      ]
+    },
+    {
+      "title": "Topological Sort using Kahn's Algorithm (BFS)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Kahn's algorithm is an alternative approach to topological sorting using **Breadth-First Search (BFS)**. It processes nodes in the order of their **in-degree** (the number of incoming edges). Nodes with zero in-degree (no dependencies) are processed first, and then their neighbors' in-degrees are decremented. The process continues until all nodes are processed."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "# Topological sort using Kahn's Algorithm (BFS)\nfrom collections import deque, defaultdict\n\ndef topological_sort_kahn(graph):\n    in_degree = defaultdict(int)\n    for node in graph:\n        for neighbor in graph[node]:\n            in_degree[neighbor] += 1\n\n    # Initialize the queue with nodes that have no incoming edges\n    queue = deque([node for node in graph if in_degree[node] == 0])\n    topo_order = []\n\n    while queue:\n        node = queue.popleft()\n        topo_order.append(node)\n        for neighbor in graph[node]:\n            in_degree[neighbor] -= 1\n            if in_degree[neighbor] == 0:\n                queue.append(neighbor)\n\n    if len(topo_order) == len(graph):\n        return topo_order\n    else:\n        return []  # Return empty list if there is a cycle\n\n# Test Kahn's Algorithm for topological sort\nprint('Topological Sort (Kahn):', topological_sort_kahn(graph))\n# Output: ['A', 'B', 'C', 'D', 'E']"
+        },
+        {
+          "type": "paragraph",
+          "text": "In Kahn's Algorithm, we first calculate the in-degree of each node and enqueue nodes with zero in-degree. We then repeatedly dequeue a node, add it to the topological order, and reduce the in-degree of its neighbors."
+        }
+      ]
+    },
+    {
+      "title": "Topological Sort Complexity",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The time complexity of topological sort (both DFS and Kahn's Algorithm) is **O(V + E)**, where `V` is the number of vertices and `E` is the number of edges in the graph. This is because we visit every vertex and edge exactly once."
+        },
+        {
+          "type": "paragraph",
+          "text": "The space complexity is **O(V)** because we need to store the in-degrees of the vertices (for Kahn's algorithm) and the recursion stack (for DFS)."
+        }
+      ]
+    },
+    {
+      "title": "Applications of Topological Sort",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Topological sorting is widely used in scenarios where there is a dependency relationship between tasks or entities. Some common applications include:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "**Task Scheduling**: Scheduling tasks that have dependencies, where one task must be completed before another can begin.",
+            "**Course Prerequisites**: Determining the order in which courses must be taken based on prerequisites.",
+            "**Build Systems**: Resolving dependencies in software build systems, where certain files must be compiled before others."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In this tutorial, we explored **topological sorting**, including two approaches: **DFS-based** and **Kahn's Algorithm** (BFS-based). Topological sort is a key technique in tasks where ordering based on dependencies is required, and it can only be applied to **Directed Acyclic Graphs (DAGs)**."
+        }
+      ]
+    }
+  ]
+}

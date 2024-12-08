@@ -1,0 +1,37 @@
+{
+  "name": "riot-games",
+  "data": [
+    {
+      "ID": "29",
+      "Title": "Divide Two Integers",
+      "Acceptance": 16,
+      "Difficulty": "Medium",
+      "Frequency": "0.14250148324930875",
+      "Link": " https://leetcode.com/problems/divide-two-integers"
+    },
+    {
+      "ID": "495",
+      "Title": "Teemo Attacking",
+      "Acceptance": 53,
+      "Difficulty": "Medium",
+      "Frequency": "0.08934510033584994",
+      "Link": " https://leetcode.com/problems/teemo-attacking"
+    },
+    {
+      "ID": "20",
+      "Title": "Valid Parentheses",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.03618871742239114",
+      "Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+      "ID": "37",
+      "Title": "Sudoku Solver",
+      "Acceptance": 43,
+      "Difficulty": "Hard",
+      "Frequency": "0.01821543989134118",
+      "Link": " https://leetcode.com/problems/sudoku-solver"
+    }
+  ]
+}

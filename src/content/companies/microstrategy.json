@@ -1,0 +1,13 @@
+{
+  "name": "microstrategy",
+  "data": [
+    {
+      "ID": "1227",
+      "Title": "Airplane Seat Assignment Probability",
+      "Acceptance": 61,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/airplane-seat-assignment-probability"
+    }
+  ]
+}

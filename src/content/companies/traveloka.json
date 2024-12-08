@@ -1,0 +1,13 @@
+{
+  "name": "traveloka",
+  "data": [
+    {
+      "ID": "1208",
+      "Title": "Get Equal Substrings Within Budget",
+      "Acceptance": 41,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/get-equal-substrings-within-budget"
+    }
+  ]
+}

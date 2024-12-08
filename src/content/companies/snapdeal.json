@@ -1,0 +1,13 @@
+{
+  "name": "snapdeal",
+  "data": [
+    {
+      "ID": "1027",
+      "Title": "Longest Arithmetic Sequence",
+      "Acceptance": 53,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/longest-arithmetic-sequence"
+    }
+  ]
+}

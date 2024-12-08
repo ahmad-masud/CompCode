@@ -1,0 +1,142 @@
+{
+  "title": "Breadth-First Search",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Breadth-First Search (BFS) is a graph traversal algorithm that explores nodes layer by layer, starting from a given node. It uses a **queue** to keep track of the nodes to be explored."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "from collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    while queue:\n        node = queue.popleft()\n        if node not in visited:\n            print(node)\n            visited.add(node)\n            queue.extend(graph[node])"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "BFS uses a **queue** to explore nodes.",
+              "It visits all **neighbors** of a node before moving to the next layer."
+            ]
+          }
+        ]
+      },
+      "question": "What data structure does BFS typically use to keep track of nodes to be explored?",
+      "options": ["Stack", "Queue", "Heap", "Tree"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "BFS uses a queue to explore nodes layer by layer, ensuring that all neighbors are visited before moving deeper into the graph."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Imagine you are traversing a social network graph where nodes represent people and edges represent connections. You want to find the **shortest path** between two people."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def shortest_path_bfs(graph, start, target):\n    from collections import deque\n    queue = deque([(start, [start])])\n    visited = set()\n    while queue:\n        node, path = queue.popleft()\n        if node == target:\n            return path\n        if node not in visited:\n            visited.add(node)\n            for neighbor in graph[node]:\n                queue.append((neighbor, path + [neighbor]))"
+          },
+          {
+            "type": "paragraph",
+            "text": "The BFS approach finds the shortest path by exploring neighbors layer by layer."
+          }
+        ]
+      },
+      "question": "Why is BFS suitable for finding the shortest path in an unweighted graph?",
+      "options": [
+        "It explores all nodes",
+        "It visits nodes randomly",
+        "It explores nodes layer by layer",
+        "It uses a stack for traversal"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "BFS is suitable for finding the shortest path in an unweighted graph because it explores nodes layer by layer, ensuring the shortest path is found first."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Consider a grid-based game where you need to find the minimum number of moves to reach a target cell from a starting cell. You can move up, down, left, or right."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def bfs_min_moves(grid, start, target):\n    from collections import deque\n    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    queue = deque([(start, 0)])\n    visited = set()\n    while queue:\n        (x, y), moves = queue.popleft()\n        if (x, y) == target:\n            return moves\n        for dx, dy in directions:\n            nx, ny = x + dx, y + dy\n            if (nx, ny) not in visited and is_valid(nx, ny, grid):\n                visited.add((nx, ny))\n                queue.append(((nx, ny), moves + 1))"
+          },
+          {
+            "type": "paragraph",
+            "text": "BFS can be used to find the minimum number of moves in grid-based problems."
+          }
+        ]
+      },
+      "question": "How does BFS find the minimum number of moves in grid-based problems?",
+      "options": [
+        "By exploring all paths simultaneously",
+        "By exploring only one path at a time",
+        "By randomly selecting paths",
+        "By using a stack instead of a queue"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "BFS finds the minimum number of moves by exploring all paths simultaneously using a queue, ensuring that the shortest path is found first."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In a network graph with nodes representing computers and edges representing connections, you need to **broadcast** a message from one computer to all others."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "BFS is suitable for **broadcasting** tasks.",
+              "It ensures all nodes are reached in the **minimum number of hops**."
+            ]
+          }
+        ]
+      },
+      "question": "What is the benefit of using BFS for broadcasting messages in a network graph?",
+      "options": [
+        "It finds the longest path",
+        "It ensures all nodes are reached in the minimum number of hops",
+        "It randomly selects nodes",
+        "It uses a stack for traversal"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "BFS ensures that all nodes are reached in the minimum number of hops, making it ideal for broadcasting messages."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "BFS can detect **cycles** in an undirected graph. While traversing, if a node is visited again that is not the parent, a cycle exists."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def bfs_cycle_detection(graph, start):\n    from collections import deque\n    queue = deque([(start, None)])\n    visited = set()\n    while queue:\n        node, parent = queue.popleft()\n        if node in visited:\n            return True\n        visited.add(node)\n        for neighbor in graph[node]:\n            if neighbor != parent:\n                queue.append((neighbor, node))\n    return False"
+          }
+        ]
+      },
+      "question": "What condition is checked to detect a cycle in an undirected graph using BFS?",
+      "options": [
+        "If a node has more than one neighbor",
+        "If a node is visited again and is not the parent",
+        "If the graph is unconnected",
+        "If all nodes are visited"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "A cycle is detected if a node is visited again and is not the parent of the current node."
+    }
+  ]
+}

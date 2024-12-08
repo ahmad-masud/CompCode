@@ -1,0 +1,93 @@
+{
+  "name": "intel",
+  "data": [
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.19062641457662657",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "206",
+      "Title": "Reverse Linked List",
+      "Acceptance": 62,
+      "Difficulty": "Easy",
+      "Frequency": "0.12455596351019865",
+      "Link": " https://leetcode.com/problems/reverse-linked-list"
+    },
+    {
+      "ID": "238",
+      "Title": "Product of Array Except Self",
+      "Acceptance": 60,
+      "Difficulty": "Medium",
+      "Frequency": "0.05848551244377074",
+      "Link": " https://leetcode.com/problems/product-of-array-except-self"
+    },
+    {
+      "ID": "2",
+      "Title": "Add Two Numbers",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.05671480756138734",
+      "Link": " https://leetcode.com/problems/add-two-numbers"
+    },
+    {
+      "ID": "204",
+      "Title": "Count Primes",
+      "Acceptance": 31,
+      "Difficulty": "Easy",
+      "Frequency": "0.041527308821257436",
+      "Link": " https://leetcode.com/problems/count-primes"
+    },
+    {
+      "ID": "53",
+      "Title": "Maximum Subarray",
+      "Acceptance": 46,
+      "Difficulty": "Easy",
+      "Frequency": "0.041193661075270664",
+      "Link": " https://leetcode.com/problems/maximum-subarray"
+    },
+    {
+      "ID": "121",
+      "Title": "Best Time to Buy and Sell Stock",
+      "Acceptance": 50,
+      "Difficulty": "Easy",
+      "Frequency": "0.018197024560061743",
+      "Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+    },
+    {
+      "ID": "234",
+      "Title": "Palindrome Linked List",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.009716151141728767",
+      "Link": " https://leetcode.com/problems/palindrome-linked-list"
+    },
+    {
+      "ID": "20",
+      "Title": "Valid Parentheses",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.008761898231759775",
+      "Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+      "ID": "21",
+      "Title": "Merge Two Sorted Lists",
+      "Acceptance": 53,
+      "Difficulty": "Easy",
+      "Frequency": "0.008604516653304993",
+      "Link": " https://leetcode.com/problems/merge-two-sorted-lists"
+    },
+    {
+      "ID": "543",
+      "Title": "Diameter of Binary Tree",
+      "Acceptance": 48,
+      "Difficulty": "Easy",
+      "Frequency": "0.005047966297304777",
+      "Link": " https://leetcode.com/problems/diameter-of-binary-tree"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "name": "hulu",
+  "data": [
+    {
+      "ID": "909",
+      "Title": "Snakes and Ladders",
+      "Acceptance": 38,
+      "Difficulty": "Medium",
+      "Frequency": "0.168705777104921",
+      "Link": " https://leetcode.com/problems/snakes-and-ladders"
+    },
+    {
+      "ID": "326",
+      "Title": "Power of Three",
+      "Acceptance": 42,
+      "Difficulty": "Easy",
+      "Frequency": "0.11585923430189346",
+      "Link": " https://leetcode.com/problems/power-of-three"
+    },
+    {
+      "ID": "54",
+      "Title": "Spiral Matrix",
+      "Acceptance": 34,
+      "Difficulty": "Medium",
+      "Frequency": "0.09619908149585338",
+      "Link": " https://leetcode.com/problems/spiral-matrix"
+    },
+    {
+      "ID": "200",
+      "Title": "Number of Islands",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.04335253869282585",
+      "Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+      "ID": "907",
+      "Title": "Sum of Subarray Minimums",
+      "Acceptance": 32,
+      "Difficulty": "Medium",
+      "Frequency": "0.03902934390573525",
+      "Link": " https://leetcode.com/problems/sum-of-subarray-minimums"
+    },
+    {
+      "ID": "394",
+      "Title": "Decode String",
+      "Acceptance": 50,
+      "Difficulty": "Medium",
+      "Frequency": "0.01743216716867105",
+      "Link": " https://leetcode.com/problems/decode-string"
+    },
+    {
+      "ID": "863",
+      "Title": "All Nodes Distance K in Binary Tree",
+      "Acceptance": 55,
+      "Difficulty": "Medium",
+      "Frequency": "0.0161554402222852",
+      "Link": " https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree"
+    },
+    {
+      "ID": "49",
+      "Title": "Group Anagrams",
+      "Acceptance": 56,
+      "Difficulty": "Medium",
+      "Frequency": "0.014460261001258648",
+      "Link": " https://leetcode.com/problems/group-anagrams"
+    },
+    {
+      "ID": "371",
+      "Title": "Sum of Two Integers",
+      "Acceptance": 50,
+      "Difficulty": "Medium",
+      "Frequency": "0.013364716132203554",
+      "Link": " https://leetcode.com/problems/sum-of-two-integers"
+    },
+    {
+      "ID": "139",
+      "Title": "Word Break",
+      "Acceptance": 40,
+      "Difficulty": "Medium",
+      "Frequency": "0.008429383994401785",
+      "Link": " https://leetcode.com/problems/word-break"
+    },
+    {
+      "ID": "230",
+      "Title": "Kth Smallest Element in a BST",
+      "Acceptance": 60,
+      "Difficulty": "Medium",
+      "Frequency": "0.006085520073802784",
+      "Link": " https://leetcode.com/problems/kth-smallest-element-in-a-bst"
+    },
+    {
+      "ID": "347",
+      "Title": "Top K Frequent Elements",
+      "Acceptance": 61,
+      "Difficulty": "Medium",
+      "Frequency": "0.003299486074331776",
+      "Link": " https://leetcode.com/problems/top-k-frequent-elements"
+    },
+    {
+      "ID": "26",
+      "Title": "Remove Duplicates from Sorted Array",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.0018681118827202508",
+      "Link": " https://leetcode.com/problems/remove-duplicates-from-sorted-array"
+    },
+    {
+      "ID": "440",
+      "Title": "K-th Smallest in Lexicographical Order",
+      "Acceptance": 29,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/k-th-smallest-in-lexicographical-order"
+    },
+    {
+      "ID": "772",
+      "Title": "Basic Calculator III",
+      "Acceptance": 41,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/basic-calculator-iii"
+    },
+    {
+      "ID": "814",
+      "Title": "Binary Tree Pruning",
+      "Acceptance": 74,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/binary-tree-pruning"
+    },
+    {
+      "ID": "1063",
+      "Title": "Number of Valid Subarrays",
+      "Acceptance": 71,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/number-of-valid-subarrays"
+    }
+  ]
+}

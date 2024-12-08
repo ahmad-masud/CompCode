@@ -1,0 +1,165 @@
+{
+  "name": "palantir-technologies",
+  "data": [
+    {
+      "ID": "393",
+      "Title": "UTF-8 Validation",
+      "Acceptance": 37,
+      "Difficulty": "Medium",
+      "Frequency": "5.339542531545812",
+      "Link": " https://leetcode.com/problems/utf-8-validation"
+    },
+    {
+      "ID": "539",
+      "Title": "Minimum Time Difference",
+      "Acceptance": 51,
+      "Difficulty": "Medium",
+      "Frequency": "4.5282542854816565",
+      "Link": " https://leetcode.com/problems/minimum-time-difference"
+    },
+    {
+      "ID": "56",
+      "Title": "Merge Intervals",
+      "Acceptance": 39,
+      "Difficulty": "Medium",
+      "Frequency": "2.7963305586450815",
+      "Link": " https://leetcode.com/problems/merge-intervals"
+    },
+    {
+      "ID": "273",
+      "Title": "Integer to English Words",
+      "Acceptance": 27,
+      "Difficulty": "Hard",
+      "Frequency": "1.064406831808506",
+      "Link": " https://leetcode.com/problems/integer-to-english-words"
+    },
+    {
+      "ID": "146",
+      "Title": "LRU Cache",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "1.0128053210090022",
+      "Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+      "ID": "200",
+      "Title": "Number of Islands",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.475271166771",
+      "Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+      "ID": "277",
+      "Title": "Find the Celebrity",
+      "Acceptance": 41,
+      "Difficulty": "Medium",
+      "Frequency": "0.3142660340639637",
+      "Link": " https://leetcode.com/problems/find-the-celebrity"
+    },
+    {
+      "ID": "733",
+      "Title": "Flood Fill",
+      "Acceptance": 55,
+      "Difficulty": "Easy",
+      "Frequency": "0.20573399741869788",
+      "Link": " https://leetcode.com/problems/flood-fill"
+    },
+    {
+      "ID": "220",
+      "Title": "Contains Duplicate III",
+      "Acceptance": 20,
+      "Difficulty": "Medium",
+      "Frequency": "0.20432784239539936",
+      "Link": " https://leetcode.com/problems/contains-duplicate-iii"
+    },
+    {
+      "ID": "285",
+      "Title": "Inorder Successor in BST",
+      "Acceptance": 40,
+      "Difficulty": "Medium",
+      "Frequency": "0.13204807962078746",
+      "Link": " https://leetcode.com/problems/inorder-successor-in-bst"
+    },
+    {
+      "ID": "42",
+      "Title": "Trapping Rain Water",
+      "Acceptance": 48,
+      "Difficulty": "Hard",
+      "Frequency": "0.12389276378675394",
+      "Link": " https://leetcode.com/problems/trapping-rain-water"
+    },
+    {
+      "ID": "10",
+      "Title": "Regular Expression Matching",
+      "Acceptance": 26,
+      "Difficulty": "Hard",
+      "Frequency": "0.02844130559772196",
+      "Link": " https://leetcode.com/problems/regular-expression-matching"
+    },
+    {
+      "ID": "53",
+      "Title": "Maximum Subarray",
+      "Acceptance": 46,
+      "Difficulty": "Easy",
+      "Frequency": "0.013467854269413949",
+      "Link": " https://leetcode.com/problems/maximum-subarray"
+    },
+    {
+      "ID": "219",
+      "Title": "Contains Duplicate II",
+      "Acceptance": 37,
+      "Difficulty": "Easy",
+      "Frequency": "0.01276748910345265",
+      "Link": " https://leetcode.com/problems/contains-duplicate-ii"
+    },
+    {
+      "ID": "695",
+      "Title": "Max Area of Island",
+      "Acceptance": 62,
+      "Difficulty": "Medium",
+      "Frequency": "0.012686500631003836",
+      "Link": " https://leetcode.com/problems/max-area-of-island"
+    },
+    {
+      "ID": "48",
+      "Title": "Rotate Image",
+      "Acceptance": 56,
+      "Difficulty": "Medium",
+      "Frequency": "0.011428695823622754",
+      "Link": " https://leetcode.com/problems/rotate-image"
+    },
+    {
+      "ID": "217",
+      "Title": "Contains Duplicate",
+      "Acceptance": 56,
+      "Difficulty": "Easy",
+      "Frequency": "0.008525200823359648",
+      "Link": " https://leetcode.com/problems/contains-duplicate"
+    },
+    {
+      "ID": "136",
+      "Title": "Single Number",
+      "Acceptance": 65,
+      "Difficulty": "Easy",
+      "Frequency": "0.006445166968713385",
+      "Link": " https://leetcode.com/problems/single-number"
+    },
+    {
+      "ID": "303",
+      "Title": "Range Sum Query - Immutable",
+      "Acceptance": 44,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/range-sum-query-immutable"
+    },
+    {
+      "ID": "325",
+      "Title": "Maximum Size Subarray Sum Equals k",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/maximum-size-subarray-sum-equals-k"
+    }
+  ]
+}

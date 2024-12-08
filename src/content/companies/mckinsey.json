@@ -1,0 +1,13 @@
+{
+  "name": "mckinsey",
+  "data": [
+    {
+      "ID": "934",
+      "Title": "Shortest Bridge",
+      "Acceptance": 48,
+      "Difficulty": "Medium",
+      "Frequency": "0.03607244121670154",
+      "Link": " https://leetcode.com/problems/shortest-bridge"
+    }
+  ]
+}

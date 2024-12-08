@@ -1,0 +1,181 @@
+{
+  "name": "jpmorgan",
+  "data": [
+    {
+      "ID": "202",
+      "Title": "Happy Number",
+      "Acceptance": 50,
+      "Difficulty": "Easy",
+      "Frequency": "3.472501931831341",
+      "Link": " https://leetcode.com/problems/happy-number"
+    },
+    {
+      "ID": "20",
+      "Title": "Valid Parentheses",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "2.091183527592892",
+      "Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+      "ID": "322",
+      "Title": "Coin Change",
+      "Acceptance": 35,
+      "Difficulty": "Medium",
+      "Frequency": "0.7098651233544434",
+      "Link": " https://leetcode.com/problems/coin-change"
+    },
+    {
+      "ID": "121",
+      "Title": "Best Time to Buy and Sell Stock",
+      "Acceptance": 50,
+      "Difficulty": "Easy",
+      "Frequency": "0.24778819384825912",
+      "Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+    },
+    {
+      "ID": "1328",
+      "Title": "Break a Palindrome",
+      "Acceptance": 43,
+      "Difficulty": "Medium",
+      "Frequency": "0.21795507637539235",
+      "Link": " https://leetcode.com/problems/break-a-palindrome"
+    },
+    {
+      "ID": "31",
+      "Title": "Next Permutation",
+      "Acceptance": 32,
+      "Difficulty": "Medium",
+      "Frequency": "0.11480808652664298",
+      "Link": " https://leetcode.com/problems/next-permutation"
+    },
+    {
+      "ID": "273",
+      "Title": "Integer to English Words",
+      "Acceptance": 27,
+      "Difficulty": "Hard",
+      "Frequency": "0.10380963271229693",
+      "Link": " https://leetcode.com/problems/integer-to-english-words"
+    },
+    {
+      "ID": "9",
+      "Title": "Palindrome Number",
+      "Acceptance": 48,
+      "Difficulty": "Easy",
+      "Frequency": "0.08804403243108966",
+      "Link": " https://leetcode.com/problems/palindrome-number"
+    },
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.07889903801250679",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "7",
+      "Title": "Reverse Integer",
+      "Acceptance": 25,
+      "Difficulty": "Easy",
+      "Frequency": "0.054824382173728654",
+      "Link": " https://leetcode.com/problems/reverse-integer"
+    },
+    {
+      "ID": "17",
+      "Title": "Letter Combinations of a Phone Number",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.052632421620123555",
+      "Link": " https://leetcode.com/problems/letter-combinations-of-a-phone-number"
+    },
+    {
+      "ID": "200",
+      "Title": "Number of Islands",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.04526299408355752",
+      "Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+      "ID": "53",
+      "Title": "Maximum Subarray",
+      "Acceptance": 46,
+      "Difficulty": "Easy",
+      "Frequency": "0.04299340685592046",
+      "Link": " https://leetcode.com/problems/maximum-subarray"
+    },
+    {
+      "ID": "5",
+      "Title": "Longest Palindromic Substring",
+      "Acceptance": 29,
+      "Difficulty": "Medium",
+      "Frequency": "0.035860192879893796",
+      "Link": " https://leetcode.com/problems/longest-palindromic-substring"
+    },
+    {
+      "ID": "4",
+      "Title": "Median of Two Sorted Arrays",
+      "Acceptance": 29,
+      "Difficulty": "Hard",
+      "Frequency": "0.034565653112280895",
+      "Link": " https://leetcode.com/problems/median-of-two-sorted-arrays"
+    },
+    {
+      "ID": "33",
+      "Title": "Search in Rotated Sorted Array",
+      "Acceptance": 34,
+      "Difficulty": "Medium",
+      "Frequency": "0.0287009496170278",
+      "Link": " https://leetcode.com/problems/search-in-rotated-sorted-array"
+    },
+    {
+      "ID": "146",
+      "Title": "LRU Cache",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.028411001832779885",
+      "Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+      "ID": "349",
+      "Title": "Intersection of Two Arrays",
+      "Acceptance": 62,
+      "Difficulty": "Easy",
+      "Frequency": "0.016239981598488416",
+      "Link": " https://leetcode.com/problems/intersection-of-two-arrays"
+    },
+    {
+      "ID": "79",
+      "Title": "Word Search",
+      "Acceptance": 35,
+      "Difficulty": "Medium",
+      "Frequency": "0.014883688014740005",
+      "Link": " https://leetcode.com/problems/word-search"
+    },
+    {
+      "ID": "215",
+      "Title": "Kth Largest Element in an Array",
+      "Acceptance": 55,
+      "Difficulty": "Medium",
+      "Frequency": "0.008759180089881562",
+      "Link": " https://leetcode.com/problems/kth-largest-element-in-an-array"
+    },
+    {
+      "ID": "39",
+      "Title": "Combination Sum",
+      "Acceptance": 56,
+      "Difficulty": "Medium",
+      "Frequency": "0.005715934396440999",
+      "Link": " https://leetcode.com/problems/combination-sum"
+    },
+    {
+      "ID": "387",
+      "Title": "First Unique Character in a String",
+      "Acceptance": 53,
+      "Difficulty": "Easy",
+      "Frequency": "0.00418541994270691",
+      "Link": " https://leetcode.com/problems/first-unique-character-in-a-string"
+    }
+  ]
+}

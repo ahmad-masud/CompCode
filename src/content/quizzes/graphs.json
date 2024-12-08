@@ -1,0 +1,124 @@
+{
+  "title": "Graphs",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A graph is a data structure consisting of **nodes (vertices)** connected by **edges**. Graphs can be directed or undirected."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class Graph:\n    def __init__(self):\n        self.graph = {}"
+          },
+          {
+            "type": "paragraph",
+            "text": "This simple class initializes an empty graph using a dictionary to store nodes and edges."
+          }
+        ]
+      },
+      "question": "What does a graph consist of?",
+      "options": [
+        "Nodes only",
+        "Nodes and edges",
+        "Edges only",
+        "Nodes and trees"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "A graph consists of nodes (vertices) and edges connecting these nodes."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Graphs can be traversed using **Breadth-First Search (BFS)**. This traversal explores all nodes at the current depth level before moving on to nodes at the next level."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "from collections import deque\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    while queue:\n        node = queue.popleft()\n        if node not in visited:\n            print(node)\n            visited.add(node)\n            queue.extend(graph[node])"
+          }
+        ]
+      },
+      "question": "Which data structure is used for BFS traversal?",
+      "options": ["Stack", "Queue", "Tree", "List"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "BFS uses a queue to traverse nodes level by level."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "**Depth-First Search (DFS)** explores as far as possible along a branch before backtracking. It can be implemented using recursion or an explicit stack."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def dfs(graph, node, visited=set()):\n    if node not in visited:\n        print(node)\n        visited.add(node)\n        for neighbor in graph[node]:\n            dfs(graph, neighbor, visited)"
+          }
+        ]
+      },
+      "question": "What data structure is commonly used to implement DFS iteratively?",
+      "options": ["Queue", "Stack", "Heap", "Tree"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "A stack is used for iterative implementations of DFS."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Graphs can have **cycles**, which are paths that start and end at the same node without repeating edges or nodes. Detecting cycles is important in directed and undirected graphs."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def detect_cycle(graph, node, visited, parent):\n    visited.add(node)\n    for neighbor in graph[node]:\n        if neighbor not in visited:\n            if detect_cycle(graph, neighbor, visited, node):\n                return True\n        elif parent != neighbor:\n            return True\n    return False"
+          }
+        ]
+      },
+      "question": "Why is cycle detection important in graphs?",
+      "options": [
+        "To find isolated nodes",
+        "To prevent infinite loops",
+        "To count edges",
+        "To sort nodes"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Cycle detection is important to avoid infinite loops during graph traversal."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "**Weighted graphs** have edges with associated weights or costs, representing distances, costs, or other metrics between nodes."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "graph = {\n    'A': [('B', 1), ('C', 3)],\n    'B': [('C', 1), ('D', 4)],\n    'C': [('D', 2)],\n    'D': []\n}"
+          }
+        ]
+      },
+      "question": "What do weights in a weighted graph represent?",
+      "options": [
+        "Node colors",
+        "Edge costs or distances",
+        "Traversal order",
+        "Graph size"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Weights in a weighted graph represent costs, distances, or other metrics associated with edges."
+    }
+  ]
+}

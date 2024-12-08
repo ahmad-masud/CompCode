@@ -1,0 +1,141 @@
+{
+  "name": "godaddy",
+  "data": [
+    {
+      "ID": "441",
+      "Title": "Arranging Coins",
+      "Acceptance": 41,
+      "Difficulty": "Easy",
+      "Frequency": "0.08973851726005694",
+      "Link": " https://leetcode.com/problems/arranging-coins"
+    },
+    {
+      "ID": "146",
+      "Title": "LRU Cache",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.07118067822062889",
+      "Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+      "ID": "20",
+      "Title": "Valid Parentheses",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.055983722381420686",
+      "Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.051207090852741735",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "253",
+      "Title": "Meeting Rooms II",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0.04945628059066218",
+      "Link": " https://leetcode.com/problems/meeting-rooms-ii"
+    },
+    {
+      "ID": "724",
+      "Title": "Find Pivot Index",
+      "Acceptance": 44,
+      "Difficulty": "Easy",
+      "Frequency": "0.03089844155123413",
+      "Link": " https://leetcode.com/problems/find-pivot-index"
+    },
+    {
+      "ID": "63",
+      "Title": "Unique Paths II",
+      "Acceptance": 34,
+      "Difficulty": "Medium",
+      "Frequency": "0.01949801804099658",
+      "Link": " https://leetcode.com/problems/unique-paths-ii"
+    },
+    {
+      "ID": "139",
+      "Title": "Word Break",
+      "Acceptance": 40,
+      "Difficulty": "Medium",
+      "Frequency": "0.015487677691351377",
+      "Link": " https://leetcode.com/problems/word-break"
+    },
+    {
+      "ID": "5",
+      "Title": "Longest Palindromic Substring",
+      "Acceptance": 29,
+      "Difficulty": "Medium",
+      "Frequency": "0.01416133329402493",
+      "Link": " https://leetcode.com/problems/longest-palindromic-substring"
+    },
+    {
+      "ID": "56",
+      "Title": "Merge Intervals",
+      "Acceptance": 39,
+      "Difficulty": "Medium",
+      "Frequency": "0.013819532422258866",
+      "Link": " https://leetcode.com/problems/merge-intervals"
+    },
+    {
+      "ID": "344",
+      "Title": "Reverse String",
+      "Acceptance": 68,
+      "Difficulty": "Easy",
+      "Frequency": "0.013014662307854044",
+      "Link": " https://leetcode.com/problems/reverse-string"
+    },
+    {
+      "ID": "200",
+      "Title": "Number of Islands",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.011509262420590827",
+      "Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+      "ID": "279",
+      "Title": "Perfect Squares",
+      "Acceptance": 47,
+      "Difficulty": "Medium",
+      "Frequency": "0.009216655104924008",
+      "Link": " https://leetcode.com/problems/perfect-squares"
+    },
+    {
+      "ID": "76",
+      "Title": "Minimum Window Substring",
+      "Acceptance": 34,
+      "Difficulty": "Hard",
+      "Frequency": "0.006231520398723243",
+      "Link": " https://leetcode.com/problems/minimum-window-substring"
+    },
+    {
+      "ID": "46",
+      "Title": "Permutations",
+      "Acceptance": 63,
+      "Difficulty": "Medium",
+      "Frequency": "0.004216302230139218",
+      "Link": " https://leetcode.com/problems/permutations"
+    },
+    {
+      "ID": "4",
+      "Title": "Median of Two Sorted Arrays",
+      "Acceptance": 29,
+      "Difficulty": "Hard",
+      "Frequency": "0.003900160950094767",
+      "Link": " https://leetcode.com/problems/median-of-two-sorted-arrays"
+    },
+    {
+      "ID": "443",
+      "Title": "String Compression",
+      "Acceptance": 41,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/string-compression"
+    }
+  ]
+}

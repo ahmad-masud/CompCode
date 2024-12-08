@@ -1,0 +1,61 @@
+{
+  "name": "sumologic",
+  "data": [
+    {
+      "ID": "558",
+      "Title": "Logical OR of Two Binary Grids Represented as Quad-Trees",
+      "Acceptance": 44,
+      "Difficulty": "Medium",
+      "Frequency": "1.302238508997728",
+      "Link": " https://leetcode.com/problems/logical-or-of-two-binary-grids-represented-as-quad-trees"
+    },
+    {
+      "ID": "981",
+      "Title": "Time Based Key-Value Store",
+      "Acceptance": 53,
+      "Difficulty": "Medium",
+      "Frequency": "0.8180951326968029",
+      "Link": " https://leetcode.com/problems/time-based-key-value-store"
+    },
+    {
+      "ID": "850",
+      "Title": "Rectangle Area II",
+      "Acceptance": 47,
+      "Difficulty": "Hard",
+      "Frequency": "0.33395175639587793",
+      "Link": " https://leetcode.com/problems/rectangle-area-ii"
+    },
+    {
+      "ID": "31",
+      "Title": "Next Permutation",
+      "Acceptance": 32,
+      "Difficulty": "Medium",
+      "Frequency": "0.19579797845713617",
+      "Link": " https://leetcode.com/problems/next-permutation"
+    },
+    {
+      "ID": "990",
+      "Title": "Satisfiability of Equality Equations",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0.14565275315686743",
+      "Link": " https://leetcode.com/problems/satisfiability-of-equality-equations"
+    },
+    {
+      "ID": "56",
+      "Title": "Merge Intervals",
+      "Acceptance": 39,
+      "Difficulty": "Medium",
+      "Frequency": "0.013819532422258866",
+      "Link": " https://leetcode.com/problems/merge-intervals"
+    },
+    {
+      "ID": "200",
+      "Title": "Number of Islands",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.006490251382779317",
+      "Link": " https://leetcode.com/problems/number-of-islands"
+    }
+  ]
+}

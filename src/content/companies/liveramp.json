@@ -1,0 +1,69 @@
+{
+  "name": "liveramp",
+  "data": [
+    {
+      "ID": "529",
+      "Title": "Minesweeper",
+      "Acceptance": 59,
+      "Difficulty": "Medium",
+      "Frequency": "0.09420878206672367",
+      "Link": " https://leetcode.com/problems/minesweeper"
+    },
+    {
+      "ID": "575",
+      "Title": "Distribute Candies",
+      "Acceptance": 61,
+      "Difficulty": "Easy",
+      "Frequency": "0.08329002108922262",
+      "Link": " https://leetcode.com/problems/distribute-candies"
+    },
+    {
+      "ID": "581",
+      "Title": "Shortest Unsorted Continuous Subarray",
+      "Acceptance": 31,
+      "Difficulty": "Easy",
+      "Frequency": "0.05007303798232116",
+      "Link": " https://leetcode.com/problems/shortest-unsorted-continuous-subarray"
+    },
+    {
+      "ID": "785",
+      "Title": "Is Graph Bipartite?",
+      "Acceptance": 47,
+      "Difficulty": "Medium",
+      "Frequency": "0.041978881338661234",
+      "Link": " https://leetcode.com/problems/is-graph-bipartite"
+    },
+    {
+      "ID": "20",
+      "Title": "Valid Parentheses",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.008761898231759775",
+      "Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+      "ID": "200",
+      "Title": "Number of Islands",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.002765297303115152",
+      "Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+      "ID": "594",
+      "Title": "Longest Harmonious Subsequence",
+      "Acceptance": 46,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/longest-harmonious-subsequence"
+    },
+    {
+      "ID": "949",
+      "Title": "Largest Time for Given Digits",
+      "Acceptance": 35,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/largest-time-for-given-digits"
+    }
+  ]
+}

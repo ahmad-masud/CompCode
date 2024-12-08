@@ -1,0 +1,289 @@
+{
+  "title": "Complexities",
+  "type": "concept",
+  "difficulty": "medium",
+  "lessons": [
+    {
+      "title": "What is Big O?",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Big O notation is a mathematical concept used to describe the efficiency of algorithms. It focuses on how the runtime or memory usage of an algorithm scales as the size of the input grows."
+        },
+        {
+          "type": "paragraph",
+          "text": "Big O was introduced in 1894 by Paul Bachmann and popularized by Donald Knuth in the 1970s for analyzing algorithm performance. It helps computer scientists measure the worst-case performance of algorithms."
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "**Purpose**: To provide a high-level understanding of an algorithm's efficiency.",
+            "**Focus**: On the dominant term as input size grows, ignoring constants and less significant terms.",
+            "**Usage**: Helps compare and choose the best algorithm for a given problem."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Time and Space Complexity",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Time and space complexities are both measures of an algorithm's efficiency but focus on different aspects."
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "**Time Complexity**: Measures the time an algorithm takes to complete as a function of input size.",
+            "**Space Complexity**: Measures the additional memory an algorithm uses as a function of input size."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In some scenarios, there is a trade-off between time and space complexities. For example, a time-efficient algorithm may require more memory, while a memory-efficient algorithm may run slower."
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Example: Iterative Fibonacci has O(n) time complexity and O(1) space complexity.",
+            "Recursive Fibonacci has O(2^n) time complexity and O(n) space complexity due to the recursion stack."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Examples of Space Complexity",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Space complexity accounts for all the memory an algorithm uses, including:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Input data storage.",
+            "Auxiliary variables.",
+            "Recursion stack space."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "O(1): Constant Space",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "An algorithm is O(1) in space if it requires a fixed amount of memory regardless of the input size."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def sum_array(arr):\n    total = 0  # Only one variable used\n    for num in arr:\n        total += num\n    return total\n\narr = [1, 2, 3, 4]\nprint(sum_array(arr))  # Output: 10"
+        },
+        {
+          "type": "paragraph",
+          "text": "The space complexity here is constant because no additional memory is used except for the `total` variable."
+        }
+      ]
+    },
+    {
+      "title": "O(n): Linear Space",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "An algorithm is O(n) in space if the memory usage grows linearly with input size."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def store_squares(n):\n    squares = []  # Memory usage grows with `n`\n    for i in range(1, n+1):\n        squares.append(i ** 2)\n    return squares\n\nprint(store_squares(5))  # Output: [1, 4, 9, 16, 25]"
+        },
+        {
+          "type": "paragraph",
+          "text": "The `squares` list requires memory proportional to the input size `n`."
+        }
+      ]
+    },
+    {
+      "title": "O(n): Space in Recursion",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Recursive algorithms use stack space for each function call. The depth of recursion determines the space complexity."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n-1)\n\nprint(factorial(5))  # Output: 120"
+        },
+        {
+          "type": "paragraph",
+          "text": "The recursion depth is proportional to `n`, so the space complexity is O(n) due to the stack frames."
+        }
+      ]
+    },
+    {
+      "title": "Space Complexity Trade-offs",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Some algorithms improve time efficiency at the cost of increased space usage. For example:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "**Dynamic Programming**: Uses additional space (O(n) or more) to store intermediate results and avoid recomputation.",
+            "**Hash Tables**: Improve lookup times to O(1) but require O(n) space."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "O(1): Constant Time",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "An algorithm is O(1) if its runtime does not depend on the input size."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def get_first_element(arr):\n    return arr[0]\n\narr = [1, 2, 3]\nprint(get_first_element(arr))  # Output: 1"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, accessing the first element of an array takes the same time regardless of the array's size."
+        }
+      ]
+    },
+    {
+      "title": "O(log n): Logarithmic Time",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "An algorithm is O(log n) if it reduces the problem size by a constant factor in each step."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def binary_search(arr, target):\n    low, high = 0, len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1\n\narr = [1, 2, 3, 4, 5]\nprint(binary_search(arr, 3))  # Output: 2"
+        },
+        {
+          "type": "paragraph",
+          "text": "Binary search is a classic example of logarithmic time complexity, cutting the problem size in half each iteration."
+        }
+      ]
+    },
+    {
+      "title": "O(n): Linear Time",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "An algorithm is O(n) if its runtime grows linearly with the input size."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def sum_array(arr):\n    total = 0\n    for num in arr:\n        total += num\n    return total\n\narr = [1, 2, 3, 4, 5]\nprint(sum_array(arr))  # Output: 15"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, every element in the array is processed once, making the runtime proportional to the input size."
+        }
+      ]
+    },
+    {
+      "title": "O(n log n): Linearithmic Time",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "An algorithm is O(n log n) when it performs a logarithmic operation for each element."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def merge_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    mid = len(arr) // 2\n    left = merge_sort(arr[:mid])\n    right = merge_sort(arr[mid:])\n    return merge(left, right)\n\ndef merge(left, right):\n    result = []\n    while left and right:\n        if left[0] < right[0]:\n            result.append(left.pop(0))\n        else:\n            result.append(right.pop(0))\n    result.extend(left or right)\n    return result\n\narr = [4, 2, 7, 1, 3]\nprint(merge_sort(arr))  # Output: [1, 2, 3, 4, 7]"
+        },
+        {
+          "type": "paragraph",
+          "text": "Merge sort is an example of O(n log n), as it splits the input and merges sorted halves."
+        }
+      ]
+    },
+    {
+      "title": "O(n^2): Quadratic Time",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "An algorithm is O(n^2) if it involves nested loops iterating over the same input."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def print_pairs(arr):\n    for i in arr:\n        for j in arr:\n            print(i, j)\n\narr = [1, 2, 3]\nprint_pairs(arr)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Here, every element is paired with every other element, resulting in quadratic growth."
+        }
+      ]
+    },
+    {
+      "title": "O(2^n): Exponential Time",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "An algorithm is O(2^n) if its growth doubles with each addition to the input size."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)\n\nprint(fibonacci(5))  # Output: 5"
+        },
+        {
+          "type": "paragraph",
+          "text": "Recursive algorithms like this Fibonacci sequence exhibit exponential growth due to repeated calculations."
+        }
+      ]
+    },
+    {
+      "title": "O(n!): Factorial Time",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "An algorithm is O(n!) if it generates all permutations or combinations of an input."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "from itertools import permutations\n\ndef generate_permutations(arr):\n    return list(permutations(arr))\n\narr = [1, 2, 3]\nprint(generate_permutations(arr))  # Output: [(1, 2, 3), (1, 3, 2), ...]"
+        },
+        {
+          "type": "paragraph",
+          "text": "Generating all permutations of an array is factorial in complexity because every possible arrangement is computed."
+        }
+      ]
+    },
+    {
+      "title": "Other Complexities",
+      "content": [
+        {
+          "type": "bullets",
+          "items": [
+            "**O(sqrt(n))**: Algorithms that iteratively divide the problem into square root segments, e.g., prime-checking optimizations.",
+            "**O(c^n)**: Algorithms that grow based on a base constant raised to the input size, often seen in decision trees."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Understanding Big O notation and the range of complexities helps evaluate algorithm efficiency. From constant time O(1) to factorial O(n!), each complexity has use cases and trade-offs."
+        }
+      ]
+    }
+  ]
+}

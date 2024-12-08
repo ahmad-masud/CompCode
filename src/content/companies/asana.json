@@ -1,0 +1,53 @@
+{
+  "name": "asana",
+  "data": [
+    {
+      "ID": "238",
+      "Title": "Product of Array Except Self",
+      "Acceptance": 60,
+      "Difficulty": "Medium",
+      "Frequency": "0.33156908645744715",
+      "Link": " https://leetcode.com/problems/product-of-array-except-self"
+    },
+    {
+      "ID": "98",
+      "Title": "Validate Binary Search Tree",
+      "Acceptance": 27,
+      "Difficulty": "Medium",
+      "Frequency": "0.3036517978812848",
+      "Link": " https://leetcode.com/problems/validate-binary-search-tree"
+    },
+    {
+      "ID": "146",
+      "Title": "LRU Cache",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.20247490080112324",
+      "Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+      "ID": "973",
+      "Title": "K Closest Points to Origin",
+      "Acceptance": 63,
+      "Difficulty": "Medium",
+      "Frequency": "0.10979229257099747",
+      "Link": " https://leetcode.com/problems/k-closest-points-to-origin"
+    },
+    {
+      "ID": "50",
+      "Title": "Pow(x;n)",
+      "Acceptance": 30,
+      "Difficulty": "Medium",
+      "Frequency": "0.008615395490835889",
+      "Link": " https://leetcode.com/problems/powx-n"
+    },
+    {
+      "ID": "53",
+      "Title": "Maximum Subarray",
+      "Acceptance": 46,
+      "Difficulty": "Easy",
+      "Frequency": "0.008272628741228982",
+      "Link": " https://leetcode.com/problems/maximum-subarray"
+    }
+  ]
+}

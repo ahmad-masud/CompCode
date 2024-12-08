@@ -1,0 +1,189 @@
+{
+  "name": "akuna-capital",
+  "data": [
+    {
+      "ID": "713",
+      "Title": "Subarray Product Less Than K",
+      "Acceptance": 39,
+      "Difficulty": "Medium",
+      "Frequency": "1.072475096007634",
+      "Link": " https://leetcode.com/problems/subarray-product-less-than-k"
+    },
+    {
+      "ID": "1223",
+      "Title": "Dice Roll Simulation",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0.8403614163905465",
+      "Link": " https://leetcode.com/problems/dice-roll-simulation"
+    },
+    {
+      "ID": "995",
+      "Title": "Minimum Number of K Consecutive Bit Flips",
+      "Acceptance": 46,
+      "Difficulty": "Hard",
+      "Frequency": "0.6082477367734591",
+      "Link": " https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips"
+    },
+    {
+      "ID": "324",
+      "Title": "Wiggle Sort II",
+      "Acceptance": 29,
+      "Difficulty": "Medium",
+      "Frequency": "0.46724246780440754",
+      "Link": " https://leetcode.com/problems/wiggle-sort-ii"
+    },
+    {
+      "ID": "1411",
+      "Title": "Number of Ways to Paint N \u00d7 3 Grid",
+      "Acceptance": 61,
+      "Difficulty": "Hard",
+      "Frequency": "0.35534072092559577",
+      "Link": " https://leetcode.com/problems/number-of-ways-to-paint-n-3-grid"
+    },
+    {
+      "ID": "1177",
+      "Title": "Can Make Palindrome from Substring",
+      "Acceptance": 34,
+      "Difficulty": "Medium",
+      "Frequency": "0.24991141156531438",
+      "Link": " https://leetcode.com/problems/can-make-palindrome-from-substring"
+    },
+    {
+      "ID": "1319",
+      "Title": "Number of Operations to Make Network Connected",
+      "Acceptance": 53,
+      "Difficulty": "Medium",
+      "Frequency": "0.10041874774704733",
+      "Link": " https://leetcode.com/problems/number-of-operations-to-make-network-connected"
+    },
+    {
+      "ID": "20",
+      "Title": "Valid Parentheses",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.06735240264428982",
+      "Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+      "ID": "48",
+      "Title": "Rotate Image",
+      "Acceptance": 56,
+      "Difficulty": "Medium",
+      "Frequency": "0.04495138786226632",
+      "Link": " https://leetcode.com/problems/rotate-image"
+    },
+    {
+      "ID": "443",
+      "Title": "String Compression",
+      "Acceptance": 41,
+      "Difficulty": "Easy",
+      "Frequency": "0.031026273563100573",
+      "Link": " https://leetcode.com/problems/string-compression"
+    },
+    {
+      "ID": "743",
+      "Title": "Network Delay Time",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0.02844692450205361",
+      "Link": " https://leetcode.com/problems/network-delay-time"
+    },
+    {
+      "ID": "1048",
+      "Title": "Longest String Chain",
+      "Acceptance": 54,
+      "Difficulty": "Medium",
+      "Frequency": "0.019361689049145963",
+      "Link": " https://leetcode.com/problems/longest-string-chain"
+    },
+    {
+      "ID": "121",
+      "Title": "Best Time to Buy and Sell Stock",
+      "Acceptance": 50,
+      "Difficulty": "Easy",
+      "Frequency": "0.013201163302846108",
+      "Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+    },
+    {
+      "ID": "152",
+      "Title": "Maximum Product Subarray",
+      "Acceptance": 31,
+      "Difficulty": "Medium",
+      "Frequency": "0.012534983069696118",
+      "Link": " https://leetcode.com/problems/maximum-product-subarray"
+    },
+    {
+      "ID": "39",
+      "Title": "Combination Sum",
+      "Acceptance": 56,
+      "Difficulty": "Medium",
+      "Frequency": "0.005715934396440999",
+      "Link": " https://leetcode.com/problems/combination-sum"
+    },
+    {
+      "ID": "15",
+      "Title": "3Sum",
+      "Acceptance": 26,
+      "Difficulty": "Medium",
+      "Frequency": "0.004940992758742591",
+      "Link": " https://leetcode.com/problems/3sum"
+    },
+    {
+      "ID": "677",
+      "Title": "Map Sum Pairs",
+      "Acceptance": 53,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/map-sum-pairs"
+    },
+    {
+      "ID": "740",
+      "Title": "Delete and Earn",
+      "Acceptance": 48,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/delete-and-earn"
+    },
+    {
+      "ID": "741",
+      "Title": "Cherry Pickup",
+      "Acceptance": 33,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/cherry-pickup"
+    },
+    {
+      "ID": "1425",
+      "Title": "Constrained Subsequence Sum",
+      "Acceptance": 44,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/constrained-subsequence-sum"
+    },
+    {
+      "ID": "1326",
+      "Title": "Minimum Number of Taps to Open to Water a Garden",
+      "Acceptance": 43,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden"
+    },
+    {
+      "ID": "1338",
+      "Title": "Reduce Array Size to The Half",
+      "Acceptance": 67,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/reduce-array-size-to-the-half"
+    },
+    {
+      "ID": "1370",
+      "Title": "Increasing Decreasing String",
+      "Acceptance": 75,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/increasing-decreasing-string"
+    }
+  ]
+}

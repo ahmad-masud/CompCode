@@ -1,0 +1,83 @@
+{
+  "name": "graphs",
+  "lessons": [
+    "graphs",
+    "adjacency-lists",
+    "depth-first-search",
+    "breadth-first-search",
+    "topological-sort",
+    "union-find"
+  ],
+  "data": [
+    {
+      "ID": 200,
+      "Title": "Number of Islands",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/number-of-islands",
+      "Acceptance": 54
+    },
+    {
+      "ID": 547,
+      "Title": "Number of Provinces",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/number-of-provinces",
+      "Acceptance": 61
+    },
+    {
+      "ID": 695,
+      "Title": "Max Area of Island",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/max-area-of-island",
+      "Acceptance": 71
+    },
+    {
+      "ID": 1020,
+      "Title": "Number of Enclaves",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/number-of-enclaves",
+      "Acceptance": 60
+    },
+    {
+      "ID": 133,
+      "Title": "Clone Graph",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/clone-graph",
+      "Acceptance": 45
+    },
+    {
+      "ID": 994,
+      "Title": "Rotting Oranges",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/rotting-oranges",
+      "Acceptance": 52
+    },
+    {
+      "ID": 797,
+      "Title": "All Paths From Source to Target",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/all-paths-from-source-to-target",
+      "Acceptance": 80
+    },
+    {
+      "ID": 207,
+      "Title": "Course Schedule",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/course-schedule",
+      "Acceptance": 46
+    },
+    {
+      "ID": 323,
+      "Title": "Number of Connected Components in an Undirected Graph",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph",
+      "Acceptance": 61
+    },
+    {
+      "ID": 684,
+      "Title": "Redundant Connection",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/redundant-connection",
+      "Acceptance": 62
+    }
+  ]
+}

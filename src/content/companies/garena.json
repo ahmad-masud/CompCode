@@ -1,0 +1,29 @@
+{
+  "name": "garena",
+  "data": [
+    {
+      "ID": "46",
+      "Title": "Permutations",
+      "Acceptance": 63,
+      "Difficulty": "Medium",
+      "Frequency": "0.0006322825600889028",
+      "Link": " https://leetcode.com/problems/permutations"
+    },
+    {
+      "ID": "4",
+      "Title": "Median of Two Sorted Arrays",
+      "Acceptance": 29,
+      "Difficulty": "Hard",
+      "Frequency": "0.0003161412800444514",
+      "Link": " https://leetcode.com/problems/median-of-two-sorted-arrays"
+    },
+    {
+      "ID": "810",
+      "Title": "Chalkboard XOR Game",
+      "Acceptance": 48,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/chalkboard-xor-game"
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "name": "grab",
+  "data": [
+    {
+      "ID": "984",
+      "Title": "String Without AAA or BBB",
+      "Acceptance": 37,
+      "Difficulty": "Medium",
+      "Frequency": "0.4954247677613364",
+      "Link": " https://leetcode.com/problems/string-without-aaa-or-bbb"
+    },
+    {
+      "ID": "915",
+      "Title": "Partition Array into Disjoint Intervals",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0.37292635232139065",
+      "Link": " https://leetcode.com/problems/partition-array-into-disjoint-intervals"
+    },
+    {
+      "ID": "983",
+      "Title": "Minimum Cost For Tickets",
+      "Acceptance": 60,
+      "Difficulty": "Medium",
+      "Frequency": "0.26701398643191887",
+      "Link": " https://leetcode.com/problems/minimum-cost-for-tickets"
+    },
+    {
+      "ID": "527",
+      "Title": "Word Abbreviation",
+      "Acceptance": 54,
+      "Difficulty": "Hard",
+      "Frequency": "0.24362208265775043",
+      "Link": " https://leetcode.com/problems/word-abbreviation"
+    },
+    {
+      "ID": "1017",
+      "Title": "Convert to Base -2",
+      "Acceptance": 59,
+      "Difficulty": "Medium",
+      "Frequency": "0.17904823144898546",
+      "Link": " https://leetcode.com/problems/convert-to-base-2"
+    },
+    {
+      "ID": "1253",
+      "Title": "Reconstruct a 2-Row Binary Matrix",
+      "Acceptance": 40,
+      "Difficulty": "Medium",
+      "Frequency": "0.16098937604759944",
+      "Link": " https://leetcode.com/problems/reconstruct-a-2-row-binary-matrix"
+    },
+    {
+      "ID": "42",
+      "Title": "Trapping Rain Water",
+      "Acceptance": 48,
+      "Difficulty": "Hard",
+      "Frequency": "0.038490960607653675",
+      "Link": " https://leetcode.com/problems/trapping-rain-water"
+    },
+    {
+      "ID": "2",
+      "Title": "Add Two Numbers",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.020491663368639005",
+      "Link": " https://leetcode.com/problems/add-two-numbers"
+    },
+    {
+      "ID": "41",
+      "Title": "First Missing Positive",
+      "Acceptance": 32,
+      "Difficulty": "Hard",
+      "Frequency": "0.014368063266920193",
+      "Link": " https://leetcode.com/problems/first-missing-positive"
+    },
+    {
+      "ID": "121",
+      "Title": "Best Time to Buy and Sell Stock",
+      "Acceptance": 50,
+      "Difficulty": "Easy",
+      "Frequency": "0.00846879565300311",
+      "Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+    },
+    {
+      "ID": "234",
+      "Title": "Palindrome Linked List",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.004533613114828982",
+      "Link": " https://leetcode.com/problems/palindrome-linked-list"
+    },
+    {
+      "ID": "238",
+      "Title": "Product of Array Except Self",
+      "Acceptance": 60,
+      "Difficulty": "Medium",
+      "Frequency": "0.003930436424724545",
+      "Link": " https://leetcode.com/problems/product-of-array-except-self"
+    },
+    {
+      "ID": "215",
+      "Title": "Kth Largest Element in an Array",
+      "Acceptance": 55,
+      "Difficulty": "Medium",
+      "Frequency": "0.003902443976931749",
+      "Link": " https://leetcode.com/problems/kth-largest-element-in-an-array"
+    },
+    {
+      "ID": "1073",
+      "Title": "Adding Two Negabinary Numbers",
+      "Acceptance": 34,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/adding-two-negabinary-numbers"
+    }
+  ]
+}

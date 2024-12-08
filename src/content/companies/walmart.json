@@ -1,0 +1,13 @@
+{
+  "name": "walmart",
+  "data": [
+    {
+      "ID": "1238",
+      "Title": "Circular Permutation in Binary Representation",
+      "Acceptance": 65,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/circular-permutation-in-binary-representation"
+    }
+  ]
+}

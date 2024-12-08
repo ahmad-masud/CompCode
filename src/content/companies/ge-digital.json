@@ -1,0 +1,21 @@
+{
+  "name": "ge-digital",
+  "data": [
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.003278422738041615",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "697",
+      "Title": "Degree of an Array",
+      "Acceptance": 53,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/degree-of-an-array"
+    }
+  ]
+}

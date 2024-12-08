@@ -1,0 +1,21 @@
+{
+  "name": "turvo",
+  "data": [
+    {
+      "ID": "1335",
+      "Title": "Minimum Difficulty of a Job Schedule",
+      "Acceptance": 57,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule"
+    },
+    {
+      "ID": "1534",
+      "Title": "Count Good Triplets",
+      "Acceptance": 79,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/count-good-triplets"
+    }
+  ]
+}

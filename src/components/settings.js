@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../styles/settings.css";
 import { firestore } from "../config/firebase-config";
 import { getFunctions, httpsCallable } from "firebase/functions";
@@ -18,24 +18,7 @@ const Settings = ({ onClose }) => {
   const { addAlert } = useAlerts();
   const { user, premiumInfo, setUser } = useUser();
   const { theme, changeTheme } = useTheme();
-  const [notifications, setNotifications] = useState(true);
   const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    if (user) {
-      const userRef = doc(firestore, "users", user.uid);
-      getDoc(userRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
-            const userData = docSnap.data();
-            setNotifications(userData.notifications || true);
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching user theme data:", error);
-        });
-    }
-  }, [user]);
 
   const deleteUserData = async () => {
     if (user) {
@@ -203,21 +186,6 @@ const Settings = ({ onClose }) => {
     }
   };
 
-  const changeNotifications = async (value) => {
-    if (!user) return;
-
-    try {
-      setNotifications(value);
-      const userRef = doc(firestore, "users", user.uid);
-      await updateDoc(userRef, {
-        notifications: value,
-      });
-    } catch (error) {
-      console.error("Error updating notifications:", error);
-      addAlert("Error updating notifications.", "error");
-    }
-  };
-
   return (
     <div className="settings-overlay">
       <div className="overlay-backdrop" onClick={onClose}></div>
@@ -270,20 +238,6 @@ const Settings = ({ onClose }) => {
                   <option value="system">System</option>
                   <option value="light">Light</option>
                   <option value="dark">Dark</option>
-                </select>
-              </div>
-            )}
-            {current === 0 && (
-              <div className="setting-item">
-                <label htmlFor="emails">Notifications</label>
-                <select
-                  id="emails"
-                  className="setting-input"
-                  value={notifications}
-                  onChange={(e) => changeNotifications(e.target.value)}
-                >
-                  <option value={true}>Emails</option>
-                  <option value={false}>None</option>
                 </select>
               </div>
             )}

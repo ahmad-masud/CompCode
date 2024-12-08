@@ -1,0 +1,13 @@
+{
+  "name": "codenation",
+  "data": [
+    {
+      "ID": "1330",
+      "Title": "Reverse Subarray To Maximize Array Value",
+      "Acceptance": 35,
+      "Difficulty": "Hard",
+      "Frequency": "0.29849298855599654",
+      "Link": " https://leetcode.com/problems/reverse-subarray-to-maximize-array-value"
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "title": "Arrays",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Arrays are used to store elements of the **same data type**. In Python, `lists` are dynamic arrays that can store elements of **different data types**. This flexibility makes them powerful and widely used in Python programming."
+          },
+          {
+            "type": "paragraph",
+            "text": "Dynamic arrays can grow or shrink in size, unlike static arrays that have a fixed size. Here are some key characteristics of dynamic arrays:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**Dynamic resizing** when elements are added or removed.",
+              "`O(1)` time complexity for element access due to contiguous memory allocation.",
+              "Support for **heterogeneous elements**, meaning elements of different types can coexist."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "my_list = [1, 2, 3]\nmy_list.append(4)\nprint(my_list)  # Output: [1, 2, 3, 4]"
+          }
+        ]
+      },
+      "question": "What data structure in Python is used to represent dynamic arrays?",
+      "options": ["Tuple", "Set", "List", "Dictionary"],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "In Python, **lists** are used as dynamic arrays capable of growing and shrinking in size."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Static arrays have a **fixed size** and require pre-defined memory allocation. This characteristic makes them faster for certain operations, as memory is allocated once."
+          },
+          {
+            "type": "paragraph",
+            "text": "Benefits of using static arrays include:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**Predictable memory usage**, since the size is fixed.",
+              "Better performance for operations like **sequential traversal**.",
+              "Less memory overhead compared to dynamic structures."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "import array as arr\nmy_array = arr.array('i', [1, 2, 3])\nprint(my_array)  # Output: array('i', [1, 2, 3])"
+          }
+        ]
+      },
+      "question": "Which Python module provides static arrays with a fixed type?",
+      "options": ["list", "array", "set", "tuple"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The **`array`** module in Python provides support for static arrays with elements of a fixed type."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The `append()` method is used to **add an element** to the end of a list. This operation is performed in constant time, **O(1)**, on average."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "`append()` modifies the list in-place, meaning no new list is created.",
+              "Useful for dynamically building lists during runtime.",
+              "Can impact memory usage if the list grows beyond its initial allocation."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "my_list = [1, 2, 3]\nmy_list.append(4)\nprint(my_list)  # Output: [1, 2, 3, 4]"
+          }
+        ]
+      },
+      "question": "What is the purpose of the `append()` method in Python lists?",
+      "options": [
+        "Remove the first element",
+        "Add an element to the beginning",
+        "Add an element to the end",
+        "Sort the list"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The **`append()`** method adds a new element to the end of the list, increasing its size."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Lists in Python are accessed by their **index**, which allows for efficient element retrieval. This operation is performed in constant time, **O(1)**, due to the contiguous memory allocation of list elements."
+          },
+          {
+            "type": "paragraph",
+            "text": "Remember:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Indexing starts at **0** in Python.",
+              "Negative indices can be used to access elements from the end of the list.",
+              "`my_list[-1]` accesses the last element."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "my_list = [1, 2, 3]\nprint(my_list[1])  # Output: 2"
+          }
+        ]
+      },
+      "question": "What is the time complexity of accessing an element in a Python list by index?",
+      "options": ["O(n)", "O(1)", "O(log n)", "O(n^2)"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Accessing an element by index in a Python list is an **O(1)** operation due to contiguous memory allocation."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Unlike static arrays, lists in Python can **store elements of different types** and dynamically adjust their size based on the number of elements."
+          },
+          {
+            "type": "paragraph",
+            "text": "Considerations for using lists:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Lists have **dynamic sizing** but come with extra memory overhead.",
+              "Can hold a mix of **integers, strings, floats**, etc.",
+              "Use cases include flexible collections, queues, and stacks."
+            ]
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "my_list = [1, 'hello', 3.14]\nprint(my_list)  # Output: [1, 'hello', 3.14]"
+          }
+        ]
+      },
+      "question": "Which of the following is true about Python lists?",
+      "options": [
+        "They are immutable.",
+        "They can only hold integers.",
+        "They have a fixed size.",
+        "They can hold elements of different types."
+      ],
+      "answerIndex": 3,
+      "explanationAfterAnswer": "Python lists are **dynamic** and can hold elements of different data types."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "airtel",
+  "data": [
+    {
+      "ID": "1310",
+      "Title": "XOR Queries of a Subarray",
+      "Acceptance": 68,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/xor-queries-of-a-subarray"
+    }
+  ]
+}

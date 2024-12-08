@@ -1,0 +1,62 @@
+{
+  "name": "two pointers",
+  "lessons": ["arrays", "strings", "two-pointers"],
+  "data": [
+    {
+      "ID": 167,
+      "Title": "Two Sum II - Input Array Is Sorted",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted",
+      "Acceptance": 59
+    },
+    {
+      "ID": 125,
+      "Title": "Valid Palindrome",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/valid-palindrome",
+      "Acceptance": 44
+    },
+    {
+      "ID": 344,
+      "Title": "Reverse String",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/reverse-string",
+      "Acceptance": 77
+    },
+    {
+      "ID": 121,
+      "Title": "Best Time to Buy and Sell Stock",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock",
+      "Acceptance": 54
+    },
+    {
+      "ID": 11,
+      "Title": "Container With Most Water",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/container-with-most-water",
+      "Acceptance": 59
+    },
+    {
+      "ID": 763,
+      "Title": "Partition Labels",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/partition-labels",
+      "Acceptance": 79
+    },
+    {
+      "ID": 88,
+      "Title": "Merge Sorted Array",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/merge-sorted-array",
+      "Acceptance": 46
+    },
+    {
+      "ID": 42,
+      "Title": "Trapping Rain Water",
+      "Difficulty": "Hard",
+      "Link": "https://leetcode.com/problems/trapping-rain-water",
+      "Acceptance": 64
+    }
+  ]
+}

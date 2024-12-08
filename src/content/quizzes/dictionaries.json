@@ -1,0 +1,186 @@
+{
+  "title": "Dictionaries",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You have a dictionary of employee salaries:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "employee_salaries = {'Alice': 50000, 'Bob': 70000, 'Charlie': 45000}"
+          },
+          {
+            "type": "paragraph",
+            "text": "You need to increase the salary of each employee by 10%."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Use a loop to iterate over the keys.",
+              "Calculate the new salary by multiplying the current salary by 1.1.",
+              "Update the dictionary with the new salary."
+            ]
+          }
+        ]
+      },
+      "question": "Which code correctly updates the salaries?",
+      "options": [
+        "for employee, salary in employee_salaries:\n    employee_salaries[employee] = salary * 1.1",
+        "for employee in employee_salaries.keys():\n    employee_salaries[employee] *= 1.1",
+        "employee_salaries = {employee: salary * 1.1 for employee, salary in employee_salaries.items()}",
+        "employee_salaries.values() = [salary * 1.1 for salary in employee_salaries.values()]"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "Using a dictionary comprehension with .items() correctly updates each salary."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Given a dictionary that tracks the number of products sold:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "sales = {'apple': 10, 'banana': 15, 'orange': 5}"
+          },
+          {
+            "type": "paragraph",
+            "text": "You want to add 5 more apples to the sales count."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Directly access the key 'apple' to update its value.",
+              "Ensure you perform the addition operation correctly."
+            ]
+          }
+        ]
+      },
+      "question": "Which statement correctly updates the count of apples?",
+      "options": [
+        "sales.add('apple', 5)",
+        "sales['apple'] += 5",
+        "sales.append('apple', 5)",
+        "sales['apple'] =+ 5"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "To update an existing key's value, use sales['apple'] += 5."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You have a dictionary of students' grades:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "grades = {'Alice': 'A', 'Bob': 'B', 'Charlie': 'C'}"
+          },
+          {
+            "type": "paragraph",
+            "text": "You need to remove the entry for 'Bob'."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Use a method that removes the specified key.",
+              "Handle any potential return value if required."
+            ]
+          }
+        ]
+      },
+      "question": "Which method removes 'Bob' from the dictionary?",
+      "options": [
+        "grades.delete('Bob')",
+        "del grades['Bob']",
+        "grades.pop('Bob')",
+        "grades.remove('Bob')"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The pop() method removes 'Bob' and returns the value associated with the key."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You need to check if a specific key exists in the dictionary:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "inventory = {'apple': 5, 'banana': 8}"
+          },
+          {
+            "type": "paragraph",
+            "text": "Check if 'orange' is present."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Use a conditional check with keys.",
+              "Ensure you do not raise a KeyError."
+            ]
+          }
+        ]
+      },
+      "question": "Which code checks for 'orange' in the inventory?",
+      "options": [
+        "'orange' in inventory",
+        "inventory.has_key('orange')",
+        "inventory.contains('orange')",
+        "inventory['orange']"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "Using 'in' is the correct way to check for key existence in a dictionary."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You want to create a dictionary from two lists:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "keys = ['name', 'age']\nvalues = ['Alice', 30]"
+          },
+          {
+            "type": "paragraph",
+            "text": "The result should map 'name' to 'Alice' and 'age' to 30."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Use a method that combines two lists into key-value pairs.",
+              "Ensure the lengths of both lists match."
+            ]
+          }
+        ]
+      },
+      "question": "Which code correctly creates the dictionary?",
+      "options": [
+        "new_dict = dict(keys, values)",
+        "new_dict = {keys: values for keys, values in zip(keys, values)}",
+        "new_dict = dict(zip(keys, values))",
+        "new_dict = {keys: values}"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "Using dict(zip(keys, values)) creates a dictionary by combining keys and values from two lists."
+    }
+  ]
+}

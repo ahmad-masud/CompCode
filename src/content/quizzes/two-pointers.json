@@ -1,0 +1,133 @@
+{
+  "title": "Two Pointers",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The **two pointers** technique is commonly used to solve problems involving arrays and strings. It involves using two pointers to traverse an array from either end or from different positions."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def two_sum_sorted(arr, target):\n    left, right = 0, len(arr) - 1\n    while left < right:\n        curr_sum = arr[left] + arr[right]\n        if curr_sum == target:\n            return [left, right]\n        elif curr_sum < target:\n            left += 1\n        else:\n            right -= 1\n    return None"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Efficient for problems requiring **sorted arrays**.",
+              "Can reduce the **time complexity** of certain problems to O(n)."
+            ]
+          }
+        ]
+      },
+      "question": "What is the main advantage of using the two pointers technique?",
+      "options": [
+        "It always requires a stack",
+        "It works for unsorted arrays only",
+        "It often reduces the time complexity",
+        "It avoids using loops"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The two pointers technique often reduces the time complexity of problems by allowing efficient traversal and comparisons."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Consider an array where you need to find the longest substring of **unique characters** using two pointers. The left pointer can be used to shrink the window when duplicates are found, and the right pointer can expand the window."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def longest_unique_substring(s):\n    seen = {}\n    left = 0\n    max_len = 0\n    for right in range(len(s)):\n        if s[right] in seen:\n            left = max(left, seen[s[right]] + 1)\n        seen[s[right]] = right\n        max_len = max(max_len, right - left + 1)\n    return max_len"
+          }
+        ]
+      },
+      "question": "How does the two pointers technique help find the longest substring of unique characters?",
+      "options": [
+        "By shrinking the window only",
+        "By using one pointer to track duplicates",
+        "By expanding and shrinking the window as needed",
+        "By sorting the characters first"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The two pointers technique allows for dynamic expansion and shrinking of the window to maintain unique characters."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You are tasked with finding pairs of numbers in a **sorted array** that sum up to a given target. The two pointers technique can traverse the array from both ends to efficiently locate such pairs."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Moving the **left pointer** increases the sum.",
+              "Moving the **right pointer** decreases the sum."
+            ]
+          }
+        ]
+      },
+      "question": "What should you do if the sum of elements at two pointers is less than the target?",
+      "options": [
+        "Move both pointers",
+        "Move the left pointer",
+        "Move the right pointer",
+        "Stop searching"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "If the sum is less than the target, moving the left pointer increases the sum, bringing it closer to the target."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Imagine a scenario where you need to partition an array such that all even numbers are on the left and all odd numbers are on the right. Two pointers can start from opposite ends and swap elements as needed."
+          }
+        ]
+      },
+      "question": "How would you approach partitioning an array using two pointers?",
+      "options": [
+        "Move both pointers to the middle",
+        "Move one pointer while keeping the other fixed",
+        "Start from both ends and swap as needed",
+        "Sort the entire array first"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "To partition the array, start from both ends and swap elements as needed to place even numbers on the left and odd numbers on the right."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The two pointers technique can be extended to **three pointers** for problems such as finding **triplets** that sum up to a target in a sorted array."
+          },
+          {
+            "type": "paragraph",
+            "text": "The left and right pointers are used while the outer pointer iterates over the array."
+          }
+        ]
+      },
+      "question": "How does the three pointers extension of two pointers work?",
+      "options": [
+        "By using a stack",
+        "By iterating with an outer pointer while two pointers traverse",
+        "By doubling the window size",
+        "By moving all pointers randomly"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The three pointers extension involves an outer pointer iterating while two pointers traverse the array to find triplets."
+    }
+  ]
+}

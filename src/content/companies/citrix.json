@@ -1,0 +1,101 @@
+{
+  "name": "citrix",
+  "data": [
+    {
+      "ID": "761",
+      "Title": "Special Binary String",
+      "Acceptance": 54,
+      "Difficulty": "Hard",
+      "Frequency": "0.7705564341555942",
+      "Link": " https://leetcode.com/problems/special-binary-string"
+    },
+    {
+      "ID": "811",
+      "Title": "Subdomain Visit Count",
+      "Acceptance": 69,
+      "Difficulty": "Easy",
+      "Frequency": "0.7184674134713396",
+      "Link": " https://leetcode.com/problems/subdomain-visit-count"
+    },
+    {
+      "ID": "741",
+      "Title": "Cherry Pickup",
+      "Acceptance": 33,
+      "Difficulty": "Hard",
+      "Frequency": "0.42085002694764384",
+      "Link": " https://leetcode.com/problems/cherry-pickup"
+    },
+    {
+      "ID": "697",
+      "Title": "Degree of an Array",
+      "Acceptance": 53,
+      "Difficulty": "Easy",
+      "Frequency": "0.12323264042394814",
+      "Link": " https://leetcode.com/problems/degree-of-an-array"
+    },
+    {
+      "ID": "829",
+      "Title": "Consecutive Numbers Sum",
+      "Acceptance": 37,
+      "Difficulty": "Hard",
+      "Frequency": "0.05341723749698583",
+      "Link": " https://leetcode.com/problems/consecutive-numbers-sum"
+    },
+    {
+      "ID": "1010",
+      "Title": "Pairs of Songs With Total Durations Divisible by 60",
+      "Acceptance": 47,
+      "Difficulty": "Easy",
+      "Frequency": "0.04180336980436055",
+      "Link": " https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60"
+    },
+    {
+      "ID": "253",
+      "Title": "Meeting Rooms II",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0.03193246767820989",
+      "Link": " https://leetcode.com/problems/meeting-rooms-ii"
+    },
+    {
+      "ID": "206",
+      "Title": "Reverse Linked List",
+      "Acceptance": 62,
+      "Difficulty": "Easy",
+      "Frequency": "0.028292880260936595",
+      "Link": " https://leetcode.com/problems/reverse-linked-list"
+    },
+    {
+      "ID": "200",
+      "Title": "Number of Islands",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.025712029212602353",
+      "Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+      "ID": "273",
+      "Title": "Integer to English Words",
+      "Acceptance": 27,
+      "Difficulty": "Hard",
+      "Frequency": "0.012081089250339716",
+      "Link": " https://leetcode.com/problems/integer-to-english-words"
+    },
+    {
+      "ID": "15",
+      "Title": "3Sum",
+      "Acceptance": 26,
+      "Difficulty": "Medium",
+      "Frequency": "0.004940992758742591",
+      "Link": " https://leetcode.com/problems/3sum"
+    },
+    {
+      "ID": "1383",
+      "Title": "Maximum Performance of a Team",
+      "Acceptance": 31,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/maximum-performance-of-a-team"
+    }
+  ]
+}

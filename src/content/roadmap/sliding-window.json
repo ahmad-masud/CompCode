@@ -1,0 +1,55 @@
+{
+  "name": "sliding window",
+  "lessons": ["arrays", "strings", "two-pointers", "sliding-window"],
+  "data": [
+    {
+      "ID": 209,
+      "Title": "Minimum Size Subarray Sum",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/minimum-size-subarray-sum",
+      "Acceptance": 45
+    },
+    {
+      "ID": 3,
+      "Title": "Longest Substring Without Repeating Characters",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/longest-substring-without-repeating-characters",
+      "Acceptance": 34
+    },
+    {
+      "ID": 424,
+      "Title": "Longest Repeating Character Replacement",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/longest-repeating-character-replacement",
+      "Acceptance": 50
+    },
+    {
+      "ID": 567,
+      "Title": "Permutation in String",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/permutation-in-string",
+      "Acceptance": 45
+    },
+    {
+      "ID": 76,
+      "Title": "Minimum Window Substring",
+      "Difficulty": "Hard",
+      "Link": "https://leetcode.com/problems/minimum-window-substring",
+      "Acceptance": 40
+    },
+    {
+      "ID": 1004,
+      "Title": "Max Consecutive Ones III",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/max-consecutive-ones-iii",
+      "Acceptance": 61
+    },
+    {
+      "ID": 239,
+      "Title": "Sliding Window Maximum",
+      "Difficulty": "Hard",
+      "Link": "https://leetcode.com/problems/sliding-window-maximum",
+      "Acceptance": 47
+    }
+  ]
+}

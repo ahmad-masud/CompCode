@@ -1,0 +1,132 @@
+{
+  "title": "Binary Trees",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A binary tree is a hierarchical data structure where each node has at most two children, called the left and right child. Consider the following node class:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class TreeNode:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None"
+          },
+          {
+            "type": "paragraph",
+            "text": "You want to traverse the tree in **in-order** (left, root, right)."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Start at the **leftmost node**.",
+              "Visit the **root node**.",
+              "Traverse the **right subtree**."
+            ]
+          }
+        ]
+      },
+      "question": "Which is the correct order of visiting nodes for an in-order traversal?",
+      "options": [
+        "Root, Left, Right",
+        "Left, Root, Right",
+        "Right, Left, Root",
+        "Left, Right, Root"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "In-order traversal visits the left subtree first, then the root node, and finally the right subtree."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A binary tree can be traversed in **pre-order** (root, left, right). This type of traversal is useful for copying the structure of the tree."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def pre_order(node):\n    if node:\n        print(node.value)\n        pre_order(node.left)\n        pre_order(node.right)"
+          }
+        ]
+      },
+      "question": "What is the correct order for pre-order traversal?",
+      "options": [
+        "Left, Right, Root",
+        "Root, Left, Right",
+        "Right, Left, Root",
+        "Left, Root, Right"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "In pre-order traversal, you visit the root node first, then traverse the left subtree, followed by the right subtree."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To perform a **post-order** traversal (left, right, root), you visit all children before visiting the root node. This is often used for deleting a tree."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def post_order(node):\n    if node:\n        post_order(node.left)\n        post_order(node.right)\n        print(node.value)"
+          }
+        ]
+      },
+      "question": "Which is the correct order for post-order traversal?",
+      "options": [
+        "Left, Right, Root",
+        "Root, Left, Right",
+        "Right, Root, Left",
+        "Left, Root, Right"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "In post-order traversal, you visit the left subtree, then the right subtree, and finally the root node."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You want to calculate the **height** of a binary tree, defined as the number of edges on the longest path from the root to a leaf node."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def find_height(node):\n    if not node:\n        return -1\n    left_height = find_height(node.left)\n    right_height = find_height(node.right)\n    return 1 + max(left_height, right_height)"
+          }
+        ]
+      },
+      "question": "What is the height of a binary tree with only a single root node and no children?",
+      "options": ["-1", "0", "1", "2"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "A tree with a single root node and no children has a height of 0."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To perform a **level-order traversal** (breadth-first traversal), you visit nodes level by level, starting from the root and moving to each child level."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "from collections import deque\ndef level_order(root):\n    queue = deque([root])\n    while queue:\n        node = queue.popleft()\n        print(node.value)\n        if node.left:\n            queue.append(node.left)\n        if node.right:\n            queue.append(node.right)"
+          }
+        ]
+      },
+      "question": "Which data structure is typically used for level-order traversal?",
+      "options": ["Stack", "Queue", "Array", "Heap"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "A queue is used for level-order traversal to process nodes level by level."
+    }
+  ]
+}

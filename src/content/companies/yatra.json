@@ -1,0 +1,13 @@
+{
+  "name": "yatra",
+  "data": [
+    {
+      "ID": "713",
+      "Title": "Subarray Product Less Than K",
+      "Acceptance": 39,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/subarray-product-less-than-k"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "intervals",
+  "data": [
+    {
+      "ID": 56,
+      "Title": "Merge Intervals",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/merge-intervals",
+      "Acceptance": 47
+    },
+    {
+      "ID": 57,
+      "Title": "Insert Interval",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/insert-interval",
+      "Acceptance": 39
+    },
+    {
+      "ID": 435,
+      "Title": "Non-overlapping Intervals",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/non-overlapping-intervals",
+      "Acceptance": 46
+    },
+    {
+      "ID": 252,
+      "Title": "Meeting Rooms",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/meeting-rooms",
+      "Acceptance": 56
+    },
+    {
+      "ID": 253,
+      "Title": "Meeting Rooms II",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/meeting-rooms-ii",
+      "Acceptance": 53
+    }
+  ]
+}

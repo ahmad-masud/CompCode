@@ -1,0 +1,47 @@
+{
+  "name": "greedy",
+  "data": [
+    {
+      "ID": 53,
+      "Title": "Maximum Subarray",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/maximum-subarray",
+      "Acceptance": 54
+    },
+    {
+      "ID": 55,
+      "Title": "Jump Game",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/jump-game",
+      "Acceptance": 38
+    },
+    {
+      "ID": 134,
+      "Title": "Gas Station",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/gas-station",
+      "Acceptance": 45
+    },
+    {
+      "ID": 846,
+      "Title": "Hand of Straights",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/hand-of-straights",
+      "Acceptance": 63
+    },
+    {
+      "ID": 1899,
+      "Title": "Merge Triplets to Form Target Triplet",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/merge-triplets-to-form-target-triplet",
+      "Acceptance": 52
+    },
+    {
+      "ID": 678,
+      "Title": "Valid Parenthesis String",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/valid-parenthesis-string",
+      "Acceptance": 34
+    }
+  ]
+}

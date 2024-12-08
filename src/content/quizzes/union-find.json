@@ -1,0 +1,144 @@
+{
+  "title": "Union-Find",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The Union-Find data structure, also known as **Disjoint Set Union (DSU)**, is used to keep track of a set of elements partitioned into disjoint subsets. It supports two main operations: **union** and **find**."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class UnionFind:\n    def __init__(self, size):\n        self.parent = [i for i in range(size)]\n\n    def find(self, x):\n        if self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])  # Path compression\n        return self.parent[x]\n\n    def union(self, x, y):\n        rootX = self.find(x)\n        rootY = self.find(y)\n        if rootX != rootY:\n            self.parent[rootX] = rootY"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Union-Find supports **efficient merging** of sets.",
+              "The **find** operation helps determine the root of a set."
+            ]
+          }
+        ]
+      },
+      "question": "What is the primary purpose of the Union-Find data structure?",
+      "options": [
+        "Sorting elements",
+        "Tracking connected components",
+        "Finding minimum elements",
+        "Implementing queues"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The primary purpose of Union-Find is to track connected components in a dynamic set."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Union-Find can be optimized using **path compression** during the find operation, which makes each node point directly to the root."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def find(self, x):\n    if self.parent[x] != x:\n        self.parent[x] = self.find(self.parent[x])  # Path compression\n    return self.parent[x]"
+          },
+          {
+            "type": "paragraph",
+            "text": "Path compression ensures that subsequent find operations are faster by flattening the structure."
+          }
+        ]
+      },
+      "question": "How does path compression improve the Union-Find structure?",
+      "options": [
+        "By merging all sets",
+        "By making each node point to the root directly",
+        "By increasing the number of nodes",
+        "By duplicating parent nodes"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Path compression makes each node point to the root directly, optimizing future find operations."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Union-Find can be used to detect **cycles** in a graph. If two vertices belong to the same set and an edge connects them, a cycle exists."
+          },
+          {
+            "type": "paragraph",
+            "text": "In the example below, we try to union nodes that are already connected:"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def has_cycle(edges, num_nodes):\n    uf = UnionFind(num_nodes)\n    for u, v in edges:\n        if uf.find(u) == uf.find(v):\n            return True  # Cycle detected\n        uf.union(u, v)\n    return False"
+          }
+        ]
+      },
+      "question": "How does Union-Find detect cycles in an undirected graph?",
+      "options": [
+        "By finding isolated nodes",
+        "By merging all nodes into one set",
+        "By checking if two nodes are already in the same set before union",
+        "By sorting the nodes first"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "Union-Find detects cycles by checking if two nodes are already in the same set before performing a union."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Consider a network of **friendship connections** represented as an undirected graph. Each node represents a person, and an edge represents a friendship."
+          },
+          {
+            "type": "paragraph",
+            "text": "Union-Find can efficiently determine if two people are **connected** by finding the root of their respective sets."
+          }
+        ]
+      },
+      "question": "What operation would you perform to check if two people are connected in a network?",
+      "options": [
+        "Sort their connections",
+        "Find their roots and compare them",
+        "Add more connections",
+        "Count their edges"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "To check if two people are connected, find the roots of their sets and compare them."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Union-Find with **union by rank** optimizes the merging of sets by always attaching the smaller tree under the larger tree, reducing the tree's height."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def union(self, x, y):\n    rootX = self.find(x)\n    rootY = self.find(y)\n    if rootX != rootY:\n        if self.rank[rootX] > self.rank[rootY]:\n            self.parent[rootY] = rootX\n        elif self.rank[rootX] < self.rank[rootY]:\n            self.parent[rootX] = rootY\n        else:\n            self.parent[rootY] = rootX\n            self.rank[rootX] += 1"
+          }
+        ]
+      },
+      "question": "What is the benefit of using union by rank in Union-Find?",
+      "options": [
+        "It increases the size of trees",
+        "It always merges nodes randomly",
+        "It reduces the tree height",
+        "It merges isolated nodes first"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "Union by rank reduces the tree height by attaching smaller trees under larger trees, improving efficiency."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "affinity",
+  "data": [
+    {
+      "ID": "1106",
+      "Title": "Parsing A Boolean Expression",
+      "Acceptance": 58,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/parsing-a-boolean-expression"
+    }
+  ]
+}

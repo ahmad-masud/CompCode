@@ -1,0 +1,41 @@
+{
+  "name": "stacks",
+  "lessons": ["stacks", "queues", "monotonic-stacks"],
+  "data": [
+    {
+      "ID": 682,
+      "Title": "Baseball Game",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/baseball-game/",
+      "Acceptance": 77
+    },
+    {
+      "ID": 20,
+      "Title": "Valid Parentheses",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/valid-parentheses",
+      "Acceptance": 43
+    },
+    {
+      "ID": 155,
+      "Title": "Min Stack",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/min-stack",
+      "Acceptance": 53
+    },
+    {
+      "ID": 739,
+      "Title": "Daily Temperatures",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/daily-temperatures",
+      "Acceptance": 67
+    },
+    {
+      "ID": 42,
+      "Title": "Trapping Rain Water",
+      "Difficulty": "Hard",
+      "Link": "https://leetcode.com/problems/trapping-rain-water",
+      "Acceptance": 61
+    }
+  ]
+}

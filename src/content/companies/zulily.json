@@ -1,0 +1,85 @@
+{
+  "name": "zulily",
+  "data": [
+    {
+      "ID": "56",
+      "Title": "Merge Intervals",
+      "Acceptance": 39,
+      "Difficulty": "Medium",
+      "Frequency": "0.10703248793941993",
+      "Link": " https://leetcode.com/problems/merge-intervals"
+    },
+    {
+      "ID": "1138",
+      "Title": "Alphabet Board Path",
+      "Acceptance": 48,
+      "Difficulty": "Medium",
+      "Frequency": "0.06635853611859671",
+      "Link": " https://leetcode.com/problems/alphabet-board-path"
+    },
+    {
+      "ID": "242",
+      "Title": "Valid Anagram",
+      "Acceptance": 56,
+      "Difficulty": "Easy",
+      "Frequency": "0.025684584297773504",
+      "Link": " https://leetcode.com/problems/valid-anagram"
+    },
+    {
+      "ID": "10",
+      "Title": "Regular Expression Matching",
+      "Acceptance": 26,
+      "Difficulty": "Hard",
+      "Frequency": "0.01609764684284749",
+      "Link": " https://leetcode.com/problems/regular-expression-matching"
+    },
+    {
+      "ID": "200",
+      "Title": "Number of Islands",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.011509262420590827",
+      "Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+      "ID": "387",
+      "Title": "First Unique Character in a String",
+      "Acceptance": 53,
+      "Difficulty": "Easy",
+      "Frequency": "0.009392680199054166",
+      "Link": " https://leetcode.com/problems/first-unique-character-in-a-string"
+    },
+    {
+      "ID": "4",
+      "Title": "Median of Two Sorted Arrays",
+      "Acceptance": 29,
+      "Difficulty": "Hard",
+      "Frequency": "0.008754068159914991",
+      "Link": " https://leetcode.com/problems/median-of-two-sorted-arrays"
+    },
+    {
+      "ID": "49",
+      "Title": "Group Anagrams",
+      "Acceptance": 56,
+      "Difficulty": "Medium",
+      "Frequency": "0.008538951314232168",
+      "Link": " https://leetcode.com/problems/group-anagrams"
+    },
+    {
+      "ID": "33",
+      "Title": "Search in Rotated Sorted Array",
+      "Acceptance": 34,
+      "Difficulty": "Medium",
+      "Frequency": "0.007252832180390353",
+      "Link": " https://leetcode.com/problems/search-in-rotated-sorted-array"
+    },
+    {
+      "ID": "70",
+      "Title": "Climbing Stairs",
+      "Acceptance": 47,
+      "Difficulty": "Easy",
+      "Frequency": "0.006020261250215664",
+      "Link": " https://leetcode.com/problems/climbing-stairs"
+    }
+  ]
+}

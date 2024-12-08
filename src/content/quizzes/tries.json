@@ -1,0 +1,149 @@
+{
+  "title": "Tries",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A Trie (prefix tree) is a tree-like data structure used to store strings by breaking them into individual characters. Below is a simple TrieNode class:"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class TrieNode:\n    def __init__(self):\n        self.children = {}\n        self.is_end_of_word = False"
+          },
+          {
+            "type": "paragraph",
+            "text": "Each node in the Trie can have multiple children, each representing a character of the string."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Nodes store **characters** as keys in a dictionary.",
+              "The **end-of-word** flag indicates the end of a valid string."
+            ]
+          }
+        ]
+      },
+      "question": "What does the `is_end_of_word` flag represent in a TrieNode?",
+      "options": [
+        "The start of a string",
+        "The end of a valid string",
+        "An empty node",
+        "A special character"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The `is_end_of_word` flag indicates that a complete string ends at that node."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To insert a word into a Trie, traverse through each character and create child nodes as necessary. Consider inserting the word 'cat'."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def insert(root, word):\n    node = root\n    for char in word:\n        if char not in node.children:\n            node.children[char] = TrieNode()\n        node = node.children[char]\n    node.is_end_of_word = True"
+          },
+          {
+            "type": "paragraph",
+            "text": "Each character in 'cat' is stored as a separate node."
+          }
+        ]
+      },
+      "question": "What happens if a character already exists in the Trie during insertion?",
+      "options": [
+        "The existing node is overwritten",
+        "A new node is always created",
+        "The existing node is reused",
+        "The word is discarded"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "If a character already exists, the existing node is reused instead of creating a new one."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To search for a word in a Trie, traverse each character in the word and check if it exists as a child node."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def search(root, word):\n    node = root\n    for char in word:\n        if char not in node.children:\n            return False\n        node = node.children[char]\n    return node.is_end_of_word"
+          }
+        ]
+      },
+      "question": "What is returned if a word is found in the Trie?",
+      "options": [
+        "The word itself",
+        "True if the `is_end_of_word` is True",
+        "A new node",
+        "The parent node"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "If a word is found, `True` is returned if the `is_end_of_word` flag is set for the last character."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Tries are often used for prefix-based operations, such as finding all words with a specific prefix. For example, finding all words that start with 'ap'."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def starts_with(root, prefix):\n    node = root\n    for char in prefix:\n        if char not in node.children:\n            return []\n        node = node.children[char]\n    # Collect all words starting with the prefix\n    return collect_words(node, prefix)"
+          },
+          {
+            "type": "paragraph",
+            "text": "This method allows efficient retrieval of words with a specific prefix."
+          }
+        ]
+      },
+      "question": "What is a common use case for Tries?",
+      "options": [
+        "Sorting numbers",
+        "Finding all words with a given prefix",
+        "Storing unique numbers",
+        "Performing arithmetic operations"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Tries are commonly used for operations like finding all words with a given prefix."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Deleting a word from a Trie requires careful handling to remove nodes only if they are no longer part of any other word."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def delete(root, word, depth=0):\n    if not root:\n        return False\n    if depth == len(word):\n        if not root.is_end_of_word:\n            return False\n        root.is_end_of_word = False\n        return len(root.children) == 0\n    char = word[depth]\n    if char in root.children:\n        should_delete = delete(root.children[char], word, depth + 1)\n        if should_delete:\n            del root.children[char]\n            return len(root.children) == 0\n    return False"
+          }
+        ]
+      },
+      "question": "What should be done when deleting a word from a Trie?",
+      "options": [
+        "Always remove the entire branch",
+        "Remove nodes only if they are no longer part of any other word",
+        "Keep all nodes even if the word is deleted",
+        "Convert nodes to placeholders"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "When deleting a word, nodes should be removed only if they are no longer part of any other word."
+    }
+  ]
+}

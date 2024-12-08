@@ -1,0 +1,144 @@
+{
+  "title": "Binary Search",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Binary search is an efficient algorithm for finding an item in a **sorted array**. It works by repeatedly dividing the search interval in half."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1"
+          },
+          {
+            "type": "paragraph",
+            "text": "In the code above, the target element is compared with the **middle** element, and the search range is adjusted accordingly."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Time complexity: **O(log n)** for searching.",
+              "Requires a **sorted array** as input."
+            ]
+          }
+        ]
+      },
+      "question": "What is the time complexity of binary search?",
+      "options": ["O(n)", "O(log n)", "O(n^2)", "O(1)"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Binary search has a time complexity of O(log n) because the search space is halved with each iteration."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Consider a sorted array where you need to find the first occurrence of a target element. Binary search can be modified to achieve this by checking whether the **midpoint** element is the first occurrence."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def find_first_occurrence(arr, target):\n    left, right = 0, len(arr) - 1\n    result = -1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            result = mid\n            right = mid - 1  # Continue searching on the left\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return result"
+          }
+        ]
+      },
+      "question": "What modification is made to find the first occurrence of a target element?",
+      "options": [
+        "Search the entire array again",
+        "Continue searching to the left after finding the target",
+        "Stop searching once the target is found",
+        "Double the search range"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "To find the first occurrence, we continue searching to the left after finding the target."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Imagine you are tasked with finding the **smallest element** in a rotated sorted array using binary search. A rotated sorted array might look like [4, 5, 6, 1, 2, 3]."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def find_min_in_rotated_array(arr):\n    left, right = 0, len(arr) - 1\n    while left < right:\n        mid = (left + right) // 2\n        if arr[mid] > arr[right]:\n            left = mid + 1\n        else:\n            right = mid\n    return arr[left]"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "The array is rotated, so binary search needs **adjustments**.",
+              "Compare the midpoint with the **rightmost** element to determine the search direction."
+            ]
+          }
+        ]
+      },
+      "question": "In a rotated sorted array [4, 5, 6, 1, 2, 3], which element will this function find?",
+      "options": ["4", "1", "6", "3"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The function finds the smallest element (1) in the rotated sorted array."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You have an infinite sorted array (unknown size) and need to find an element using binary search. To do this, you first find a suitable range containing the target."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def find_in_infinite_array(arr, target):\n    left, right = 0, 1\n    while arr[right] < target:\n        left = right\n        right *= 2\n    return binary_search_within_bounds(arr, left, right, target)"
+          },
+          {
+            "type": "paragraph",
+            "text": "This approach finds a range containing the target before applying binary search."
+          }
+        ]
+      },
+      "question": "How do you initially find a suitable range to search in an infinite sorted array?",
+      "options": [
+        "By doubling the search range size",
+        "By using linear search",
+        "By dividing the array in half",
+        "By starting from the end"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "To find a suitable range, you double the search range size until the target is within bounds."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Binary search can also be used to find the **peak element** in an unsorted array. A peak element is one that is greater than its neighbors."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def find_peak_element(arr):\n    left, right = 0, len(arr) - 1\n    while left < right:\n        mid = (left + right) // 2\n        if arr[mid] > arr[mid + 1]:\n            right = mid\n        else:\n            left = mid + 1\n    return arr[left]"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "The algorithm works even if there are multiple peaks.",
+              "It compares the **midpoint** with its neighbor."
+            ]
+          }
+        ]
+      },
+      "question": "What does this function return when applied to [1, 3, 20, 4, 1, 0]?",
+      "options": ["1", "3", "20", "4"],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The function finds 20, which is a peak element in the array."
+    }
+  ]
+}

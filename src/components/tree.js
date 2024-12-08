@@ -1,5 +1,12 @@
 import React, { useEffect, memo } from "react";
-import { ReactFlow, useNodesState, useEdgesState, Handle, ReactFlowProvider, useReactFlow } from "@xyflow/react";
+import {
+  ReactFlow,
+  useNodesState,
+  useEdgesState,
+  Handle,
+  ReactFlowProvider,
+  useReactFlow,
+} from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import positions from "../content/positions.json";
 import { useNavigate } from "react-router-dom";
@@ -20,40 +27,30 @@ const Node = memo(({ data }) => {
   );
 
   return (
-    <div
-      className="node"
-      onClick={() =>
-        navigate(`/roadmap/${topic.name.replace(/\s+/g, "-").toLowerCase()}`)
-      }
-    >
+    <div className="node" onClick={() => navigate(`/roadmap/${topic.name}`)}>
       {hasIncomingEdges && (
-        <Handle
-          type="target"
-          position="top"
-          id={`${topic.name}-target`}
-        />
+        <Handle type="target" position="top" id={`${topic.name}-target`} />
       )}
-      <p className="node-title">{topic.name}</p>
+      <p className="node-title">
+        {" "}
+        {topic.name
+          .replaceAll("-", " ")
+          .replace(/\b\w/g, (c) => c.toUpperCase())}
+      </p>
       <div className="node-details">
-        <p>{topic.avgAcceptance}</p>
-        <p className={topic.mostCommonDifficulty.toLowerCase()}>
-          {topic.mostCommonDifficulty}
-        </p>
+        <p>{topic.acceptance}%</p>
+        <p className={topic.difficulty.toLowerCase()}>{topic.difficulty}</p>
       </div>
       <div className="company-progress-bar">
         <div
           className="company-progress"
           style={{
-            width: `${(topic.solvedProblems / topic.numProblems) * 100}%`,
+            width: `${(topic.solvedProblems / topic.problems.length) * 100}%`,
           }}
         ></div>
       </div>
       {hasOutgoingEdges && (
-        <Handle
-          type="source"
-          position="bottom"
-          id={`${topic.name}-source`}
-        />
+        <Handle type="source" position="bottom" id={`${topic.name}-source`} />
       )}
     </div>
   );
@@ -72,10 +69,10 @@ const Tree = ({ companiesData }) => {
     }, {});
 
     const initialNodes = data.map((topic) => ({
-      id: topic.name.replace(/\s+/g, "-").toLowerCase(),
+      id: topic.name,
       type: "customNode",
       data: { topic },
-      position: positionMap[topic.name.replace(/\s+/g, "-").toLowerCase()] || {
+      position: positionMap[topic.name] || {
         x: 0,
         y: 0,
       },
@@ -83,9 +80,9 @@ const Tree = ({ companiesData }) => {
 
     const initialEdges = data.flatMap((topic) =>
       (topic.children || []).map((childName) => ({
-        id: `${topic.name}->${childName}`.replace(/\s+/g, "-").toLowerCase(),
-        source: topic.name.replace(/\s+/g, "-").toLowerCase(),
-        target: childName.replace(/\s+/g, "-").toLowerCase(),
+        id: `${topic.name}->${childName}`,
+        source: topic.name,
+        target: childName,
       }))
     );
 

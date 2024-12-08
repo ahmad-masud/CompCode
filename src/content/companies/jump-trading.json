@@ -1,0 +1,13 @@
+{
+  "name": "jump-trading",
+  "data": [
+    {
+      "ID": "224",
+      "Title": "Basic Calculator",
+      "Acceptance": 36,
+      "Difficulty": "Hard",
+      "Frequency": "0.0200809960570491",
+      "Link": " https://leetcode.com/problems/basic-calculator"
+    }
+  ]
+}

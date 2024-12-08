@@ -1,0 +1,109 @@
+{
+  "name": "coupang",
+  "data": [
+    {
+      "ID": "1296",
+      "Title": "Divide Array in Sets of K Consecutive Numbers",
+      "Acceptance": 53,
+      "Difficulty": "Medium",
+      "Frequency": "0.06650266441668072",
+      "Link": " https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers"
+    },
+    {
+      "ID": "759",
+      "Title": "Employee Free Time",
+      "Acceptance": 66,
+      "Difficulty": "Hard",
+      "Frequency": "0.046358242602104555",
+      "Link": " https://leetcode.com/problems/employee-free-time"
+    },
+    {
+      "ID": "114",
+      "Title": "Flatten Binary Tree to Linked List",
+      "Acceptance": 49,
+      "Difficulty": "Medium",
+      "Frequency": "0.026213820787528385",
+      "Link": " https://leetcode.com/problems/flatten-binary-tree-to-linked-list"
+    },
+    {
+      "ID": "394",
+      "Title": "Decode String",
+      "Acceptance": 50,
+      "Difficulty": "Medium",
+      "Frequency": "0.0077851697215559675",
+      "Link": " https://leetcode.com/problems/decode-string"
+    },
+    {
+      "ID": "56",
+      "Title": "Merge Intervals",
+      "Acceptance": 39,
+      "Difficulty": "Medium",
+      "Frequency": "0.0074386655924217485",
+      "Link": " https://leetcode.com/problems/merge-intervals"
+    },
+    {
+      "ID": "79",
+      "Title": "Word Search",
+      "Acceptance": 35,
+      "Difficulty": "Medium",
+      "Frequency": "0.006548007844690591",
+      "Link": " https://leetcode.com/problems/word-search"
+    },
+    {
+      "ID": "3",
+      "Title": "Longest Substring Without Repeating Characters",
+      "Acceptance": 30,
+      "Difficulty": "Medium",
+      "Frequency": "0.0014852223137141987",
+      "Link": " https://leetcode.com/problems/longest-substring-without-repeating-characters"
+    },
+    {
+      "ID": "78",
+      "Title": "Subsets",
+      "Acceptance": 62,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/subsets"
+    },
+    {
+      "ID": "139",
+      "Title": "Word Break",
+      "Acceptance": 40,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/word-break"
+    },
+    {
+      "ID": "340",
+      "Title": "Longest Substring with At Most K Distinct Characters",
+      "Acceptance": 44,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters"
+    },
+    {
+      "ID": "715",
+      "Title": "Range Module",
+      "Acceptance": 38,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/range-module"
+    },
+    {
+      "ID": "724",
+      "Title": "Find Pivot Index",
+      "Acceptance": 44,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/find-pivot-index"
+    },
+    {
+      "ID": "776",
+      "Title": "Split BST",
+      "Acceptance": 55,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/split-bst"
+    }
+  ]
+}

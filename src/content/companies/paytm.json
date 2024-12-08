@@ -1,0 +1,13 @@
+{
+  "name": "paytm",
+  "data": [
+    {
+      "ID": "1047",
+      "Title": "Remove All Adjacent Duplicates In String",
+      "Acceptance": 68,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string"
+    }
+  ]
+}

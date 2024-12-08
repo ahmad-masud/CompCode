@@ -1,0 +1,13 @@
+{
+  "name": "clutter",
+  "data": [
+    {
+      "ID": "1181",
+      "Title": "Before and After Puzzle",
+      "Acceptance": 44,
+      "Difficulty": "Medium",
+      "Frequency": "5.639540205927847",
+      "Link": " https://leetcode.com/problems/before-and-after-puzzle"
+    }
+  ]
+}

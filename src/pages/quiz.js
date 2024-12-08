@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { doc, updateDoc } from "firebase/firestore";
 import { firestore } from "../config/firebase-config";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -10,18 +10,40 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useTheme } from "../context/themecontext";
 import { useAlerts } from "../context/alertscontext";
 import { useUser } from "../context/usercontext";
+import { useParams, useNavigate } from "react-router-dom";
 import "../styles/quiz.css";
 
-const Quiz = ({ data }) => {
+const Quiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(null);
   const [showExplanation, setShowExplanation] = useState(false);
   const [copiedState, setCopiedState] = useState([]);
   const [submitted, setSubmitted] = useState(false);
-  const currentQuestion = data.questions[currentQuestionIndex];
+  const [quizData, setQuizData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   const { theme } = useTheme();
   const { addAlert } = useAlerts();
   const { user } = useUser();
+  const { quizId } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const loadQuiz = async () => {
+      try {
+        const data = await import(`../content/quizzes/${quizId}.json`);
+        setQuizData(data);
+        setCopiedState(Array(data.questions.length).fill(false));
+      } catch (error) {
+        console.error("Error loading quiz:", error);
+        navigate("/notFound");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadQuiz();
+  }, [quizId, addAlert, navigate]);
 
   const handleOptionSelect = (index) => {
     setSubmitted(false);
@@ -31,7 +53,7 @@ const Quiz = ({ data }) => {
   const handleNext = async () => {
     setSubmitted(false);
 
-    if (currentQuestionIndex < data.questions.length - 1) {
+    if (currentQuestionIndex < quizData.questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedOptionIndex(null);
       setShowExplanation(false);
@@ -42,7 +64,7 @@ const Quiz = ({ data }) => {
         try {
           const userRef = doc(firestore, "users", user.uid);
           await updateDoc(userRef, {
-            [`completedQuizzes.${data.title}`]: true,
+            [`completedQuizzes.${quizData.title}`]: true,
           });
         } catch (error) {
           console.error("Error recording completed quiz:", error);
@@ -55,20 +77,22 @@ const Quiz = ({ data }) => {
   const handleSubmit = () => {
     setSubmitted(true);
 
-    if (selectedOptionIndex === currentQuestion.answerIndex) {
+    if (
+      selectedOptionIndex ===
+      quizData.questions[currentQuestionIndex].answerIndex
+    ) {
       setShowExplanation(true);
     }
   };
 
   const handleCopy = (blockIdx) => {
-    const newCopiedState = [...copiedState];
-    newCopiedState[blockIdx] = true;
-    setCopiedState(newCopiedState);
+    const updatedCopiedState = [...copiedState];
+    updatedCopiedState[blockIdx] = true;
+    setCopiedState(updatedCopiedState);
 
     setTimeout(() => {
-      const resetCopiedState = [...copiedState];
-      resetCopiedState[blockIdx] = false;
-      setCopiedState(resetCopiedState);
+      updatedCopiedState[blockIdx] = false;
+      setCopiedState([...updatedCopiedState]);
     }, 2000);
   };
 
@@ -143,6 +167,16 @@ const Quiz = ({ data }) => {
     });
   };
 
+  if (loading) {
+    return <div>Loading quiz...</div>;
+  }
+
+  if (!quizData) {
+    return <div>Quiz not found.</div>;
+  }
+
+  const currentQuestion = quizData.questions[currentQuestionIndex];
+
   return (
     <div className="quiz-container">
       <div className="quiz-explanation-panel">
@@ -151,7 +185,7 @@ const Quiz = ({ data }) => {
       </div>
       <div className="quiz-question-panel">
         <p className="quiz-question-title">
-          Question {currentQuestionIndex + 1}
+          Question {currentQuestionIndex + 1} of {quizData.questions.length}
         </p>
         <p className="quiz-question-text">
           {renderBoldAndHighlightedText(currentQuestion.question)}
@@ -177,16 +211,9 @@ const Quiz = ({ data }) => {
             Submit
           </button>
         ) : (
-          <>
-            <button className="quiz-next-button" onClick={handleNext}>
-              Next
-            </button>
-            <p className="quiz-explanation-after-answer">
-              {renderBoldAndHighlightedText(
-                currentQuestion.explanationAfterAnswer
-              )}
-            </p>
-          </>
+          <button className="quiz-next-button" onClick={handleNext}>
+            Next
+          </button>
         )}
       </div>
     </div>

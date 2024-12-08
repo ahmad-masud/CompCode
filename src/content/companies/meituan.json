@@ -1,0 +1,13 @@
+{
+  "name": "meituan",
+  "data": [
+    {
+      "ID": "847",
+      "Title": "Shortest Path Visiting All Nodes",
+      "Acceptance": 52,
+      "Difficulty": "Hard",
+      "Frequency": "0.1541506798272583",
+      "Link": " https://leetcode.com/problems/shortest-path-visiting-all-nodes"
+    }
+  ]
+}

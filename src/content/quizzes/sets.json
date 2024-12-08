@@ -1,0 +1,194 @@
+{
+  "title": "Sets",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You have a set of unique student IDs:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "student_ids = {101, 102, 103, 104}"
+          },
+          {
+            "type": "paragraph",
+            "text": "You need to add a new student ID (105) to the set."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Sets in Python only allow unique elements.",
+              "Use the appropriate method to add an element."
+            ]
+          }
+        ]
+      },
+      "question": "Which method correctly adds a new element to a set?",
+      "options": [
+        "student_ids.add(105)",
+        "student_ids.append(105)",
+        "student_ids.insert(105)",
+        "student_ids.push(105)"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "The add() method is used to add elements to a set."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You have two sets representing students who passed Math and Science exams:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "math_pass = {'Alice', 'Bob', 'Charlie'}\nscience_pass = {'Bob', 'Charlie', 'David'}"
+          },
+          {
+            "type": "paragraph",
+            "text": "You need to find students who passed both exams."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Use a set operation to find the intersection.",
+              "The result should be a set containing students present in both sets."
+            ]
+          }
+        ]
+      },
+      "question": "Which operation correctly finds the intersection of the two sets?",
+      "options": [
+        "math_pass & science_pass",
+        "math_pass | science_pass",
+        "math_pass - science_pass",
+        "math_pass + science_pass"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "The & operator finds the intersection of two sets, returning common elements."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You want to remove a specific element from a set of fruits:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "fruits = {'apple', 'banana', 'cherry'}"
+          },
+          {
+            "type": "paragraph",
+            "text": "Consider removing 'banana' from the set."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Use a method that removes an element safely.",
+              "Consider methods that raise errors versus those that do not."
+            ]
+          }
+        ]
+      },
+      "question": "Which method removes 'banana' from the set without raising an error if it does not exist?",
+      "options": [
+        "fruits.remove('banana')",
+        "fruits.discard('banana')",
+        "del fruits['banana']",
+        "fruits.pop('banana')"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The discard() method removes an element without raising an error if it is not found."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You have a set of numbers:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "numbers = {1, 2, 3, 4, 5}"
+          },
+          {
+            "type": "paragraph",
+            "text": "You want to create a new set containing all elements from another set:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "new_numbers = {4, 5, 6, 7}"
+          },
+          {
+            "type": "paragraph",
+            "text": "The goal is to merge both sets into one."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Consider using set operations for union.",
+              "Ensure no duplicates appear in the merged set."
+            ]
+          }
+        ]
+      },
+      "question": "Which operation correctly merges both sets?",
+      "options": [
+        "numbers.union(new_numbers)",
+        "numbers | new_numbers",
+        "numbers + new_numbers",
+        "numbers.merge(new_numbers)"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "The union() method or | operator merges two sets, removing duplicates."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You need to check if all elements of one set are present in another:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "set_a = {1, 2}\nset_b = {1, 2, 3, 4}"
+          },
+          {
+            "type": "paragraph",
+            "text": "Determine if set_a is a subset of set_b."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Consider using a method to check subset relationships.",
+              "Remember that a subset contains elements all present in the other set."
+            ]
+          }
+        ]
+      },
+      "question": "Which code correctly checks if set_a is a subset of set_b?",
+      "options": [
+        "set_a <= set_b",
+        "set_a >= set_b",
+        "set_a == set_b",
+        "set_a.subset(set_b)"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "The <= operator checks if all elements of set_a are present in set_b."
+    }
+  ]
+}

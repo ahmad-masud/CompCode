@@ -4,14 +4,14 @@ import { firestore } from "../config/firebase-config";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAlerts } from "../context/alertscontext";
 import Solution from "../components/solution";
 import { useUser } from "../context/usercontext";
 import axios from "axios";
 
-const Problems = ({ company, page }) => {
+const Problems = ({ page }) => {
   const [problems, setProblems] = useState([]);
   const [completedProblems, setCompletedProblems] = useState({});
   const [sortConfig, setSortConfig] = useState({
@@ -30,6 +30,8 @@ const Problems = ({ company, page }) => {
   const [solutions, setSolutions] = useState([]);
   const [solutionTitle, setSolutionTitle] = useState("");
   const [link, setLink] = useState("");
+  const { Id } = useParams();
+  const [company, setCompany] = useState(null);
 
   useEffect(() => {
     const fetchSolutions = async () => {
@@ -67,16 +69,36 @@ const Problems = ({ company, page }) => {
   }, []);
 
   useEffect(() => {
-    if (company && company.data) {
-      const sortedData = company.data.sort((a, b) => {
-        const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
-        return difficultyOrder[a.Difficulty] - difficultyOrder[b.Difficulty];
-      });
-      setProblems(sortedData);
-    } else {
-      console.error("Company data not found");
-    }
-  }, [page, company]);
+    const fetchCompanyData = async () => {
+      try {
+        let companyData = null;
+
+        if (page === "companies") {
+          companyData = await import(`../content/companies/${Id}.json`);
+        } else if (page === "roadmap") {
+          companyData = await import(`../content/roadmap/${Id}.json`);
+        }
+
+        if (companyData && companyData.data) {
+          const sortedData = companyData.data.sort((a, b) => {
+            const difficultyOrder = { Easy: 1, Medium: 2, Hard: 3 };
+            return (
+              difficultyOrder[a.Difficulty] - difficultyOrder[b.Difficulty]
+            );
+          });
+
+          setCompany(companyData);
+          setProblems(sortedData);
+        } else {
+          console.error("Company data not found");
+        }
+      } catch (error) {
+        console.error("Failed to fetch company data:", error);
+      }
+    };
+
+    fetchCompanyData();
+  }, [page, Id]);
 
   useEffect(() => {
     if (user) {

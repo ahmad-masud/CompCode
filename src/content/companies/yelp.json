@@ -1,0 +1,301 @@
+{
+  "name": "yelp",
+  "data": [
+    {
+      "ID": "599",
+      "Title": "Minimum Index Sum of Two Lists",
+      "Acceptance": 50,
+      "Difficulty": "Easy",
+      "Frequency": "2.30819311902822",
+      "Link": " https://leetcode.com/problems/minimum-index-sum-of-two-lists"
+    },
+    {
+      "ID": "564",
+      "Title": "Find the Closest Palindrome",
+      "Acceptance": 19,
+      "Difficulty": "Hard",
+      "Frequency": "1.686299975418363",
+      "Link": " https://leetcode.com/problems/find-the-closest-palindrome"
+    },
+    {
+      "ID": "273",
+      "Title": "Integer to English Words",
+      "Acceptance": 27,
+      "Difficulty": "Hard",
+      "Frequency": "1.064406831808506",
+      "Link": " https://leetcode.com/problems/integer-to-english-words"
+    },
+    {
+      "ID": "332",
+      "Title": "Reconstruct Itinerary",
+      "Acceptance": 36,
+      "Difficulty": "Medium",
+      "Frequency": "1.0408834009118708",
+      "Link": " https://leetcode.com/problems/reconstruct-itinerary"
+    },
+    {
+      "ID": "355",
+      "Title": "Design Twitter",
+      "Acceptance": 30,
+      "Difficulty": "Medium",
+      "Frequency": "1.0346399906708852",
+      "Link": " https://leetcode.com/problems/design-twitter"
+    },
+    {
+      "ID": "56",
+      "Title": "Merge Intervals",
+      "Acceptance": 39,
+      "Difficulty": "Medium",
+      "Frequency": "0.987222928819735",
+      "Link": " https://leetcode.com/problems/merge-intervals"
+    },
+    {
+      "ID": "49",
+      "Title": "Group Anagrams",
+      "Acceptance": 56,
+      "Difficulty": "Medium",
+      "Frequency": "0.43750160048327236",
+      "Link": " https://leetcode.com/problems/group-anagrams"
+    },
+    {
+      "ID": "692",
+      "Title": "Top K Frequent Words",
+      "Acceptance": 51,
+      "Difficulty": "Medium",
+      "Frequency": "0.43507396043031815",
+      "Link": " https://leetcode.com/problems/top-k-frequent-words"
+    },
+    {
+      "ID": "139",
+      "Title": "Word Break",
+      "Acceptance": 40,
+      "Difficulty": "Medium",
+      "Frequency": "0.35781564515486297",
+      "Link": " https://leetcode.com/problems/word-break"
+    },
+    {
+      "ID": "218",
+      "Title": "The Skyline Problem",
+      "Acceptance": 34,
+      "Difficulty": "Hard",
+      "Frequency": "0.3456466128972542",
+      "Link": " https://leetcode.com/problems/the-skyline-problem"
+    },
+    {
+      "ID": "347",
+      "Title": "Top K Frequent Elements",
+      "Acceptance": 61,
+      "Difficulty": "Medium",
+      "Frequency": "0.3398753854298785",
+      "Link": " https://leetcode.com/problems/top-k-frequent-elements"
+    },
+    {
+      "ID": "1126",
+      "Title": "Active Businesses",
+      "Acceptance": 68,
+      "Difficulty": "Medium",
+      "Frequency": "0.3208150073042144",
+      "Link": " https://leetcode.com/problems/active-businesses"
+    },
+    {
+      "ID": "528",
+      "Title": "Random Pick with Weight",
+      "Acceptance": 43,
+      "Difficulty": "Medium",
+      "Frequency": "0.31740043778091953",
+      "Link": " https://leetcode.com/problems/random-pick-with-weight"
+    },
+    {
+      "ID": "253",
+      "Title": "Meeting Rooms II",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0.29470460870072",
+      "Link": " https://leetcode.com/problems/meeting-rooms-ii"
+    },
+    {
+      "ID": "127",
+      "Title": "Word Ladder",
+      "Acceptance": 29,
+      "Difficulty": "Medium",
+      "Frequency": "0.29067608666438566",
+      "Link": " https://leetcode.com/problems/word-ladder"
+    },
+    {
+      "ID": "1333",
+      "Title": "Filter Restaurants by Vegan-Friendly & Price and Distance",
+      "Acceptance": 54,
+      "Difficulty": "Medium",
+      "Frequency": "0.263911853117869",
+      "Link": " https://leetcode.com/problems/filter-restaurants-by-vegan-friendly-price-and-distance"
+    },
+    {
+      "ID": "3",
+      "Title": "Longest Substring Without Repeating Characters",
+      "Acceptance": 30,
+      "Difficulty": "Medium",
+      "Frequency": "0.20227578684440572",
+      "Link": " https://leetcode.com/problems/longest-substring-without-repeating-characters"
+    },
+    {
+      "ID": "14",
+      "Title": "Longest Common Prefix",
+      "Acceptance": 35,
+      "Difficulty": "Easy",
+      "Frequency": "0.1714957284786035",
+      "Link": " https://leetcode.com/problems/longest-common-prefix"
+    },
+    {
+      "ID": "205",
+      "Title": "Isomorphic Strings",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.1703978238463443",
+      "Link": " https://leetcode.com/problems/isomorphic-strings"
+    },
+    {
+      "ID": "126",
+      "Title": "Word Ladder II",
+      "Acceptance": 22,
+      "Difficulty": "Hard",
+      "Frequency": "0.15135837956172798",
+      "Link": " https://leetcode.com/problems/word-ladder-ii"
+    },
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.1394299376526441",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "22",
+      "Title": "Generate Parentheses",
+      "Acceptance": 62,
+      "Difficulty": "Medium",
+      "Frequency": "0.12417283375515446",
+      "Link": " https://leetcode.com/problems/generate-parentheses"
+    },
+    {
+      "ID": "207",
+      "Title": "Course Schedule",
+      "Acceptance": 43,
+      "Difficulty": "Medium",
+      "Frequency": "0.11725761496207857",
+      "Link": " https://leetcode.com/problems/course-schedule"
+    },
+    {
+      "ID": "192",
+      "Title": "Word Frequency",
+      "Acceptance": 25,
+      "Difficulty": "Medium",
+      "Frequency": "0.10186917331721722",
+      "Link": " https://leetcode.com/problems/word-frequency"
+    },
+    {
+      "ID": "380",
+      "Title": "Insert Delete GetRandom O(1)",
+      "Acceptance": 47,
+      "Difficulty": "Medium",
+      "Frequency": "0.08509738264123867",
+      "Link": " https://leetcode.com/problems/insert-delete-getrandom-o1"
+    },
+    {
+      "ID": "784",
+      "Title": "Letter Case Permutation",
+      "Acceptance": 64,
+      "Difficulty": "Medium",
+      "Frequency": "0.0787033338274549",
+      "Link": " https://leetcode.com/problems/letter-case-permutation"
+    },
+    {
+      "ID": "39",
+      "Title": "Combination Sum",
+      "Acceptance": 56,
+      "Difficulty": "Medium",
+      "Frequency": "0.05030398316850793",
+      "Link": " https://leetcode.com/problems/combination-sum"
+    },
+    {
+      "ID": "239",
+      "Title": "Sliding Window Maximum",
+      "Acceptance": 43,
+      "Difficulty": "Hard",
+      "Frequency": "0.031228142547585713",
+      "Link": " https://leetcode.com/problems/sliding-window-maximum"
+    },
+    {
+      "ID": "206",
+      "Title": "Reverse Linked List",
+      "Acceptance": 62,
+      "Difficulty": "Easy",
+      "Frequency": "0.02086427467076072",
+      "Link": " https://leetcode.com/problems/reverse-linked-list"
+    },
+    {
+      "ID": "349",
+      "Title": "Intersection of Two Arrays",
+      "Acceptance": 62,
+      "Difficulty": "Easy",
+      "Frequency": "0.016239981598488416",
+      "Link": " https://leetcode.com/problems/intersection-of-two-arrays"
+    },
+    {
+      "ID": "242",
+      "Title": "Valid Anagram",
+      "Acceptance": 56,
+      "Difficulty": "Easy",
+      "Frequency": "0.009322628116274939",
+      "Link": " https://leetcode.com/problems/valid-anagram"
+    },
+    {
+      "ID": "394",
+      "Title": "Decode String",
+      "Acceptance": 50,
+      "Difficulty": "Medium",
+      "Frequency": "0.008166644000272283",
+      "Link": " https://leetcode.com/problems/decode-string"
+    },
+    {
+      "ID": "151",
+      "Title": "Reverse Words in a String",
+      "Acceptance": 21,
+      "Difficulty": "Medium",
+      "Frequency": "0.003456091915988908",
+      "Link": " https://leetcode.com/problems/reverse-words-in-a-string"
+    },
+    {
+      "ID": "381",
+      "Title": "Insert Delete GetRandom O(1) - Duplicates allowed",
+      "Acceptance": 34,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed"
+    },
+    {
+      "ID": "443",
+      "Title": "String Compression",
+      "Acceptance": 41,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/string-compression"
+    },
+    {
+      "ID": "1436",
+      "Title": "Destination City",
+      "Acceptance": 77,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/destination-city"
+    },
+    {
+      "ID": "1455",
+      "Title": "Check If a Word Occurs As a Prefix of Any Word in a Sentence",
+      "Acceptance": 64,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence"
+    }
+  ]
+}

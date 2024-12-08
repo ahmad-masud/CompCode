@@ -1,0 +1,146 @@
+{
+  "title": "Singly Linked Lists",
+  "type": "datastructure",
+  "difficulty": "medium",
+  "lessons": [
+    {
+      "title": "Introduction to Singly Linked Lists",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A **singly linked list** is a linear data structure consisting of nodes. Each node contains two components: a **data** field and a **next** pointer that points to the next node in the sequence. The list terminates when a node\u2019s `next` pointer is `None`."
+        },
+        {
+          "type": "paragraph",
+          "text": "Linked lists differ from arrays in that they do not store data in contiguous memory locations. Instead, they store data in separate nodes, and each node is connected to the next via a pointer. This allows for efficient insertions and deletions but makes random access inefficient compared to arrays."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "# A basic structure of a singly linked list node\nclass Node:\n    def __init__(self, data):\n        self.data = data  # Data stored in the node\n        self.next = None  # Pointer to the next node\n\n# Creating a node\na = Node(1)\nb = Node(2)\na.next = b  # Link node a to node b"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, we define a `Node` class for the linked list, where each node contains `data` and a pointer to the next node (`next`)."
+        }
+      ]
+    },
+    {
+      "title": "Basic Operations on Singly Linked Lists",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The common operations that can be performed on a singly linked list include:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "**Insertion**: Adding a node at the beginning, end, or middle of the list.",
+            "**Deletion**: Removing a node by value or position.",
+            "**Traversal**: Navigating through the list to access nodes.",
+            "**Search**: Finding a node with a specific value."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Insertion into Singly Linked List",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Insertion can be done at various positions in the list, such as the **head** (beginning), **tail** (end), or in the **middle** of the list."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "# Class representing the singly linked list\nclass LinkedList:\n    def __init__(self):\n        self.head = None  # Head points to the first node\n\n    # Insert a node at the beginning\n    def insert_at_head(self, data):\n        new_node = Node(data)\n        new_node.next = self.head  # New node points to the current head\n        self.head = new_node  # Update head to the new node\n\n    # Insert a node at the end\n    def insert_at_tail(self, data):\n        new_node = Node(data)\n        if not self.head:\n            self.head = new_node\n            return\n        temp = self.head\n        while temp.next:  # Traverse to the last node\n            temp = temp.next\n        temp.next = new_node  # Link the last node to the new node"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this code, we define two methods for inserting nodes: `insert_at_head()` to insert at the beginning and `insert_at_tail()` to insert at the end of the list."
+        }
+      ]
+    },
+    {
+      "title": "Traversal of a Singly Linked List",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Traversal involves visiting each node in the linked list, starting from the head and moving towards the last node. Traversing a linked list is often necessary for printing or searching the list."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "class LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert_at_tail(self, data):\n        new_node = Node(data)\n        if not self.head:\n            self.head = new_node\n            return\n        temp = self.head\n        while temp.next:\n            temp = temp.next\n        temp.next = new_node\n\n    # Method to traverse the linked list\n    def traverse(self):\n        temp = self.head\n        while temp:\n            print(temp.data, end=' -> ')\n            temp = temp.next\n        print('None')\n\n# Test the traversal method\nll = LinkedList()\nll.insert_at_tail(1)\nll.insert_at_tail(2)\nll.insert_at_tail(3)\nll.traverse()  # Output: 1 -> 2 -> 3 -> None"
+        },
+        {
+          "type": "paragraph",
+          "text": "The `traverse()` method visits each node in the list and prints its data. The traversal continues until the `next` pointer of a node is `None`, which indicates the end of the list."
+        }
+      ]
+    },
+    {
+      "title": "Deletion from a Singly Linked List",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Nodes can be deleted from the list by **value** or **position**. Deleting a node requires updating the `next` pointer of the previous node to bypass the node being deleted."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "class LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert_at_tail(self, data):\n        new_node = Node(data)\n        if not self.head:\n            self.head = new_node\n            return\n        temp = self.head\n        while temp.next:\n            temp = temp.next\n        temp.next = new_node\n\n    # Method to delete a node by value\n    def delete_by_value(self, key):\n        temp = self.head\n\n        # If the head node itself holds the key\n        if temp and temp.data == key:\n            self.head = temp.next  # Move head to next node\n            temp = None\n            return\n\n        # Search for the node to be deleted\n        prev = None\n        while temp and temp.data != key:\n            prev = temp\n            temp = temp.next\n\n        # If the key was not found in the list\n        if temp is None:\n            return\n\n        # Unlink the node from the list\n        prev.next = temp.next\n        temp = None\n\n# Test the deletion method\nll = LinkedList()\nll.insert_at_tail(1)\nll.insert_at_tail(2)\nll.insert_at_tail(3)\nll.traverse()  # Output: 1 -> 2 -> 3 -> None\nll.delete_by_value(2)\nll.traverse()  # Output: 1 -> 3 -> None"
+        },
+        {
+          "type": "paragraph",
+          "text": "In the `delete_by_value()` method, we search for the node containing the specified value, then unlink it from the list by updating the `next` pointer of the previous node."
+        }
+      ]
+    },
+    {
+      "title": "Reversing a Singly Linked List",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reversing a singly linked list involves reversing the direction of the pointers, such that the last node becomes the head, and the head becomes the last node."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "class LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert_at_tail(self, data):\n        new_node = Node(data)\n        if not self.head:\n            self.head = new_node\n            return\n        temp = self.head\n        while temp.next:\n            temp = temp.next\n        temp.next = new_node\n\n    def traverse(self):\n        temp = self.head\n        while temp:\n            print(temp.data, end=' -> ')\n            temp = temp.next\n        print('None')\n\n    # Method to reverse the linked list\n    def reverse(self):\n        prev = None\n        current = self.head\n        while current:\n            next_node = current.next  # Store the next node\n            current.next = prev  # Reverse the current node's pointer\n            prev = current  # Move the prev pointer forward\n            current = next_node  # Move to the next node\n        self.head = prev  # Update the head to the new first node\n\n# Test the reverse method\nll = LinkedList()\nll.insert_at_tail(1)\nll.insert_at_tail(2)\nll.insert_at_tail(3)\nll.traverse()  # Output: 1 -> 2 -> 3 -> None\nll.reverse()\nll.traverse()  # Output: 3 -> 2 -> 1 -> None"
+        },
+        {
+          "type": "paragraph",
+          "text": "In the `reverse()` method, we iterate through the list and reverse the direction of the pointers. The `prev` pointer is used to keep track of the previous node, and the `current` pointer moves forward through the list."
+        }
+      ]
+    },
+    {
+      "title": "Search in a Singly Linked List",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "To search for a value in a singly linked list, we need to traverse the list from the head and compare each node\u2019s data with the target value."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "class LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert_at_tail(self, data):\n        new_node = Node(data)\n        if not self.head:\n            self.head = new_node\n            return\n        temp = self.head\n        while temp.next:\n            temp = temp.next\n        temp.next = new_node\n\n    # Method to search for a value in the list\n    def search(self, key):\n        temp = self.head\n        while temp:\n            if temp.data == key:\n                return True\n            temp = temp.next\n        return False\n\n# Test the search method\nll = LinkedList()\nll.insert_at_tail(1)\nll.insert_at_tail(2)\nll.insert_at_tail(3)\nprint(ll.search(2))  # Output: True\nprint(ll.search(4))  # Output: False"
+        },
+        {
+          "type": "paragraph",
+          "text": "The `search()` method iterates through the list and returns `True` if the key is found, and `False` otherwise."
+        }
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In this tutorial, we covered the fundamentals of **singly linked lists**, including how to insert, traverse, delete, reverse, and search through a linked list. Singly linked lists provide efficient insertion and deletion operations, especially at the head and tail, and are widely used in various data structures and algorithms."
+        }
+      ]
+    }
+  ]
+}

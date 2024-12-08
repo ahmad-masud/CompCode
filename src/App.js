@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
@@ -11,65 +11,41 @@ import Footer from "./components/footer";
 import Settings from "./components/settings";
 import Report from "./components/report";
 import ScrollToTop from "./utils/scrolltotop";
-import lessons from "./content/lessons.json";
-import quizzes from "./content/quizzes.json";
-import roadmap from "./content/roadmap.json";
-import companies from "./content/companies.json";
-import importAllPages from "./utils/importallpages";
 import "./styles/app.css";
 
-const stripePromise = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
-  ? loadStripe(String(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY))
-  : null;
+const HomePage = React.lazy(() => import("./pages/home"));
+const CompaniesPage = React.lazy(() => import("./pages/companies"));
+const RoadmapPage = React.lazy(() => import("./pages/roadmap"));
+const LessonsPage = React.lazy(() => import("./pages/lessons"));
+const LessonPage = React.lazy(() => import("./pages/lesson"));
+const QuizPage = React.lazy(() => import("./pages/quiz"));
+const ProblemsPage = React.lazy(() => import("./pages/problems"));
+const PremiumPage = React.lazy(() => import("./pages/premium"));
+const PolicyPage = React.lazy(() => import("./pages/policy"));
+const TermsPage = React.lazy(() => import("./pages/terms"));
+const NotFoundPage = React.lazy(() => import("./pages/notfound"));
 
-const pages = importAllPages(require.context("./pages", false, /\.js$/));
+const stripePromise = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
+  ? loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY)
+  : null;
 
 const App = () => {
   const [displaySettings, setDisplaySettings] = useState(false);
   const [displayReport, setDisplayReport] = useState(false);
 
-  const roadmapRoutes = roadmap.map((topic, index) => ({
-    path: `/roadmap/${topic.name.replaceAll(" ", "-").toLowerCase()}`,
-    element: React.createElement(pages["problems"], {
-      company: topic,
-      page: "roadmap",
-    }),
-    key: `roadmap-${index}`,
-  }));
-
-  const companiesRoutes = companies.map((company, index) => ({
-    path: `/companies/${company.name.replaceAll(" ", "-").toLowerCase()}`,
-    element: React.createElement(pages["problems"], {
-      company: company,
-      page: "companies",
-    }),
-    key: `companies-${index}`,
-  }));
-
   const routes = [
-    { path: "/", element: React.createElement(pages["home"]) },
-    { path: "/companies", element: React.createElement(pages["companies"]) },
-    { path: "/roadmap", element: React.createElement(pages["roadmap"]) },
-    {
-      path: "/lessons",
-      element: React.createElement(pages["lessons"], { lessons }),
-    },
-    { path: "/premium", element: React.createElement(pages["premium"]) },
-    { path: "/policy", element: React.createElement(pages["policy"]) },
-    { path: "/terms", element: React.createElement(pages["terms"]) },
-    ...lessons.map((lesson, index) => ({
-      path: `/lesson/${lesson.title.replaceAll(" ", "-").toLowerCase()}`,
-      element: React.createElement(pages["lesson"], { data: lesson }),
-      key: `lesson-${lesson.id}-${index}`,
-    })),
-    ...quizzes.map((quiz, index) => ({
-      path: `/quiz/${quiz.title.replaceAll(" ", "-").toLowerCase()}`,
-      element: React.createElement(pages["quiz"], { data: quiz }),
-      key: `quiz-${quiz.id}-${index}`,
-    })),
-    ...roadmapRoutes,
-    ...companiesRoutes,
-    { path: "*", element: React.createElement(pages["notfound"]) },
+    { path: "/", element: <HomePage /> },
+    { path: "/companies", element: <CompaniesPage /> },
+    { path: "/roadmap", element: <RoadmapPage /> },
+    { path: "/lessons", element: <LessonsPage /> },
+    { path: "/lesson/:lessonId", element: <LessonPage /> },
+    { path: "/quiz/:quizId", element: <QuizPage /> },
+    { path: "/companies/:Id", element: <ProblemsPage page="companies" /> },
+    { path: "/roadmap/:Id", element: <ProblemsPage page="roadmap" /> },
+    { path: "/premium", element: <PremiumPage /> },
+    { path: "/policy", element: <PolicyPage /> },
+    { path: "/terms", element: <TermsPage /> },
+    { path: "*", element: <NotFoundPage /> },
   ];
 
   return (
@@ -88,28 +64,28 @@ const App = () => {
             />
             <Router>
               <Navbar onSettingsOpen={() => setDisplaySettings(true)} />
-              {stripePromise && (
-                <Elements stripe={stripePromise}>
-                  <ScrollToTop />
+              <Suspense>
+                {stripePromise ? (
+                  <Elements stripe={stripePromise}>
+                    <ScrollToTop />
+                    <Routes>
+                      {routes.map(({ path, element, key }) => (
+                        <Route
+                          key={key || path}
+                          path={path}
+                          element={element}
+                        />
+                      ))}
+                    </Routes>
+                  </Elements>
+                ) : (
                   <Routes>
-                    {routes.map((route) =>
-                      route.key ? (
-                        <Route
-                          key={route.key}
-                          path={route.path}
-                          element={route.element}
-                        />
-                      ) : (
-                        <Route
-                          key={route.path}
-                          path={route.path}
-                          element={route.element}
-                        />
-                      )
-                    )}
+                    {routes.map(({ path, element, key }) => (
+                      <Route key={key || path} path={path} element={element} />
+                    ))}
                   </Routes>
-                </Elements>
-              )}
+                )}
+              </Suspense>
               <Footer />
             </Router>
           </ThemeProvider>

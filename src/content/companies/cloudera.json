@@ -1,0 +1,69 @@
+{
+  "name": "cloudera",
+  "data": [
+    {
+      "ID": "173",
+      "Title": "Binary Search Tree Iterator",
+      "Acceptance": 56,
+      "Difficulty": "Medium",
+      "Frequency": "0.1374539674363949",
+      "Link": " https://leetcode.com/problems/binary-search-tree-iterator"
+    },
+    {
+      "ID": "622",
+      "Title": "Design Circular Queue",
+      "Acceptance": 43,
+      "Difficulty": "Medium",
+      "Frequency": "0.11095151700168701",
+      "Link": " https://leetcode.com/problems/design-circular-queue"
+    },
+    {
+      "ID": "1188",
+      "Title": "Design Bounded Blocking Queue",
+      "Acceptance": 70,
+      "Difficulty": "Medium",
+      "Frequency": "0.0885057777399472",
+      "Link": " https://leetcode.com/problems/design-bounded-blocking-queue"
+    },
+    {
+      "ID": "476",
+      "Title": "Number Complement",
+      "Acceptance": 64,
+      "Difficulty": "Easy",
+      "Frequency": "0.0620033273052393",
+      "Link": " https://leetcode.com/problems/number-complement"
+    },
+    {
+      "ID": "146",
+      "Title": "LRU Cache",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.040660598211268925",
+      "Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+      "ID": "339",
+      "Title": "Nested List Weight Sum",
+      "Acceptance": 74,
+      "Difficulty": "Easy",
+      "Frequency": "0.02960986116720276",
+      "Link": " https://leetcode.com/problems/nested-list-weight-sum"
+    },
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.003278422738041615",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "1009",
+      "Title": "Complement of Base 10 Integer",
+      "Acceptance": 59,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/complement-of-base-10-integer"
+    }
+  ]
+}

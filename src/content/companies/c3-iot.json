@@ -1,0 +1,21 @@
+{
+  "name": "c3-iot",
+  "data": [
+    {
+      "ID": "930",
+      "Title": "Binary Subarrays With Sum",
+      "Acceptance": 43,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/binary-subarrays-with-sum"
+    },
+    {
+      "ID": "976",
+      "Title": "Largest Perimeter Triangle",
+      "Acceptance": 57,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/largest-perimeter-triangle"
+    }
+  ]
+}

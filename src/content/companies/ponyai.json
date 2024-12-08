@@ -1,0 +1,37 @@
+{
+  "name": "ponyai",
+  "data": [
+    {
+      "ID": "291",
+      "Title": "Word Pattern II",
+      "Acceptance": 43,
+      "Difficulty": "Hard",
+      "Frequency": "0.4894087826129644",
+      "Link": " https://leetcode.com/problems/word-pattern-ii"
+    },
+    {
+      "ID": "786",
+      "Title": "K-th Smallest Prime Fraction",
+      "Acceptance": 41,
+      "Difficulty": "Hard",
+      "Frequency": "0.2608348224155929",
+      "Link": " https://leetcode.com/problems/k-th-smallest-prime-fraction"
+    },
+    {
+      "ID": "301",
+      "Title": "Remove Invalid Parentheses",
+      "Acceptance": 43,
+      "Difficulty": "Hard",
+      "Frequency": "0.03226086221822144",
+      "Link": " https://leetcode.com/problems/remove-invalid-parentheses"
+    },
+    {
+      "ID": "1235",
+      "Title": "Maximum Profit in Job Scheduling",
+      "Acceptance": 44,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/maximum-profit-in-job-scheduling"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "arrays & strings",
+  "lessons": ["arrays", "strings"],
+  "data": [
+    {
+      "ID": 2239,
+      "Title": "Find Closest Number to Zero",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/find-closest-number-to-zero",
+      "Acceptance": 46
+    },
+    {
+      "ID": 1768,
+      "Title": "Merge Strings Alternately",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/merge-strings-alternately",
+      "Acceptance": 81
+    },
+    {
+      "ID": 13,
+      "Title": "Roman to Integer",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/roman-to-integer",
+      "Acceptance": 63
+    },
+    {
+      "ID": 14,
+      "Title": "Longest Common Prefix",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/longest-common-prefix",
+      "Acceptance": 44
+    },
+    {
+      "ID": 228,
+      "Title": "Summary Ranges",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/summary-ranges",
+      "Acceptance": 51
+    },
+    {
+      "ID": 238,
+      "Title": "Product of Array Except Self",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/product-of-array-except-self",
+      "Acceptance": 66
+    }
+  ]
+}

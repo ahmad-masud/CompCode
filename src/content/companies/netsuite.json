@@ -1,0 +1,21 @@
+{
+  "name": "netsuite",
+  "data": [
+    {
+      "ID": "577",
+      "Title": "Employee Bonus",
+      "Acceptance": 68,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/employee-bonus"
+    },
+    {
+      "ID": "1491",
+      "Title": "Average Salary Excluding the Minimum and Maximum Salary",
+      "Acceptance": 70,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/average-salary-excluding-the-minimum-and-maximum-salary"
+    }
+  ]
+}

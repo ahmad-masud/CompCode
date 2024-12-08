@@ -25,7 +25,14 @@ async function processFiles(dir) {
               stringArray: false,
               stringArrayThreshold: 0.75,
               disableConsoleOutput: true,
-              reservedNames: ["^use[A-Z]", "id", "source", "target", "customNode", "ReactFlow"],
+              reservedNames: [
+                "^use[A-Z]",
+                "id",
+                "source",
+                "target",
+                "customNode",
+                "ReactFlow",
+              ],
             })
             .getObfuscatedCode();
           fs.writeFileSync(filePath, obfuscatedCode, "utf8");

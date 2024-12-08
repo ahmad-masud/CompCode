@@ -1,0 +1,149 @@
+{
+  "name": "houzz",
+  "data": [
+    {
+      "ID": "227",
+      "Title": "Basic Calculator II",
+      "Acceptance": 36,
+      "Difficulty": "Medium",
+      "Frequency": "0.21141874864915486",
+      "Link": " https://leetcode.com/problems/basic-calculator-ii"
+    },
+    {
+      "ID": "727",
+      "Title": "Minimum Window Subsequence",
+      "Acceptance": 41,
+      "Difficulty": "Hard",
+      "Frequency": "0.15970111035790735",
+      "Link": " https://leetcode.com/problems/minimum-window-subsequence"
+    },
+    {
+      "ID": "304",
+      "Title": "Range Sum Query 2D - Immutable",
+      "Acceptance": 38,
+      "Difficulty": "Medium",
+      "Frequency": "0.1583948504722182",
+      "Link": " https://leetcode.com/problems/range-sum-query-2d-immutable"
+    },
+    {
+      "ID": "721",
+      "Title": "Accounts Merge",
+      "Acceptance": 48,
+      "Difficulty": "Medium",
+      "Frequency": "0.15836350116973763",
+      "Link": " https://leetcode.com/problems/accounts-merge"
+    },
+    {
+      "ID": "43",
+      "Title": "Multiply Strings",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.10664586287849012",
+      "Link": " https://leetcode.com/problems/multiply-strings"
+    },
+    {
+      "ID": "218",
+      "Title": "The Skyline Problem",
+      "Acceptance": 34,
+      "Difficulty": "Hard",
+      "Frequency": "0.0564413109049518",
+      "Link": " https://leetcode.com/problems/the-skyline-problem"
+    },
+    {
+      "ID": "556",
+      "Title": "Next Greater Element III",
+      "Acceptance": 31,
+      "Difficulty": "Medium",
+      "Frequency": "0.04679216150675895",
+      "Link": " https://leetcode.com/problems/next-greater-element-iii"
+    },
+    {
+      "ID": "200",
+      "Title": "Number of Islands",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.04526299408355752",
+      "Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+      "ID": "48",
+      "Title": "Rotate Image",
+      "Acceptance": 56,
+      "Difficulty": "Medium",
+      "Frequency": "0.04495138786226632",
+      "Link": " https://leetcode.com/problems/rotate-image"
+    },
+    {
+      "ID": "698",
+      "Title": "Partition to K Equal Sum Subsets",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0.02109782896463587",
+      "Link": " https://leetcode.com/problems/partition-to-k-equal-sum-subsets"
+    },
+    {
+      "ID": "301",
+      "Title": "Remove Invalid Parentheses",
+      "Acceptance": 43,
+      "Difficulty": "Hard",
+      "Frequency": "0.01446679841775339",
+      "Link": " https://leetcode.com/problems/remove-invalid-parentheses"
+    },
+    {
+      "ID": "31",
+      "Title": "Next Permutation",
+      "Acceptance": 32,
+      "Difficulty": "Medium",
+      "Frequency": "0.013427025530888667",
+      "Link": " https://leetcode.com/problems/next-permutation"
+    },
+    {
+      "ID": "120",
+      "Title": "Triangle",
+      "Acceptance": 44,
+      "Difficulty": "Medium",
+      "Frequency": "0.013236460625830901",
+      "Link": " https://leetcode.com/problems/triangle"
+    },
+    {
+      "ID": "212",
+      "Title": "Word Search II",
+      "Acceptance": 34,
+      "Difficulty": "Hard",
+      "Frequency": "0.009845021678804893",
+      "Link": " https://leetcode.com/problems/word-search-ii"
+    },
+    {
+      "ID": "10",
+      "Title": "Regular Expression Matching",
+      "Acceptance": 26,
+      "Difficulty": "Hard",
+      "Frequency": "0.0071865203293987245",
+      "Link": " https://leetcode.com/problems/regular-expression-matching"
+    },
+    {
+      "ID": "4",
+      "Title": "Median of Two Sorted Arrays",
+      "Acceptance": 29,
+      "Difficulty": "Hard",
+      "Frequency": "0.003900160950094767",
+      "Link": " https://leetcode.com/problems/median-of-two-sorted-arrays"
+    },
+    {
+      "ID": "660",
+      "Title": "Remove 9",
+      "Acceptance": 53,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/remove-9"
+    },
+    {
+      "ID": "772",
+      "Title": "Basic Calculator III",
+      "Acceptance": 41,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/basic-calculator-iii"
+    }
+  ]
+}

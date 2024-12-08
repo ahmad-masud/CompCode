@@ -1,0 +1,111 @@
+{
+  "name": "trees",
+  "lessons": [
+    "recursion",
+    "binary-trees",
+    "binary-search",
+    "binary-search-trees",
+    "depth-first-search",
+    "breadth-first-search"
+  ],
+  "data": [
+    {
+      "ID": 104,
+      "Title": "Maximum Depth of Binary Tree",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/maximum-depth-of-binary-tree",
+      "Acceptance": 76
+    },
+    {
+      "ID": 226,
+      "Title": "Invert Binary Tree",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/invert-binary-tree",
+      "Acceptance": 72
+    },
+    {
+      "ID": 110,
+      "Title": "Balanced Binary Tree",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/balanced-binary-tree",
+      "Acceptance": 47
+    },
+    {
+      "ID": 101,
+      "Title": "Symmetric Tree",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/symmetric-tree",
+      "Acceptance": 53
+    },
+    {
+      "ID": 543,
+      "Title": "Diameter of Binary Tree",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/diameter-of-binary-tree",
+      "Acceptance": 56
+    },
+    {
+      "ID": 94,
+      "Title": "Binary Tree Inorder Traversal",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/binary-tree-inorder-traversal",
+      "Acceptance": 71
+    },
+    {
+      "ID": 700,
+      "Title": "Search in a Binary Search Tree",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/search-in-a-binary-search-tree",
+      "Acceptance": 75
+    },
+    {
+      "ID": 701,
+      "Title": "Insert into a Binary Search Tree",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/insert-into-a-binary-search-tree",
+      "Acceptance": 72
+    },
+    {
+      "ID": 98,
+      "Title": "Validate Binary Search Tree",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/validate-binary-search-tree",
+      "Acceptance": 30
+    },
+    {
+      "ID": 450,
+      "Title": "Delete Node in a BST",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/delete-node-in-a-bst",
+      "Acceptance": 46
+    },
+    {
+      "ID": 235,
+      "Title": "Lowest Common Ancestor of a Binary Search Tree",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree",
+      "Acceptance": 59
+    },
+    {
+      "ID": 530,
+      "Title": "Minimum Absolute Difference in BST",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/minimum-absolute-difference-in-bst",
+      "Acceptance": 57
+    },
+    {
+      "ID": 199,
+      "Title": "Binary Tree Right Side View",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/binary-tree-right-side-view",
+      "Acceptance": 58
+    },
+    {
+      "ID": 102,
+      "Title": "Binary Tree Level Order Traversal",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/binary-tree-level-order-traversal",
+      "Acceptance": 63
+    }
+  ]
+}

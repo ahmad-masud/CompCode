@@ -1,0 +1,333 @@
+{
+  "name": "citadel",
+  "data": [
+    {
+      "ID": "829",
+      "Title": "Consecutive Numbers Sum",
+      "Acceptance": 37,
+      "Difficulty": "Hard",
+      "Frequency": "1.7290600615878309",
+      "Link": " https://leetcode.com/problems/consecutive-numbers-sum"
+    },
+    {
+      "ID": "1048",
+      "Title": "Longest String Chain",
+      "Acceptance": 54,
+      "Difficulty": "Medium",
+      "Frequency": "1.016830261064837",
+      "Link": " https://leetcode.com/problems/longest-string-chain"
+    },
+    {
+      "ID": "241",
+      "Title": "Different Ways to Add Parentheses",
+      "Acceptance": 55,
+      "Difficulty": "Medium",
+      "Frequency": "0.304600460541843",
+      "Link": " https://leetcode.com/problems/different-ways-to-add-parentheses"
+    },
+    {
+      "ID": "647",
+      "Title": "Palindromic Substrings",
+      "Acceptance": 60,
+      "Difficulty": "Medium",
+      "Frequency": "0.19203205445944416",
+      "Link": " https://leetcode.com/problems/palindromic-substrings"
+    },
+    {
+      "ID": "285",
+      "Title": "Inorder Successor in BST",
+      "Acceptance": 40,
+      "Difficulty": "Medium",
+      "Frequency": "0.1850469943157836",
+      "Link": " https://leetcode.com/problems/inorder-successor-in-bst"
+    },
+    {
+      "ID": "32",
+      "Title": "Longest Valid Parentheses",
+      "Acceptance": 28,
+      "Difficulty": "Hard",
+      "Frequency": "0.13667290598927465",
+      "Link": " https://leetcode.com/problems/longest-valid-parentheses"
+    },
+    {
+      "ID": "935",
+      "Title": "Knight Dialer",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0.09737416402517636",
+      "Link": " https://leetcode.com/problems/knight-dialer"
+    },
+    {
+      "ID": "121",
+      "Title": "Best Time to Buy and Sell Stock",
+      "Acceptance": 50,
+      "Difficulty": "Easy",
+      "Frequency": "0.08602309667191627",
+      "Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+    },
+    {
+      "ID": "42",
+      "Title": "Trapping Rain Water",
+      "Acceptance": 48,
+      "Difficulty": "Hard",
+      "Frequency": "0.08461041545209161",
+      "Link": " https://leetcode.com/problems/trapping-rain-water"
+    },
+    {
+      "ID": "122",
+      "Title": "Best Time to Buy and Sell Stock II",
+      "Acceptance": 57,
+      "Difficulty": "Easy",
+      "Frequency": "0.06582927042348097",
+      "Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii"
+    },
+    {
+      "ID": "221",
+      "Title": "Maximal Square",
+      "Acceptance": 37,
+      "Difficulty": "Medium",
+      "Frequency": "0.060244665945199054",
+      "Link": " https://leetcode.com/problems/maximal-square"
+    },
+    {
+      "ID": "20",
+      "Title": "Valid Parentheses",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.055983722381420686",
+      "Link": " https://leetcode.com/problems/valid-parentheses"
+    },
+    {
+      "ID": "295",
+      "Title": "Find Median from Data Stream",
+      "Acceptance": 44,
+      "Difficulty": "Hard",
+      "Frequency": "0.05495888428075748",
+      "Link": " https://leetcode.com/problems/find-median-from-data-stream"
+    },
+    {
+      "ID": "622",
+      "Title": "Design Circular Queue",
+      "Acceptance": 43,
+      "Difficulty": "Medium",
+      "Frequency": "0.049844204077291364",
+      "Link": " https://leetcode.com/problems/design-circular-queue"
+    },
+    {
+      "ID": "239",
+      "Title": "Sliding Window Maximum",
+      "Acceptance": 43,
+      "Difficulty": "Hard",
+      "Frequency": "0.0483746857022364",
+      "Link": " https://leetcode.com/problems/sliding-window-maximum"
+    },
+    {
+      "ID": "240",
+      "Title": "Search a 2D Matrix II",
+      "Acceptance": 43,
+      "Difficulty": "Medium",
+      "Frequency": "0.04647676584572884",
+      "Link": " https://leetcode.com/problems/search-a-2d-matrix-ii"
+    },
+    {
+      "ID": "146",
+      "Title": "LRU Cache",
+      "Acceptance": 33,
+      "Difficulty": "Medium",
+      "Frequency": "0.040660598211268925",
+      "Link": " https://leetcode.com/problems/lru-cache"
+    },
+    {
+      "ID": "724",
+      "Title": "Find Pivot Index",
+      "Acceptance": 44,
+      "Difficulty": "Easy",
+      "Frequency": "0.03089844155123413",
+      "Link": " https://leetcode.com/problems/find-pivot-index"
+    },
+    {
+      "ID": "332",
+      "Title": "Reconstruct Itinerary",
+      "Acceptance": 36,
+      "Difficulty": "Medium",
+      "Frequency": "0.030687713231237448",
+      "Link": " https://leetcode.com/problems/reconstruct-itinerary"
+    },
+    {
+      "ID": "123",
+      "Title": "Best Time to Buy and Sell Stock III",
+      "Acceptance": 37,
+      "Difficulty": "Hard",
+      "Frequency": "0.02516207671950806",
+      "Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii"
+    },
+    {
+      "ID": "199",
+      "Title": "Binary Tree Right Side View",
+      "Acceptance": 54,
+      "Difficulty": "Medium",
+      "Frequency": "0.022539339846061532",
+      "Link": " https://leetcode.com/problems/binary-tree-right-side-view"
+    },
+    {
+      "ID": "105",
+      "Title": "Construct Binary Tree from Preorder and Inorder Traversal",
+      "Acceptance": 48,
+      "Difficulty": "Medium",
+      "Frequency": "0.022325470299025416",
+      "Link": " https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal"
+    },
+    {
+      "ID": "628",
+      "Title": "Maximum Product of Three Numbers",
+      "Acceptance": 47,
+      "Difficulty": "Easy",
+      "Frequency": "0.016529301951210565",
+      "Link": " https://leetcode.com/problems/maximum-product-of-three-numbers"
+    },
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.016487580637467636",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "225",
+      "Title": "Implement Stack using Queues",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.01644097863345757",
+      "Link": " https://leetcode.com/problems/implement-stack-using-queues"
+    },
+    {
+      "ID": "340",
+      "Title": "Longest Substring with At Most K Distinct Characters",
+      "Acceptance": 44,
+      "Difficulty": "Hard",
+      "Frequency": "0.016122880486563188",
+      "Link": " https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters"
+    },
+    {
+      "ID": "297",
+      "Title": "Serialize and Deserialize Binary Tree",
+      "Acceptance": 47,
+      "Difficulty": "Hard",
+      "Frequency": "0.01585377577217724",
+      "Link": " https://leetcode.com/problems/serialize-and-deserialize-binary-tree"
+    },
+    {
+      "ID": "15",
+      "Title": "3Sum",
+      "Acceptance": 26,
+      "Difficulty": "Medium",
+      "Frequency": "0.013665148419080968",
+      "Link": " https://leetcode.com/problems/3sum"
+    },
+    {
+      "ID": "53",
+      "Title": "Maximum Subarray",
+      "Acceptance": 46,
+      "Difficulty": "Easy",
+      "Frequency": "0.013467854269413949",
+      "Link": " https://leetcode.com/problems/maximum-subarray"
+    },
+    {
+      "ID": "85",
+      "Title": "Maximal Rectangle",
+      "Acceptance": 37,
+      "Difficulty": "Hard",
+      "Frequency": "0.013333530869465187",
+      "Link": " https://leetcode.com/problems/maximal-rectangle"
+    },
+    {
+      "ID": "200",
+      "Title": "Number of Islands",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0.011509262420590827",
+      "Link": " https://leetcode.com/problems/number-of-islands"
+    },
+    {
+      "ID": "232",
+      "Title": "Implement Queue using Stacks",
+      "Acceptance": 49,
+      "Difficulty": "Easy",
+      "Frequency": "0.011242389348933884",
+      "Link": " https://leetcode.com/problems/implement-queue-using-stacks"
+    },
+    {
+      "ID": "212",
+      "Title": "Word Search II",
+      "Acceptance": 34,
+      "Difficulty": "Hard",
+      "Frequency": "0.009845021678804893",
+      "Link": " https://leetcode.com/problems/word-search-ii"
+    },
+    {
+      "ID": "70",
+      "Title": "Climbing Stairs",
+      "Acceptance": 47,
+      "Difficulty": "Easy",
+      "Frequency": "0.009390798483527519",
+      "Link": " https://leetcode.com/problems/climbing-stairs"
+    },
+    {
+      "ID": "28",
+      "Title": "Implement strStr()",
+      "Acceptance": 34,
+      "Difficulty": "Easy",
+      "Frequency": "0.008850485542574548",
+      "Link": " https://leetcode.com/problems/implement-strstr"
+    },
+    {
+      "ID": "253",
+      "Title": "Meeting Rooms II",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0.008079219870546493",
+      "Link": " https://leetcode.com/problems/meeting-rooms-ii"
+    },
+    {
+      "ID": "151",
+      "Title": "Reverse Words in a String",
+      "Acceptance": 21,
+      "Difficulty": "Medium",
+      "Frequency": "0.0061359296669270605",
+      "Link": " https://leetcode.com/problems/reverse-words-in-a-string"
+    },
+    {
+      "ID": "8",
+      "Title": "String to Integer (atoi)",
+      "Acceptance": 15,
+      "Difficulty": "Medium",
+      "Frequency": "0.0037925521897059712",
+      "Link": " https://leetcode.com/problems/string-to-integer-atoi"
+    },
+    {
+      "ID": "102",
+      "Title": "Binary Tree Level Order Traversal",
+      "Acceptance": 54,
+      "Difficulty": "Medium",
+      "Frequency": "0.003639014205004082",
+      "Link": " https://leetcode.com/problems/binary-tree-level-order-traversal"
+    },
+    {
+      "ID": "718",
+      "Title": "Maximum Length of Repeated Subarray",
+      "Acceptance": 49,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/maximum-length-of-repeated-subarray"
+    },
+    {
+      "ID": "1515",
+      "Title": "Best Position for a Service Centre",
+      "Acceptance": 35,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/best-position-for-a-service-centre"
+    }
+  ]
+}

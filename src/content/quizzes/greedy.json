@@ -1,0 +1,146 @@
+{
+  "title": "Greedy",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The **greedy algorithm** technique makes a series of choices, each of which looks optimal at the moment. The algorithm does not revisit or revise these choices."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def fractional_knapsack(weights, values, capacity):\n    ratio = [(values[i] / weights[i], weights[i]) for i in range(len(weights))]\n    ratio.sort(reverse=True)\n\n    total_value = 0\n    for r, w in ratio:\n        if capacity >= w:\n            total_value += r * w\n            capacity -= w\n        else:\n            total_value += r * capacity\n            break\n    return total_value"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Greedy algorithms **choose the best option** available at each step.",
+              "Optimal solutions are not guaranteed for all problem types."
+            ]
+          }
+        ]
+      },
+      "question": "What is the primary characteristic of a greedy algorithm?",
+      "options": [
+        "It revises choices frequently",
+        "It makes the locally optimal choice at each step",
+        "It always guarantees a globally optimal solution",
+        "It uses recursion heavily"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "A greedy algorithm makes the locally optimal choice at each step, which may or may not lead to a globally optimal solution."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Consider the **activity selection problem**, where you need to select the maximum number of non-overlapping activities given their start and end times."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def activity_selection(start, end):\n    activities = sorted(zip(start, end), key=lambda x: x[1])\n    selected = [activities[0]]\n\n    for i in range(1, len(activities)):\n        if activities[i][0] >= selected[-1][1]:\n            selected.append(activities[i])\n\n    return len(selected)"
+          },
+          {
+            "type": "paragraph",
+            "text": "The **greedy choice** here is to always select the activity that finishes earliest."
+          }
+        ]
+      },
+      "question": "How does the greedy approach solve the activity selection problem?",
+      "options": [
+        "By sorting activities by start time",
+        "By always selecting the activity that starts first",
+        "By selecting the activity that finishes earliest and does not overlap",
+        "By using dynamic programming"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The greedy approach selects the activity that finishes earliest and does not overlap with previously selected activities."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The **Huffman coding** algorithm is used for lossless data compression. It builds a binary tree based on character frequencies, assigning shorter codes to more frequent characters."
+          },
+          {
+            "type": "paragraph",
+            "text": "The greedy choice is to always combine the two least frequent nodes first."
+          }
+        ]
+      },
+      "question": "What is the greedy choice in Huffman coding?",
+      "options": [
+        "Combining the two least frequent nodes",
+        "Combining the two most frequent nodes",
+        "Ignoring character frequencies",
+        "Sorting characters alphabetically"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "The greedy choice in Huffman coding is to always combine the two least frequent nodes first."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A **coin change** problem involves finding the minimum number of coins to make a given amount using coins of specified denominations. A greedy algorithm may not always produce an optimal solution."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def min_coins_greedy(coins, amount):\n    coins.sort(reverse=True)\n    count = 0\n\n    for coin in coins:\n        while amount >= coin:\n            amount -= coin\n            count += 1\n\n    return count if amount == 0 else -1"
+          },
+          {
+            "type": "paragraph",
+            "text": "Greedy solutions work well when the denominations allow for an optimal substructure."
+          }
+        ]
+      },
+      "question": "When does the greedy approach work well for the coin change problem?",
+      "options": [
+        "When the coins are all prime numbers",
+        "When the denominations allow for an optimal substructure",
+        "When the amount is less than 10",
+        "When using only one type of coin"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The greedy approach works well when the denominations allow for an optimal substructure."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In the **job sequencing** problem, each job has a deadline and a profit. The goal is to maximize profit by selecting jobs that can be completed within their deadlines."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Jobs are sorted by **descending profit**.",
+              "Each job is placed in the latest available slot before its deadline."
+            ]
+          }
+        ]
+      },
+      "question": "What is the first step in the greedy approach to the job sequencing problem?",
+      "options": [
+        "Sort jobs by deadline",
+        "Sort jobs by ascending profit",
+        "Sort jobs by descending profit",
+        "Select jobs randomly"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The first step is to sort jobs by descending profit to maximize total profit."
+    }
+  ]
+}

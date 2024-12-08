@@ -1,0 +1,175 @@
+{
+  "title": "Singly Linked Lists",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A singly linked list is a data structure where each node points to the next node. Below is a basic implementation of a node:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None"
+          },
+          {
+            "type": "paragraph",
+            "text": "Given a linked list created using this `Node` class, you want to traverse and print all node values."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**Start** from the head node.",
+              "Use the `next` pointer to move to the **next node**.",
+              "Continue until the `next` pointer is `None`."
+            ]
+          }
+        ]
+      },
+      "question": "Which code correctly traverses and prints all node values?",
+      "options": [
+        "while head:\n    print(head.value)\n    head.next",
+        "while head:\n    print(head.value)\n    head = head.next",
+        "for node in head:\n    print(node.value)",
+        "head.print()"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "To correctly traverse a singly linked list, update the `head` pointer to `head.next` in each iteration."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To insert a node at the beginning of a singly linked list, you need to modify the head pointer and set the new node's `next` pointer to the current head."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n\nhead = Node(1)\nsecond = Node(2)\nhead.next = second"
+          },
+          {
+            "type": "paragraph",
+            "text": "Insert a new node with value `0` at the beginning."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Create a **new node**.",
+              "Set the **new node's `next`** pointer to the current head.",
+              "Update the head to point to the **new node**."
+            ]
+          }
+        ]
+      },
+      "question": "Which code correctly inserts a new node with value 0 at the beginning?",
+      "options": [
+        "new_node = Node(0)\nnew_node.next = head\nhead = new_node",
+        "new_node = Node(0)\nhead = new_node\nnew_node.next = None",
+        "head.next = Node(0)",
+        "new_node = Node(0)\nnew_node = head\nhead = new_node"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "To insert a node at the beginning, the new node's `next` should point to the current head, and then the head is updated."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To delete a node with a specific value from a singly linked list, you need to traverse the list to find the node and update the `next` pointer of the previous node."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n\nhead = Node(1)\nsecond = Node(2)\nthird = Node(3)\nhead.next = second\nsecond.next = third"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Use a **previous pointer** to track the node before the one being deleted.",
+              "Update the **`next` pointer** of the previous node to **bypass** the node being deleted."
+            ]
+          }
+        ]
+      },
+      "question": "Which approach correctly deletes a node with value 2?",
+      "options": [
+        "while head:\n    if head.value == 2:\n        head = head.next",
+        "prev = None\ncurr = head\nwhile curr:\n    if curr.value == 2:\n        prev.next = curr.next\n        break\n    prev = curr\n    curr = curr.next",
+        "head.remove(2)",
+        "curr = head\nhead = head.next"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Using a previous pointer to update the `next` pointer allows deletion of the target node from the list."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To reverse a singly linked list, the `next` pointers of each node must point to the previous node, effectively reversing the list's direction."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n\nhead = Node(1)\nsecond = Node(2)\nthird = Node(3)\nhead.next = second\nsecond.next = third"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Use **three pointers**: `previous`, `current`, and `next`.",
+              "Adjust the **`next` pointer** of each node to point to the previous node."
+            ]
+          }
+        ]
+      },
+      "question": "Which code correctly reverses a singly linked list?",
+      "options": [
+        "prev = None\ncurr = head\nwhile curr:\n    next_node = curr.next\n    curr.next = prev\n    prev = curr\n    curr = next_node\nhead = prev",
+        "curr = head\nwhile curr:\n    curr = curr.next\nhead = curr",
+        "prev = None\nwhile head:\n    head.next = prev\n    prev = head",
+        "head.reverse()"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "The correct approach uses three pointers (`prev`, `curr`, `next`) to reverse the linked list's direction."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To find the length of a singly linked list, you need to traverse each node until reaching the end (`next` is `None`)."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n\nhead = Node(1)\nsecond = Node(2)\nhead.next = second"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Initialize a **counter** to track the number of nodes.",
+              "Traverse the list using a loop until the **end** is reached."
+            ]
+          }
+        ]
+      },
+      "question": "Which code correctly finds the length of the list?",
+      "options": [
+        "length = 0\nwhile head:\n    length += 1\n    head = head.next",
+        "length = len(head)",
+        "length = head.count()",
+        "length = sum(1 for node in head)"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "To find the length of a singly linked list, traverse each node and increment a counter."
+    }
+  ]
+}

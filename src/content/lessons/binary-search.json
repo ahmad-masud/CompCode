@@ -1,0 +1,162 @@
+{
+  "title": "Binary Search",
+  "type": "algorithm",
+  "difficulty": "medium",
+  "lessons": [
+    {
+      "title": "Introduction to Binary Search",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "**Binary Search** is an efficient algorithm for finding an element in a sorted array. It works by repeatedly dividing the search interval in half. If the target value is less than the middle element, the search continues in the lower half; otherwise, it continues in the upper half."
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "**Time Complexity**: O(log n), because the array is halved at each step.",
+            "**Requirement**: The array (or list) must be sorted."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Binary search is much more efficient than linear search (O(n)) for large datasets, as it reduces the problem size significantly at each step."
+        }
+      ]
+    },
+    {
+      "title": "Binary Search Algorithm",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The binary search algorithm follows these steps:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Set two pointers, `low` and `high`, at the start and end of the array.",
+            "Calculate the middle index: `mid = (low + high) // 2`.",
+            "Compare the middle element with the target value:",
+            "- If the middle element equals the target, return the index.",
+            "- If the target is smaller than the middle element, search the left half (`high = mid - 1`).",
+            "- If the target is larger, search the right half (`low = mid + 1`).",
+            "Repeat until the target is found or `low` exceeds `high`."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Implementing Binary Search (Iterative)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Here\u2019s the implementation of binary search using an **iterative** approach:"
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def binary_search(arr, target):\n    low, high = 0, len(arr) - 1\n\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n\n    return -1  # Target not found\n\n# Usage\narr = [1, 2, 3, 4, 5, 6, 7, 8, 9]\nprint(binary_search(arr, 5))  # Output: 4"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, the `binary_search()` function divides the array and checks if the middle element is the target. If not, it adjusts the search range based on whether the target is smaller or larger than the middle element."
+        }
+      ]
+    },
+    {
+      "title": "Implementing Binary Search (Recursive)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "You can also implement binary search using a **recursive** approach. In this case, the function calls itself with adjusted search ranges."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def binary_search_recursive(arr, target, low, high):\n    if low > high:\n        return -1  # Base case: target not found\n\n    mid = (low + high) // 2\n\n    if arr[mid] == target:\n        return mid\n    elif arr[mid] < target:\n        return binary_search_recursive(arr, target, mid + 1, high)\n    else:\n        return binary_search_recursive(arr, target, low, mid - 1)\n\n# Usage\narr = [1, 2, 3, 4, 5, 6, 7, 8, 9]\nprint(binary_search_recursive(arr, 5, 0, len(arr) - 1))  # Output: 4"
+        },
+        {
+          "type": "paragraph",
+          "text": "This recursive implementation of binary search behaves similarly to the iterative one, except that it uses function calls to search the left or right half."
+        }
+      ]
+    },
+    {
+      "title": "Handling Edge Cases",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "When using binary search, it's important to handle several edge cases, such as:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Searching an empty array: The function should return `-1`.",
+            "Target not found: Return `-1` after the search interval becomes invalid (`low > high`).",
+            "Duplicate elements: If duplicates exist, binary search will return the index of one occurrence, but may not necessarily return the first or last occurrence."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Variants of Binary Search",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Binary search can be modified for different scenarios, such as finding the first or last occurrence of an element in an array with duplicates, or finding the smallest element greater than the target."
+        }
+      ]
+    },
+    {
+      "title": "Finding the First Occurrence of an Element",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "To find the **first occurrence** of a target element, modify binary search to continue searching in the left half even after finding the target."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def binary_search_first(arr, target):\n    low, high = 0, len(arr) - 1\n    result = -1\n\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            result = mid\n            high = mid - 1  # Keep searching to the left\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n\n    return result  # First occurrence\n\n# Usage\narr = [1, 2, 2, 2, 3, 4, 5]\nprint(binary_search_first(arr, 2))  # Output: 1"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this variant, the algorithm continues searching to the left (`high = mid - 1`) even after finding the target to ensure it finds the first occurrence."
+        }
+      ]
+    },
+    {
+      "title": "Advantages of Binary Search",
+      "content": [
+        {
+          "type": "bullets",
+          "items": [
+            "Efficient with O(log n) time complexity.",
+            "Reduces problem size significantly with each step.",
+            "Works well with large, sorted datasets."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Limitations of Binary Search",
+      "content": [
+        {
+          "type": "bullets",
+          "items": [
+            "Requires the array to be sorted.",
+            "Inefficient for small datasets compared to linear search."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In this lesson, we covered the **Binary Search** algorithm, both iteratively and recursively, and discussed its applications and variations. Binary search is one of the most efficient algorithms for finding elements in sorted datasets and is a fundamental concept in computer science."
+        }
+      ]
+    }
+  ]
+}

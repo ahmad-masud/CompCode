@@ -1,0 +1,62 @@
+{
+  "name": "hashmaps & sets",
+  "lessons": ["dictionaries", "sets"],
+  "data": [
+    {
+      "ID": 1,
+      "Title": "Two Sum",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/two-sum",
+      "Acceptance": 48
+    },
+    {
+      "ID": 136,
+      "Title": "Single Number",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/single-number",
+      "Acceptance": 70
+    },
+    {
+      "ID": 347,
+      "Title": "Top K Frequent Elements",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/top-k-frequent-elements",
+      "Acceptance": 64
+    },
+    {
+      "ID": 349,
+      "Title": "Intersection of Two Arrays",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/intersection-of-two-arrays",
+      "Acceptance": 70
+    },
+    {
+      "ID": 242,
+      "Title": "Valid Anagram",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/valid-anagram",
+      "Acceptance": 61
+    },
+    {
+      "ID": 205,
+      "Title": "Isomorphic Strings",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/isomorphic-strings",
+      "Acceptance": 41
+    },
+    {
+      "ID": 36,
+      "Title": "Valid Sudoku",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/valid-sudoku",
+      "Acceptance": 61
+    },
+    {
+      "ID": 217,
+      "Title": "Contains Duplicate",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/contains-duplicate",
+      "Acceptance": 60
+    }
+  ]
+}

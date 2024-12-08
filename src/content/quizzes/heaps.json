@@ -1,0 +1,119 @@
+{
+  "title": "Heaps",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A heap is a specialized binary tree-based data structure that satisfies the **heap property**. In a max-heap, for example, the value of each parent node is **greater than or equal** to the values of its children."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "import heapq\nheap = []\nheapq.heappush(heap, 3)\nheapq.heappush(heap, 1)\nheapq.heappush(heap, 4)"
+          },
+          {
+            "type": "paragraph",
+            "text": "The above code uses Python's `heapq` module to create a min-heap."
+          }
+        ]
+      },
+      "question": "What is the value at the root of the heap after inserting 3, 1, and 4?",
+      "options": ["3", "1", "4", "Heap is empty"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "In a min-heap, the smallest value (1) is at the root."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To remove the root element from a heap, you typically replace it with the last element and then **heapify** the structure to maintain the heap property."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "import heapq\nheap = [1, 3, 4]\nheapq.heappop(heap)"
+          }
+        ]
+      },
+      "question": "What happens to the heap after removing the root element 1?",
+      "options": [
+        "3 becomes the new root",
+        "4 becomes the new root",
+        "The heap is empty",
+        "Heap remains unchanged"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "After removing the root (1), 3 becomes the new root, and the heap is restructured to maintain the min-heap property."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Heaps are commonly used to implement **priority queues**, where elements with higher priority are served before those with lower priority."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "import heapq\npriority_queue = []\nheapq.heappush(priority_queue, (2, 'task1'))\nheapq.heappush(priority_queue, (1, 'task2'))"
+          }
+        ]
+      },
+      "question": "Which task is served first from the priority queue?",
+      "options": [
+        "'task1'",
+        "'task2'",
+        "Tasks are served in arbitrary order",
+        "None"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "In a priority queue implemented with a min-heap, the task with the smallest priority value (1, 'task2') is served first."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A max-heap can be created by inserting the negative of each value when using Python's `heapq`, as it only supports min-heaps."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "import heapq\nmax_heap = []\nheapq.heappush(max_heap, -1)\nheapq.heappush(max_heap, -3)\nheapq.heappush(max_heap, -2)"
+          }
+        ]
+      },
+      "question": "What value is at the root of this max-heap?",
+      "options": ["-3", "-1", "3", "1"],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "In a max-heap implemented using negative values, the smallest negative value (-3) represents the largest positive value (3)."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The time complexity for inserting an element into a heap or removing the root element is **O(log n)** due to the logarithmic height of the heap."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "heapq.heappush(heap, 5)\nheapq.heappop(heap)"
+          }
+        ]
+      },
+      "question": "What is the time complexity for inserting or removing an element from a heap?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The time complexity for inserting or removing an element from a heap is O(log n) due to the height of the heap."
+    }
+  ]
+}

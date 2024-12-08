@@ -1,0 +1,138 @@
+{
+  "title": "Depth-First Search",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Depth-First Search (DFS) is a graph traversal algorithm that explores as far as possible along one branch before backtracking. DFS can be implemented using **recursion** or an **explicit stack**."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def dfs_recursive(graph, node, visited=set()):\n    if node not in visited:\n        print(node)\n        visited.add(node)\n        for neighbor in graph[node]:\n            dfs_recursive(graph, neighbor, visited)"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "DFS explores nodes **deeply** before visiting siblings.",
+              "It can be used to detect **cycles** in a graph."
+            ]
+          }
+        ]
+      },
+      "question": "What data structure is typically used to implement DFS iteratively?",
+      "options": ["Queue", "Stack", "Heap", "Array"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "A stack is used for iterative implementations of DFS, ensuring a depth-first traversal."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "DFS can be used to find **connected components** in an undirected graph by repeatedly applying the algorithm to unvisited nodes."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def find_connected_components(graph):\n    visited = set()\n    components = []\n\n    for node in graph:\n        if node not in visited:\n            component = []\n            dfs_collect(graph, node, visited, component)\n            components.append(component)\n\n    return components\n\ndef dfs_collect(graph, node, visited, component):\n    if node not in visited:\n        visited.add(node)\n        component.append(node)\n        for neighbor in graph[node]:\n            dfs_collect(graph, neighbor, visited, component)"
+          }
+        ]
+      },
+      "question": "What does the function `find_connected_components` do when applied to a graph?",
+      "options": [
+        "Finds the shortest path",
+        "Detects cycles",
+        "Finds connected components",
+        "Sorts the nodes"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The function finds all connected components by applying DFS to unvisited nodes."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Consider a tree structure where nodes represent tasks and edges represent dependencies. DFS can be used to determine the **order** in which tasks should be completed."
+          },
+          {
+            "type": "paragraph",
+            "text": "For example, if task A depends on task B, DFS ensures that B is processed before A."
+          }
+        ]
+      },
+      "question": "What application of DFS is described here?",
+      "options": [
+        "Cycle detection",
+        "Finding shortest paths",
+        "Topological sorting",
+        "Breadth-first traversal"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "DFS can be used for topological sorting, which determines a valid order for tasks with dependencies."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In a **maze-solving problem**, DFS explores all possible paths from a starting point. It backtracks when a path reaches a dead end, exploring other paths."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def dfs_maze_solver(maze, start, end, path=[], visited=set()):\n    if start == end:\n        return path + [end]\n    visited.add(start)\n    for neighbor in get_neighbors(maze, start):\n        if neighbor not in visited:\n            result = dfs_maze_solver(maze, neighbor, end, path + [start], visited)\n            if result:\n                return result\n    return None"
+          }
+        ]
+      },
+      "question": "What is a key characteristic of DFS when solving mazes?",
+      "options": [
+        "It guarantees the shortest path",
+        "It explores all possible paths",
+        "It only explores one path",
+        "It uses a priority queue"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "DFS explores all possible paths, though it does not guarantee the shortest path."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "DFS can detect **back edges** in a graph, which indicate the presence of a cycle in a directed graph. Back edges point from a node to one of its ancestors in the DFS tree."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def dfs_cycle_detection(graph, node, visited, parent):\n    visited.add(node)\n    for neighbor in graph[node]:\n        if neighbor not in visited:\n            if dfs_cycle_detection(graph, neighbor, visited, node):\n                return True\n        elif neighbor != parent:\n            return True\n    return False"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "A back edge connects a node to its **ancestor**.",
+              "Cycle detection is important for **graph traversal**."
+            ]
+          }
+        ]
+      },
+      "question": "What does a back edge in a directed graph signify?",
+      "options": [
+        "The graph is unconnected",
+        "The presence of a cycle",
+        "A node has no children",
+        "A node is isolated"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "A back edge indicates a cycle in a directed graph, connecting a node to its ancestor."
+    }
+  ]
+}

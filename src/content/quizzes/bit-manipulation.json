@@ -1,0 +1,148 @@
+{
+  "title": "Bit Manipulation",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Bit manipulation involves performing operations directly on binary representations of numbers, often using bitwise operators like **AND (&)**, **OR (|)**, **XOR (^)**, and **shifts (<<, >>)**."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def is_power_of_two(n):\n    return n > 0 and (n & (n - 1)) == 0"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Bitwise operations are typically **faster** than arithmetic operations.",
+              "Useful for solving **optimization** and **binary encoding** problems."
+            ]
+          }
+        ]
+      },
+      "question": "What does the expression (n & (n - 1)) == 0 check for in the given code?",
+      "options": [
+        "If n is negative",
+        "If n is odd",
+        "If n is a power of two",
+        "If n is greater than zero"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The expression (n & (n - 1)) == 0 checks if n is a power of two by ensuring there is only one set bit."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Consider using the XOR operation for **swapping two numbers** without a temporary variable. XOR has properties such as **a ^ a = 0** and **a ^ 0 = a**."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "a = 5\nb = 3\na = a ^ b\nb = a ^ b\na = a ^ b"
+          },
+          {
+            "type": "paragraph",
+            "text": "This approach leverages XOR's properties to swap values without additional memory."
+          }
+        ]
+      },
+      "question": "What is the primary benefit of using XOR to swap two numbers?",
+      "options": [
+        "It uses more memory",
+        "It simplifies addition",
+        "It swaps values without a temporary variable",
+        "It changes the data type"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "Using XOR to swap values eliminates the need for a temporary variable, making it memory efficient."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Bitwise shifts can be used for **efficient multiplication** and **division** by powers of two. The left shift operator (<<) multiplies a number by 2, while the right shift operator (>>) divides a number by 2."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "x = 4\nx = x << 1  # x is now 8"
+          }
+        ]
+      },
+      "question": "What is the effect of the expression x << 1?",
+      "options": [
+        "It divides x by 2",
+        "It multiplies x by 2",
+        "It adds 1 to x",
+        "It subtracts 1 from x"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The left shift operator (<<) multiplies the value of x by 2."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The **bitmasking** technique can be used to check, set, or clear specific bits of a number. For example, to check if the k-th bit is set, you can use the expression **n & (1 << k)**."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def is_kth_bit_set(n, k):\n    return (n & (1 << k)) != 0"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Useful for **bit-level operations** in low-level programming.",
+              "Commonly used in **flags** and **binary representations**."
+            ]
+          }
+        ]
+      },
+      "question": "What does the expression (n & (1 << k)) do?",
+      "options": [
+        "Clears the k-th bit",
+        "Checks if the k-th bit is set",
+        "Inverts all bits",
+        "Adds k to n"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The expression (n & (1 << k)) checks if the k-th bit is set."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "In some bit manipulation problems, you need to find the **single number** in an array where every other number appears twice. Using XOR, you can find the single number with **O(n)** time complexity and **O(1)** space."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def single_number(nums):\n    result = 0\n    for num in nums:\n        result ^= num\n    return result"
+          }
+        ]
+      },
+      "question": "How does XOR help find the single number in an array where all other numbers appear twice?",
+      "options": [
+        "By sorting the array",
+        "By canceling out identical numbers",
+        "By adding all numbers together",
+        "By using recursion"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "XOR cancels out identical numbers, leaving only the single number."
+    }
+  ]
+}

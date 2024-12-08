@@ -1,0 +1,153 @@
+{
+  "title": "Adjacency Lists",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "An adjacency list is a common way to represent graphs. Each node (vertex) has a list of its neighboring nodes. This structure is efficient for representing **sparse graphs**."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "graph = {\n    'A': ['B', 'C'],\n    'B': ['A', 'D'],\n    'C': ['A', 'D'],\n    'D': ['B', 'C']\n}"
+          },
+          {
+            "type": "paragraph",
+            "text": "The above graph uses an adjacency list to represent the connections between nodes."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Nodes are represented as **keys**.",
+              "Neighbors are stored in **lists**."
+            ]
+          }
+        ]
+      },
+      "question": "What is the adjacency list representation of node 'A'?",
+      "options": ["['B', 'D']", "['A', 'D']", "['B', 'C']", "['C', 'D']"],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "In the adjacency list, node 'A' is connected to nodes 'B' and 'C'."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Adjacency lists are efficient for adding and removing **edges** in sparse graphs since only the relevant lists need to be updated."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "graph['A'].append('D')\ngraph['D'].append('A')"
+          },
+          {
+            "type": "paragraph",
+            "text": "This code adds an edge between 'A' and 'D' in an undirected graph."
+          }
+        ]
+      },
+      "question": "What operation is needed to add an edge between 'X' and 'Y' in an undirected graph represented as an adjacency list?",
+      "options": [
+        "Add 'Y' to X's list only",
+        "Add 'X' to Y's list only",
+        "Add 'X' to Y's list and 'Y' to X's list",
+        "Create a new graph"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "For an undirected graph, an edge between 'X' and 'Y' requires adding 'Y' to X's list and 'X' to Y's list."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Adjacency lists can also represent **weighted graphs** by associating weights with edges."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "weighted_graph = {\n    'A': [('B', 2), ('C', 3)],\n    'B': [('A', 2), ('D', 4)],\n    'C': [('A', 3), ('D', 1)],\n    'D': [('B', 4), ('C', 1)]\n}"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Each edge is represented as a **tuple** containing the neighboring node and the weight.",
+              "This allows for **efficient** storage of weights alongside connections."
+            ]
+          }
+        ]
+      },
+      "question": "What does the tuple ('C', 3) represent in the adjacency list?",
+      "options": [
+        "Node 'C' has no weight",
+        "Node 'C' is connected to itself",
+        "An edge between 'A' and 'C' with weight 3",
+        "A cycle involving 'C'"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The tuple ('C', 3) represents an edge between 'A' and 'C' with a weight of 3."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To find all neighbors of a node in an adjacency list, access the **list** of neighbors associated with that node."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "neighbors = graph['B']\nprint(neighbors)  # Output: ['A', 'D']"
+          },
+          {
+            "type": "paragraph",
+            "text": "This retrieves all nodes connected to 'B'."
+          }
+        ]
+      },
+      "question": "How can you find all neighbors of node 'X' in an adjacency list?",
+      "options": [
+        "By searching all nodes",
+        "By accessing graph['X']",
+        "By deleting node 'X'",
+        "By adding an edge"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "In an adjacency list, all neighbors of node 'X' can be found by accessing graph['X']."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Adjacency lists use **O(n + m)** space, where **n** is the number of nodes and **m** is the number of edges."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Efficient for **sparse graphs** with fewer edges.",
+              "Can be less efficient for **dense graphs** with many edges."
+            ]
+          }
+        ]
+      },
+      "question": "Why are adjacency lists efficient for sparse graphs?",
+      "options": [
+        "They store only nodes",
+        "They store edges as nodes",
+        "They store only non-existing edges",
+        "They store only existing edges"
+      ],
+      "answerIndex": 3,
+      "explanationAfterAnswer": "Adjacency lists are efficient for sparse graphs because they store only existing edges."
+    }
+  ]
+}

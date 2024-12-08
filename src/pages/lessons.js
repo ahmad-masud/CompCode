@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/usercontext";
 import { firestore } from "../config/firebase-config";
 import { getDoc, setDoc, doc } from "firebase/firestore";
+import lessons from "../content/lessons.json";
 
-const Lessons = ({ lessons }) => {
+const Lessons = () => {
   const navigate = useNavigate();
   const [completedQuizzes, setCompletedQuizzes] = useState([]);
   const [completedLessons, setCompletedLessons] = useState([]);

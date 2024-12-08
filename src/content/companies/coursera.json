@@ -1,0 +1,125 @@
+{
+  "name": "coursera",
+  "data": [
+    {
+      "ID": "920",
+      "Title": "Number of Music Playlists",
+      "Acceptance": 46,
+      "Difficulty": "Hard",
+      "Frequency": "2.1617959520941517",
+      "Link": " https://leetcode.com/problems/number-of-music-playlists"
+    },
+    {
+      "ID": "453",
+      "Title": "Minimum Moves to Equal Array Elements",
+      "Acceptance": 50,
+      "Difficulty": "Easy",
+      "Frequency": "1.6379595379336402",
+      "Link": " https://leetcode.com/problems/minimum-moves-to-equal-array-elements"
+    },
+    {
+      "ID": "68",
+      "Title": "Text Justification",
+      "Acceptance": 27,
+      "Difficulty": "Hard",
+      "Frequency": "1.5875791186216013",
+      "Link": " https://leetcode.com/problems/text-justification"
+    },
+    {
+      "ID": "761",
+      "Title": "Special Binary String",
+      "Acceptance": 54,
+      "Difficulty": "Hard",
+      "Frequency": "1.38007672450902",
+      "Link": " https://leetcode.com/problems/special-binary-string"
+    },
+    {
+      "ID": "10",
+      "Title": "Regular Expression Matching",
+      "Acceptance": 26,
+      "Difficulty": "Hard",
+      "Frequency": "0.8562403103485083",
+      "Link": " https://leetcode.com/problems/regular-expression-matching"
+    },
+    {
+      "ID": "713",
+      "Title": "Subarray Product Less Than K",
+      "Acceptance": 39,
+      "Difficulty": "Medium",
+      "Frequency": "0.621799099762479",
+      "Link": " https://leetcode.com/problems/subarray-product-less-than-k"
+    },
+    {
+      "ID": "780",
+      "Title": "Reaching Points",
+      "Acceptance": 29,
+      "Difficulty": "Hard",
+      "Frequency": "0.3635937067449341",
+      "Link": " https://leetcode.com/problems/reaching-points"
+    },
+    {
+      "ID": "239",
+      "Title": "Sliding Window Maximum",
+      "Acceptance": 43,
+      "Difficulty": "Hard",
+      "Frequency": "0.14289853479023557",
+      "Link": " https://leetcode.com/problems/sliding-window-maximum"
+    },
+    {
+      "ID": "44",
+      "Title": "Wildcard Matching",
+      "Acceptance": 24,
+      "Difficulty": "Hard",
+      "Frequency": "0.11223226506783546",
+      "Link": " https://leetcode.com/problems/wildcard-matching"
+    },
+    {
+      "ID": "1112",
+      "Title": "Highest Grade For Each Student",
+      "Acceptance": 69,
+      "Difficulty": "Medium",
+      "Frequency": "0.06453852113757116",
+      "Link": " https://leetcode.com/problems/highest-grade-for-each-student"
+    },
+    {
+      "ID": "647",
+      "Title": "Palindromic Substrings",
+      "Acceptance": 60,
+      "Difficulty": "Medium",
+      "Frequency": "0.039530838756635246",
+      "Link": " https://leetcode.com/problems/palindromic-substrings"
+    },
+    {
+      "ID": "15",
+      "Title": "3Sum",
+      "Acceptance": 26,
+      "Difficulty": "Medium",
+      "Frequency": "0.012936791030719435",
+      "Link": " https://leetcode.com/problems/3sum"
+    },
+    {
+      "ID": "392",
+      "Title": "Is Subsequence",
+      "Acceptance": 49,
+      "Difficulty": "Easy",
+      "Frequency": "0.008688151957637906",
+      "Link": " https://leetcode.com/problems/is-subsequence"
+    },
+    {
+      "ID": "945",
+      "Title": "Minimum Increment to Make Array Unique",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/minimum-increment-to-make-array-unique"
+    },
+    {
+      "ID": "1137",
+      "Title": "N-th Tribonacci Number",
+      "Acceptance": 55,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/n-th-tribonacci-number"
+    }
+  ]
+}

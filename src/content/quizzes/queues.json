@@ -1,0 +1,185 @@
+{
+  "title": "Queues",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Queues follow a First-In, First-Out (FIFO) order. You want to add elements to a queue."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "from collections import deque\nqueue = deque([1, 2, 3])"
+          },
+          {
+            "type": "paragraph",
+            "text": "Add the element 4 to the queue."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Queues add elements to the rear (end).",
+              "Consider using a method specifically designed for adding elements to a queue."
+            ]
+          }
+        ]
+      },
+      "question": "Which method correctly adds the element 4 to the queue?",
+      "options": [
+        "queue.appendleft(4)",
+        "queue.append(4)",
+        "queue.push(4)",
+        "queue.insert(4)"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The append() method adds elements to the end of a deque, maintaining FIFO order."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Given a queue of customer orders:\n\n"
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "orders = deque(['order1', 'order2', 'order3'])"
+          },
+          {
+            "type": "paragraph",
+            "text": "You need to process (remove) the first order."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Use a method that removes and returns the first element.",
+              "Ensure the order of remaining elements maintains FIFO."
+            ]
+          }
+        ]
+      },
+      "question": "Which method correctly processes the first order?",
+      "options": [
+        "orders.pop()",
+        "orders.popleft()",
+        "orders.remove('order1')",
+        "orders.dequeue()"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The popleft() method removes and returns the first element of the deque, preserving FIFO behavior."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You are implementing a queue to manage print jobs. Jobs are added to the queue as they arrive."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Ensure jobs are processed in the order they are added.",
+              "New jobs are added to the end of the queue."
+            ]
+          }
+        ]
+      },
+      "question": "Which operation ensures jobs are added to the end of the queue?",
+      "options": [
+        "queue.insert(job)",
+        "queue.appendleft(job)",
+        "queue.add(job)",
+        "queue.append(job)"
+      ],
+      "answerIndex": 3,
+      "explanationAfterAnswer": "Appending jobs to the end of the queue maintains the correct FIFO order."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You have a queue of tasks, and you need to check if it is empty before processing."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Consider checking the length of the queue.",
+              "An empty queue has a length of zero."
+            ]
+          }
+        ]
+      },
+      "question": "How can you check if the queue is empty?",
+      "options": [
+        "if queue.isEmpty():",
+        "if len(queue) == 0:",
+        "if queue == []:",
+        "if queue.is_empty():"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Checking if len(queue) == 0 is a standard way to determine if the queue is empty."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You want to implement a circular queue where elements wrap around when the end is reached."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Use modular arithmetic to manage the wrapping.",
+              "A circular queue reuses empty slots by moving front and rear pointers."
+            ]
+          }
+        ]
+      },
+      "question": "Which approach best describes a circular queue?",
+      "options": [
+        "Elements are inserted at the front and removed from the rear.",
+        "Elements wrap around to the front when the end is reached.",
+        "The queue uses a linked list with nodes.",
+        "All elements are stored in sorted order."
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "A circular queue wraps around to the front when the end is reached, reusing empty slots."
+    },
+    {
+      "id": 6,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You need to implement a priority queue where elements are dequeued based on priority, not order of insertion."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Higher priority elements are processed before lower priority ones.",
+              "The order of insertion is secondary to the priority."
+            ]
+          }
+        ]
+      },
+      "question": "Which data structure would best implement a priority queue?",
+      "options": [
+        "Regular list with append() and pop() operations",
+        "Stack with push() and pop()",
+        "Heap-based queue",
+        "Deque with appendleft() and pop()"
+      ],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "A heap-based queue efficiently supports priority-based insertions and deletions."
+    }
+  ]
+}

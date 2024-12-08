@@ -1,0 +1,13 @@
+{
+  "name": "blizzard",
+  "data": [
+    {
+      "ID": "20",
+      "Title": "Valid Parentheses",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.055983722381420686",
+      "Link": " https://leetcode.com/problems/valid-parentheses"
+    }
+  ]
+}

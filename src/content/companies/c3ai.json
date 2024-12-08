@@ -1,0 +1,21 @@
+{
+  "name": "c3ai",
+  "data": [
+    {
+      "ID": "1220",
+      "Title": "Count Vowels Permutation",
+      "Acceptance": 54,
+      "Difficulty": "Hard",
+      "Frequency": "0.6794349186959634",
+      "Link": " https://leetcode.com/problems/count-vowels-permutation"
+    },
+    {
+      "ID": "1419",
+      "Title": "Minimum Number of Frogs Croaking",
+      "Acceptance": 46,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/minimum-number-of-frogs-croaking"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "triplebyte",
+  "data": [
+    {
+      "ID": "348",
+      "Title": "Design Tic-Tac-Toe",
+      "Acceptance": 54,
+      "Difficulty": "Medium",
+      "Frequency": "1.0602925398886216",
+      "Link": " https://leetcode.com/problems/design-tic-tac-toe"
+    },
+    {
+      "ID": "712",
+      "Title": "Minimum ASCII Delete Sum for Two Strings",
+      "Acceptance": 58,
+      "Difficulty": "Medium",
+      "Frequency": "0.7008055099863686",
+      "Link": " https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings"
+    },
+    {
+      "ID": "230",
+      "Title": "Kth Smallest Element in a BST",
+      "Acceptance": 60,
+      "Difficulty": "Medium",
+      "Frequency": "0.3413184800841155",
+      "Link": " https://leetcode.com/problems/kth-smallest-element-in-a-bst"
+    },
+    {
+      "ID": "20",
+      "Title": "Valid Parentheses",
+      "Acceptance": 39,
+      "Difficulty": "Easy",
+      "Frequency": "0.009170695326061695",
+      "Link": " https://leetcode.com/problems/valid-parentheses"
+    }
+  ]
+}

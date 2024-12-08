@@ -1,0 +1,13 @@
+{
+  "name": "inmobi",
+  "data": [
+    {
+      "ID": "754",
+      "Title": "Reach a Number",
+      "Acceptance": 34,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/reach-a-number"
+    }
+  ]
+}

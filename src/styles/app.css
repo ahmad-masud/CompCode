@@ -18,6 +18,7 @@
 body {
   font-family: "Roboto", sans-serif;
   background: var(--background-color);
+  overflow-y: scroll;
 }
 
 .app {

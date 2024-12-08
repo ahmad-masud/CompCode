@@ -1,0 +1,13 @@
+{
+  "name": "druva",
+  "data": [
+    {
+      "ID": "1005",
+      "Title": "Maximize Sum Of Array After K Negations",
+      "Acceptance": 51,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/maximize-sum-of-array-after-k-negations"
+    }
+  ]
+}

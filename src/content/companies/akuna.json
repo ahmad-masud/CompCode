@@ -1,0 +1,13 @@
+{
+  "name": "akuna",
+  "data": [
+    {
+      "ID": "995",
+      "Title": "Minimum Number of K Consecutive Bit Flips",
+      "Acceptance": 46,
+      "Difficulty": "Hard",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips"
+    }
+  ]
+}

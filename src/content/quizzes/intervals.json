@@ -1,0 +1,134 @@
+{
+  "title": "Intervals",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "An interval is a range defined by a **start** and an **end**, commonly represented as [start, end]. Intervals are used to represent ranges, such as time periods or numerical ranges."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "interval = [1, 5]\nprint(interval[0])  # Output: 1 (start)\nprint(interval[1])  # Output: 5 (end)"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Intervals are often used for **range-based** operations.",
+              "They can represent **continuous ranges** between values."
+            ]
+          }
+        ]
+      },
+      "question": "What does [1, 5] represent in an interval?",
+      "options": [
+        "A list of elements 1 and 5",
+        "A continuous range from 1 to 5",
+        "An unordered pair of numbers",
+        "A matrix row"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "The interval [1, 5] represents a continuous range from 1 to 5."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To check if two intervals **overlap**, you compare their start and end values. If the end of one interval is greater than or equal to the start of another, they overlap."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def intervals_overlap(interval1, interval2):\n    return interval1[1] >= interval2[0] and interval2[1] >= interval1[0]"
+          }
+        ]
+      },
+      "question": "Do [1, 5] and [4, 8] overlap?",
+      "options": [
+        "Yes",
+        "No",
+        "Only if they are sorted",
+        "Only if they are non-overlapping"
+      ],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "The intervals [1, 5] and [4, 8] overlap because the end of [1, 5] (5) is greater than the start of [4, 8] (4)."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "When **merging intervals**, you combine overlapping intervals into a single interval. For example, merging [1, 5] and [4, 8] results in [1, 8]."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def merge_intervals(interval1, interval2):\n    return [min(interval1[0], interval2[0]), max(interval1[1], interval2[1])]\nmerged = merge_intervals([1, 5], [4, 8])\nprint(merged)  # Output: [1, 8]"
+          }
+        ]
+      },
+      "question": "What is the result of merging intervals [2, 6] and [5, 9]?",
+      "options": ["[2, 6]", "[2, 9]", "[5, 9]", "No merge occurs"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Merging [2, 6] and [5, 9] results in [2, 9] because they overlap."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "**Sorting intervals** by their start values is a common preprocessing step when merging multiple intervals."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "intervals = [[5, 10], [1, 4], [7, 8]]\nsorted_intervals = sorted(intervals, key=lambda x: x[0])\nprint(sorted_intervals)  # Output: [[1, 4], [5, 10], [7, 8]]"
+          }
+        ]
+      },
+      "question": "Why is sorting intervals by their start values useful?",
+      "options": [
+        "To check for non-overlapping intervals",
+        "To simplify merging intervals",
+        "To avoid using lists",
+        "To find duplicates"
+      ],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Sorting intervals by their start values simplifies the process of merging overlapping intervals."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "An interval [a, b] is considered **non-overlapping** with [c, d] if b < c or a > d."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def is_non_overlapping(interval1, interval2):\n    return interval1[1] < interval2[0] or interval1[0] > interval2[1]"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Non-overlapping intervals do not share any common values.",
+              "Efficient checks can be done using their start and end values."
+            ]
+          }
+        ]
+      },
+      "question": "Are [1, 3] and [5, 7] non-overlapping?",
+      "options": ["Yes", "No", "Only if sorted", "Only if merged"],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "The intervals [1, 3] and [5, 7] are non-overlapping because they do not share any values."
+    }
+  ]
+}

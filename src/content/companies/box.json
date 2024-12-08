@@ -1,0 +1,69 @@
+{
+  "name": "box",
+  "data": [
+    {
+      "ID": "250",
+      "Title": "Count Univalue Subtrees",
+      "Acceptance": 52,
+      "Difficulty": "Medium",
+      "Frequency": "1.7195134036164268",
+      "Link": " https://leetcode.com/problems/count-univalue-subtrees"
+    },
+    {
+      "ID": "965",
+      "Title": "Univalued Binary Tree",
+      "Acceptance": 67,
+      "Difficulty": "Easy",
+      "Frequency": "1.2504050329534637",
+      "Link": " https://leetcode.com/problems/univalued-binary-tree"
+    },
+    {
+      "ID": "68",
+      "Title": "Text Justification",
+      "Acceptance": 27,
+      "Difficulty": "Hard",
+      "Frequency": "0.7812966622905007",
+      "Link": " https://leetcode.com/problems/text-justification"
+    },
+    {
+      "ID": "935",
+      "Title": "Knight Dialer",
+      "Acceptance": 45,
+      "Difficulty": "Medium",
+      "Frequency": "0.5465437063680699",
+      "Link": " https://leetcode.com/problems/knight-dialer"
+    },
+    {
+      "ID": "191",
+      "Title": "Number of 1 Bits",
+      "Acceptance": 49,
+      "Difficulty": "Easy",
+      "Frequency": "0.3920623591078002",
+      "Link": " https://leetcode.com/problems/number-of-1-bits"
+    },
+    {
+      "ID": "126",
+      "Title": "Word Ladder II",
+      "Acceptance": 22,
+      "Difficulty": "Hard",
+      "Frequency": "0.10749169745614619",
+      "Link": " https://leetcode.com/problems/word-ladder-ii"
+    },
+    {
+      "ID": "1",
+      "Title": "Two Sum",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0.07147453361485057",
+      "Link": " https://leetcode.com/problems/two-sum"
+    },
+    {
+      "ID": "23",
+      "Title": "Merge k Sorted Lists",
+      "Acceptance": 40,
+      "Difficulty": "Hard",
+      "Frequency": "0.0250564321052577",
+      "Link": " https://leetcode.com/problems/merge-k-sorted-lists"
+    }
+  ]
+}

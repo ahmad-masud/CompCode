@@ -1,0 +1,142 @@
+{
+  "title": "Complexities",
+  "questions": [
+    {
+      "id": 1,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The time complexity of accessing an element by index in an array is constant, as it does not depend on the size of the array."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "arr = [1, 2, 3, 4]\nprint(arr[2])  # Output: 3"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**O(1)**: Accessing an index is constant-time.",
+              "**O(n)**: Scanning the array is linear-time.",
+              "**O(n^2)**: Nested iterations are quadratic-time."
+            ]
+          }
+        ]
+      },
+      "question": "What is the time complexity of accessing an element in an array by index?",
+      "options": ["O(1)", "O(n)", "O(n^2)", "O(log n)"],
+      "answerIndex": 0,
+      "explanationAfterAnswer": "Accessing an array index is **O(1)** because it's a single operation."
+    },
+    {
+      "id": 2,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Iterating through an array using a loop requires visiting each element once."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "arr = [1, 2, 3, 4]\nfor num in arr:\n    print(num)"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Each element is visited exactly once.",
+              "The time complexity grows linearly with input size."
+            ]
+          }
+        ]
+      },
+      "question": "What is the time complexity of iterating through an array?",
+      "options": ["O(1)", "O(n)", "O(n^2)", "O(log n)"],
+      "answerIndex": 1,
+      "explanationAfterAnswer": "Iterating through an array is **O(n)** because every element is visited once."
+    },
+    {
+      "id": 3,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Binary search halves the input size on each step, leading to logarithmic complexity."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def binary_search(arr, target):\n    low, high = 0, len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Binary search is efficient for sorted arrays.",
+              "The input size is halved at each step."
+            ]
+          }
+        ]
+      },
+      "question": "What is the time complexity of binary search?",
+      "options": ["O(n)", "O(n^2)", "O(log n)", "O(1)"],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "Binary search has **O(log n)** complexity due to halving the input in each iteration."
+    },
+    {
+      "id": 4,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "A nested loop iterates over all pairs of elements in an array. The outer loop runs `n` times, and for each iteration of the outer loop, the inner loop also runs `n` times, resulting in a quadratic time complexity."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def print_pairs(arr):\n    for i in arr:\n        for j in arr:\n            print(i, j)\n\narr = [1, 2, 3]\nprint_pairs(arr)"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "The outer loop iterates `n` times.",
+              "For each iteration of the outer loop, the inner loop iterates `n` times.",
+              "The total number of iterations is `n * n = n^2`."
+            ]
+          }
+        ]
+      },
+      "question": "What is the time complexity of a nested loop iterating over all pairs in an array?",
+      "options": ["O(n)", "O(log n)", "O(n^2)", "O(1)"],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The time complexity is **O(n^2)** because each element is paired with every other element."
+    },
+    {
+      "id": 5,
+      "explanation": {
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "An algorithm is said to have exponential time complexity when it grows at a rate proportional to `2^n`. Recursive algorithms, like solving the Tower of Hanoi, often exhibit this behavior."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "code": "def tower_of_hanoi(n, source, target, auxiliary):\n    if n == 1:\n        print(f\"Move disk 1 from {source} to {target}\")\n        return\n    tower_of_hanoi(n-1, source, auxiliary, target)\n    print(f\"Move disk {n} from {source} to {target}\")\n    tower_of_hanoi(n-1, auxiliary, target, source)\n\ntower_of_hanoi(3, 'A', 'C', 'B')"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Recursive algorithms with exponential branching often have **O(2^n)** complexity.",
+              "The Tower of Hanoi problem requires `2^n - 1` moves for `n` disks."
+            ]
+          }
+        ]
+      },
+      "question": "What is the time complexity of solving the Tower of Hanoi problem?",
+      "options": ["O(n)", "O(n^2)", "O(2^n)", "O(log n)"],
+      "answerIndex": 2,
+      "explanationAfterAnswer": "The Tower of Hanoi problem has an **O(2^n)** complexity because the number of moves doubles with each additional disk."
+    }
+  ]
+}

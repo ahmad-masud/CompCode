@@ -1,0 +1,13 @@
+{
+  "name": "palantir",
+  "data": [
+    {
+      "ID": "1232",
+      "Title": "Check If It Is a Straight Line",
+      "Acceptance": 45,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/check-if-it-is-a-straight-line"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "de-shaw",
+  "data": [
+    {
+      "ID": "1358",
+      "Title": "Number of Substrings Containing All Three Characters",
+      "Acceptance": 58,
+      "Difficulty": "Medium",
+      "Frequency": "0.2856959744801515",
+      "Link": " https://leetcode.com/problems/number-of-substrings-containing-all-three-characters"
+    },
+    {
+      "ID": "1122",
+      "Title": "Relative Sort Array",
+      "Acceptance": 67,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/relative-sort-array"
+    },
+    {
+      "ID": "1262",
+      "Title": "Greatest Sum Divisible by Three",
+      "Acceptance": 47,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/greatest-sum-divisible-by-three"
+    }
+  ]
+}

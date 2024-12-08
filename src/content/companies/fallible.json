@@ -1,0 +1,13 @@
+{
+  "name": "fallible",
+  "data": [
+    {
+      "ID": "507",
+      "Title": "Perfect Number",
+      "Acceptance": 35,
+      "Difficulty": "Easy",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/perfect-number"
+    }
+  ]
+}

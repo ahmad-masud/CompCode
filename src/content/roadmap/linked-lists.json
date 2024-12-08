@@ -1,0 +1,97 @@
+{
+  "name": "linked lists",
+  "lessons": ["singly-linked-lists", "two-pointers", "doubly-linked-lists"],
+  "data": [
+    {
+      "ID": 206,
+      "Title": "Reverse Linked List",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/reverse-linked-list",
+      "Acceptance": 70
+    },
+    {
+      "ID": 141,
+      "Title": "Linked List Cycle",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/linked-list-cycle",
+      "Acceptance": 47
+    },
+    {
+      "ID": 21,
+      "Title": "Merge Two Sorted Lists",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/merge-two-sorted-lists",
+      "Acceptance": 62
+    },
+    {
+      "ID": 19,
+      "Title": "Remove Nth Node From End of List",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/remove-nth-node-from-end-of-list",
+      "Acceptance": 40
+    },
+    {
+      "ID": 160,
+      "Title": "Intersection of Two Linked Lists",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/intersection-of-two-linked-lists",
+      "Acceptance": 56
+    },
+    {
+      "ID": 876,
+      "Title": "Middle of the Linked List",
+      "Difficulty": "Easy",
+      "Link": "https://leetcode.com/problems/middle-of-the-linked-list",
+      "Acceptance": 70
+    },
+    {
+      "ID": 143,
+      "Title": "Reorder List",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/reorder-list",
+      "Acceptance": 52
+    },
+    {
+      "ID": 92,
+      "Title": "Reverse Linked List II",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/reverse-linked-list-ii",
+      "Acceptance": 46
+    },
+    {
+      "ID": 138,
+      "Title": "Copy List with Random Pointer",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/copy-list-with-random-pointer",
+      "Acceptance": 45
+    },
+    {
+      "ID": 23,
+      "Title": "Merge k Sorted Lists",
+      "Difficulty": "Hard",
+      "Link": "https://leetcode.com/problems/merge-k-sorted-lists",
+      "Acceptance": 45
+    },
+    {
+      "ID": 25,
+      "Title": "Reverse Nodes in k-Group",
+      "Difficulty": "Hard",
+      "Link": "https://leetcode.com/problems/reverse-nodes-in-k-group",
+      "Acceptance": 48
+    },
+    {
+      "ID": 61,
+      "Title": "Rotate List",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/rotate-list",
+      "Acceptance": 30
+    },
+    {
+      "ID": 24,
+      "Title": "Swap Nodes in Pairs",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/swap-nodes-in-pairs",
+      "Acceptance": 58
+    }
+  ]
+}

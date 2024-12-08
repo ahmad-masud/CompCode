@@ -1,0 +1,177 @@
+{
+  "title": "Heaps",
+  "type": "datastructure",
+  "difficulty": "medium",
+  "lessons": [
+    {
+      "title": "Introduction to Heaps",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A heap is a special tree-based data structure that satisfies the heap property: In a **min-heap**, for any given node, the value of the node is smaller than or equal to the values of its children. In a **max-heap**, the value of the node is greater than or equal to the values of its children. Heaps are often used to implement priority queues because they allow efficient retrieval of the minimum or maximum element."
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "In a **min-heap**, the root is the smallest element.",
+            "In a **max-heap**, the root is the largest element.",
+            "Common operations: insert, delete, extract-min (or max)."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Heap Implementation in Python",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Python provides a built-in module `heapq` to implement heaps. By default, `heapq` implements a min-heap. A max-heap can be implemented by negating the values."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "import heapq\n\n# Create an empty heap\nheap = []\n\n# Insert elements into the heap\nheapq.heappush(heap, 10)\nheapq.heappush(heap, 5)\nheapq.heappush(heap, 20)\n\n# Get the smallest element\nprint(heapq.heappop(heap))  # Output: 5"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, we use `heapq.heappush()` to insert elements into the heap and `heapq.heappop()` to remove and return the smallest element."
+        }
+      ]
+    },
+    {
+      "title": "Inserting Elements into a Heap",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "To insert an element into a heap, use `heapq.heappush()`. This operation maintains the heap property by comparing the newly inserted element with its parent and swapping if necessary."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "import heapq\n\nheap = []\nheapq.heappush(heap, 30)\nheapq.heappush(heap, 10)\nheapq.heappush(heap, 20)\nprint(heap)  # Output: [10, 30, 20]"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, the smallest element, 10, becomes the root, maintaining the min-heap property."
+        }
+      ]
+    },
+    {
+      "title": "Extracting the Minimum or Maximum",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "To extract the smallest element in a min-heap (or the largest in a max-heap), use `heapq.heappop()`. This operation removes and returns the root element while maintaining the heap property."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "import heapq\n\nheap = [10, 20, 30]\nheapq.heapify(heap)  # Transform list into a heap\n\n# Extract the smallest element\nsmallest = heapq.heappop(heap)\nprint(smallest)  # Output: 10\nprint(heap)      # Output: [20, 30]"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, the smallest element, 10, is extracted, and the heap is adjusted to maintain its properties."
+        }
+      ]
+    },
+    {
+      "title": "Building a Heap from a List",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "To create a heap from an existing list, use the `heapq.heapify()` function. This transforms the list into a heap in O(n) time."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "import heapq\n\nnums = [15, 20, 5, 10, 30]\nheapq.heapify(nums)\nprint(nums)  # Output: [5, 10, 15, 20, 30]"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, the list is rearranged to satisfy the heap property, with the smallest element at the root."
+        }
+      ]
+    },
+    {
+      "title": "Max-Heap Implementation",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "To implement a max-heap using `heapq`, you can negate the values of the elements. The min-heap properties will then operate as a max-heap."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "import heapq\n\nheap = []\nheapq.heappush(heap, -10)\nheapq.heappush(heap, -5)\nheapq.heappush(heap, -20)\n\n# Extract the largest element\nlargest = -heapq.heappop(heap)\nprint(largest)  # Output: 10"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, negating the values allows the `heapq` min-heap to function as a max-heap, with the largest element being extracted."
+        }
+      ]
+    },
+    {
+      "title": "Merging Sorted Heaps",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "You can merge multiple sorted heaps into one sorted sequence using `heapq.merge()`. This function returns an iterator over the sorted values."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "import heapq\n\nheap1 = [1, 3, 5]\nheap2 = [2, 4, 6]\n\n# Merge the two heaps\nmerged = heapq.merge(heap1, heap2)\nprint(list(merged))  # Output: [1, 2, 3, 4, 5, 6]"
+        },
+        {
+          "type": "paragraph",
+          "text": "This function efficiently merges multiple sorted heaps into a single sorted sequence."
+        }
+      ]
+    },
+    {
+      "title": "Finding the k Smallest or Largest Elements",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "To find the `k` smallest or largest elements in a list, you can use the `heapq.nsmallest()` or `heapq.nlargest()` functions, which efficiently return the desired elements from a heap."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "import heapq\n\nnums = [15, 10, 30, 20, 5]\n\n# Find the 3 smallest elements\nsmallest_three = heapq.nsmallest(3, nums)\nprint(smallest_three)  # Output: [5, 10, 15]\n\n# Find the 3 largest elements\nlargest_three = heapq.nlargest(3, nums)\nprint(largest_three)  # Output: [30, 20, 15]"
+        },
+        {
+          "type": "paragraph",
+          "text": "These functions quickly return the `k` smallest or largest elements from a list, which is useful in scenarios like finding the top `k` performers."
+        }
+      ]
+    },
+    {
+      "title": "Heap Use Cases",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Heaps are commonly used in scenarios that involve maintaining a dynamically changing set of elements, such as:"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Implementing priority queues, where elements are processed based on their priority.",
+            "Efficiently finding the `k` smallest or largest elements in a dataset.",
+            "Scheduling algorithms, where tasks with the highest priority are processed first.",
+            "Algorithms like Dijkstra\u2019s shortest path algorithm and Prim\u2019s minimum spanning tree algorithm."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In this tutorial, we covered the basic concepts of heaps, including inserting and extracting elements, building a heap from a list, and common use cases. Heaps are a versatile data structure used in many algorithms where efficient retrieval of the minimum or maximum element is required."
+        }
+      ]
+    }
+  ]
+}

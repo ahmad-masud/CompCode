@@ -1,0 +1,55 @@
+{
+  "name": "backtracking",
+  "lessons": ["recursion", "backtracking", "graphs"],
+  "data": [
+    {
+      "ID": 46,
+      "Title": "Permutations",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/permutations",
+      "Acceptance": 73
+    },
+    {
+      "ID": 78,
+      "Title": "Subsets",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/subsets",
+      "Acceptance": 76
+    },
+    {
+      "ID": 90,
+      "Title": "Subsets II",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/subsets-ii",
+      "Acceptance": 60
+    },
+    {
+      "ID": 77,
+      "Title": "Combinations",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/combinations",
+      "Acceptance": 64
+    },
+    {
+      "ID": 22,
+      "Title": "Generate Parentheses",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/generate-parentheses",
+      "Acceptance": 76
+    },
+    {
+      "ID": 39,
+      "Title": "Combination Sum",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/combination-sum",
+      "Acceptance": 74
+    },
+    {
+      "ID": 40,
+      "Title": "Combination Sum II",
+      "Difficulty": "Medium",
+      "Link": "https://leetcode.com/problems/combination-sum-ii",
+      "Acceptance": 55
+    }
+  ]
+}

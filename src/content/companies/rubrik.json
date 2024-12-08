@@ -1,0 +1,69 @@
+{
+  "name": "rubrik",
+  "data": [
+    {
+      "ID": "166",
+      "Title": "Fraction to Recurring Decimal",
+      "Acceptance": 21,
+      "Difficulty": "Medium",
+      "Frequency": "0.3244670481307201",
+      "Link": " https://leetcode.com/problems/fraction-to-recurring-decimal"
+    },
+    {
+      "ID": "51",
+      "Title": "N-Queens",
+      "Acceptance": 46,
+      "Difficulty": "Hard",
+      "Frequency": "0.18438554101480611",
+      "Link": " https://leetcode.com/problems/n-queens"
+    },
+    {
+      "ID": "123",
+      "Title": "Best Time to Buy and Sell Stock III",
+      "Acceptance": 37,
+      "Difficulty": "Hard",
+      "Frequency": "0.04430403389889214",
+      "Link": " https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii"
+    },
+    {
+      "ID": "528",
+      "Title": "Random Pick with Weight",
+      "Acceptance": 43,
+      "Difficulty": "Medium",
+      "Frequency": "0.014831565905995232",
+      "Link": " https://leetcode.com/problems/random-pick-with-weight"
+    },
+    {
+      "ID": "31",
+      "Title": "Next Permutation",
+      "Acceptance": 32,
+      "Difficulty": "Medium",
+      "Frequency": "0.013427025530888667",
+      "Link": " https://leetcode.com/problems/next-permutation"
+    },
+    {
+      "ID": "4",
+      "Title": "Median of Two Sorted Arrays",
+      "Acceptance": 29,
+      "Difficulty": "Hard",
+      "Frequency": "0.008754068159914991",
+      "Link": " https://leetcode.com/problems/median-of-two-sorted-arrays"
+    },
+    {
+      "ID": "64",
+      "Title": "Minimum Path Sum",
+      "Acceptance": 54,
+      "Difficulty": "Medium",
+      "Frequency": "0.006127470152097104",
+      "Link": " https://leetcode.com/problems/minimum-path-sum"
+    },
+    {
+      "ID": "723",
+      "Title": "Candy Crush",
+      "Acceptance": 69,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/candy-crush"
+    }
+  ]
+}

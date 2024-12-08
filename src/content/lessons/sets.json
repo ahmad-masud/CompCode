@@ -1,0 +1,168 @@
+{
+  "title": "Sets",
+  "type": "datastructure",
+  "difficulty": "easy",
+  "lessons": [
+    {
+      "title": "Introduction to Sets",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A **set** in Python is an unordered collection of unique elements. Sets are mutable, which means you can add or remove elements after a set is created. They do not allow duplicate elements, and because they are unordered, they cannot be indexed or sliced."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_set = {1, 2, 3, 4, 5}\nprint(my_set)  # Output: {1, 2, 3, 4, 5}"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sets are particularly useful when you want to ensure that an element appears only once, or when you need to perform operations such as unions, intersections, and differences on collections of data."
+        }
+      ]
+    },
+    {
+      "title": "Creating Sets",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Sets can be created using curly braces (`{}`) or by using the `set()` constructor. Keep in mind that sets only store immutable (unchangeable) elements, such as numbers, strings, or tuples, but not lists or dictionaries."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_set = {1, 2, 3, 4, 5}\nempty_set = set()  # Create an empty set using set()\nprint(empty_set)  # Output: set()"
+        }
+      ]
+    },
+    {
+      "title": "Adding and Removing Elements",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Elements can be added to a set using the `add()` method, and removed using methods like `remove()`, `discard()`, and `pop()`."
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "`add()`: Adds a single element to the set.",
+            "`remove()`: Removes a specific element from the set (raises an error if the element doesn\u2019t exist).",
+            "`discard()`: Removes a specific element, but doesn\u2019t raise an error if the element doesn\u2019t exist.",
+            "`pop()`: Removes and returns an arbitrary element from the set."
+          ]
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_set = {1, 2, 3}\nmy_set.add(4)\nprint(my_set)  # Output: {1, 2, 3, 4}\nmy_set.remove(2)\nprint(my_set)  # Output: {1, 3, 4}\nmy_set.discard(10)  # No error if 10 doesn\u2019t exist"
+        }
+      ]
+    },
+    {
+      "title": "Set Operations",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Python provides several powerful set operations that allow you to combine, compare, or modify sets. These operations include **union**, **intersection**, **difference**, and **symmetric difference**."
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "`union()`: Returns a set containing all unique elements from both sets.",
+            "`intersection()`: Returns a set containing elements common to both sets.",
+            "`difference()`: Returns a set containing elements in the first set that are not in the second set.",
+            "`symmetric_difference()`: Returns a set containing elements that are in either set, but not in both."
+          ]
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "set1 = {1, 2, 3}\nset2 = {3, 4, 5}\nunion_set = set1.union(set2)\nprint(union_set)  # Output: {1, 2, 3, 4, 5}\nintersection_set = set1.intersection(set2)\nprint(intersection_set)  # Output: {3}\ndifference_set = set1.difference(set2)\nprint(difference_set)  # Output: {1, 2}\nsymmetric_difference_set = set1.symmetric_difference(set2)\nprint(symmetric_difference_set)  # Output: {1, 2, 4, 5}"
+        }
+      ]
+    },
+    {
+      "title": "Checking Subsets and Supersets",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "You can check if a set is a subset or superset of another set using `issubset()` and `issuperset()`. A subset contains all elements of another set, while a superset contains at least all elements of another set."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "set1 = {1, 2, 3}\nset2 = {1, 2}\nprint(set2.issubset(set1))  # Output: True\nprint(set1.issuperset(set2))  # Output: True"
+        }
+      ]
+    },
+    {
+      "title": "Frozensets (Immutable Sets)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A **frozenset** is an immutable version of a set, meaning once a frozenset is created, you cannot add or remove elements from it. Frozensets are useful when you need to create a constant set that should not be modified."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_frozenset = frozenset([1, 2, 3, 4])\nprint(my_frozenset)  # Output: frozenset({1, 2, 3, 4})"
+        }
+      ]
+    },
+    {
+      "title": "Set Comprehension",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Similar to list comprehensions, you can use **set comprehension** to create sets based on an existing iterable in a concise way."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "squared_set = {x**2 for x in range(5)}\nprint(squared_set)  # Output: {0, 1, 4, 9, 16}"
+        }
+      ]
+    },
+    {
+      "title": "Looping Through a Set",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Although sets are unordered, you can still loop through the elements in a set using a `for` loop."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_set = {1, 2, 3, 4}\nfor item in my_set:\n    print(item)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Since sets are unordered, the elements will not necessarily be printed in the order they were added."
+        }
+      ]
+    },
+    {
+      "title": "Checking Membership in a Set",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "You can check if an element exists in a set using the `in` keyword. This is one of the most common operations in sets, as sets are optimized for fast membership checks."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "my_set = {1, 2, 3, 4}\nprint(3 in my_set)  # Output: True\nprint(5 in my_set)  # Output: False"
+        }
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In this lesson, we covered the basics of sets in Python, including how to create sets, add and remove elements, perform set operations, and use frozensets. Sets are an excellent choice when you need to store unique elements and perform common mathematical operations like unions and intersections."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "title": "Matrices",
+  "type": "datastructure",
+  "difficulty": "medium",
+  "lessons": [
+    {
+      "title": "Introduction to Matrices",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A matrix is a two-dimensional data structure consisting of rows and columns. It is often used in computer science for representing grids, tables, and mathematical calculations in linear algebra. In this lesson, we will explore matrix operations and manipulations."
+        }
+      ]
+    },
+    {
+      "title": "Matrix Representation",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In Python, matrices are represented as lists of lists, where each inner list represents a row. This approach allows for flexible and intuitive indexing."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "matrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\nprint(matrix[1][2])  # Output: 6 (element at second row, third column)"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, `matrix` is a 3x3 grid where we can access elements using row and column indices."
+        }
+      ]
+    },
+    {
+      "title": "Matrix Traversal",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Traversing a matrix involves accessing each element in a systematic way. A common approach is using nested loops."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "matrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\nfor row in matrix:\n    for element in row:\n        print(element, end=' ')  # Output: 1 2 3 4 5 6 7 8 9"
+        },
+        {
+          "type": "paragraph",
+          "text": "The outer loop iterates through each row, while the inner loop iterates through elements in each row."
+        }
+      ]
+    },
+    {
+      "title": "Matrix Transposition",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Transposing a matrix involves flipping it over its diagonal, turning the rows into columns and vice versa."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "matrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\ntranspose = [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]\nprint(transpose)  # Output: [[1, 4, 7], [2, 5, 8], [3, 6, 9]]"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, we used a list comprehension to transpose the given matrix."
+        }
+      ]
+    },
+    {
+      "title": "Rotating a Matrix",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A common operation on matrices is rotating it clockwise or counter-clockwise. Here is how you can rotate a matrix 90 degrees clockwise."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "def rotate_matrix(matrix):\n    n = len(matrix)\n    for i in range(n // 2):\n        for j in range(i, n - i - 1):\n            temp = matrix[i][j]\n            matrix[i][j] = matrix[n - j - 1][i]\n            matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1]\n            matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1]\n            matrix[j][n - i - 1] = temp\nmatrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\nrotate_matrix(matrix)\nprint(matrix)  # Output: [[7, 4, 1], [8, 5, 2], [9, 6, 3]]"
+        },
+        {
+          "type": "paragraph",
+          "text": "This function rotates a square matrix in place by performing layer-wise swapping of elements."
+        }
+      ]
+    },
+    {
+      "title": "Slicing Rows and Columns",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "You can slice specific rows or columns from a matrix using list slicing techniques."
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "code": "matrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\nfirst_row = matrix[0]\nprint(first_row)  # Output: [1, 2, 3]\nfirst_column = [row[0] for row in matrix]\nprint(first_column)  # Output: [1, 4, 7]"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, we extracted the first row directly and the first column using a list comprehension."
+        }
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Matrices are powerful data structures used to represent grids and mathematical problems. We explored basic matrix operations such as representation, traversal, transposition, rotation, and slicing."
+        }
+      ]
+    }
+  ]
+}

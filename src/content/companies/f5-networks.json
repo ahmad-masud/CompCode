@@ -1,0 +1,13 @@
+{
+  "name": "f5-networks",
+  "data": [
+    {
+      "ID": "1291",
+      "Title": "Sequential Digits",
+      "Acceptance": 53,
+      "Difficulty": "Medium",
+      "Frequency": "0",
+      "Link": " https://leetcode.com/problems/sequential-digits"
+    }
+  ]
+}
