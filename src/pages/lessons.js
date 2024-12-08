@@ -4,17 +4,21 @@ import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/usercontext";
 import { firestore } from "../config/firebase-config";
 import { getDoc, setDoc, doc } from "firebase/firestore";
-import lessons from "../content/lessons.json";
+import LessonCard from "../components/lessoncard";
+import LessonCardSkeleton from "../skeletons/lessoncardskeleton";
 
 const Lessons = () => {
   const navigate = useNavigate();
   const [completedQuizzes, setCompletedQuizzes] = useState([]);
   const [completedLessons, setCompletedLessons] = useState([]);
-  const categorizedLessons = {
+  const [isUserLoading, setIsUserLoading] = useState(true);
+  const [isLessonsLoading, setIsLessonsLoading] = useState(true);
+  const [categorizedLessons, setCategorizedLessons] = useState({
     dataStructures: [],
     algorithms: [],
     concepts: [],
-  };
+  });
+  const [loadedImages, setLoadedImages] = useState({});
   const { user, premiumInfo } = useUser();
 
   useEffect(() => {
@@ -32,41 +36,51 @@ const Lessons = () => {
         })
         .catch((error) => {
           console.error("Error fetching user data: ", error);
-        });
+        })
+        .finally(() => setIsUserLoading(false));
     } else {
       setCompletedQuizzes([]);
       setCompletedLessons([]);
+      setIsUserLoading(false);
     }
   }, [user]);
 
-  const images = lessons.reduce((map, lesson) => {
-    map[lesson.title] = require(
-      `../content/images/${lesson.title.replace(/\s|-/g, "").toLowerCase()}.webp`
-    );
-    return map;
-  }, {});
+  useEffect(() => {
+    const loadLessons = async () => {
+      try {
+        const lessonsData = await import("../content/lessons.json");
+        const categorized = {
+          dataStructures: [],
+          algorithms: [],
+          concepts: [],
+        };
+        lessonsData.default.forEach((lesson) => {
+          if (lesson.type === "datastructure") {
+            categorized.dataStructures.push(lesson);
+          } else if (lesson.type === "algorithm") {
+            categorized.algorithms.push(lesson);
+          } else if (lesson.type === "concept") {
+            categorized.concepts.push(lesson);
+          }
+        });
+        setCategorizedLessons(categorized);
+      } catch (error) {
+        console.error("Error loading lessons.json: ", error);
+      } finally {
+        setIsLessonsLoading(false);
+      }
+    };
+    loadLessons();
+  }, []);
 
-  lessons.forEach((lesson) => {
-    if (lesson.type === "datastructure") {
-      categorizedLessons.dataStructures.push(lesson);
-    } else if (lesson.type === "algorithm") {
-      categorizedLessons.algorithms.push(lesson);
-    } else if (lesson.type === "concept") {
-      categorizedLessons.concepts.push(lesson);
-    }
-  });
-
-  const [loadedImages, setLoadedImages] = useState(
-    Array(lessons.length).fill(false)
-  );
-
-  const handleImageLoad = (index) => {
-    setLoadedImages((prevLoadedImages) => {
-      const newLoadedImages = [...prevLoadedImages];
-      newLoadedImages[index] = true;
-      return newLoadedImages;
-    });
+  const handleImageLoad = (title) => {
+    setLoadedImages((prev) => ({
+      ...prev,
+      [title]: true,
+    }));
   };
+
+  const isLoading = isUserLoading || isLessonsLoading;
 
   const handleLessonClick = (lesson) => {
     if (lesson.premium && !premiumInfo.premium) return;
@@ -77,57 +91,39 @@ const Lessons = () => {
     navigate(`/quiz/${quiz.title.replaceAll(" ", "-").toLowerCase()}`);
   };
 
-  const renderLessons = (category, title) => (
-    <div key={title}>
-      <p className="lesson-type-title">{title}</p>
-      <div className="lessons-container">
-        {category.map((lesson, index) => (
-          <div key={index} className="lesson-card">
-            <div
-              className={`lesson-card-image-container ${title.toLowerCase().split(" ").join("-")}`}
-            >
-              <img
-                className={`lesson-card-image ${loadedImages[index] ? "loaded" : "blurred"}`}
-                src={images[lesson.title]}
-                alt={lesson.title}
-                onLoad={() => handleImageLoad(index)}
-              />
-            </div>
-            <div className="lesson-card-text">
-              <p className="lesson-card-title">{lesson.title}</p>
-              <p className={"lesson-card-difficulty " + lesson.difficulty}>
-                {lesson.difficulty[0].toUpperCase() +
-                  lesson.difficulty.slice(1) || "N/A"}
-              </p>
-              <div className="lesson-card-buttons">
-                <button
-                  className={`lesson-card-button ${lesson.premium && !premiumInfo.premium ? "disabled" : ""}`}
-                  onClick={() => handleLessonClick(lesson)}
-                >
-                  Lesson
-                  {completedLessons[lesson.title] && (
-                    <i className="fa-solid fa-check-circle"></i>
-                  )}
-                  {lesson.premium && !premiumInfo.premium && (
-                    <i className="fa-solid fa-rocket"></i>
-                  )}
-                </button>
-                <button
-                  className="lesson-card-button"
-                  onClick={() => handleQuizClick(lesson)}
-                >
-                  Quiz{" "}
-                  {completedQuizzes[lesson.title] && (
-                    <i className="fa-solid fa-check-circle"></i>
-                  )}
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
+  const renderLessons = (category, title) => {
+    const skeletonCount =
+      title === "Data Structures" ? 17 : title === "Algorithms" ? 6 : 8;
+  
+    return (
+      <div key={title}>
+        <p className="lesson-type-title">{title}</p>
+        <div className="lessons-container">
+          {isLoading
+            ? Array.from({ length: skeletonCount }).map((_, index) => (
+                <LessonCardSkeleton key={index} />
+              ))
+            : category.map((lesson, index) => (
+                <LessonCard
+                  key={index}
+                  lesson={lesson}
+                  image={require(`../content/images/${lesson.title
+                    .replace(/\s|-/g, "")
+                    .toLowerCase()}.webp`)}
+                  loadedImage={!!loadedImages[lesson.title]}
+                  handleImageLoad={handleImageLoad}
+                  handleLessonClick={handleLessonClick}
+                  handleQuizClick={handleQuizClick}
+                  completedLessons={completedLessons}
+                  completedQuizzes={completedQuizzes}
+                  premiumInfo={premiumInfo}
+                  titleClass={title.toLowerCase().split(" ").join("-")}
+                />
+              ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  };  
 
   return (
     <div className="lesson-types">

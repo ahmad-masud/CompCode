@@ -12,6 +12,7 @@ import { useTheme } from "../context/themecontext";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { firestore } from "../config/firebase-config";
 import { useAlerts } from "../context/alertscontext";
+import LessonSkeleton from "../skeletons/lessonskeleton";
 
 const Lesson = () => {
   const [lesson, setLesson] = useState(null);
@@ -22,6 +23,7 @@ const Lesson = () => {
   const { theme } = useTheme();
   const { addAlert } = useAlerts();
   const { lessonId } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadLesson = async () => {
@@ -47,6 +49,8 @@ const Lesson = () => {
       } catch (error) {
         console.error("Error loading lesson:", error);
         navigate("/notfound");
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -113,6 +117,10 @@ const Lesson = () => {
       return renderBoldText(part);
     });
   };
+
+  if (isLoading) {
+    return <LessonSkeleton />;
+  }
 
   return (
     <div className="lesson-container">
