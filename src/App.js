@@ -13,17 +13,17 @@ import Report from "./components/report";
 import ScrollToTop from "./utils/scrolltotop";
 import "./styles/app.css";
 
-const HomePage = React.lazy(() => import("./pages/home"));
-const CompaniesPage = React.lazy(() => import("./pages/companies"));
-const RoadmapPage = React.lazy(() => import("./pages/roadmap"));
-const LessonsPage = React.lazy(() => import("./pages/lessons"));
-const LessonPage = React.lazy(() => import("./pages/lesson"));
-const QuizPage = React.lazy(() => import("./pages/quiz"));
-const ProblemsPage = React.lazy(() => import("./pages/problems"));
-const PremiumPage = React.lazy(() => import("./pages/premium"));
-const PolicyPage = React.lazy(() => import("./pages/policy"));
-const TermsPage = React.lazy(() => import("./pages/terms"));
-const NotFoundPage = React.lazy(() => import("./pages/notfound"));
+import Home from "./pages/home";
+import Companies from "./pages/companies";
+import Roadmap from "./pages/roadmap";
+import Lessons from "./pages/lessons";
+import Lesson from "./pages/lesson";
+import Quiz from "./pages/quiz";
+import Problems from "./pages/problems";
+import Premium from "./pages/premium";
+import Policy from "./pages/policy";
+import Terms from "./pages/terms";
+import NotFound from "./pages/notfound";
 
 const stripePromise = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
   ? loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY)
@@ -34,18 +34,18 @@ const App = () => {
   const [displayReport, setDisplayReport] = useState(false);
 
   const routes = [
-    { path: "/", element: <HomePage /> },
-    { path: "/companies", element: <CompaniesPage /> },
-    { path: "/roadmap", element: <RoadmapPage /> },
-    { path: "/lessons", element: <LessonsPage /> },
-    { path: "/lesson/:lessonId", element: <LessonPage /> },
-    { path: "/quiz/:quizId", element: <QuizPage /> },
-    { path: "/companies/:Id", element: <ProblemsPage page="companies" /> },
-    { path: "/roadmap/:Id", element: <ProblemsPage page="roadmap" /> },
-    { path: "/premium", element: <PremiumPage /> },
-    { path: "/policy", element: <PolicyPage /> },
-    { path: "/terms", element: <TermsPage /> },
-    { path: "*", element: <NotFoundPage /> },
+    { path: "/", element: <Home /> },
+    { path: "/companies", element: <Companies /> },
+    { path: "/roadmap", element: <Roadmap /> },
+    { path: "/lessons", element: <Lessons /> },
+    { path: "/lesson/:lessonId", element: <Lesson /> },
+    { path: "/quiz/:quizId", element: <Quiz /> },
+    { path: "/companies/:Id", element: <Problems page="companies" /> },
+    { path: "/roadmap/:Id", element: <Problems page="roadmap" /> },
+    { path: "/premium", element: <Premium /> },
+    { path: "/policy", element: <Policy /> },
+    { path: "/terms", element: <Terms /> },
+    { path: "*", element: <NotFound /> },
   ];
 
   return (

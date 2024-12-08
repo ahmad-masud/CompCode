@@ -20,8 +20,6 @@ const Quiz = () => {
   const [copiedState, setCopiedState] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const [quizData, setQuizData] = useState(null);
-  const [loading, setLoading] = useState(true);
-
   const { theme } = useTheme();
   const { addAlert } = useAlerts();
   const { user } = useUser();
@@ -37,8 +35,6 @@ const Quiz = () => {
       } catch (error) {
         console.error("Error loading quiz:", error);
         navigate("/notFound");
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -167,30 +163,24 @@ const Quiz = () => {
     });
   };
 
-  if (loading) {
-    return null;
-  }
-
-  const currentQuestion = quizData.questions[currentQuestionIndex];
-
   return (
     <div className="quiz-container">
       <div className="quiz-explanation-panel">
         <p className="quiz-title">Explanation</p>
-        {renderExplanationContent(currentQuestion.explanation.content)}
+        {quizData && renderExplanationContent(quizData.questions[currentQuestionIndex].explanation.content)}
       </div>
       <div className="quiz-question-panel">
         <p className="quiz-question-title">
-          Question {currentQuestionIndex + 1} of {quizData.questions.length}
+          Question {currentQuestionIndex + 1} of {quizData && quizData.questions.length}
         </p>
         <p className="quiz-question-text">
-          {renderBoldAndHighlightedText(currentQuestion.question)}
+          {quizData && renderBoldAndHighlightedText(quizData.questions[currentQuestionIndex].question)}
         </p>
         <div className="quiz-options">
-          {currentQuestion.options.map((option, index) => (
+          {quizData && quizData.questions[currentQuestionIndex].options.map((option, index) => (
             <button
               key={index}
-              className={`quiz-option-button ${selectedOptionIndex === index ? "selected" : ""} ${submitted && selectedOptionIndex === index && selectedOptionIndex === currentQuestion.answerIndex ? "correct" : ""} ${submitted && selectedOptionIndex === index && selectedOptionIndex !== currentQuestion.answerIndex ? "incorrect" : ""}`}
+              className={`quiz-option-button ${selectedOptionIndex === index ? "selected" : ""} ${submitted && selectedOptionIndex === index && selectedOptionIndex === quizData.questions[currentQuestionIndex].answerIndex ? "correct" : ""} ${submitted && selectedOptionIndex === index && selectedOptionIndex !== quizData.questions[currentQuestionIndex].answerIndex ? "incorrect" : ""}`}
               onClick={() => handleOptionSelect(index)}
               disabled={showExplanation}
             >

@@ -17,8 +17,6 @@ const Lesson = () => {
   const [lesson, setLesson] = useState(null);
   const [copiedState, setCopiedState] = useState([]);
   const [completed, setCompleted] = useState(false);
-  const [loading, setLoading] = useState(true);
-
   const navigate = useNavigate();
   const { premiumInfo, user } = useUser();
   const { theme } = useTheme();
@@ -49,8 +47,6 @@ const Lesson = () => {
       } catch (error) {
         console.error("Error loading lesson:", error);
         navigate("/notfound");
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -118,12 +114,10 @@ const Lesson = () => {
     });
   };
 
-  if (loading) return null;
-
   return (
     <div className="lesson-container">
       <p className="lesson-header">
-        {lesson.title}
+        {lesson && lesson.title}
         <button onClick={handleCheckboxChange}>
           {completed ? (
             <i className="fa-solid fa-square-check"></i>
@@ -134,7 +128,7 @@ const Lesson = () => {
       </p>
       <div className="lesson-bottom">
         <div className="lesson-sidebar">
-          {lesson.lessons.map((lesson, lessonIdx) => (
+          {lesson && lesson.lessons.map((lesson, lessonIdx) => (
             <a
               key={lessonIdx}
               href={`#${lesson.title.replaceAll(" ", "-")}`}
@@ -145,7 +139,7 @@ const Lesson = () => {
           ))}
         </div>
         <div className="lessons">
-          {lesson.lessons.map((lesson, lessonIdx) => (
+          {lesson && lesson.lessons.map((lesson, lessonIdx) => (
             <div key={lessonIdx} className="lesson">
               <p
                 id={lesson.title.replaceAll(" ", "-")}
