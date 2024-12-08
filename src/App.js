@@ -13,17 +13,17 @@ import Report from "./components/report";
 import ScrollToTop from "./utils/scrolltotop";
 import "./styles/app.css";
 
-import Home from "./pages/home";
-import Companies from "./pages/companies";
-import Roadmap from "./pages/roadmap";
-import Lessons from "./pages/lessons";
-import Lesson from "./pages/lesson";
-import Quiz from "./pages/quiz";
-import Problems from "./pages/problems";
-import Premium from "./pages/premium";
-import Policy from "./pages/policy";
-import Terms from "./pages/terms";
-import NotFound from "./pages/notfound";
+const Home = React.lazy(() => import("./pages/home"));
+const Companies = React.lazy(() => import("./pages/companies"));
+const Roadmap = React.lazy(() => import("./pages/roadmap"));
+const Lessons = React.lazy(() => import("./pages/lessons"));
+const Lesson = React.lazy(() => import("./pages/lesson"));
+const Quiz = React.lazy(() => import("./pages/quiz"));
+const Problems = React.lazy(() => import("./pages/problems"));
+const Premium = React.lazy(() => import("./pages/premium"));
+const Policy = React.lazy(() => import("./pages/policy"));
+const Terms = React.lazy(() => import("./pages/terms"));
+const NotFound = React.lazy(() => import("./pages/notfound"));
 
 const stripePromise = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
   ? loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY)
