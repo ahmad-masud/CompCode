@@ -168,11 +168,7 @@ const Quiz = () => {
   };
 
   if (loading) {
-    return <div>Loading quiz...</div>;
-  }
-
-  if (!quizData) {
-    return <div>Quiz not found.</div>;
+    return null;
   }
 
   const currentQuestion = quizData.questions[currentQuestionIndex];
