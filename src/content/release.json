@@ -1,58 +1,86 @@
 [
   {
+    "date": "2024-12-05",
+    "comment": "Added a hierarchical view of the roadmap for easier navigation through topics."
+  },
+  {
+    "date": "2024-12-04",
+    "comment": "Improved user experience by securely saving preferences and progress for faster loading."
+  },
+  {
+    "date": "2024-12-03",
+    "comment": "Introduced a personalized dashboard to track completed lessons and quizzes."
+  },
+  {
+    "date": "2024-11-20",
+    "comment": "Enhanced quiz feedback with explanations for correct and incorrect answers."
+  },
+  {
     "date": "2024-11-13",
-    "comment": "Added quizzes for each lesson topic in the lessons page"
+    "comment": "Added quizzes for each lesson topic to make learning more interactive and engaging."
+  },
+  {
+    "date": "2024-11-05",
+    "comment": "Launched progress streaks to encourage consistent learning."
   },
   {
     "date": "2024-10-19",
-    "comment": "Merged algorithms and data structures into a roadmap along with lessons for each topic"
+    "comment": "Combined data structures and algorithms into a single roadmap for a seamless learning journey."
   },
   {
     "date": "2024-10-17",
-    "comment": "Added Lessons for data structures and algorithms"
+    "comment": "Launched guided lessons for key programming topics to help users learn effectively."
   },
   {
     "date": "2024-10-10",
-    "comment": "Added premium subcriptions"
+    "comment": "Introduced premium subscriptions with exclusive features and priority support."
+  },
+  {
+    "date": "2024-09-30",
+    "comment": "Added weekly challenges to help users stay motivated and track their progress."
   },
   {
     "date": "2024-09-26",
-    "comment": "Added code solutions"
+    "comment": "Provided detailed code solutions to popular coding problems for better understanding."
   },
   {
     "date": "2024-09-24",
-    "comment": "Updated entire webpage ui"
+    "comment": "Redesigned the website for a cleaner look and easier navigation."
   },
   {
     "date": "2024-08-24",
-    "comment": "Modified concepts page to seperate ds and algos pages and misc concepts"
+    "comment": "Separated data structures, algorithms, and other concepts for a more focused learning experience."
   },
   {
     "date": "2024-08-22",
-    "comment": "Added concepts page, to practice important dsa concepts"
+    "comment": "Introduced a concepts page to practice essential programming techniques."
+  },
+  {
+    "date": "2024-07-25",
+    "comment": "Added progress tracking to help users monitor their learning journey."
   },
   {
     "date": "2024-07-11",
-    "comment": "Added home page, that includes release notes"
+    "comment": "Launched a home page with release notes to keep users updated on new features."
   },
   {
     "date": "2024-07-11",
-    "comment": "Implemented google authentication to save completed user problems in the cloud"
+    "comment": "Enabled account synchronization using Google authentication."
   },
   {
     "date": "2024-07-10",
-    "comment": "Implemented local storage to handle dark mode, light mode and auto color mode"
+    "comment": "Introduced customizable themes, including dark mode, light mode, and system default."
   },
   {
     "date": "2024-07-10",
-    "comment": "Added problems page for tracking all problems found for each corresponding company"
+    "comment": "Added a problems page to explore questions by companies and topics."
   },
   {
     "date": "2024-07-09",
-    "comment": "Added most popular companies's LeetCode questions including their difficulties, frequencies, and acceptance rate"
+    "comment": "Curated popular coding problems from top tech companies."
   },
   {
     "date": "2024-07-09",
-    "comment": "Initial release"
+    "comment": "Initial release of the platform."
   }
 ]

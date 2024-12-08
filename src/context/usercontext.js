@@ -1,17 +1,43 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "../config/firebase-config";
+import CryptoJS from "crypto-js";
 
 const UserContext = createContext();
 
+const ENCRYPTION_KEY = process.env.REACT_APP_USER_ENCRYPTION_KEY || "default_key";
+
+const encryptData = (data) => {
+  return CryptoJS.AES.encrypt(JSON.stringify(data), ENCRYPTION_KEY).toString();
+};
+
+const decryptData = (encryptedData) => {
+  try {
+    const bytes = CryptoJS.AES.decrypt(encryptedData, ENCRYPTION_KEY);
+    return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+  } catch (error) {
+    console.error("Error decrypting data:", error);
+    return null;
+  }
+};
+
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [premiumInfo, setPremiumInfo] = useState({
-    premium: false,
-    subscriptionId: "",
-    canceled: false,
-    customerId: "",
-    subscriptionEnd: null,
+  const [user, setUser] = useState(() => {
+    const cachedUser = localStorage.getItem("user");
+    return cachedUser ? decryptData(cachedUser) : null;
+  });
+
+  const [premiumInfo, setPremiumInfo] = useState(() => {
+    const cachedPremiumInfo = localStorage.getItem("premiumInfo");
+    return cachedPremiumInfo
+      ? decryptData(cachedPremiumInfo)
+      : {
+          premium: false,
+          subscriptionId: "",
+          canceled: false,
+          customerId: "",
+          subscriptionEnd: null,
+        };
   });
 
   useEffect(() => {
@@ -22,13 +48,15 @@ export const UserProvider = ({ children }) => {
           if (docSnap.exists()) {
             const userData = docSnap.data();
             if (userData.premiumInfo) {
-              setPremiumInfo({
+              const updatedPremiumInfo = {
                 premium: userData.premiumInfo.premium || false,
                 subscriptionId: userData.premiumInfo.subscriptionId || "",
                 canceled: userData.premiumInfo.canceled || false,
                 customerId: userData.premiumInfo.stripeCustomerId || "",
                 subscriptionEnd: userData.premiumInfo.subscriptionEnd || null,
-              });
+              };
+              setPremiumInfo(updatedPremiumInfo);
+              localStorage.setItem("premiumInfo", encryptData(updatedPremiumInfo));
             }
           }
         })
@@ -36,13 +64,23 @@ export const UserProvider = ({ children }) => {
           console.error("Error fetching user data: ", error);
         });
     } else {
-      setPremiumInfo({
+      const defaultPremiumInfo = {
         premium: false,
         subscriptionId: "",
         canceled: false,
         customerId: "",
         subscriptionEnd: null,
-      });
+      };
+      setPremiumInfo(defaultPremiumInfo);
+      localStorage.removeItem("premiumInfo");
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem("user", encryptData(user));
+    } else {
+      localStorage.removeItem("user");
     }
   }, [user]);
 

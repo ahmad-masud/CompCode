@@ -6,7 +6,9 @@ import { useUser } from "../context/usercontext";
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("system");
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "system";
+  });
   const { user } = useUser();
 
   useEffect(() => {
@@ -16,7 +18,9 @@ export const ThemeProvider = ({ children }) => {
         .then((docSnap) => {
           if (docSnap.exists()) {
             const userData = docSnap.data();
-            setTheme(userData.theme || "system");
+            const userTheme = userData.theme || "system";
+            setTheme(userTheme);
+            localStorage.setItem("theme", userTheme);
           }
         })
         .catch((error) => {
@@ -34,6 +38,8 @@ export const ThemeProvider = ({ children }) => {
     } else {
       document.querySelector(":root").className = theme;
     }
+
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const changeTheme = (newTheme) => {
@@ -44,6 +50,7 @@ export const ThemeProvider = ({ children }) => {
         console.error("Error updating theme:", error);
       });
     }
+    localStorage.setItem("theme", newTheme);
   };
 
   return (
