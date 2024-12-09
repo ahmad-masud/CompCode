@@ -393,60 +393,75 @@ const Problems = ({ page }) => {
             </div>
           )}
         </div>
-        {currentProblems.map((problem, index) => (
-          <div className="table-row" key={index}>
-            <div className="check">
-              <button onClick={() => handleCheckboxChange(problem.ID)}>
-                {completedProblems[problem.ID] ? (
-                  <i className="fa-solid fa-square-check"></i>
-                ) : (
-                  <i className="fa-regular fa-square"></i>
-                )}
-              </button>
-            </div>
-            <div className="title">
-              <a href={problem.Link} target="_blank" rel="noopener noreferrer">
-                {problem.ID}. {problem.Title}
-              </a>
-            </div>
-            {page === "roadmap" && (
-              <div className="solution-link">
-                {solutions.find((solution) => solution.id === problem.ID) ? (
-                  <button
-                    onClick={() =>
-                      handleSolutionClick(
-                        problem.ID,
-                        `${problem.ID}. ${problem.Title}`,
-                        problem.Link
-                      )
-                    }
-                  >
-                    <i className="fa-regular fa-file-code"></i>
+        {currentProblems.length > 0
+          ? currentProblems.map((problem, index) => (
+              <div className="table-row" key={index}>
+                <div className="check">
+                  <button onClick={() => handleCheckboxChange(problem.ID)}>
+                    {completedProblems[problem.ID] ? (
+                      <i className="fa-solid fa-square-check"></i>
+                    ) : (
+                      <i className="fa-regular fa-square"></i>
+                    )}
                   </button>
-                ) : (
-                  <i className="fas fa-tools"></i>
+                </div>
+                <div className="title">
+                  <a
+                    href={problem.Link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {problem.ID}. {problem.Title}
+                  </a>
+                </div>
+                {page === "roadmap" && (
+                  <div className="solution-link">
+                    {solutions.find(
+                      (solution) => solution.id === problem.ID
+                    ) ? (
+                      <button
+                        onClick={() =>
+                          handleSolutionClick(
+                            problem.ID,
+                            `${problem.ID}. ${problem.Title}`,
+                            problem.Link
+                          )
+                        }
+                      >
+                        <i className="fa-regular fa-file-code"></i>
+                      </button>
+                    ) : (
+                      <i className="fas fa-tools"></i>
+                    )}
+                  </div>
+                )}
+                {!narrow && <div>{`${problem.Acceptance}%`}</div>}
+                {(!narrow || page === "companies") && (
+                  <div
+                    className={`difficulty ${problem.Difficulty.toLowerCase()}`}
+                  >
+                    {problem.Difficulty}
+                  </div>
+                )}
+                {page === "companies" && !narrow && (
+                  <div className="frequency">
+                    {premiumInfo && premiumInfo.premium ? (
+                      Math.round(problem.Frequency * 100) / 100
+                    ) : (
+                      <Link to="/premium" className="premium-link">
+                        <i className="fa-solid fa-rocket"></i>
+                      </Link>
+                    )}
+                  </div>
                 )}
               </div>
-            )}
-            {!narrow && <div>{`${problem.Acceptance}%`}</div>}
-            {(!narrow || page === "companies") && (
-              <div className={`difficulty ${problem.Difficulty.toLowerCase()}`}>
-                {problem.Difficulty}
-              </div>
-            )}
-            {page === "companies" && !narrow && (
-              <div className="frequency">
-                {premiumInfo && premiumInfo.premium ? (
-                  Math.round(problem.Frequency * 100) / 100
-                ) : (
-                  <Link to="/premium" className="premium-link">
-                    <i className="fa-solid fa-rocket"></i>
-                  </Link>
-                )}
-              </div>
-            )}
-          </div>
-        ))}
+            ))
+          : Array.from({ length: 20 }).map((_, index) => (
+              <div
+                className={`skeleton-table-row ${index % 2 !== 0 ? "skeleton" : ""}`}
+                key={index}
+              ></div>
+            ))}
       </div>
       {problems.length > 20 && (
         <div className="pagination">

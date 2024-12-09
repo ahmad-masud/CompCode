@@ -1,86 +1,80 @@
 .lesson-skeleton {
-    max-width: 1200px;
-    width: calc(100% - 20px);
-    height: 100vh;
-    margin: 50px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .lesson-skeleton-header {
-    height: 2rem;
-    width: 125px;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-    align-self: center;
+  max-width: 1200px;
+  width: calc(100% - 20px);
+  height: 100vh;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lesson-skeleton-header {
+  height: 2rem;
+  width: 125px;
+  border-radius: 8px;
+  align-self: center;
+}
+
+.lesson-skeleton-bottom {
+  display: flex;
+  height: calc(100% - 30px);
+  overflow-y: scroll;
+}
+
+.lesson-skeleton-sidebar {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+.lesson-skeleton-sidebar-item {
+  height: 20px;
+  width: 80%;
+  border-radius: 8px;
+}
+
+.lesson-skeleton-lessons {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.lesson-skeleton-paragraph {
+  height: 100px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.lesson-skeleton-code-block {
+  height: 200px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.lesson-skeleton-bullet {
+  height: 20px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .lesson-lesson-skeleton {
+    height: auto;
+    margin: 50px 10px 100px 10px;
   }
 
-  .lesson-skeleton-bottom {
-    display: flex;
-    height: calc(100% - 30px);
-    overflow-y: scroll;
-  }
-  
   .lesson-skeleton-sidebar {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-right: 20px;
-    border-right: 1px solid var(--secondary-color);
-  }
-  
-  .lesson-skeleton-sidebar-item {
-    height: 20px;
-    width: 80%;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-  }
-  
-  .lesson-skeleton-lessons {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    overflow-y: auto;
-  }
-  
-  .lesson-skeleton-paragraph {
-    height: 100px;
     width: 100%;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
+    padding-right: 0;
+    border-right: none;
   }
-  
-  .lesson-skeleton-code-block {
-    height: 200px;
+
+  .lesson-skeleton-content {
     width: 100%;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
   }
-  
-  .lesson-skeleton-bullet {
-    height: 20px;
-    width: 100%;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .lesson-lesson-skeleton {
-      height: auto;
-      margin: 50px 10px 100px 10px;
-    }
-  
-    .lesson-skeleton-sidebar {
-      width: 100%;
-      padding-right: 0;
-      border-right: none;
-    }
-  
-    .lesson-skeleton-content {
-      width: 100%;
-    }
-  }  
+}

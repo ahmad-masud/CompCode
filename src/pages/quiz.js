@@ -12,6 +12,7 @@ import { useAlerts } from "../context/alertscontext";
 import { useUser } from "../context/usercontext";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/quiz.css";
+import QuizSkeleton from "../skeletons/quizskeleton";
 
 const Quiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -163,30 +164,37 @@ const Quiz = () => {
     });
   };
 
-  return (
+  return quizData ? (
     <div className="quiz-container">
       <div className="quiz-explanation-panel">
         <p className="quiz-title">Explanation</p>
-        {quizData && renderExplanationContent(quizData.questions[currentQuestionIndex].explanation.content)}
+        {renderExplanationContent(
+          quizData.questions[currentQuestionIndex].explanation.content
+        )}
       </div>
       <div className="quiz-question-panel">
         <p className="quiz-question-title">
-          Question {currentQuestionIndex + 1} of {quizData && quizData.questions.length}
+          Question {currentQuestionIndex + 1} of{" "}
+          {quizData && quizData.questions.length}
         </p>
         <p className="quiz-question-text">
-          {quizData && renderBoldAndHighlightedText(quizData.questions[currentQuestionIndex].question)}
+          {renderBoldAndHighlightedText(
+            quizData.questions[currentQuestionIndex].question
+          )}
         </p>
         <div className="quiz-options">
-          {quizData && quizData.questions[currentQuestionIndex].options.map((option, index) => (
-            <button
-              key={index}
-              className={`quiz-option-button ${selectedOptionIndex === index ? "selected" : ""} ${submitted && selectedOptionIndex === index && selectedOptionIndex === quizData.questions[currentQuestionIndex].answerIndex ? "correct" : ""} ${submitted && selectedOptionIndex === index && selectedOptionIndex !== quizData.questions[currentQuestionIndex].answerIndex ? "incorrect" : ""}`}
-              onClick={() => handleOptionSelect(index)}
-              disabled={showExplanation}
-            >
-              {String.fromCharCode(65 + index)}) {option}
-            </button>
-          ))}
+          {quizData.questions[currentQuestionIndex].options.map(
+            (option, index) => (
+              <button
+                key={index}
+                className={`quiz-option-button ${selectedOptionIndex === index ? "selected" : ""} ${submitted && selectedOptionIndex === index && selectedOptionIndex === quizData.questions[currentQuestionIndex].answerIndex ? "correct" : ""} ${submitted && selectedOptionIndex === index && selectedOptionIndex !== quizData.questions[currentQuestionIndex].answerIndex ? "incorrect" : ""}`}
+                onClick={() => handleOptionSelect(index)}
+                disabled={showExplanation}
+              >
+                {String.fromCharCode(65 + index)}) {option}
+              </button>
+            )
+          )}
         </div>
         {!showExplanation ? (
           <button
@@ -203,6 +211,8 @@ const Quiz = () => {
         )}
       </div>
     </div>
+  ) : (
+    <QuizSkeleton />
   );
 };
 

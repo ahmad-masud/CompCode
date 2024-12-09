@@ -27,7 +27,8 @@ const LessonCard = ({
       <div className="lesson-card-text">
         <p className="lesson-card-title">{lesson.title}</p>
         <p className={"lesson-card-difficulty " + lesson.difficulty}>
-          {lesson.difficulty[0].toUpperCase() + lesson.difficulty.slice(1) || "N/A"}
+          {lesson.difficulty[0].toUpperCase() + lesson.difficulty.slice(1) ||
+            "N/A"}
         </p>
         <div className="lesson-card-buttons">
           <button

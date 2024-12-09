@@ -36,6 +36,11 @@
   align-items: center;
   justify-content: center;
   padding: 15px;
+  transition: none;
+}
+
+.skeleton-table-row {
+  padding: 24.5px;
 }
 
 .table-row:nth-child(odd) {

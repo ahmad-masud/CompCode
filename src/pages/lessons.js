@@ -94,7 +94,7 @@ const Lessons = () => {
   const renderLessons = (category, title) => {
     const skeletonCount =
       title === "Data Structures" ? 17 : title === "Algorithms" ? 6 : 8;
-  
+
     return (
       <div key={title}>
         <p className="lesson-type-title">{title}</p>
@@ -107,9 +107,11 @@ const Lessons = () => {
                 <LessonCard
                   key={index}
                   lesson={lesson}
-                  image={require(`../content/images/${lesson.title
-                    .replace(/\s|-/g, "")
-                    .toLowerCase()}.webp`)}
+                  image={require(
+                    `../content/images/${lesson.title
+                      .replace(/\s|-/g, "")
+                      .toLowerCase()}.webp`
+                  )}
                   loadedImage={!!loadedImages[lesson.title]}
                   handleImageLoad={handleImageLoad}
                   handleLessonClick={handleLessonClick}
@@ -123,7 +125,7 @@ const Lessons = () => {
         </div>
       </div>
     );
-  };  
+  };
 
   return (
     <div className="lesson-types">

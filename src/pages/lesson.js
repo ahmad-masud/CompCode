@@ -136,84 +136,86 @@ const Lesson = () => {
       </p>
       <div className="lesson-bottom">
         <div className="lesson-sidebar">
-          {lesson && lesson.lessons.map((lesson, lessonIdx) => (
-            <a
-              key={lessonIdx}
-              href={`#${lesson.title.replaceAll(" ", "-")}`}
-              className="lesson-link"
-            >
-              {lesson.title}
-            </a>
-          ))}
-        </div>
-        <div className="lessons">
-          {lesson && lesson.lessons.map((lesson, lessonIdx) => (
-            <div key={lessonIdx} className="lesson">
-              <p
-                id={lesson.title.replaceAll(" ", "-")}
-                className="lesson-title"
+          {lesson &&
+            lesson.lessons.map((lesson, lessonIdx) => (
+              <a
+                key={lessonIdx}
+                href={`#${lesson.title.replaceAll(" ", "-")}`}
+                className="lesson-link"
               >
                 {lesson.title}
-              </p>
-              {lesson.content.map((block, blockIdx) => {
-                if (block.type === "paragraph") {
-                  return (
-                    <p className="lesson-paragraph" key={blockIdx}>
-                      {renderParagraphWithHighlights(block.text)}
-                    </p>
-                  );
-                }
-                if (block.type === "bullets") {
-                  return (
-                    <ul className="lesson-list" key={blockIdx}>
-                      {block.items.map((item, i) => (
-                        <li className="lesson-list-item" key={i}>
-                          {renderBoldText(item)}
-                        </li>
-                      ))}
-                    </ul>
-                  );
-                }
-                if (block.type === "code") {
-                  if (!copiedState[lessonIdx]) copiedState[lessonIdx] = [];
-                  return (
-                    <div key={blockIdx} className="lesson-code-block">
-                      <CopyToClipboard
-                        text={block.code}
-                        onCopy={() => handleCopy(lessonIdx, blockIdx)}
-                      >
-                        <button className="lesson-copy-button">
-                          {copiedState[lessonIdx][blockIdx] ? (
-                            <i className="bi bi-check-lg"></i>
-                          ) : (
-                            <i className="bi bi-copy"></i>
-                          )}
-                        </button>
-                      </CopyToClipboard>
-                      <SyntaxHighlighter
-                        language={block.language || "python"}
-                        style={
-                          theme === "dark"
-                            ? codeDark
-                            : theme === "system"
-                              ? window.matchMedia &&
-                                window.matchMedia(
-                                  "(prefers-color-scheme: dark)"
-                                ).matches
-                                ? codeDark
+              </a>
+            ))}
+        </div>
+        <div className="lessons">
+          {lesson &&
+            lesson.lessons.map((lesson, lessonIdx) => (
+              <div key={lessonIdx} className="lesson">
+                <p
+                  id={lesson.title.replaceAll(" ", "-")}
+                  className="lesson-title"
+                >
+                  {lesson.title}
+                </p>
+                {lesson.content.map((block, blockIdx) => {
+                  if (block.type === "paragraph") {
+                    return (
+                      <p className="lesson-paragraph" key={blockIdx}>
+                        {renderParagraphWithHighlights(block.text)}
+                      </p>
+                    );
+                  }
+                  if (block.type === "bullets") {
+                    return (
+                      <ul className="lesson-list" key={blockIdx}>
+                        {block.items.map((item, i) => (
+                          <li className="lesson-list-item" key={i}>
+                            {renderBoldText(item)}
+                          </li>
+                        ))}
+                      </ul>
+                    );
+                  }
+                  if (block.type === "code") {
+                    if (!copiedState[lessonIdx]) copiedState[lessonIdx] = [];
+                    return (
+                      <div key={blockIdx} className="lesson-code-block">
+                        <CopyToClipboard
+                          text={block.code}
+                          onCopy={() => handleCopy(lessonIdx, blockIdx)}
+                        >
+                          <button className="lesson-copy-button">
+                            {copiedState[lessonIdx][blockIdx] ? (
+                              <i className="bi bi-check-lg"></i>
+                            ) : (
+                              <i className="bi bi-copy"></i>
+                            )}
+                          </button>
+                        </CopyToClipboard>
+                        <SyntaxHighlighter
+                          language={block.language || "python"}
+                          style={
+                            theme === "dark"
+                              ? codeDark
+                              : theme === "system"
+                                ? window.matchMedia &&
+                                  window.matchMedia(
+                                    "(prefers-color-scheme: dark)"
+                                  ).matches
+                                  ? codeDark
+                                  : codeLight
                                 : codeLight
-                              : codeLight
-                        }
-                      >
-                        {block.code}
-                      </SyntaxHighlighter>
-                    </div>
-                  );
-                }
-                return null;
-              })}
-            </div>
-          ))}
+                          }
+                        >
+                          {block.code}
+                        </SyntaxHighlighter>
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+            ))}
         </div>
       </div>
     </div>

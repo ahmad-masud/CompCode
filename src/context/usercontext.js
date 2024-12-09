@@ -5,7 +5,8 @@ import CryptoJS from "crypto-js";
 
 const UserContext = createContext();
 
-const ENCRYPTION_KEY = process.env.REACT_APP_USER_ENCRYPTION_KEY || "default_key";
+const ENCRYPTION_KEY =
+  process.env.REACT_APP_USER_ENCRYPTION_KEY || "default_key";
 
 const encryptData = (data) => {
   return CryptoJS.AES.encrypt(JSON.stringify(data), ENCRYPTION_KEY).toString();
@@ -56,7 +57,10 @@ export const UserProvider = ({ children }) => {
                 subscriptionEnd: userData.premiumInfo.subscriptionEnd || null,
               };
               setPremiumInfo(updatedPremiumInfo);
-              localStorage.setItem("premiumInfo", encryptData(updatedPremiumInfo));
+              localStorage.setItem(
+                "premiumInfo",
+                encryptData(updatedPremiumInfo)
+              );
             }
           }
         })

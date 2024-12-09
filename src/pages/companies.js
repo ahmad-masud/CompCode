@@ -291,26 +291,33 @@ const Companies = () => {
             </tr>
           </thead>
           <tbody>
-            {currentCompanies.map((company, index) => (
-              <tr key={index}>
-                <td>
-                  <button
-                    onClick={() =>
-                      navigate(`/companies/${company.name.toLowerCase()}`)
-                    }
-                  >
-                    {company.name
-                      .replaceAll("-", " ")
-                      .replace(/\b\w/g, (c) => c.toUpperCase())}
-                  </button>
-                </td>
-                {!narrow && <td>{company.acceptance}%</td>}
-                <td>{company.problems.length}</td>
-                <td className={company.difficulty.toLowerCase()}>
-                  {company.difficulty}
-                </td>
-              </tr>
-            ))}
+            {companiesData.length > 0
+              ? currentCompanies.map((company, index) => (
+                  <tr key={index}>
+                    <td>
+                      <button
+                        onClick={() =>
+                          navigate(`/companies/${company.name.toLowerCase()}`)
+                        }
+                      >
+                        {company.name
+                          .replaceAll("-", " ")
+                          .replace(/\b\w/g, (c) => c.toUpperCase())}
+                      </button>
+                    </td>
+                    {!narrow && <td>{company.acceptance}%</td>}
+                    <td>{company.problems.length}</td>
+                    <td className={company.difficulty.toLowerCase()}>
+                      {company.difficulty}
+                    </td>
+                  </tr>
+                ))
+              : Array.from({ length: 20 }).map((_, index) => (
+                  <div
+                    className={`skeleton-table-row ${index % 2 !== 0 ? "skeleton" : ""}`}
+                    key={index}
+                  ></div>
+                ))}
           </tbody>
         </table>
       </div>

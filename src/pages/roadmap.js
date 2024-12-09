@@ -208,45 +208,52 @@ const Roadmap = () => {
               </tr>
             </thead>
             <tbody>
-              {companiesData.map((company, index) => (
-                <tr key={index}>
-                  <td>
-                    <button
-                      onClick={() =>
-                        navigate(
-                          `/roadmap/${company.name.replace(/\s+/g, "-").toLowerCase()}`
-                        )
-                      }
-                    >
-                      {company.name
-                        .replaceAll("-", " ")
-                        .replace(/\b\w/g, (c) => c.toUpperCase())}
-                    </button>
-                  </td>
-                  {!narrow && <td>{company.acceptance}%</td>}
-                  {!narrow && (
-                    <td>
-                      <div className="company-progress-bar">
-                        <div
-                          className="company-progress"
-                          style={{
-                            width: `${
-                              company.problems.length
-                                ? (company.solvedProblems /
-                                    company.problems.length) *
-                                  100
-                                : 0
-                            }%`,
-                          }}
-                        ></div>
-                      </div>
-                    </td>
-                  )}
-                  <td className={company.difficulty.toLowerCase()}>
-                    {company.difficulty}
-                  </td>
-                </tr>
-              ))}
+              {companiesData.length > 0
+                ? companiesData.map((company, index) => (
+                    <tr key={index}>
+                      <td>
+                        <button
+                          onClick={() =>
+                            navigate(
+                              `/roadmap/${company.name.replace(/\s+/g, "-").toLowerCase()}`
+                            )
+                          }
+                        >
+                          {company.name
+                            .replaceAll("-", " ")
+                            .replace(/\b\w/g, (c) => c.toUpperCase())}
+                        </button>
+                      </td>
+                      {!narrow && <td>{company.acceptance}%</td>}
+                      {!narrow && (
+                        <td>
+                          <div className="company-progress-bar">
+                            <div
+                              className="company-progress"
+                              style={{
+                                width: `${
+                                  company.problems.length
+                                    ? (company.solvedProblems /
+                                        company.problems.length) *
+                                      100
+                                    : 0
+                                }%`,
+                              }}
+                            ></div>
+                          </div>
+                        </td>
+                      )}
+                      <td className={company.difficulty.toLowerCase()}>
+                        {company.difficulty}
+                      </td>
+                    </tr>
+                  ))
+                : Array.from({ length: 20 }).map((_, index) => (
+                    <div
+                      className={`skeleton-table-row ${index % 2 !== 0 ? "skeleton" : ""}`}
+                      key={index}
+                    ></div>
+                  ))}
             </tbody>
           </table>
         </div>

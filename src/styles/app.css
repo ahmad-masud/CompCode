@@ -46,3 +46,23 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
 }
+
+@keyframes shimmer {
+  0% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--third-color) 25%,
+    var(--secondary-color) 50%,
+    var(--third-color) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
