@@ -208,6 +208,10 @@
     padding: 10px;
   }
 
+  .skeleton-table-row {
+    padding: 18px;
+  }
+
   .table-row .difficulty,
   .table-header .difficulty-head {
     flex: 2;
