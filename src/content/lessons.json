@@ -3,186 +3,217 @@
     "title": "Arrays",
     "difficulty": "easy",
     "type": "datastructure",
-    "premium": false
+    "premium": false,
+    "overview": "Learn to work with contiguous memory storage."
   },
   {
     "title": "Strings",
     "difficulty": "easy",
     "type": "datastructure",
-    "premium": false
+    "premium": false,
+    "overview": "Explore techniques for handling sequences of characters."
   },
   {
     "title": "Dictionaries",
     "difficulty": "easy",
     "type": "datastructure",
-    "premium": false
+    "premium": false,
+    "overview": "Understand how to store key-value pairs for fast lookups and updates."
   },
   {
     "title": "Sets",
     "difficulty": "easy",
     "type": "datastructure",
-    "premium": false
+    "premium": false,
+    "overview": "Master unordered collections for managing unique elements."
   },
   {
     "title": "Stacks",
     "difficulty": "easy",
     "type": "datastructure",
-    "premium": false
+    "premium": false,
+    "overview": "Learn to implement the LIFO (Last In, First Out) data structure."
   },
   {
     "title": "Queues",
     "difficulty": "easy",
     "type": "datastructure",
-    "premium": false
+    "premium": false,
+    "overview": "Understand the FIFO (First In, First Out) approach for managing tasks."
   },
   {
     "title": "Monotonic Stacks",
     "difficulty": "medium",
     "type": "datastructure",
-    "premium": true
+    "premium": true,
+    "overview": "Explore specialized stacks that maintain monotonic order."
   },
   {
     "title": "Singly Linked Lists",
     "difficulty": "medium",
     "type": "datastructure",
-    "premium": false
+    "premium": false,
+    "overview": "Learn linear a data structure where one element points to the next."
   },
   {
     "title": "Doubly Linked Lists",
     "difficulty": "medium",
     "type": "datastructure",
-    "premium": false
+    "premium": false,
+    "overview": "Manage nodes with pointers to both previous and next elements."
   },
   {
     "title": "Binary Trees",
     "difficulty": "medium",
     "type": "datastructure",
-    "premium": false
+    "premium": false,
+    "overview": "Understand a hierarchical structure having two children per node."
   },
   {
     "title": "Binary Search Trees",
     "difficulty": "medium",
     "type": "datastructure",
-    "premium": false
+    "premium": false,
+    "overview": "Optimize searching and sorting with tree structures."
   },
   {
     "title": "Heaps",
     "difficulty": "medium",
     "type": "datastructure",
-    "premium": false
+    "premium": false,
+    "overview": "Learn to implement priority queues using binary heaps."
   },
   {
     "title": "Graphs",
     "difficulty": "hard",
     "type": "datastructure",
-    "premium": false
+    "premium": false,
+    "overview": "Explore complex networks with nodes and edges."
   },
   {
     "title": "Adjacency Lists",
     "difficulty": "medium",
     "type": "datastructure",
-    "premium": true
+    "premium": true,
+    "overview": "Represent graphs efficiently using adjacency lists."
   },
   {
     "title": "Tries",
     "difficulty": "hard",
     "type": "datastructure",
-    "premium": true
+    "premium": true,
+    "overview": "Work with prefix trees for efficient string searches."
   },
   {
     "title": "Intervals",
     "difficulty": "medium",
     "type": "datastructure",
-    "premium": true
+    "premium": true,
+    "overview": "Learn to manage and manipulate ranges or intervals."
   },
   {
     "title": "Matrices",
     "difficulty": "medium",
     "type": "datastructure",
-    "premium": false
+    "premium": false,
+    "overview": "Understand multidimensional arrays for grid-based problems."
   },
   {
     "title": "Binary Search",
     "difficulty": "medium",
     "type": "algorithm",
-    "premium": false
+    "premium": false,
+    "overview": "Master efficient search techniques for sorted arrays."
   },
   {
     "title": "Breadth-First Search",
     "difficulty": "medium",
     "type": "algorithm",
-    "premium": false
+    "premium": false,
+    "overview": "Traverse graphs layer by layer using BFS."
   },
   {
     "title": "Depth-First Search",
     "difficulty": "medium",
     "type": "algorithm",
-    "premium": false
+    "premium": false,
+    "overview": "Explore all possible paths in graphs using DFS."
   },
   {
     "title": "Kadanes Algorithm",
     "difficulty": "easy",
     "type": "algorithm",
-    "premium": true
+    "premium": true,
+    "overview": "Find maximum subarray sums in linear time."
   },
   {
     "title": "Topological Sort",
     "difficulty": "hard",
     "type": "algorithm",
-    "premium": true
+    "premium": true,
+    "overview": "Order directed acyclic graphs for dependency resolution."
   },
   {
     "title": "Union-Find",
     "difficulty": "hard",
     "type": "algorithm",
-    "premium": true
+    "premium": true,
+    "overview": "Optimize graph connectivity checks with disjoint set unions."
   },
   {
     "title": "Complexities",
     "difficulty": "medium",
     "type": "concept",
-    "premium": false
+    "premium": false,
+    "overview": "Understand time and space complexity for algorithm analysis."
   },
   {
     "title": "Two Pointers",
     "difficulty": "easy",
     "type": "concept",
-    "premium": false
+    "premium": false,
+    "overview": "Optimize array traversal with two pointer techniques."
   },
   {
     "title": "Sliding Window",
     "difficulty": "medium",
     "type": "concept",
-    "premium": false
+    "premium": false,
+    "overview": "Solve subarray problems using a dynamic window approach."
   },
   {
     "title": "Recursion",
     "difficulty": "medium",
     "type": "concept",
-    "premium": false
+    "premium": false,
+    "overview": "Learn to solve problems by breaking them into subproblems."
   },
   {
     "title": "Backtracking",
     "difficulty": "hard",
     "type": "concept",
-    "premium": false
+    "premium": false,
+    "overview": "Explore all possibilities for constraint-based problems."
   },
   {
     "title": "Dynamic Programming",
     "difficulty": "hard",
     "type": "concept",
-    "premium": false
+    "premium": false,
+    "overview": "Optimize solutions by reusing previous computations."
   },
   {
     "title": "Greedy",
     "difficulty": "medium",
     "type": "concept",
-    "premium": true
+    "premium": true,
+    "overview": "Make locally optimal choices for global solutions."
   },
   {
     "title": "Bit Manipulation",
     "difficulty": "easy",
     "type": "concept",
-    "premium": false
+    "premium": false,
+    "overview": "Use bit-level operations to solve complex problems efficiently."
   }
 ]

@@ -83,7 +83,10 @@ const Lessons = () => {
   const isLoading = isUserLoading || isLessonsLoading;
 
   const handleLessonClick = (lesson) => {
-    if (lesson.premium && !premiumInfo.premium) return;
+    if (lesson.premium && !premiumInfo.premium) {
+      navigate("/premium");
+      return;
+    }
     navigate(`/lesson/${lesson.title.replaceAll(" ", "-").toLowerCase()}`);
   };
 

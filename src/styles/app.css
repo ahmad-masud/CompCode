@@ -1,9 +1,10 @@
 :root.light {
-  --background-color: white;
-  --secondary-color: #f1f1f1;
-  --third-color: #e1e1e1;
-  --forth-color: #d1d1d1;
+  --background-color: #f1f1f1;
+  --secondary-color: white;
+  --third-color: #d1d1d1;
+  --forth-color: #e1e1e1;
   --font-color: black;
+  --border-color: rgba(0, 0, 0, 0.1);
 }
 
 :root.dark {
@@ -13,6 +14,7 @@
   --forth-color: #4a4a4a;
   --font-color: white;
   color-scheme: dark;
+  --border-color: rgba(255, 255, 255, 0.1);
 }
 
 body {

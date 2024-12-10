@@ -8,6 +8,7 @@ const LessonCardSkeleton = () => {
       <div className="skeleton-card-text">
         <div className="skeleton skeleton-card-title skeleton"></div>
         <div className="skeleton skeleton-card-difficulty skeleton"></div>
+        <div className="skeleton skeleton-card-paragraph skeleton"></div>
         <div className="skeleton-card-buttons">
           <div className="skeleton skeleton-card-button skeleton"></div>
           <div className="skeleton skeleton-card-button skeleton"></div>

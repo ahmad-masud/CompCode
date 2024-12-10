@@ -7,6 +7,9 @@
   flex-direction: column;
   overflow: hidden;
   opacity: 0.8;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .skeleton-card-image-container {
@@ -35,6 +38,13 @@
   border-radius: 5px;
 }
 
+.skeleton-card-paragraph {
+  width: 100%;
+  height: 24px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
 .skeleton-card-buttons {
   display: flex;
   align-items: center;
@@ -44,7 +54,7 @@
 }
 
 .skeleton-card-button {
-  width: 40%;
-  height: 35px;
-  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }

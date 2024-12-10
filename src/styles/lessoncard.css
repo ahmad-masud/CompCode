@@ -6,6 +6,9 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .lesson-card-disabled {
@@ -27,8 +30,9 @@
 }
 
 .lesson-card-button {
-  padding: 10px 15px;
-  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   background: var(--background-color);
   color: var(--font-color);
   cursor: pointer;
@@ -36,6 +40,7 @@
   gap: 5px;
   border: none;
   align-items: center;
+  justify-content: center;
   font-size: 1rem;
 }
 
@@ -52,7 +57,7 @@
   color: royalblue;
 }
 
-.lesson-card-button .fa-check-circle {
+.lesson-card-button .fa-check {
   color: #3fca7d;
 }
 
@@ -94,5 +99,11 @@
 
 .lesson-card-title {
   font-size: 1.25rem;
+  font-weight: bold;
   text-align: center;
+}
+
+.lesson-card-difficulty {
+  font-size: 1rem;
+  font-weight: bold;
 }

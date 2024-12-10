@@ -30,28 +30,28 @@ const LessonCard = ({
           {lesson.difficulty[0].toUpperCase() + lesson.difficulty.slice(1) ||
             "N/A"}
         </p>
+        <p className="lesson-card-overview">{lesson.overview}</p>
         <div className="lesson-card-buttons">
           <button
-            className={`lesson-card-button ${
-              lesson.premium && !premiumInfo.premium ? "disabled" : ""
-            }`}
+            className="lesson-card-button"
             onClick={() => handleLessonClick(lesson)}
           >
-            Lesson
-            {completedLessons[lesson.title] && (
-              <i className="fa-solid fa-check-circle"></i>
-            )}
-            {lesson.premium && !premiumInfo.premium && (
+            {completedLessons[lesson.title] ? (
+              <i className="fa-solid fa-check"></i>
+            ) : lesson.premium && !premiumInfo.premium ? (
               <i className="fa-solid fa-rocket"></i>
+            ) : (
+              <i className="fa-solid fa-play"></i>
             )}
           </button>
           <button
             className="lesson-card-button"
             onClick={() => handleQuizClick(lesson)}
           >
-            Quiz{" "}
-            {completedQuizzes[lesson.title] && (
-              <i className="fa-solid fa-check-circle"></i>
+            {completedQuizzes[lesson.title] ? (
+              <i className="fa-solid fa-check"></i>
+            ) : (
+              <i className="fa-solid fa-pencil"></i>
             )}
           </button>
         </div>
