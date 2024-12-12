@@ -9,10 +9,8 @@ const QuizSkeleton = () => {
         <div className="quiz-skeleton-paragraph skeleton"></div>
         <div className="quiz-skeleton-paragraph skeleton"></div>
         <div className="quiz-skeleton-question-title skeleton"></div>
-        <div className="quiz-skeleton-question-title skeleton"></div>
-        <div className="quiz-skeleton-question-title skeleton"></div>
       </div>
-      <div className="quiz-question-panel">
+      <div className="quiz-skeleton-question-panel">
         <div className="quiz-skeleton-question-title skeleton"></div>
         <div className="quiz-skeleton-question-title skeleton"></div>
         <div className="quiz-skeleton-option skeleton"></div>

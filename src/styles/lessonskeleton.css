@@ -9,7 +9,7 @@
 }
 
 .lesson-skeleton-header {
-  height: 2rem;
+  height: 40px;
   width: 125px;
   border-radius: 8px;
   align-self: center;
@@ -27,10 +27,11 @@
   flex-direction: column;
   gap: 20px;
   padding-right: 20px;
+  border-right: 1px solid var(--secondary-color);
 }
 
 .lesson-skeleton-sidebar-item {
-  height: 20px;
+  height: 30px;
   width: 80%;
   border-radius: 8px;
 }
@@ -57,15 +58,20 @@
 }
 
 .lesson-skeleton-bullet {
-  height: 20px;
+  height: 30px;
   width: 100%;
   border-radius: 8px;
 }
 
 @media screen and (max-width: 768px) {
-  .lesson-lesson-skeleton {
-    height: auto;
+  .lesson-skeleton {
     margin: 50px 10px 100px 10px;
+    height: auto;
+  }
+
+  .lesson-skeleton-bottom {
+    flex-direction: column;
+    height: auto;
   }
 
   .lesson-skeleton-sidebar {
@@ -74,7 +80,15 @@
     border-right: none;
   }
 
-  .lesson-skeleton-content {
+  .lesson-skeleton-sidebar-item {
+    width: 80%;
+  }
+
+  .lesson-skeleton-lessons {
+    margin-top: 20px;
     width: 100%;
+    height: auto;
+    padding: 0;
+    overflow: auto;
   }
 }
