@@ -393,7 +393,7 @@ const Problems = ({ page }) => {
             </div>
           )}
         </div>
-        {currentProblems.length > 0
+        {currentProblems.length > 0 && solutions.length > 0
           ? currentProblems.map((problem, index) => (
               <div className="table-row" key={index}>
                 <div className="check">
