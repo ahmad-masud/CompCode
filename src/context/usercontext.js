@@ -28,55 +28,55 @@ export const UserProvider = ({ children }) => {
     return cachedUser ? decryptData(cachedUser) : null;
   });
 
-  const [premiumInfo, setPremiumInfo] = useState(() => {
-    const cachedPremiumInfo = localStorage.getItem("premiumInfo");
-    return cachedPremiumInfo
-      ? decryptData(cachedPremiumInfo)
-      : {
-          premium: false,
-          subscriptionId: "",
-          canceled: false,
-          customerId: "",
-          subscriptionEnd: null,
-        };
+  const [premiumInfo, setPremiumInfo] = useState({
+    premium: false,
+    subscriptionId: "",
+    canceled: false,
+    customerId: "",
+    subscriptionEnd: null,
   });
 
-  useEffect(() => {
-    if (user) {
-      const userRef = doc(firestore, "users", user.uid);
-      getDoc(userRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
-            const userData = docSnap.data();
-            if (userData.premiumInfo) {
-              const updatedPremiumInfo = {
-                premium: userData.premiumInfo.premium || false,
-                subscriptionId: userData.premiumInfo.subscriptionId || "",
-                canceled: userData.premiumInfo.canceled || false,
-                customerId: userData.premiumInfo.stripeCustomerId || "",
-                subscriptionEnd: userData.premiumInfo.subscriptionEnd || null,
-              };
-              setPremiumInfo(updatedPremiumInfo);
-              localStorage.setItem(
-                "premiumInfo",
-                encryptData(updatedPremiumInfo)
-              );
-            }
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching user data: ", error);
-        });
-    } else {
-      const defaultPremiumInfo = {
+  const fetchPremiumInfo = async (userId) => {
+    try {
+      const userRef = doc(firestore, "users", userId);
+      const docSnap = await getDoc(userRef);
+      if (docSnap.exists()) {
+        const userData = docSnap.data();
+        if (userData.premiumInfo) {
+          setPremiumInfo({
+            premium: userData.premiumInfo.premium || false,
+            subscriptionId: userData.premiumInfo.subscriptionId || "",
+            canceled: userData.premiumInfo.canceled || false,
+            customerId: userData.premiumInfo.stripeCustomerId || "",
+            subscriptionEnd: userData.premiumInfo.subscriptionEnd || null,
+          });
+        }
+      } else {
+        throw new Error("User document does not exist.");
+      }
+    } catch (error) {
+      console.error("Error fetching premium info: ", error);
+      setPremiumInfo({
         premium: false,
         subscriptionId: "",
         canceled: false,
         customerId: "",
         subscriptionEnd: null,
-      };
-      setPremiumInfo(defaultPremiumInfo);
-      localStorage.removeItem("premiumInfo");
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (user) {
+      fetchPremiumInfo(user.uid);
+    } else {
+      setPremiumInfo({
+        premium: false,
+        subscriptionId: "",
+        canceled: false,
+        customerId: "",
+        subscriptionEnd: null,
+      });
     }
   }, [user]);
 
@@ -89,7 +89,9 @@ export const UserProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <UserContext.Provider value={{ user, setUser, premiumInfo }}>
+    <UserContext.Provider
+      value={{ user, setUser, premiumInfo, fetchPremiumInfo }}
+    >
       {children}
     </UserContext.Provider>
   );
