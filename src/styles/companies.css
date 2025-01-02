@@ -205,8 +205,9 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-  padding: 2px;
-  border-radius: 5px;
+  padding: 5px;
+  border-radius: 50px;
+  background: var(--secondary-color);
 }
 
 .toggle-view button {
@@ -221,7 +222,7 @@
 }
 
 .toggle-view button:hover {
-  background: var(--secondary-color);
+  background: var(--third-color);
 }
 
 .toggle-view button.active {
