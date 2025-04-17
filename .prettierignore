@@ -1,0 +1,38 @@
+# Node dependencies
+client/node_modules
+server/node_modules
+
+# Build output
+client/build
+server/dist
+
+# Environment variables
+client/.env
+server/.env
+
+# Logs
+client/logs
+server/logs
+*.log
+
+# OS and editor folders
+.DS_Store
+.vscode
+.idea
+
+# Coverage and test snapshots
+**/coverage
+**/__snapshots__
+
+# Public static assets (optional)
+client/public
+
+# Optional: ignore compiled JS if you're using TypeScript
+client/**/*.js
+server/**/*.js
+
+# Ignore lock files
+client/package-lock.json
+server/package-lock.json
+client/yarn.lock
+server/yarn.lock
