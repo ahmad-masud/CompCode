@@ -149,31 +149,31 @@ export const UserProvider = ({ children }) => {
 
   const setCompletedLesson = async (title, value) => {
     if (!state.user) return;
+    dispatch({ type: "SET_COMPLETED_LESSON", payload: { title, value } });
     const userRef = doc(firestore, "users", state.user.uid);
     await updateDoc(userRef, { [`completedLessons.${title}`]: value });
-    dispatch({ type: "SET_COMPLETED_LESSON", payload: { title, value } });
   };
 
   const setCompletedProblem = async (id, value) => {
     if (!state.user) return;
+    dispatch({ type: "SET_COMPLETED_PROBLEM", payload: { id, value } });
     const userRef = doc(firestore, "users", state.user.uid);
     await updateDoc(userRef, { [`completedProblems.${id}`]: value });
-    dispatch({ type: "SET_COMPLETED_PROBLEM", payload: { id, value } });
   };
 
   const setCompletedQuiz = async (title) => {
     if (!state.user) return;
+    dispatch({ type: "SET_COMPLETED_QUIZ", payload: { title } });
     const userRef = doc(firestore, "users", state.user.uid);
     await updateDoc(userRef, { [`completedQuizzes.${title}`]: true });
-    dispatch({ type: "SET_COMPLETED_QUIZ", payload: { title } });
   };
 
   const setTheme = async (theme) => {
     if (state.user) {
+      dispatch({ type: "SET_THEME", payload: theme });
       const userRef = doc(firestore, "users", state.user.uid);
       await updateDoc(userRef, { theme });
     }
-    dispatch({ type: "SET_THEME", payload: theme });
   };
 
   return (
