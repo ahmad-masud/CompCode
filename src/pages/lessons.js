@@ -14,7 +14,7 @@ const Lessons = () => {
     concepts: [],
   });
   const [loadedImages, setLoadedImages] = useState({});
-  const { userLoading, premiumInfo, completedLessons, completedQuizzes } =
+  const { premiumInfo, completedLessons, completedQuizzes } =
     useUser();
 
   useEffect(() => {
@@ -52,8 +52,6 @@ const Lessons = () => {
     }));
   };
 
-  const isLoading = userLoading || isLessonsLoading;
-
   const handleLessonClick = (lesson) => {
     if (lesson.premium && !premiumInfo.premium) {
       navigate("/premium");
@@ -74,7 +72,7 @@ const Lessons = () => {
       <div key={title}>
         <p className="lesson-type-title">{title}</p>
         <div className="lessons-container">
-          {isLoading
+          {isLessonsLoading
             ? Array.from({ length: skeletonCount }).map((_, index) => (
                 <LessonCardSkeleton key={index} />
               ))
