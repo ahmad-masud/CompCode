@@ -7,12 +7,12 @@ import {
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { InlineMath } from "react-katex";
-import { useTheme } from "../context/themecontext";
+import { useUser } from "../context/usercontext";
 import "katex/dist/katex.min.css";
 
 const Solution = ({ data, onClose, title, link }) => {
   const [copiedIndex, setCopiedIndex] = useState(null);
-  const { theme } = useTheme();
+  const { theme } = useUser();
 
   if (!data) {
     return null;

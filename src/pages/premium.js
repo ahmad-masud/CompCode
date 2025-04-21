@@ -1,82 +1,11 @@
 import React from "react";
-import { useStripe } from "@stripe/react-stripe-js";
-import { getFunctions, httpsCallable } from "firebase/functions";
 import "../styles/premium.css";
-import { useAlerts } from "../context/alertscontext";
 import { useUser } from "../context/usercontext";
+import usePayment from "../hooks/usePayment";
 
 const Premium = () => {
-  const stripe = useStripe();
-  const functions = getFunctions();
-  const { addAlert } = useAlerts();
   const { user, premiumInfo } = useUser();
-
-  const handleManageSubscription = async () => {
-    if (!user) {
-      console.error("User not logged in");
-      addAlert("You must login first", "warning");
-      return;
-    }
-
-    if (!premiumInfo.customerId) {
-      console.error("Customer ID not found.");
-      addAlert("Customer ID not found", "error");
-      return;
-    }
-
-    addAlert("Loading customer portal...", "info");
-    const createCustomerPortalSession = httpsCallable(
-      functions,
-      "createCustomerPortalSession"
-    );
-
-    try {
-      const { data } = await createCustomerPortalSession({
-        customerId: premiumInfo.customerId,
-      });
-      window.location.href = data.url;
-    } catch (error) {
-      console.error("Error redirecting to customer portal:", error);
-      addAlert("Error redirecting to customer portal", "error");
-    }
-  };
-
-  const handlePremium = async (priceId, isSubscription) => {
-    if (!user) {
-      console.error("User not logged in");
-      addAlert("You must login first", "warning");
-      return;
-    }
-
-    if (premiumInfo.premium) {
-      return;
-    }
-
-    addAlert("Loading Customer Portal...", "info");
-
-    try {
-      const createCheckoutSession = httpsCallable(
-        functions,
-        "createCheckoutSession"
-      );
-      const { data } = await createCheckoutSession({
-        priceId: priceId,
-        email: user.email,
-        isSubscription: isSubscription,
-      });
-
-      const { error } = await stripe.redirectToCheckout({
-        sessionId: data.sessionId,
-      });
-      if (error) {
-        console.error("Error redirecting to checkout:", error);
-        addAlert("Error redirecting to checkout", "error");
-      }
-    } catch (error) {
-      console.error("Error creating checkout session:", error);
-      addAlert("Error creating checkout session", "error");
-    }
-  };
+  const { createCheckout, openCustomerPortal } = usePayment();
 
   return (
     <div className="premium-page">
@@ -118,7 +47,7 @@ const Premium = () => {
               "checkout-button" + (premiumInfo.premium ? " disabled" : "")
             }
             onClick={() =>
-              handlePremium("price_1Q9xzfFyVXgjLrCzwNw8Hrxc", true)
+              createCheckout("price_1Q9xzfFyVXgjLrCzwNw8Hrxc", true)
             }
           >
             {premiumInfo.premium ? "Current Plan" : "Upgrade to Premium"}
@@ -143,10 +72,7 @@ const Premium = () => {
             </p>
           </div>
           {premiumInfo.premium && (
-            <button
-              className="manage-button"
-              onClick={handleManageSubscription}
-            >
+            <button className="manage-button" onClick={openCustomerPortal}>
               Manage my subscription
             </button>
           )}

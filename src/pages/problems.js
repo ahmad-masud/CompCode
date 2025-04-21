@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../styles/problems.css";
-import { firestore } from "../config/firebase-config";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import { Link, useParams } from "react-router-dom";
@@ -13,7 +11,6 @@ import axios from "axios";
 
 const Problems = ({ page }) => {
   const [problems, setProblems] = useState([]);
-  const [completedProblems, setCompletedProblems] = useState({});
   const [sortConfig, setSortConfig] = useState({
     key: "Difficulty",
     direction: "ascending",
@@ -26,7 +23,8 @@ const Problems = ({ page }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [problemsPerPage, setProblemsPerPage] = useState(20);
   const [narrow, setNarrow] = useState(false);
-  const { user, premiumInfo } = useUser();
+  const { user, premiumInfo, completedProblems, setCompletedProblem } =
+    useUser();
   const [solutions, setSolutions] = useState([]);
   const [solutionTitle, setSolutionTitle] = useState("");
   const [link, setLink] = useState("");
@@ -40,7 +38,7 @@ const Problems = ({ page }) => {
           "https://raw.githubusercontent.com/ahmad-masud/LeetCode-Solutions/main/solutions.json"
         );
 
-        const companyIDs = new Set(company.data.map((problem) => problem.ID));
+        const companyIDs = new Set(company?.data.map((problem) => problem.ID));
 
         const filteredSolutions = response.data.filter((solution) =>
           companyIDs.has(solution.id)
@@ -100,48 +98,13 @@ const Problems = ({ page }) => {
     fetchCompanyData();
   }, [page, Id]);
 
-  useEffect(() => {
-    if (user) {
-      const userRef = doc(firestore, "users", user.uid);
-      getDoc(userRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
-            const userData = docSnap.data();
-            setCompletedProblems(userData.completedProblems || {});
-          } else {
-            setDoc(userRef, { completedProblems: {} });
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching user data: ", error);
-        });
-    } else {
-      setCompletedProblems({});
-    }
-  }, [user]);
-
   const handleCheckboxChange = async (problemId) => {
     if (!user) {
       addAlert("Sign in to track your progress", "warning");
       return;
     }
 
-    const newCompletedProblems = {
-      ...completedProblems,
-      [problemId]: !completedProblems[problemId],
-    };
-    setCompletedProblems(newCompletedProblems);
-
-    const userRef = doc(firestore, "users", user.uid);
-    await updateDoc(userRef, { completedProblems: newCompletedProblems }).catch(
-      async (error) => {
-        if (error.code === "not-found") {
-          await setDoc(userRef, { completedProblems: newCompletedProblems });
-        } else {
-          console.error("Error updating user data: ", error);
-        }
-      }
-    );
+    setCompletedProblem(problemId, !completedProblems[problemId]);
   };
 
   const sortProblems = (key) => {

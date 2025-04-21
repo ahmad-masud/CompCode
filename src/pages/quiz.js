@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { doc, updateDoc } from "firebase/firestore";
-import { firestore } from "../config/firebase-config";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   a11yDark as codeDark,
   oneLight as codeLight,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { useTheme } from "../context/themecontext";
 import { useAlerts } from "../context/alertscontext";
 import { useUser } from "../context/usercontext";
 import { useParams, useNavigate } from "react-router-dom";
@@ -21,9 +18,8 @@ const Quiz = () => {
   const [copiedState, setCopiedState] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const [quizData, setQuizData] = useState(null);
-  const { theme } = useTheme();
   const { addAlert } = useAlerts();
-  const { user } = useUser();
+  const { theme, setCompletedQuiz } = useUser();
   const { quizId } = useParams();
   const navigate = useNavigate();
 
@@ -57,17 +53,7 @@ const Quiz = () => {
     } else {
       addAlert("Quiz complete", "success");
 
-      if (user) {
-        try {
-          const userRef = doc(firestore, "users", user.uid);
-          await updateDoc(userRef, {
-            [`completedQuizzes.${quizData.title}`]: true,
-          });
-        } catch (error) {
-          console.error("Error recording completed quiz:", error);
-          addAlert("Error recording quiz completion.", "error");
-        }
-      }
+      setCompletedQuiz(quizData.title);
     }
   };
 

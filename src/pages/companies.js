@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../styles/companies.css";
-import { firestore } from "../config/firebase-config";
-import { doc, getDoc } from "firebase/firestore";
 import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import companies from "../content/companies.json";
@@ -16,11 +14,10 @@ const Companies = () => {
   });
   const [searchTerm, setSearchTerm] = useState("");
   const [uniqueProblems, setUniqueProblems] = useState([]);
-  const [completedProblems, setCompletedProblems] = useState({});
   const [narrow, setNarrow] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [companiesPerPage, setCompaniesPerPage] = useState(20);
-  const { user } = useUser();
+  const { completedProblems } = useUser();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -83,24 +80,6 @@ const Companies = () => {
 
     fetchCompaniesData();
   }, [sortConfig]);
-
-  useEffect(() => {
-    if (user) {
-      const userRef = doc(firestore, "users", user.uid);
-      getDoc(userRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
-            const userData = docSnap.data();
-            setCompletedProblems(userData.completedProblems || {});
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching user data: ", error);
-        });
-    } else {
-      setCompletedProblems({});
-    }
-  }, [user]);
 
   const sortCompanies = (key) => {
     let direction = "ascending";

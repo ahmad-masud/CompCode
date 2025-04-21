@@ -11,8 +11,8 @@ const Footer = () => {
       <p>Copyright © CompCode {currentYear} All rights reserved.</p>
       <p>
         support:{" "}
-        <a className="footer-link" href="mailto: comp-code@outlook.com">
-          comp-code@outlook.com
+        <a className="footer-link" href="mailto: help.compcode@gmail.com">
+          help.compcode@gmail.com
         </a>
       </p>
       <div className="footer-links">

@@ -28,7 +28,8 @@
     "test-build": "react-scripts build",
     "obfuscate": "node scripts/obfuscate.js",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [

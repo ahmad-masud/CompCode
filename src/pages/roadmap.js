@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../styles/companies.css";
-import { firestore } from "../config/firebase-config";
-import { doc, getDoc } from "firebase/firestore";
 import companies from "../content/roadmap.json";
 import { useUser } from "../context/usercontext";
 import { useNavigate } from "react-router-dom";
@@ -14,10 +12,9 @@ const Roadmap = () => {
     direction: "ascending",
   });
   const [uniqueProblems, setUniqueProblems] = useState([]);
-  const [completedProblems, setCompletedProblems] = useState({});
   const [narrow, setNarrow] = useState(false);
   const [view, setView] = useState(localStorage.getItem("view") || "table");
-  const { user } = useUser();
+  const { completedProblems } = useUser();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -84,24 +81,6 @@ const Roadmap = () => {
 
     fetchCompaniesData();
   }, [sortConfig, completedProblems]);
-
-  useEffect(() => {
-    if (user) {
-      const userRef = doc(firestore, "users", user.uid);
-      getDoc(userRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
-            const userData = docSnap.data();
-            setCompletedProblems(userData.completedProblems || {});
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching user data: ", error);
-        });
-    } else {
-      setCompletedProblems({});
-    }
-  }, [user]);
 
   const sortCompanies = (key) => {
     let direction = "ascending";

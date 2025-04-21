@@ -1,96 +1,26 @@
 import React, { useState } from "react";
 import "../styles/settings.css";
-import { firestore } from "../config/firebase-config";
-import { getFunctions, httpsCallable } from "firebase/functions";
-import { doc, updateDoc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
 import Confirm from "../components/confirm";
-import { useAlerts } from "../context/alertscontext";
 import { useUser } from "../context/usercontext";
-import { useTheme } from "../context/themecontext";
+import useDelete from "../hooks/useDelete";
+import useLogout from "../hooks/useLogout";
+import useExport from "../hooks/useExport";
 
 const Settings = ({ onClose }) => {
-  const auth = getAuth();
-  const functions = getFunctions();
   const [displayConfirm, setDisplayConfirm] = useState(false);
   const [confirmMessage, setConfirmMessage] = useState("");
   const [confirmType, setConfirmType] = useState("");
-  const { addAlert } = useAlerts();
-  const { user, premiumInfo, setUser } = useUser();
-  const { theme, changeTheme } = useTheme();
+  const { theme, setTheme } = useUser();
   const [current, setCurrent] = useState(0);
-
-  const deleteUserData = async () => {
-    if (user) {
-      try {
-        const userRef = doc(firestore, "users", user.uid);
-        await updateDoc(userRef, {
-          completedProblems: {},
-          completedQuizzes: {},
-          notifications: true,
-          theme: "system",
-        });
-        addAlert("Completed problems deleted successfully.", "success");
-        window.location.reload();
-      } catch (error) {
-        addAlert("Error deleting data.", "error");
-        console.error("Error deleting completed problems: ", error);
-      }
-    }
-  };
-
-  const handleDeleteAccount = async () => {
-    const currentUser = auth.currentUser;
-    if (currentUser) {
-      try {
-        const userRef = doc(firestore, "users", currentUser.uid);
-        await deleteDoc(userRef);
-
-        await currentUser.delete();
-
-        handleCancelSubscription();
-        onClose();
-      } catch (error) {
-        if (error.code === "auth/requires-recent-login") {
-          addAlert("Please re-authenticate and try again.", "warning");
-        } else {
-          addAlert("Error deleting account.", "error");
-          console.error("Error deleting account:", error);
-        }
-      }
-    }
-  };
-
-  const handleCancelSubscription = async () => {
-    if (!premiumInfo.subscriptionId) {
-      return;
-    }
-
-    const cancelSubscription = httpsCallable(functions, "cancelSubscription");
-
-    try {
-      const result = await cancelSubscription({
-        subscriptionId: premiumInfo.subscriptionId,
-        uid: user.uid,
-      });
-      if (result.data.status === "success") {
-        console.log("Subscription canceled successfully.");
-      } else {
-        console.error("Failed to cancel subscription.");
-      }
-    } catch (error) {
-      console.error("Error canceling subscription:", error);
-    }
-  };
+  const deleteAccount = useDelete();
+  const { logoutAllDevices } = useLogout();
+  const exportData = useExport();
 
   const confirmAction = () => {
-    if (confirmType === "deleteData") {
-      deleteUserData();
-    } else if (confirmType === "deleteAccount") {
-      handleDeleteAccount();
+    if (confirmType === "deleteAccount") {
+      deleteAccount();
     } else if (confirmType === "logoutAllDevices") {
       logoutAllDevices();
-      setUser(null);
       onClose();
     }
     setDisplayConfirm(false);
@@ -100,90 +30,6 @@ const Settings = ({ onClose }) => {
     setConfirmType(type);
     setConfirmMessage(message);
     setDisplayConfirm(true);
-  };
-
-  const exportData = async () => {
-    if (!user) {
-      return;
-    }
-
-    try {
-      const userRef = doc(firestore, "users", user.uid);
-      const userSnap = await getDoc(userRef);
-
-      if (userSnap.exists()) {
-        const userData = userSnap.data();
-        const { premiumInfo, ...filteredData } = userData;
-        const dataStr = JSON.stringify(filteredData, null, 2);
-        const blob = new Blob([dataStr], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-
-        a.href = url;
-        a.download = "userData.json";
-        a.click();
-
-        URL.revokeObjectURL(url);
-      } else {
-        addAlert("No data available for download.", "warning");
-      }
-    } catch (error) {
-      console.error("Error downloading data:", error);
-      addAlert("Error downloading data.", "error");
-    }
-  };
-
-  const importData = async (data) => {
-    if (!user) return;
-
-    const validThemes = ["system", "dark", "light"];
-    const sanitizedData = {};
-
-    if (
-      data.completedProblems &&
-      typeof data.completedProblems === "object" &&
-      !Array.isArray(data.completedProblems)
-    ) {
-      sanitizedData.completedProblems = data.completedProblems;
-    }
-
-    if (
-      data.completedQuizzes &&
-      typeof data.completedQuizzes === "object" &&
-      !Array.isArray(data.completedQuizzes)
-    ) {
-      sanitizedData.completedQuizzes = data.completedQuizzes;
-    }
-
-    if (data.theme && validThemes.includes(data.theme)) {
-      sanitizedData.theme = data.theme;
-    }
-
-    if (Object.keys(sanitizedData).length > 0) {
-      try {
-        const userRef = doc(firestore, "users", user.uid);
-        await setDoc(userRef, sanitizedData, { merge: true });
-        addAlert("Data uploaded successfully", "success");
-      } catch (error) {
-        console.error("Error uploading data:", error);
-        addAlert("Error uploading data", "error");
-      }
-    } else {
-      addAlert("No valid data to upload", "warning");
-    }
-  };
-
-  const logoutAllDevices = async () => {
-    const functions = getFunctions();
-
-    try {
-      const logoutAll = httpsCallable(functions, "logoutAllDevices");
-      await logoutAll();
-      addAlert("Logged out of all devices.", "success");
-    } catch (error) {
-      console.error("Error logging out of all devices:", error);
-      addAlert("Error logging out of all devices.", "error");
-    }
   };
 
   return (
@@ -233,7 +79,7 @@ const Settings = ({ onClose }) => {
                   id="theme"
                   className="setting-input"
                   value={theme}
-                  onChange={(e) => changeTheme(e.target.value)}
+                  onChange={(e) => setTheme(e.target.value)}
                 >
                   <option value="system">System</option>
                   <option value="light">Light</option>
@@ -243,65 +89,9 @@ const Settings = ({ onClose }) => {
             )}
             {current === 1 && (
               <div className="setting-item">
-                <label htmlFor="upload-doc">Import Data</label>
-                <input
-                  type="file"
-                  accept=".json"
-                  id="upload-doc"
-                  style={{ display: "none" }}
-                  onChange={async (event) => {
-                    const file = event.target.files[0];
-                    if (!file) return;
-
-                    try {
-                      const text = await file.text();
-                      const parsedData = JSON.parse(text);
-
-                      const dataToUpload = {
-                        completedProblems: parsedData.completedProblems,
-                        completedQuizzes: parsedData.completedQuizzes,
-                        theme: parsedData.theme,
-                      };
-
-                      importData(dataToUpload);
-                    } catch (error) {
-                      console.error(
-                        "Error reading or parsing the JSON file:",
-                        error
-                      );
-                      addAlert("Invalid JSON file.", "error");
-                    }
-                  }}
-                />
-                <button
-                  className="upload-doc"
-                  onClick={() => document.getElementById("upload-doc").click()}
-                >
-                  Import
-                </button>
-              </div>
-            )}
-            {current === 1 && (
-              <div className="setting-item">
                 <label htmlFor="delete-doc">Export Data</label>
                 <button className="download-doc" onClick={() => exportData()}>
                   Export
-                </button>
-              </div>
-            )}
-            {current === 1 && (
-              <div className="setting-item">
-                <label htmlFor="delete-doc">Delete Data</label>
-                <button
-                  className="delete-doc"
-                  onClick={() =>
-                    showConfirm(
-                      "deleteData",
-                      "Are you sure you want to delete all your data?"
-                    )
-                  }
-                >
-                  Delete
                 </button>
               </div>
             )}

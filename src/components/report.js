@@ -1,47 +1,17 @@
 import React, { useState } from "react";
-import { firestore } from "../config/firebase-config";
-import { doc, setDoc } from "firebase/firestore";
 import "../styles/report.css";
-import { useAlerts } from "../context/alertscontext";
-import { useUser } from "../context/usercontext";
+import useReport from "../hooks/useReport";
 
 const Report = ({ onClose, onOpen, open }) => {
   const [problemNumber, setProblemNumber] = useState("");
   const [companyName, setCompanyName] = useState("");
-  const { addAlert } = useAlerts();
-  const { user } = useUser();
+  const submitReport = useReport();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!user) {
-      addAlert("You must be logged in to submit.", "warning");
-      return;
-    }
-
-    const email = user.email;
-
-    try {
-      const submissionRef = doc(
-        firestore,
-        "submissions",
-        `${user.uid}-${problemNumber}`
-      );
-
-      await setDoc(submissionRef, {
-        problemNumber,
-        companyName,
-        email,
-        submittedAt: new Date(),
-      });
-
-      addAlert("Problem submitted successfully!", "success");
-      setProblemNumber("");
-      setCompanyName("");
-    } catch (error) {
-      console.error("Error submitting data: ", error);
-      addAlert("Error submitting data.", "error");
-    }
+    await submitReport(problemNumber, companyName);
+    setProblemNumber("");
+    setCompanyName("");
   };
 
   if (!open) {

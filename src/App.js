@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { AlertsProvider } from "./context/alertscontext";
-import { ThemeProvider } from "./context/themecontext";
 import { UserProvider } from "./context/usercontext";
 import Navbar from "./components/navbar";
 import Alerts from "./components/alerts";
@@ -52,43 +51,37 @@ const App = () => {
     <div className="app">
       <AlertsProvider>
         <UserProvider>
-          <ThemeProvider>
-            <Alerts />
-            {displaySettings && (
-              <Settings onClose={() => setDisplaySettings(false)} />
-            )}
-            <Report
-              onClose={() => setDisplayReport(false)}
-              onOpen={() => setDisplayReport(true)}
-              open={displayReport}
-            />
-            <Router>
-              <Navbar onSettingsOpen={() => setDisplaySettings(true)} />
-              <Suspense>
-                {stripePromise ? (
-                  <Elements stripe={stripePromise}>
-                    <ScrollToTop />
-                    <Routes>
-                      {routes.map(({ path, element, key }) => (
-                        <Route
-                          key={key || path}
-                          path={path}
-                          element={element}
-                        />
-                      ))}
-                    </Routes>
-                  </Elements>
-                ) : (
+          <Alerts />
+          {displaySettings && (
+            <Settings onClose={() => setDisplaySettings(false)} />
+          )}
+          <Report
+            onClose={() => setDisplayReport(false)}
+            onOpen={() => setDisplayReport(true)}
+            open={displayReport}
+          />
+          <Router>
+            <Navbar onSettingsOpen={() => setDisplaySettings(true)} />
+            <Suspense>
+              {stripePromise ? (
+                <Elements stripe={stripePromise}>
+                  <ScrollToTop />
                   <Routes>
                     {routes.map(({ path, element, key }) => (
                       <Route key={key || path} path={path} element={element} />
                     ))}
                   </Routes>
-                )}
-              </Suspense>
-              <Footer />
-            </Router>
-          </ThemeProvider>
+                </Elements>
+              ) : (
+                <Routes>
+                  {routes.map(({ path, element, key }) => (
+                    <Route key={key || path} path={path} element={element} />
+                  ))}
+                </Routes>
+              )}
+            </Suspense>
+            <Footer />
+          </Router>
         </UserProvider>
       </AlertsProvider>
     </div>

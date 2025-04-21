@@ -2,16 +2,11 @@ import React, { useState, useEffect } from "react";
 import "../styles/lessons.css";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/usercontext";
-import { firestore } from "../config/firebase-config";
-import { getDoc, setDoc, doc } from "firebase/firestore";
 import LessonCard from "../components/lessoncard";
 import LessonCardSkeleton from "../skeletons/lessoncardskeleton";
 
 const Lessons = () => {
   const navigate = useNavigate();
-  const [completedQuizzes, setCompletedQuizzes] = useState([]);
-  const [completedLessons, setCompletedLessons] = useState([]);
-  const [isUserLoading, setIsUserLoading] = useState(true);
   const [isLessonsLoading, setIsLessonsLoading] = useState(true);
   const [categorizedLessons, setCategorizedLessons] = useState({
     dataStructures: [],
@@ -19,31 +14,8 @@ const Lessons = () => {
     concepts: [],
   });
   const [loadedImages, setLoadedImages] = useState({});
-  const { user, premiumInfo } = useUser();
-
-  useEffect(() => {
-    if (user) {
-      const userRef = doc(firestore, "users", user.uid);
-      getDoc(userRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
-            const userData = docSnap.data();
-            setCompletedQuizzes(userData.completedQuizzes || {});
-            setCompletedLessons(userData.completedLessons || {});
-          } else {
-            setDoc(userRef, { completedQuizzes: {}, completedLessons: {} });
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching user data: ", error);
-        })
-        .finally(() => setIsUserLoading(false));
-    } else {
-      setCompletedQuizzes([]);
-      setCompletedLessons([]);
-      setIsUserLoading(false);
-    }
-  }, [user]);
+  const { userLoading, premiumInfo, completedLessons, completedQuizzes } =
+    useUser();
 
   useEffect(() => {
     const loadLessons = async () => {
@@ -80,7 +52,7 @@ const Lessons = () => {
     }));
   };
 
-  const isLoading = isUserLoading || isLessonsLoading;
+  const isLoading = userLoading || isLessonsLoading;
 
   const handleLessonClick = (lesson) => {
     if (lesson.premium && !premiumInfo.premium) {
