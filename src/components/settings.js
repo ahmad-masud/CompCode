@@ -19,6 +19,7 @@ const Settings = ({ onClose }) => {
   const confirmAction = () => {
     if (confirmType === "deleteAccount") {
       deleteAccount();
+      onClose();
     } else if (confirmType === "logoutAllDevices") {
       logoutAllDevices();
       onClose();
