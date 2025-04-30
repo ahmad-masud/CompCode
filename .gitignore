@@ -12,6 +12,7 @@ pnpm-lock.yaml
 /client/dist/
 /server/build/
 /server/dist/
+/**/.vercel
 
 # Environment variables
 .env

@@ -6,7 +6,13 @@ const userSchema = new mongoose.Schema({
   name: { type: String },
   photo: { type: String },
   theme: { type: String, default: "system" },
-  premiumInfo: { type: Map, of: Boolean, default: {} },
+  premiumInfo: {
+    premium: { type: Boolean, default: false },
+    stripeCustomerId: { type: String },
+    subscriptionId: { type: String },
+    subscriptionEnd: { type: Date },
+    canceled: { type: Boolean, default: false }
+  },
   completedLessons: { type: Map, of: Boolean, default: {} },
   completedProblems: { type: Map, of: Boolean, default: {} },
   completedQuizzes: { type: Map, of: Boolean, default: {} },

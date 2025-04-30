@@ -11,11 +11,6 @@ const { authenticate } = require("../middleware/authMiddleware");
 router.post("/create-checkout", authenticate, createCheckoutSession);
 router.post("/customer-portal", authenticate, createCustomerPortal);
 router.post("/cancel-subscription", authenticate, cancelSubscription);
-
-router.post(
-  "/webhook",
-  express.raw({ type: "application/json" }),
-  stripeWebhook
-);
+router.post("/webhook", stripeWebhook);
 
 module.exports = router;
