@@ -23,6 +23,10 @@ app.use("/api/report", reportRoutes);
 app.use("/api/payment", paymentRoutes);
 app.use("/api/auth", authRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the CompCode API!");
+});
+
 mongoose
   .connect(String(process.env.MONGO_URI))
   .then(() => {

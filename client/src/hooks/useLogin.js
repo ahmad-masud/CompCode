@@ -40,7 +40,7 @@ export const useHandleRedirect = () => {
         );
 
         const user = res.data;
-        dispatch({ type: "LOGIN", payload: { uid: user.uid, email: user.email } });
+        dispatch({ type: "LOGIN", payload: { uid: user.uid, email: user.email, name: user.name, photo: user.photo } });
 
         addAlert("Signed in successfully", "success");
         navigate("/");

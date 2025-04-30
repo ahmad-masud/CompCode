@@ -1,38 +1,27 @@
-# Node dependencies
-client/node_modules
-server/node_modules
+# Client build files and dependencies
+client/build/
+client/node_modules/
 
-# Build output
-client/build
-server/dist
+# Server dependencies and logs
+server/node_modules/
+server/logs/
+server/*.log
 
-# Environment variables
-client/.env
-server/.env
+# Vercel
+/**/.vercel/
+/**/.vercelignore
+/**/vercel.json
 
-# Logs
-client/logs
-server/logs
-*.log
+# Env files
+*.env
+*.env.local
+*.env.development
+*.env.production
 
-# OS and editor folders
-.DS_Store
-.vscode
-.idea
-
-# Coverage and test snapshots
-**/coverage
-**/__snapshots__
-
-# Public static assets (optional)
-client/public
-
-# Optional: ignore compiled JS if you're using TypeScript
-client/**/*.js
-server/**/*.js
-
-# Ignore lock files
-client/package-lock.json
-server/package-lock.json
-client/yarn.lock
-server/yarn.lock
+# Other common ignores
+dist/
+coverage/
+public/
+tmp/
+temp/
+.cache/
