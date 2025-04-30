@@ -1,83 +1,111 @@
 # CompCode
 
-CompCode is a web application designed to help you prepare for coding interviews by solving commonly asked LeetCode problems from various popular companies. The app provides a user-friendly interface to browse, solve, and track your progress on these problems.
+CompCode is a web application designed to help you prepare for coding interviews by solving commonly asked LeetCode problems from various popular companies. The app provides a user-friendly interface to browse, solve, and track your progress.
 
-## Features
+---
 
-- **Company-Specific Problems**: View and solve problems that are frequently asked by specific companies.
-- **Problem Submission**: Input a LeetCode problem number and a company name, upload this information, and track your submissions.
-- **Progress Tracking**: Track which problems you have completed.
-- **Search and Sort**: Search for problems by ID or title and sort problems by different criteria (ID, title, acceptance rate, difficulty, frequency).
-- **User Authentication**: Log in using Google or GitHub to save your progress.
-- **Premium Subscriptions**: Access additional features with monthly or annual premium subscriptions powered by Stripe.
-- **Dark/Light Mode**: Automatic theme adjustment based on system preferences with manual override options.
-- **Responsive Design**: Fully responsive design to accommodate different screen sizes and devices.
+## 🔥 Features
 
-## Getting Started
+- **Company-Specific Problems** – View and solve questions by company.
+- **Submission Reports** – Track which problems you've completed.
+- **Progress Tracking** – Lessons, quizzes, and coding tasks are auto-tracked.
+- **Stripe Payments** – Premium subscription with checkout and customer portal.
+- **User Authentication** – Google login powered by Passport.js and JWT.
+- **Dark/Light Mode** – Theme adapts to system or manual preference.
+- **Responsive Design** – Mobile-first and fully responsive.
+
+---
+
+## 🚀 Tech Stack
+
+- **Frontend**: React + Vite + React Router + Tailwind CSS
+- **Backend**: Express.js + MongoDB + Mongoose
+- **Auth**: Google OAuth 2.0 with Passport.js + JWT
+- **Payments**: Stripe Checkout and Webhooks
+- **Hosting**:
+  - Frontend: [Vercel](https://vercel.com/)
+  - Backend: [Vercel](https://vercel.com/)
+
+---
+
+## 🛠 Getting Started
 
 ### Prerequisites
 
-- Node.js (v14.x or later)
-- Firebase project set up for authentication and Firestore
-- GitHub OAuth app set up for authentication
-- Stripe account for subscription management
+- Node.js v16+
+- MongoDB Atlas (or local MongoDB)
+- Stripe Account
+- Google Cloud OAuth Client
+- Vercel Account
 
-### Installation
+---
 
-1. **Clone the repository:**
+### 🔧 Server Setup
 
-   ```sh
+1. **Clone the project and set up server directory**:
+
+   ```bash
    git clone https://github.com/ahmad-masud/CompCode.git
-   cd CompCode
-   ```
-
-2. **Install dependencies:**
-
-   ```sh
+   cd CompCode/server
    npm install
    ```
 
-3. **Set up Firebase configuration:**
+2. **Create a `.env` file**:
 
-   - Create a `firebase-config.js` file in the `src/config` directory.
-   - Add your Firebase configuration:
+   ```env
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   STRIPE_SECRET=your_stripe_secret_key
+   STRIPE_WEBHOOK_SIGNING_SECRET=your_stripe_webhook_secret
+   GOOGLE_CLIENT_ID=your_google_client_id
+   GOOGLE_CLIENT_SECRET=your_google_client_secret
+   CLIENT_URL=http://localhost:3000
+   SERVER_URL=http://localhost:4000
+   ```
 
-     ```js
-     import { initializeApp } from "firebase/app";
-     import {
-       getAuth,
-       GoogleAuthProvider,
-       GithubAuthProvider,
-     } from "firebase/auth";
-     import { getFirestore } from "firebase/firestore";
+3. **Run the server**:
 
-     const firebaseConfig = {
-       apiKey: "YOUR_API_KEY",
-       authDomain: "YOUR_AUTH_DOMAIN",
-       projectId: "YOUR_PROJECT_ID",
-       storageBucket: "YOUR_STORAGE_BUCKET",
-       messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-       appId: "YOUR_APP_ID",
-     };
-
-     const app = initializeApp(firebaseConfig);
-     const auth = getAuth(app);
-     const googleProvider = new GoogleAuthProvider();
-     const githubProvider = new GithubAuthProvider();
-     const firestore = getFirestore(app);
-
-     export { auth, googleProvider, githubProvider, firestore };
-     ```
-
-4. **Set up Stripe configuration:**
-
-   - Integrate Stripe for managing subscriptions. Make sure to include your Stripe public and secret keys in your environment configuration.
-
-5. **Run the application:**
-   ```sh
+   ```bash
    npm start
    ```
 
-## License
+---
+
+### 💻 Client Setup
+
+1. **Navigate to client**:
+
+   ```bash
+   cd ../client
+   npm install
+   ```
+
+2. **Add a `.env` file**:
+
+   ```env
+   REACT_APP_SERVER_URL=http://localhost:4000
+   REACT_APP_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+   ```
+
+3. **Run the client**:
+
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 🔄 Deployment Notes
+
+- Deploy the **client** (React) to [Vercel](https://vercel.com/)
+- Deploy the **server** (Express) to [Vercel](https://vercel.com/)
+- Set up your Stripe Webhook URL to:
+  ```
+  https://your-backend-host.com/api/payment/webhook
+  ```
+
+---
+
+## 📜 License
 
 Distributed under the CC BY-NC-ND 4.0 License. See [LICENSE](LICENSE) for more information.
