@@ -92,11 +92,18 @@ exports.exportUserData = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    const { premiumInfo, ...safeData } = user.toObject();
+    const userObj = user.toObject();
+
+    const data = {
+      theme: userObj.theme,
+      completedLessons: Object.fromEntries(userObj.completedLessons || []),
+      completedQuizzes: Object.fromEntries(userObj.completedQuizzes || []),
+      completedProblems: Object.fromEntries(userObj.completedProblems || [])
+    };
 
     res.setHeader("Content-Disposition", "attachment; filename=userData.json");
     res.setHeader("Content-Type", "application/json");
-    res.status(200).send(JSON.stringify(safeData, null, 2));
+    res.status(200).send(JSON.stringify(data, null, 2));
   } catch (error) {
     console.error("Export error:", error);
     res.status(500).json({ error: "Error exporting user data" });
