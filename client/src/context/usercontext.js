@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useReducer, useEffect } from "react";
 import CryptoJS from "crypto-js";
 import axios from "axios";
+import { useAlerts } from "./alertscontext"
 
 const UserContext = createContext();
 
@@ -80,6 +81,7 @@ const reducer = (state, action) => {
 export const UserProvider = ({ children }) => {
   const persisted = decrypt(localStorage.getItem("userData"));
   const [state, dispatch] = useReducer(reducer, persisted || initialState);
+  const { addAlert } = useAlerts();
 
   useEffect(() => {
     dispatch({ type: "SET_LOADING", payload: true });
@@ -126,15 +128,22 @@ export const UserProvider = ({ children }) => {
               dispatch({ type: "SET_COMPLETED_QUIZ", payload: { title } });
           });
       } catch (err) {
-        console.error("Failed to load user data:", err);
+        if (err.response && err.response.status === 403) {
+          addAlert("Session expired or invalid", "info")
+          console.log("Session expired or invalid")
+        } else {
+          console.error("Failed to load user data:", err);
+        }
         dispatch({ type: "LOGOUT" });
+        localStorage.removeItem("token")
+        localStorage.removeItem("userData")
       } finally {
         dispatch({ type: "SET_LOADING", payload: false });
       }
     };
 
     fetchUserInfo();
-  }, []);
+  }, [addAlert]);
 
   useEffect(() => {
     localStorage.setItem("userData", encrypt(state));

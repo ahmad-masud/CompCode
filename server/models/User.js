@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema({
   completedLessons: { type: Map, of: Boolean, default: {} },
   completedProblems: { type: Map, of: Boolean, default: {} },
   completedQuizzes: { type: Map, of: Boolean, default: {} },
+  tokenVersion: { type: Number, default: 0 },
 });
 
 module.exports = mongoose.model("User", userSchema);

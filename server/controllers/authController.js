@@ -4,7 +4,7 @@ exports.issueToken = (req, res) => {
   const user = req.user;
 
   const token = jwt.sign(
-    { uid: user.uid, email: user.email },
+    { uid: user.uid, email: user.email, version: user.tokenVersion },
     process.env.JWT_SECRET,
     { expiresIn: "7d" }
   );

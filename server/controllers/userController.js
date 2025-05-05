@@ -110,6 +110,22 @@ exports.exportUserData = async (req, res) => {
   }
 };
 
+exports.logoutOfAllDevices = async (req, res) => {
+  try {
+    const userId = req.user.uid;
+
+    await User.findOneAndUpdate(
+      { uid: userId },
+      { $inc: { tokenVersion: 1 } }
+    );
+
+    res.status(200).json({ message: "Logged out from all devices" });
+  } catch (error) {
+    console.error("Logout of all devices failed:", error);
+    res.status(500).json({ error: "Failed to logout of all devices" });
+  }
+};
+
 exports.deleteUser = async (req, res) => {
   try {
     const result = await User.deleteOne({ uid: req.user.uid });
