@@ -15,15 +15,18 @@ const useLogout = () => {
     try {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("No token found");
-  
-      const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/user/logout-of-all-devices`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
-  
+
+      const res = await fetch(
+        `${process.env.REACT_APP_SERVER_URL}/api/user/logout-of-all-devices`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
       if (res.status === 200) {
         logout();
       } else if (res.status === 403) {
@@ -36,7 +39,7 @@ const useLogout = () => {
       console.error("Logout of all devices failed:", err);
       addAlert("Failed to log out of all devices", "error");
     }
-  };  
+  };
 
   return { logout, logoutAllDevices };
 };

@@ -53,11 +53,7 @@ const Navbar = ({ onSettingsOpen }) => {
                 <Menu
                   menuButton={
                     <MenuButton className="user-button">
-                      <img
-                        src={photo}
-                        alt="User"
-                        className="user-avatar"
-                      />
+                      <img src={photo} alt="User" className="user-avatar" />
                     </MenuButton>
                   }
                 >

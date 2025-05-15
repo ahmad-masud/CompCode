@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useReducer, useEffect } from "react";
 import CryptoJS from "crypto-js";
 import axios from "axios";
-import { useAlerts } from "./alertscontext"
+import { useAlerts } from "./alertscontext";
 
 const UserContext = createContext();
 
@@ -42,7 +42,7 @@ const reducer = (state, action) => {
         user: { uid: action.payload.uid, email: action.payload.email },
         name: action.payload.name,
         photo: action.payload.photo,
-      };      
+      };
     case "LOGOUT":
       return { ...initialState, theme: state.theme };
     case "SET_THEME":
@@ -110,13 +110,16 @@ export const UserProvider = ({ children }) => {
             name: data.name,
             photo: data.photo,
           },
-        });        
+        });
         dispatch({ type: "SET_PREMIUM_INFO", payload: data.premiumInfo || {} });
         dispatch({ type: "SET_THEME", payload: data.theme || "system" });
 
         if (data.completedLessons)
           Object.entries(data.completedLessons).forEach(([title, value]) =>
-            dispatch({ type: "SET_COMPLETED_LESSON", payload: { title, value } })
+            dispatch({
+              type: "SET_COMPLETED_LESSON",
+              payload: { title, value },
+            })
           );
         if (data.completedProblems)
           Object.entries(data.completedProblems).forEach(([id, value]) =>
@@ -129,14 +132,14 @@ export const UserProvider = ({ children }) => {
           });
       } catch (err) {
         if (err.response && err.response.status === 403) {
-          addAlert("Session expired or invalid", "info")
-          console.log("Session expired or invalid")
+          addAlert("Session expired or invalid", "info");
+          console.log("Session expired or invalid");
         } else {
           console.error("Failed to load user data:", err);
         }
         dispatch({ type: "LOGOUT" });
-        localStorage.removeItem("token")
-        localStorage.removeItem("userData")
+        localStorage.removeItem("token");
+        localStorage.removeItem("userData");
       } finally {
         dispatch({ type: "SET_LOADING", payload: false });
       }
@@ -154,7 +157,8 @@ export const UserProvider = ({ children }) => {
     const applyTheme = (theme) => {
       root.classList.remove("light", "dark");
       if (theme === "system") {
-        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+          .matches
           ? "dark"
           : "light";
         root.classList.add(systemTheme);

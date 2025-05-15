@@ -98,7 +98,7 @@ exports.exportUserData = async (req, res) => {
       theme: userObj.theme,
       completedLessons: Object.fromEntries(userObj.completedLessons || []),
       completedQuizzes: Object.fromEntries(userObj.completedQuizzes || []),
-      completedProblems: Object.fromEntries(userObj.completedProblems || [])
+      completedProblems: Object.fromEntries(userObj.completedProblems || []),
     };
 
     res.setHeader("Content-Disposition", "attachment; filename=userData.json");
@@ -114,10 +114,7 @@ exports.logoutOfAllDevices = async (req, res) => {
   try {
     const userId = req.user.uid;
 
-    await User.findOneAndUpdate(
-      { uid: userId },
-      { $inc: { tokenVersion: 1 } }
-    );
+    await User.findOneAndUpdate({ uid: userId }, { $inc: { tokenVersion: 1 } });
 
     res.status(200).json({ message: "Logged out from all devices" });
   } catch (error) {

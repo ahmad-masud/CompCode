@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     stripeCustomerId: { type: String },
     subscriptionId: { type: String },
     subscriptionEnd: { type: Date },
-    canceled: { type: Boolean, default: false }
+    canceled: { type: Boolean, default: false },
   },
   completedLessons: { type: Map, of: Boolean, default: {} },
   completedProblems: { type: Map, of: Boolean, default: {} },

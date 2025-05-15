@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -8,11 +8,13 @@ const userRoutes = require("./routes/userRoutes");
 const reportRoutes = require("./routes/reportRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 const authRoutes = require("./routes/authRoutes");
+const path = require("path");
 
 require("./passport/googleStrategy")(passport);
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(cors());
 app.use("/api/payment/webhook", bodyParser.raw({ type: "application/json" }));
 app.use(bodyParser.json());
