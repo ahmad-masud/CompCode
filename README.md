@@ -4,7 +4,7 @@ CompCode is a web application designed to help you prepare for coding interviews
 
 ---
 
-## 🔥 Features
+## Features
 
 - **Company-Specific Problems** – View and solve questions by company.
 - **Submission Reports** – Track which problems you've completed.
@@ -16,7 +16,7 @@ CompCode is a web application designed to help you prepare for coding interviews
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Frontend**: React + Vite + React Router + Tailwind CSS
 - **Backend**: Express.js + MongoDB + Mongoose
@@ -28,7 +28,7 @@ CompCode is a web application designed to help you prepare for coding interviews
 
 ---
 
-## 🛠 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -40,7 +40,7 @@ CompCode is a web application designed to help you prepare for coding interviews
 
 ---
 
-### 🔧 Server Setup
+### Server Setup
 
 1. **Clone the project and set up server directory**:
 
@@ -71,7 +71,7 @@ CompCode is a web application designed to help you prepare for coding interviews
 
 ---
 
-### 💻 Client Setup
+### Client Setup
 
 1. **Navigate to client**:
 
@@ -95,7 +95,7 @@ CompCode is a web application designed to help you prepare for coding interviews
 
 ---
 
-## 🔄 Deployment Notes
+## Deployment Notes
 
 - Deploy the **client** (React) to [Vercel](https://vercel.com/)
 - Deploy the **server** (Express) to [Vercel](https://vercel.com/)
@@ -106,6 +106,6 @@ CompCode is a web application designed to help you prepare for coding interviews
 
 ---
 
-## 📜 License
+## License
 
 Distributed under the CC BY-NC-ND 4.0 License. See [LICENSE](LICENSE) for more information.
