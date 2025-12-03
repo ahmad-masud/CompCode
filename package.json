@@ -1,0 +1,20 @@
+{
+  "name": "compcode",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start:client": "cd client && npm start",
+    "start:server": "cd server && npm start",
+    "dev:client": "cd client && npm start",
+    "dev:server": "cd server && npm run dev",
+    "start": "concurrently \"cd client && npm start\" \"cd server && npm start\"",
+    "install:all": "cd client && npm install && cd ..\\ncd server && npm install",
+    "dev": "concurrently \"cd client && npm start\" \"cd server && npm run dev\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md,html}\"",
+    "prettier:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md,html}\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "prettier": "^3.7.4"
+  }
+}
